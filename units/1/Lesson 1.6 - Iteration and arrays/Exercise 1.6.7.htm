@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Exercise 1.6.7</title>
+        <link href="../../../reset.css" rel="stylesheet">
+        <link href="../../../page.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="frame">
+            <h1>Exercise 1.6.7</h1>
+            <h2>Drawing with loops</h2>
+            
+            <p>
+                This exercise explores uses for loops without arrays.
+            </p>
+            
+            <h3>Stepping by more than one</h3>
+            
+            <p>
+                So far, we have been loops that add <b>one</b> to the loop variable
+                each time through the loop.  For example:
+            </p>
+            
+            <div class="code">
+                function start() {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;for (var i = 0; i &lt; 10; <span class="highlight">i = i + 1</span>) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">something to repeat</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                }
+            </div>            
+            
+            <p>
+                The loop variable does not have to increase by
+                one each time through the loop.  We can make it increase
+                by any amount we want.  And we can start it at any amount
+                we want.  Lets look at an example that uses a loop
+                to draw rectangles:
+            </p>
+            
+            <div class="instruction">
+                <p>
+                    Download this <a href="Exercise%201.6.7.zip">zip</a>.
+                </p>
+                <p>
+                    Open <b>default.html</b> in Chrome.
+                </p>
+                <p>
+                    Open <b>uprep.js</b> in Komodo.
+                </p>
+            </div>
+            
+            <p>
+                In the <b>start</b> function, notice how the <b>x</b> variable goes up by
+                20 each time?  And it starts at 10.
+            </p>
+            
+            <div class="code">
+function start() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var canvas = document.getElementById("mainCanvas");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var context = canvas.getContext("2d");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// x starts at 10 and then increases 20 at a time<br>
+&nbsp;&nbsp;&nbsp;&nbsp;for (<span class="highlight">var x = 10; x &lt;= canvas.width; x = x + 20</span>) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// fill a rectangle<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;context.fillStyle = "red";<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var width = 15;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var height = 15;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var y = 30;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;context.fillRect(x, y, width, height);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+}<br>    
+            </div>
+            
+            <div class="instruction">
+                <p>
+                    Try changing the value 10 to 100 and see what happens in Chrome.
+                </p>
+                <p>
+                    Change the value 20 to 25 and see what happens in Chrome.
+                </p>
+            </div>
+            
+            <h3>A loop within a loop</h3>
+            
+            <p>
+                A for loop will repeat whatever
+                is between the <span class="code">{</span> and <span class="code">}</span>.
+                This means you can put a loop within a loop.  Lets see:
+            </p>
+            
+            <div class="code">
+function start() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var canvas = document.getElementById("mainCanvas");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var context = canvas.getContext("2d");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="highlight">// y starts at 40 and then increases 50 at a time<br>
+&nbsp;&nbsp;&nbsp;&nbsp;for (var y = 40; y &lt; canvas.height; y = y + 50) {</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// x starts at 10 and then increases 20 at a time<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for (var x = 10; x &lt; canvas.width; x = x + 20) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// fill a rectangle<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;context.fillStyle = "red";<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var width = 15;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var height = 15;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;context.fillRect(x, <span class="highlight">y</span>, width, height);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="highlight">}</span><br>
+}<br>
+                
+            </div>
+            
+            <p>
+                We have added a loop for <b>y</b> as well.  Each time we have a new
+                value for y, then the <b>x</b> loop goes through all the values of x.
+            </p>
+            
+            <p>
+                This means that the <b>y</b> loop is used to step through each
+                row on the screen, and for each row, the <b>x</b> will draw
+                a rectangle at that column.
+            </p>
+            
+            <div class="instruction">
+                <p>
+                    Replace your start function with the one above, and 
+                    see what happens in Chrome.
+                </p>
+                <p>
+                    Try changing the value 40 to 80 and see what happens in Chrome.
+                </p>
+                <p>
+                    Try changing the value 50 to 75 and see what happens in Chrome.
+                </p>
+            </div>
+            
+            <h3>Chessboard</h3>
+            
+            <p>
+                Lets turn this into a drawing of a Chessboard.
+            </p>
+            
+            <div class="instruction">
+                <p>
+                    Starting with the above code, make changes
+                    so that it looks like a chessboard.  Chessboards are 8 x 8 squares.
+                    Look <a href="http://en.wikipedia.org/wiki/Chessboard">here</a>
+                    to see what a chessboard looks like (colors are up to you).  
+                </p>
+                <p>
+                    <b>You do not need to draw the chess pieces.</b>
+                </p>
+                <p>
+                    The colors alternate on a chess board.
+                    You can use a variable that changes to decide what
+                    color to draw.
+                    Remember how we used <span class="code">dark = !dark;</span>
+                    to alternate the colors for the blinking circle?  
+                    You will need to change the variable in <b>each loop</b>.  And you
+                    will need to use the variable to decide
+                    what <span class="code">fillStyle</span>
+                    to use when filling the rectangle.
+                </p>
+            </div>
+            
+            <h2>Done!</h2>
+            <p>                
+                Head back to Schoology and submit your files.
+            </p>
+        </div>
+    </body>
+</html>

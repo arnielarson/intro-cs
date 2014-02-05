@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Exercise 1.5.6</title>
+        <link href="../../../reset.css" rel="stylesheet">
+        <link href="../../../page.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="frame">
+            <h1>Exercise 1.5.6</h1>
+            <h2>Canvas</h2>
+            <h3>Blinking</h3>
+            <p>
+                When animating, we don't have to limit ourselves to changes in location.  We can
+                change anything we are drawing.  For example, if
+                we alternate between two colors for our circle, it will appear to blink.
+            </p>
+            <h3>We need a variable</h3>
+            <p>
+                Lets say we want to alternate between a light and a dark color.  We can
+                have a variable, called <b>dark</b>, which keeps track of whether
+                we should draw a dark circle or a light one.  The value of this variable will be
+                <b>true</b> for one frame, <b>false</b> for the next, then <b>true</b>
+                and so on.
+            </p>
+            <div class="sidebyside">
+                <div class="side">
+                    <img src="diagram16.png">
+                </div>
+                <div class="side">                    
+                    <img src="photoshop1.gif">
+                </div>
+            </div>
+            <h3>Flipping the lights on and off</h3>
+            <p>
+                We will want to change the value of the <b>dark</b> variable
+                each frame.  In english, we want to do the following every frame:
+            </p>
+            <p class="idea">
+                If the value of the dark variable is <b>true</b>, then set it to <b>false</b>.<br>
+                If the value of the dark variable is <b>false</b>, then set it to <b>true</b>.
+            </p>
+            <p>
+                But since the dark variable can only ever true or false, this is the
+                same as:
+            </p>
+            <p class="idea">
+                If the value of the dark variable is <b>true</b>, then set it to <b>false</b>.<br>
+                Otherwise, set it to <b>true</b>.
+            </p>
+            <p>
+                We can use an <a href="Exercise%201.5.3.htm#If">If Statement</a> to write
+                this down.
+            </p>
+            <div class="code">
+            if (dark) {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;dark = false;<br>
+            } else {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;dark = true;<br>
+            }
+            </div>
+            <h3>That's the only way to do it... not</h3>
+            <p>
+                Javascript has an easier way to do this.  We can write:
+            </p>
+            <div class="code">
+                dark = !dark;
+            </div>
+            <p>
+                The <span class="code">!</span> means <b>not</b>, which gives
+                <b>true</b> if <b>false</b>, and <b>false</b> if <b>true</b>.
+            </p>
+            <p>
+                You can think of the <span class="code">!</span> giving the opposite boolean value.
+            </p>
+            <h3>
+                Drawing the two colors
+            </h3>
+            <p>
+                We will also need to change the code that draws the circle
+                to either use a light color or a dark color.  We can just
+                set the <b>fillStyle</b> before we draw the circle.  For example:
+            </p>
+            <div class="code">
+                if (dark) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;context.fillStyle = "green";<br>
+                } else {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;context.fillStyle = "white";<br>
+                }
+            </div>
+            <h3>
+                Time to blink
+            </h3>
+            <div class="instruction">
+                <p>
+                    Starting with the files from the last exercise,
+                    create a folder for this exercise (<b>Exercise 1.5.6</b>).
+                    Make the changes <span class="highlight">highlighted</span> below:
+                </p>
+            </div>
+            <div class="code">
+<span class="highlight">var dark = true;</span><br>
+<br>
+function drawSomething(context) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;...<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">Set fillStyle before drawing circle</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="highlight">if (dark) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;context.fillStyle = <span class="placeholder">some dark color</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;} else {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;context.fillStyle = <span class="placeholder">some light color</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;...<br>
+}<br>
+<br>
+function changeSomething(canvas) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="highlight">dark = !dark;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;...<br>
+}<br>
+            </div>
+            <div class="instruction">
+                <p>Try it out.  The circle should blink as it moves.</p>
+            </div>
+            <h2>Done!</h2>
+            <p>
+                Head back to Schoology and submit your files.
+            </p>
+        </div>
+    </body>
+</html>

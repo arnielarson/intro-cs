@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Exercise 2.2.1</title>
+        <link href="../../../reset.css" rel="stylesheet">
+        <link href="../../../page.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="frame">
+            <h1>Exercise 2.2.1</h1>
+            <h2>Data Modeling</h2>
+            <p>
+                Data Modeling is when you look at a problem and
+                figure out what data structures are needed.
+            </p>
+
+            <p>
+                We are going to practice this by looking at web sites
+                to see what information they store. 
+            </p>
+
+            <p>
+                How do you know what information a web site
+                stores?  Think about how the data of web site changes
+                as users use it.  What changes?
+                The things that change due to user actions are the things that
+                are (probably) stored by the web site.
+            </p>
+
+            <h3>Instructions</h3>
+
+            <ul>
+                <li>
+                    <p>
+                        Work in groups of 2-3.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Choose a <a href="#Site">web site</a> that you are familiar
+                        (and have an account with) with so you do not have to spend time learning
+                        what the site does or signing up.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Look for data that is stored by the web site.  A good hint that 
+                        the site is storing some data is if the site changes 
+                        as users use the site.
+                        It is
+                        OK to make your best guess if you are not sure whether some information
+                        is being stored or not.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Write in English what is being stored.
+                        You can do this using comments at the 
+                        top of a Javascript file.  For example:
+                    </p>
+                    <div class="file">somesite.js</div>
+                    <div class="code">
+                        // A list of users<br>
+                        <br>
+                        // For each user:<br>
+                        // &nbsp;&nbsp;&nbsp;&nbsp;First Name<br>
+                        // &nbsp;&nbsp;&nbsp;&nbsp;Last Name<br>
+                        // &nbsp;&nbsp;&nbsp;&nbsp;Email<br>
+                        // &nbsp;&nbsp;&nbsp;&nbsp;Password<br>
+                    </div>                    
+                    <p>
+                        You don't have to do this for all the data on
+                        the site if the site is complicated, but see how many
+                        different types of data you can find.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Next, write a Javascript example that shows all the different 
+                        data structures that you found.  
+                        For example:
+                    </p>
+                </li>
+                    <div class="file">somesite.js</div>
+                    <div class="code">
+                        // A list of users<br>
+                        <br>
+                        // For each user:<br>
+                        // &nbsp;&nbsp;&nbsp;&nbsp;First Name<br>
+                        // &nbsp;&nbsp;&nbsp;&nbsp;Last Name<br>
+                        // &nbsp;&nbsp;&nbsp;&nbsp;Email<br>
+                        // &nbsp;&nbsp;&nbsp;&nbsp;Password<br>
+                        <br>
+                        var users = [<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;{<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;firstName: "Bob",<br>                        
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lastName: "Smith"<br>                        
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;email: "bobs@example.com"<br>                        
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;password: "abc123"<br>                        
+                        &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                        ];<br>
+                    </div>                    
+                <li>
+                    <p>
+                        You don't have to use real data from the site, just try to make
+                        your example be similar to what would appear on the site.
+                        If you are having trouble with some Javascript syntax,
+                        use <a href="../../../resources/guide.htm">The Guide</a>.
+                        Make sure your Javascript file loads in Chrome without any errors.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Submit your Javascript file 
+                        at the end of the period.
+                        Everyone in a group should submit a file.
+                    </p>
+                </li>
+            </ul>
+
+            <h3 id="Site">Web sites to choose from</h3>
+
+            <ul>
+                <li>
+                    <p><a href="http://www.facebook.com">http://www.facebook.com</a></p>
+                </li>
+                <li>
+                    <p><a href="http://www.twitter.com">http://www.twitter.com</a></p>
+                </li>
+                <li>
+                    <p><a href="http://www.reddit.com">http://www.reddit.com</a></p>
+                </li>
+                <li>
+                    <p><a href="http://www.flickr.com/">http://www.flickr.com/</a></p>
+                </li>
+                <li>
+                    <p><a href="http://instagram.com">http://instagram.com</a></p>
+                </li>
+                <li>
+                    <p><a href="http://www.pinterest.com">http://www.pinterest.com</a></p>
+                </li>
+                <li>
+                    <p>
+                        You may also choose another site if you wish,
+                        but make sure you pick a site which makes sense
+                        for this exercise.  For example, if the pages
+                        of the site are always the same, or are created
+                        by the site (like an online newspaper), it might not 
+                        be a good choice.  If you are not sure, ask your teachers.
+                    </p>
+                </li>
+            </ul>
+        </div>
+    </body>
+</html>

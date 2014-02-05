@@ -1,0 +1,35 @@
+HTTP
+- what is HTTP
+- http://cs50.tv/2012/fall/shorts/http/http-720p.mp4
+- uses developer tools (chrome)
+- basics of a web request and response
+
+CSS
+- http://cs50.tv/2012/fall/shorts/css/css-720p.mp4
+- style attribute
+- inline styling
+- css selectors
+- combinators (id)
+- link tag
+- class selectors
+- this will need to be combined with additional content
+
+DOM
+- http://cs50.tv/2012/fall/shorts/dom/dom-720p.mp4
+- accessing the DOM using the document object
+- using properties of the DOM
+- using selectors to find elements on the page
+
+NODE (HEROKU)
+- 
+
+BUILD AN APP LOCALLY
+- what
+
+WORKING ON GAME 
+- many weeks
+- many checkpoints
+- progress reports (weekly?)
+
+SHARING CODE
+- can we reward teams for this?

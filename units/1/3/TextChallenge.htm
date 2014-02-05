@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Text Challenge</title>
+        <link href="../../../reset.css" rel="stylesheet">
+        <link href="../../../page.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="frame">
+            <h1>Text Challenge</h1>
+            <h2>Expression Evaluator</h2>
+            <h3>Google has one...</h3>
+            <p>
+                Try typing the following into Google search.
+            </p>
+            <div class="code">
+                8+2 * 3 / (4 - (3*3 - 10 + 1)) - 7
+            </div>
+            <p>
+                You should see the answer (2.5).  How do they do that?
+            </p>
+            <p>
+                Google (and probably your calculator) have what is called
+                an expression evaluator that can evaluate (calculate
+                the anwswer to) a mathematical expression (like the one above).
+            </p>
+            <p class="idea">
+                To do this challenge, you will need to understand the concept
+                of arrays and loops.
+                If you are familar with arrays and loops but do not know how they
+                work in Javascript, check out the Javascript Reference
+                for <a href="../../../resources/jssubset.htm#Array">Array Values</a>
+                and <a href="../../../resources/jssubset.htm#Array">For and Break</a>.
+            </p>
+            <h3>The steps</h3>
+            <p>
+                There are many ways to solve this problem, but we are going to look
+                at a way that is similar to how the first part of a
+                <a href="http://en.wikipedia.org/wiki/Compiler">Compiler</a> works.
+                The sequence of steps we will use is:
+            </p>
+            <ul>
+                <li>Scan</li>
+                <li>Parse</li>
+                <li>Evaluate</li>
+            </ul>
+            <h3>Scan</h3>
+            <p>
+                The Scan (or Lexical Analysis) steps breaks the string into an array of tokens.  You can
+                read about the process <a href="http://en.wikipedia.org/wiki/Lexical_analysis">here</a>.
+            </p>
+            <p>
+                This step should produce an array of objects (tokens), where each
+                token has a kind (number, addition, subtraction, etc) and a value
+                (for example, if it is a number, then it should have the number
+                text converted to a number value).
+            </p>
+            <p>
+                Before you start, you might want to write down the rules for the language
+                you will allow
+                <a href="http://en.wikipedia.org/wiki/Backus%E2%80%93Naur_Form">BNF</a>
+                or <a href="http://en.wikipedia.org/wiki/Extended_Backus%E2%80%93Naur_Form">EBNF</a>.
+            </p>
+            <h3>Parse</h3>
+            <p>
+                The parse step is the part that looks at the array of tokens and produces a
+                <a href="http://en.wikipedia.org/wiki/Binary_expression_tree">Expression Tree</a>
+                (made up of objects).  To understand the process, read about a
+                <a href="http://en.wikipedia.org/wiki/Recursive_descent_parser">Recursive Descent Parser</a>.                
+            </p>
+            <h3>Evaluate</h3>
+            <p>
+                The evaluate step will go through the nodes of the tree, starting at the top,
+                and and calculate the result.
+                If the kind is an operator (for example, add), then evaluate the left, evaluate
+                the right, combine the result (for example, by adding), and return the value.  If the kind is
+                a number, just return the value.
+            </p>
+            <h2>Done!</h2>
+            <p>
+                Head back to Schoology and add your files to the dropbox.
+            </p>
+        </div>
+    </body>
+</html>

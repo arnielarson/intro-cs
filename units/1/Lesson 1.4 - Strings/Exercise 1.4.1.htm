@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Exercise 1.4.1</title>
+        <link href="../../../reset.css" rel="stylesheet">
+        <link href="../../../page.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="frame">
+            <h1>Exercise 1.4.1</h1>
+            <h2>Strings</h2>
+            <p>
+                In Javascript, a <b>string</b> value is used to represent
+                <b>text</b>, like what you are reading right now.
+            </p>
+            <p>
+                But a string value does <b>not</b> have any 
+                <span style="font-size:18pt;color:#000;">f</span>
+                <span style="font-size:20pt;color:#100;">o</span>
+                <span style="font-size:24pt;color:#200;">r</span>
+                <span style="font-size:26pt;color:#300;">m</span>
+                <span style="font-size:28pt;color:#400;">a</span>
+                <span style="font-size:32pt;color:#500;">t</span>
+                <span style="font-size:36pt;color:#600;">t</span>
+                <span style="font-size:38pt;color:#700;">i</span>
+                <span style="font-size:36pt;color:#800;">n</span>
+                <span style="font-size:32pt;color:#900;">g</span>.
+            </p>
+            <p>
+                It is just
+                a <b>sequence of characters</b>.                
+            </p>
+            <h3>So what is a character?</h3>
+            <p>
+                You may think of a character as what you type on a keyboard.
+                There is a character for each key, right?  I press the <span class="key">A</span>
+                key, and an <b>a</b> shows up in my document.
+            </p>
+            <p>
+                But how does a computer know the difference between the character <b>a</b>
+                and the character <b>b</b>?  Clearly, each letter is different.
+            </p>
+            <p>
+                We know from our previous exercises that computers can work with
+                numbers.  So why not have a different number for each character!  Which
+                is exactly what computers do.
+            </p>
+            <h3>Character codes</h3>
+            <p>
+                Well, this should be easy!  All we need is some table or something
+                that tells us which character corresponds to which number (called a
+                <b>character code</b>).  But of course, we would
+                need to make sure that all the computers are earth agree, otherwise
+                they might get confused when they communicate with each other.
+            </p>
+            <p>
+                Someone needs to write down the table of character codes
+                and characters codes and tell everyone about it.
+                So we need an agreed upon
+                <a href="http://en.wikipedia.org/wiki/Technical_standard">standard</a>.
+            </p>
+            <h3>ASCII</h3>
+            <p>
+                One early standard was called
+                <a href="http://en.wikipedia.org/wiki/ASCII">ASCII</a>,
+                which is short for
+                American Standard Code for Information Interchange.  The
+                first version was finalized in 1963.
+            </p>
+            <p>
+                The following link shows some of the table for ASCII.  Take a look:
+            </p>
+            <p>
+                <a href="http://ascii.co.uk/table">http://ascii.co.uk/table</a>
+            </p>
+            <p>
+                Notice the numbers (character codes) next to each character.
+            </p>
+            <img src="web1.png">
+            <p>
+                This might look a little bit like your keyboard at first glance. But notice that there
+                are <b>two</b> letter A's: one for <b>lowercase</b>
+                (97) and one for <b>uppercase</b> (65).  Depending on whether
+                you have the <span class="key">Shift</span> 
+                key pressed, you will
+                get one or the other (of course, this also depends on whether you have
+                <span class="key">Caps Lock</span> selected).
+            </p>
+            <p>
+                Also notice that there are number characters.  For example, the character
+                <b>0</b> (zero) has the character code 48, the character <b>1</b> (one)
+                has the character code 49, etc.
+            </p>
+            <h3>Try it out</h3>
+            <p>
+                To see this in action, go to the following link:
+            </p>
+            <p>
+                <a href="http://ascii.co.uk/interactive">http://ascii.co.uk/interactive</a>
+            </p>
+            <p>
+                Click in the box below "Interactive Ascii Table", and type <b>Hello from UPrep</b>.
+            </p>
+            <img src="web2.png">
+            <p>
+                You should see a box for each character, along with the character code
+                (in decimal) below the character.
+            </p>
+            <img src="web3.png">
+            <p class="sidenote">
+                The character code is also shown in base 16 (<b>Hex</b>,
+                short for hexadecimal)
+                and base 8 (<b>Oct</b>, short for octal).  Programmers
+                sometimes like to use different number bases.
+            </p>
+            <p>
+                Notice that when you pressed <span class="key">Space</span> a character
+                appeared (32).
+            </p>
+            <p>
+                Press <span class="key">Enter</span>, and another character will appear
+                (10).
+            </p>
+            <h3>Other languages?</h3>
+            <p>
+                ASCII has 127 different characters.
+            </p>
+            <p>
+                Well what about other languages?  What about Greek?  Or Kanji?
+                The characters for those languages are not in the table for
+                ASCII.
+            </p>
+            <p>
+                To handle different languages, we can have a 
+                different table (called a
+                <a href="http://en.wikipedia.org/wiki/Code_page">code page</a>)
+                for each language.  But this is complicated, because
+                you had to know what code page a string was using in
+                order to understand the string.
+            </p>
+            <p>
+                And what if you wanted different languages all in the same string?
+            </p>
+            <h3>Unicode</h3>
+            <p>
+                In 1991, the first version of a standard called 
+                <a href="http://en.wikipedia.org/wiki/Unicode">Unicode</a>
+                was finalized.  Unicode allowed for up to 65535 characters.
+                This larger range of character codes (larger table) allowed
+                for characters used in many more written languages.
+            </p>
+            <p>
+                Take a look at the table for Unicode at the following link:
+            </p>
+            <p>
+                <a href="http://www.ftrain.com/unicode/">http://www.ftrain.com/unicode/</a>
+            </p>
+            <p>
+                You can move your mouse to a character to see a larger size.  For
+                example, for the ampersand character, you see:
+            </p>
+            <img src="web5.png">
+            <p>
+                Notice the <b>38</b>, which is the character code in decimal.
+                The <span class="code">&amp;#38;</span> is how you can write
+                this character in an HTML document.  All you need is the number.
+            </p>
+            <p class="sidenote">
+                Remember that in HTML we had to use <span class="code">&amp:lt;</span>
+                instead of <span class="code">&lt;</span>?
+                This is another example of a
+                <a href="../../../resources/htmlsubset.htm#CharacterReference">Character Reference</a>.
+                
+            </p>
+            <p>
+                Lets try using this code in an HTML document:
+            </p>
+            <ul>
+                <li>Create a folder for this exercise (Exercise 1.4.1).  </li>
+                <li>Create create a <b>default.html</b>
+                using your template.  </li>
+                <li>
+                    Add a
+                    <a href="../../../resources/htmlsubset.htm#Paragraph">Paragraph Element</a>
+                    containing <b>&amp;#38;</b>.  
+                </li>
+            </ul>
+            <p>
+            </p>
+            <div class="answerFrame">
+                <div class="answerButton">Move your mouse here for a hint</div>
+                <div class="answer">
+                    <div class="code">
+&lt;!DOCTYPE html&gt;<br>
+&lt;html&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;head&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;Page Title&lt;/title&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/head&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;body&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;&amp;#38;&lt;/p&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/body&gt;<br>
+&lt;/html&gt;<br>
+                    </div>
+                </div>
+            </div>
+            <p>
+                Since the Unicode table is so large, the screen is only showing you a
+                small range of characters at a time.
+            </p>
+            <p>
+                You can use sliders at the top to change what range 
+                you are looking at.  The numbers on the sliders refer
+                to how much they change the range (by 100, by 1000, or by 10000).
+            </p>
+            <img src="web4.png">
+            <p>
+                
+            </p>
+            
+            <h2>Done!</h2>
+            <p>
+                Head back to Schoology and mark this as done.
+            </p>
+        </div>
+    </body>
+</html>

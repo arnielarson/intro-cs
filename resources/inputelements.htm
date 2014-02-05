@@ -1,0 +1,460 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <link href="../reset.css" rel="stylesheet">
+    <link href="../page.css" rel="stylesheet">
+    <link href="inputelements.css" rel="stylesheet">
+    <script src="inputelements.js"></script>
+</head>
+    <body onload="start()">
+        <div class="frame">            
+            <h1>Input Elements</h1>
+            <h2 id="TableOfContents">Table of Contents</h2>            
+            <ul>
+                <li>
+                    <a href="#InputElements">Input Elements</a>
+                    <ul>
+                        <li><a href="#Text">Text (single line)</a></li>
+                        <li><a href="#TextArea">Text (multiple lines)</a></li>
+                        <li><a href="#Number">Number</a></li>
+                        <li><a href="#Password">Password</a></li>
+                        <li><a href="#Range">Range</a></li>
+                        <li><a href="#Color">Color</a></li>
+                        <li><a href="#Checkbox">Checkbox</a></li>
+                        <li><a href="#Radio">Radio</a></li>
+                        <li><a href="#Select">Select</a></li>
+                        <li><a href="#Button">Button</a></li>
+                        <li><a href="#Canvas">Canvas</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#InputEvents">Input Events</a>
+                    <ul>
+                        <li><a href="#HandlingEvents">Handling Events</a></li>
+                        <li><a href="#MouseEvents">Mouse Events</a></li>
+                        <li><a href="#TouchEvents">Touch Events</a></li>
+                        <li><a href="#KeyEvents">Key Events</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#InputProperties">Input Properties</a>
+                    <ul>
+                        <li><a href="#value">Value</a></li>
+                        <li><a href="#checked">Checked</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#AdditionalInformation">Additional information</a>
+                    <ul>
+                        <li><a href="#HTML5">More input elements</a></li>
+                        <li><a href="#Bootstrap">Bootstrap</a></li>
+                    </ul>
+                </li>                
+            </ul>
+            
+            <h2 id="InputElements">Input Elements</h2>
+            
+            <h3 id="Text">Text (single line)</h3>
+            <p>An element for entering a single line of text.</p>
+            <div class="code">
+                &lt;label&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;planet name: <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="text" value="saturn" id="planet"&gt;<br>
+                &lt;/label&gt;<br>                
+            </div>
+            <div class="example">
+                <label>
+                    planet name: 
+                    <input type="text" value="saturn" id="_text">
+                </label>
+            </div>                    
+            <div class="object" id="_text_object"></div>
+            <canvas width="600" height="150" class="messages" id="_text_messages"></canvas>
+                    
+            <h3 id="TextArea">Text (multiple lines)</h3>
+            <p>An element for entering one or more lines of text.</p>
+            <div class="code">
+                &lt;label&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;description:&lt;br&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;textarea id="description" rows="5" cols="50"&gt;&lt;/textarea&gt;<br>
+                &lt;/label&gt;<br>
+            </div>
+            <div class="example">
+                <label>
+                    description:<br>
+                    <textarea id="_textArea" rows="5" cols="50"></textarea>
+                </label>
+            </div>
+            <div class="object" id="_textArea_object"></div>
+            <canvas width="600" height="150" class="messages" id="_textArea_messages"></canvas>
+            
+            <h3 id="Number">Number</h3>
+            <p>An element for entering a number.</p>
+            <div class="code">
+                &lt;label&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;planet size: <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="number" value="123" id="planetSize"&gt;<br>
+                &lt;/label&gt;<br>                
+            </div>
+            <div class="example">
+                <label>
+                    planet size:<br>
+                    <input type="number" value="123" id="_number">
+                </label>
+            </div>
+            <div class="object" id="_number_object"></div>
+            <canvas width="600" height="150" class="messages" id="_number_messages"></canvas>
+            
+            <h3 id="Password">Password</h3>
+            <p>An element for entering a password (or other confidential information).</p>
+            <div class="code">
+                &lt;label&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;enter your PIN code:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="password" value="123" id="pin"&gt;<br>
+                &lt;/label&gt;<br>                
+            </div>
+            <div class="example">
+                <label>
+                    enter your PIN code:<br>
+                    <input type="password" value="123" id="_password">
+                </label>
+            </div>
+            <div class="object" id="_password_object"></div>
+            <canvas width="600" height="150" class="messages" id="_password_messages"></canvas>
+            
+            <h3 id="Range">Range</h3>
+            <p>An element for selecting a number between a range of numbers.</p>
+            <div class="code">
+                &lt;label&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;temperature:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="range" value="30" min="0" max="100" id="temperature"&gt;<br>
+                &lt;/label&gt;<br>                
+            </div>
+            <div class="example">
+                <label>
+                    temperature:<br>
+                    <input type="range" value="30" min="0" max="100" id="_range">
+                </label>
+            </div>
+            <div class="object" id="_range_object"></div>
+            <canvas width="600" height="150" class="messages" id="_range_messages"></canvas>
+            
+            <h3 id="Color">Color</h3>
+            <p>An element for selecting a color.</p>
+            <p class="sidenote">
+                The value has to be color in hex.  You can't use named color values like "orange".
+            </p>
+            <div class="code">
+                &lt;label&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;hair color:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="color" value="#ff8000" id="hair"&gt;<br>
+                &lt;/label&gt;<br>                
+            </div>
+            <div class="example">
+                <label>
+                    hair color:<br>
+                    <input type="color" value="#ff8000" id="_color">
+                </label>
+            </div>
+            <div class="object" id="_color_object"></div>
+            <canvas width="600" height="150" class="messages" id="_color_messages"></canvas>
+            
+            <h3 id="Checkbox">Checkbox</h3>
+            <p>An element for selecting an option.</p>
+            <div class="code">
+                &lt;label&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="checkbox" value="on" id="bacon"&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;include bacon<br>
+                &lt;/label&gt;<br>                
+            </div>
+            <div class="example">
+                <label>
+                    <input type="checkbox" checked="checked" id="_checkbox">
+                    include bacon
+                </label>
+            </div>
+            <div class="object" id="_checkbox_object"></div>
+            <canvas width="600" height="150" class="messages" id="_checkbox_messages"></canvas>
+            
+            <h3 id="Radio">Radio</h3>
+            <p>An element for selecting from a small set of options.</p>
+            <div class="code">                
+&lt;label&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="radio" checked="checked" id="mayonaise" name="spread"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;mayonaise<br>
+&lt;/label&gt;<br>
+&lt;label&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="radio" id="baconnaise" name="spread"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;baconnaise<br>
+&lt;/label&gt;<br>
+&lt;label&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="radio" id="none" name="spread"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;none <br>
+&lt;/label&gt;<br>
+            </div>            
+            <div class="example">
+                <label>
+                    <input type="radio" name="spread" id="_radio1">
+                    mayonaise 
+                </label>
+                <label>
+                    <input type="radio" name="spread" id="_radio2">
+                    baconnaise
+                </label>
+                <label>
+                    <input type="radio" checked="checked" name="spread" id="_radio3">
+                    none 
+                </label>
+            </div>            
+            <div class="object" id="_radio1_object"></div>
+            <div style="display:none;" class="object" id="_radio2_object"></div>
+            <div style="display:none;" class="object" id="_radio3_object"></div>
+            <div class="sidebyside">
+                <div class="side">
+                    <canvas width="200" height="150" class="messages" id="_radio1_messages"></canvas>                    
+                </div>
+                <div class="side">
+                    <canvas width="200" height="150" class="messages" id="_radio2_messages"></canvas>                    
+                </div>
+                <div class="side">
+                    <canvas width="200" height="150" class="messages" id="_radio3_messages"></canvas>                    
+                </div>
+            </div>
+            
+            <h3 id="Select">Select</h3>
+            <p>An element for choosing from a larger set of options.</p>
+            <div class="code">
+&lt;label&gt; <br>
+&nbsp;&nbsp;&nbsp;&nbsp;cat to adopt:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;select id="adopt"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;option value="cat1"&gt;Paws&lt;/option&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;option value="cat2"&gt;Whiskers&lt;/option&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;option value="cat3"&gt;Scruffy&lt;/option&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;option value="cat4"&gt;Spots&lt;/option&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;option value="cat5"&gt;Tabs&lt;/option&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/select&gt;<br>
+&lt;/label&gt;<br>
+
+            </div>
+            <div class="example">
+<label> 
+    cat to adopt:
+    <select id="_select">
+        <option value="cat1">Paws</option>
+        <option value="cat2">Whiskers</option>
+        <option value="cat3">Scruffy</option>
+        <option value="cat4">Spots</option>
+        <option value="cat5">Tabs</option>
+    </select>
+</label>
+            </div>
+            <div class="object" id="_select_object"></div>
+            <canvas width="600" height="150" class="messages" id="_select_messages"></canvas>
+            
+            <h3 id="Button">Button</h3>
+            <p>An element for selecting an action.</p>
+            <div class="code">
+                &lt;input type="button" value="Place Order" id="order"&gt;<br>
+            </div>
+                <div class="example">
+                    <input type="button" value="Place Order" id="_button">
+                </div>
+            <div class="object" id="_button_object"></div>
+            <canvas width="600" height="150" class="messages" id="_button_messages"></canvas>
+
+            <h3 id="Canvas">Canvas</h3>
+            <p>The canvas element can be used for mouse input.  If you want
+            the canvas to allow key input, you can use the tabIndex property.</p>
+            <div class="code">
+&lt;canvas width="200" height="200" id="mainCanvas" tabIndex="0"&gt;&lt;/canvas&gt;<br>
+            </div>
+                <div class="example">
+                    <canvas width="200" height="200" id="_canvas" tabindex="0"></canvas>
+                </div>
+            <div class="object" id="_canvas_object"></div>
+            <canvas width="600" height="150" class="messages" id="_canvas_messages"></canvas>            
+            
+            <h2 id="InputEvents">Input Events</h2>
+            
+            <h3 id="HandlingEvents">Handling events</h3>
+            <p class="idea">
+                You have to have a <b>different function</b> for each event you want to handle.
+            </p>                
+            <p>
+                The following shows how to handle various events for an element.
+            </p>
+            <div class="code">
+function start() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// find element<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var someElement = document.getElementById("someid");<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// handle mouse events<br>
+&nbsp;&nbsp;&nbsp;&nbsp;someElement.onmousemove = someMouseFunction;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;someElement.onmousedown = someMouseFunction;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;someElement.onmouseup = someMouseFunction;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;someElement.onclick = someMouseFunction;<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// handle touch events<br>
+&nbsp;&nbsp;&nbsp;&nbsp;someElement.ontouchstart = someTouchFunction;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;someElement.ontouchmove = someTouchFunction;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;someElement.ontouchend = someTouchFunction;<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// handle key events<br>
+&nbsp;&nbsp;&nbsp;&nbsp;someElement.onkeydown = someKeyFunction;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;someElement.onkeyup = someKeyFunction;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;someElement.onkeypress = someKeyFunction;<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// handle change event<br>
+&nbsp;&nbsp;&nbsp;&nbsp;someElement.onchange = someChangeFunction;<br>
+}<br>
+            </div>
+            
+            <span id="onmousedown"></span>
+            <span id="onmousemove"></span>
+            <span id="onmouseup"></span>
+            <span id="onclick"></span>
+            <h3 id="MouseEvents">Mouse events</h3>
+            <p>The following is an example function that can handle 
+                <span class="red">onclick</span>,
+                <span class="red">onmousedown</span>,
+                <span class="red">onmousemove</span>, or
+                <span class="red">onmouseup</span> events.
+            </p>
+            
+            <div class="code">
+function someMouseFunction(event) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var x = event.clientX;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var y = event.clientY;<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// do something here<br>
+}<br>
+            </div>
+
+            <span id="ontouchstart"></span>
+            <span id="ontouchmove"></span>
+            <span  id="ontouchend"></span>
+            <h3 id="TouchEvents">Touch events</h3>
+            <p>The following is an example function that can handle 
+                <span class="red">ontouchstart</span>,
+                <span class="red">ontouchmove</span>, or
+                <span class="red">ontouchend</span> events.
+            </p>
+            
+            <div class="code">
+function someTouchEvent(event) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// get all the touches (all fingers)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var touches = event.targetTouches;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// get the first finger location<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var firstTouch = touches[0];<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// get the location of the finger<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var x = firstTouch.pageX - event.target.offsetLeft;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var y = firstTouch.pageY - event.target.offsetTop;<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// do something here<br>
+}<br>
+            </div>
+            
+            <span id="onkeydown"></span>
+            <span id="onkeyup"></span>
+            <span id="onkeypress"></span>
+            <h3 id="KeyEvents">Key events</h3>
+            
+            <p>The following is an example function that can handle  
+                <span class="red">onkeydown</span>,
+                <span class="red">onkeyup</span>, or
+                <span class="red">onkeypress</span> events.
+            </p>
+            
+            
+            <div class="code">
+function someKeyFunction(event) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// get key code from event<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var keyCode = event.keyCode;<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// do something here<br>
+}<br>
+            </div>
+
+            <span id="onchange"></span>
+            <h3 id="ChangeEvents">Change event</h3>
+            
+            <p>The following is an example function that can handle  
+                <span class="red">onchange</span> events.
+            </p>
+            <p>
+                When a change event occurs, you will typically want to get the value of
+                the element that changed.
+            </p>            
+            
+            <div class="code">
+function someChangeFunction(event) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// get the element that changed<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var element = document.getElementById("someid");<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// get the new value<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var value = element.value;<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// do something here<br>
+}<br>
+            </div>            
+            
+            <h2 id="InputProperties">Input Properties</h2>
+            
+            <p>The following properties change when there is input.</p>
+            
+            <h3 id="value">Value</h3>
+            
+            <p>
+                To get or set the value property, do the following:
+            </p>
+            
+            <div class="code">
+function someFunction() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// get the element<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var element = document.getElementById("someid");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// get the value<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var value = element.value;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// change the value<br>
+&nbsp;&nbsp;&nbsp;&nbsp;element.value = "new value";<br>
+}<br>
+            </div>
+                 
+            <h3 id="checked">Checked</h3>
+            
+            <p>
+                To get or set the checked property, do the following:
+            </p>
+            
+            <div class="code">
+function someFunction() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// get the element<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var element = document.getElementById("someid");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// get the value<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var isChecked = element.checked;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// change the value<br>
+&nbsp;&nbsp;&nbsp;&nbsp;element.checked = true;<br>
+}<br>
+            </div>
+            
+            <h2 id="AdditionalInformation">Additional information</h2>
+            
+            <h3 id="HTML5">More input elements</h3>
+            <p>
+                For more information and additional options, see the 
+                <a href="http://www.w3.org/html/wg/drafts/html/master/forms.html#attr-input-type">HTML5</a>
+                specification.       
+            </p>
+            <h3 id="Bootstrap">Bootstrap</h3>
+            <p>
+                For more types of input, consider using the <a href="bootstrap.htm">bootstrap</a>
+                framework.                
+            </p>          
+            
+         
+        </div>
+    </body>
+ </html> 

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Answer 1.5.1</title>
+        <link href="../../../reset.css" rel="stylesheet">
+        <link href="../../../page.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="frame">
+            <h1>Answer 1.5.1</h1>
+            <h2>Largest and smallest grade</h2>
+            <h3>default.html</h3>
+            <div class="code">
+&lt;!DOCTYPE html&gt;<br>
+&lt;html&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;head&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;Page Title&lt;/title&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;script src="uprep.js"&gt;&lt;/script&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/head&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;body onload="calculateMinimumAndMaximumStudents();"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/body&gt;<br>
+&lt;/html&gt;<br>
+            </div>
+            <h3>uprep.js</h3>
+            <div class="code">
+function minimum(first, second) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var firstIsSmaller = first &lt; second;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if (firstIsSmaller) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return first;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;} else {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return second;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+}<br>
+<br>
+function calculateMinimumStudents(year) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var minimumStudents = minimum(year.grade6, year.grade7);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;minimumStudents = minimum(minimumStudents, year.grade8);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;minimumStudents = minimum(minimumStudents, year.grade9);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;minimumStudents = minimum(minimumStudents, year.grade10);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;minimumStudents = minimum(minimumStudents, year.grade11);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;minimumStudents = minimum(minimumStudents, year.grade12);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return minimumStudents;<br>
+}<br>
+<br>
+function maximum(first, second) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var firstIsSmaller = first &lt; second;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if (firstIsSmaller) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return second;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;} else {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return first;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+}<br>
+<br>
+function calculateMaximumStudents(year) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var maximumStudents = maximum(year.grade6, year.grade7);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;maximumStudents = maximum(maximumStudents, year.grade8);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;maximumStudents = maximum(maximumStudents, year.grade9);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;maximumStudents = maximum(maximumStudents, year.grade10);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;maximumStudents = maximum(maximumStudents, year.grade11);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;maximumStudents = maximum(maximumStudents, year.grade12);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return maximumStudents;<br>
+}<br>
+<br>
+function calculateMinimumAndMaximumStudents() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var thisYear = {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade6: 66,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade7: 74,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade8: 74,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade9: 82,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade10: 81,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade11: 79,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade12: 76<br>
+&nbsp;&nbsp;&nbsp;&nbsp;};<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var minimumStudents = calculateMinimumStudents(thisYear);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var maximumStudents = calculateMaximumStudents(thisYear);&nbsp;&nbsp;&nbsp;&nbsp;<br>
+}<br>
+      
+            </div>
+        </div>
+    </body>
+</html>

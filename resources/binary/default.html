@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Binary Calculator</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://code.jquery.com/jquery.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="uprep.js"></script>
+        <link href="uprep.css" rel="stylesheet">
+    </head>
+    <body onload="start();">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="page-header">
+                      <h1>Binary Calculator</h1>
+                      <div class="well well-sm">
+                        <h1 id="binary"></h1>
+                        <h5 id="math" class="text-success"></h5>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="input-group input-group-lg">
+                      <span class="input-group-addon">Byte</span>
+                      <input type="text" class="form-control" 
+                        placeholder="0 to 255" id="byte">
+                    </div>
+                </div>
+            </div>            
+
+            <div class="row">
+                <div class="col-xs-1">
+                    <h3><span id="label_128" class="label label-default clickable">128</span></h3>
+                    <img id="img_128" src="up.png" class="img-thumbnail clickable">
+                </div>
+                <div class="col-xs-1">
+                    <h3><span id="label_64" class="label label-default clickable">64</span></h3>
+                    <img id="img_64" src="up.png" class="img-thumbnail clickable">
+                </div>
+                <div class="col-xs-1">
+                    <h3><span id="label_32" class="label label-default clickable">32</span></h3>
+                    <img id="img_32" src="up.png" class="img-thumbnail clickable">
+                </div>
+                <div class="col-xs-1">
+                    <h3><span id="label_16" class="label label-default clickable">16</span></h3>
+                    <img id="img_16" src="up.png" class="img-thumbnail clickable">
+                </div>
+                <div class="col-xs-1">
+                    <h3><span id="label_8" class="label label-default clickable">8</span></h3>
+                    <img id="img_8" src="up.png" class="img-thumbnail clickable">
+                </div>
+                <div class="col-xs-1">
+                    <h3><span id="label_4" class="label label-default clickable">4</span></h3>
+                    <img id="img_4" src="up.png" class="img-thumbnail clickable">
+                </div>
+                <div class="col-xs-1">
+                    <h3><span id="label_2" class="label label-default clickable">2</span></h3>
+                    <img id="img_2" src="up.png" class="img-thumbnail clickable">
+                </div>
+                <div class="col-xs-1">
+                    <h3><span id="label_1" class="label label-default clickable">1</span></h3>
+                    <img id="img_1" src="up.png" class="img-thumbnail clickable">
+                </div>
+                <div class="col-xs-4">
+                    
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

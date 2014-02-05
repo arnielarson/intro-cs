@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Exercise 1.1.1</title>
+        <link href="../../../reset.css" rel="stylesheet">
+        <link href="../../../page.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="frame">
+            <h1>Exercise 1.1.1</h1>
+            <h2>Install Google Chrome</h2>
+            <p>
+                Later in this class we will be doing a project which requires the Google
+                Chrome web browser.  If you want, you can continue using your current browser
+                until then, but all content for this class will assume you are using Google Chrome.
+            </p>
+            <p class="sidenote">
+                Web application developers typically have different web browsers installed so they can test their
+                applications in each one, since each one is a little different.  So feel free to
+                test your creations in all the browsers you have installed to see if you can see
+                any differences.  There are various web sites dedicated to these differences, for example,
+                <a href="http://www.quirksmode.org/">http://www.quirksmode.org</a>.
+            </p>
+            <h2>Create a folder for this exercise</h2>
+            <p>
+                Create a folder for this exercise on your computer in a place you will remember.
+            </p>
+            <p class="sidenote">
+                Each time you do an exercise for this class, you will likely want to create a folder
+                (for example, "Exercise 1.1.1") that will contain contains the files for that exercise.
+                You can put all these folders
+                inside of one folder (for example, "Computer Science").  For example:
+            </p>
+            <img src="folder.png"><br>
+            <p class="sidenote">
+                Staying organized will help you in the long run, since you will likely want to borrow
+                from a previous exercise when starting a new one.
+            </p>
+            <h2>Install Komodo Edit</h2>
+            <p>
+                We will be using a text editor called Komodo Edit in this class to
+                edit both HTML, Javascript and other text files.  If you have another text editor
+                you would rather use, you can, but the class content will assume you are using
+                Komodo Edit.
+            </p>
+            <p>
+                Go to the following web site and download <b>Komodo Edit 8</b>.  
+                Choose the right version for your laptop (mac or windows).
+            </p>
+            <p>
+                <a href="http://www.activestate.com/komodo-edit">http://www.activestate.com/komodo-edit</a>
+            </p>
+            <p class="sidenote">
+                If you are planning on using Komodo Edit for other purposes than this class,
+                make sure you understand the license agreement available on the web site.
+            </p>
+            <h2>Create your first page</h2>
+            <p>
+                Start Komodo Edit.  You should see a window appear.
+            </p>
+            <p>
+                On the menu, choose File / New / New From Template.  A dialog should appear.                
+            </p>
+            <p>
+                In the <b>Web</b> category, choose the <b>HTML5</b> template.
+            </p>
+            <p>
+                You should see something like this: 
+            </p>
+            <img src="komodo1.png">
+            <p>
+                Within the <b>body</b> element, add a paragraph that says Hello.  We want the paragraph
+                to be contained within the body element, so it should appear between the <b>start tag</b>
+                and <b>end tag</b> of the body (between &lt;body&gt; and &lt;/body&gt;).  If you are unsure
+                how to write a paragraph element, see the following link:
+                <a href="../../../resources/htmlsubset.htm#Paragraph">Paragaph Element</a>.  That link
+                is part of the <a href="../../../resources/htmlsubset.htm">HTML Subset</a>, a handy page
+                which attempts to summarize all the information you need to know for how to write HTML for this class.
+            </p>
+            <div class="answerFrame">
+                <div class="answerButton">Move your mouse here to see what your file should look like
+                after you have added the paragraph with Hello.</div>
+                <div class="answer">
+                    <img src="komodo2.png">
+                </div>
+            </div>
+            <p>
+                Save your file in the folder you created for the exercise.  Call it <b>default.html</b>.
+            </p>
+            <p>
+                Open the folder and double-click on the file you created, and Chrome should open.  If Chrome
+                is not your default web browser, then you may need to drag the file to the Chrome icon.
+            </p>
+            <p>
+                You should see the following.
+            </p>
+            <img src="chrome1.png">
+            <p>Congratulations, you created a web page!  <span class="woot"></span></p>
+            <p>
+                Notice that chrome is using the <b>file</b> protocol instead of <b>http</b>,
+                because it is loading the files from a folder, instead of communicating over
+                the internet.
+            </p>
+            <img src="chrome17.png">
+            <h2>Conventions</h2>
+            <p>
+                To keep our work readable by others (including your teachers), we are going to adopt
+                a set of <a href="../../../resources/htmlsubset.htm#Conventions">Conventions</a> when
+                writing HTML.  You may want to take a look at them now.
+            </p>
+            <p class="sidenote">
+                Many software developers have some set of conventions
+                that they follow that are more restrictive than the grammar of the language.
+                Consistency is important when working in teams. 
+            </p>
+            <p>
+                After reading the conventions, you might notice that the template that Komodo Edit
+                provided is not following our conventions (for example, the indenting is not right).  Lets fix that now.
+                It is easier than you think, because Komodo Edit allows you to select a set of lines
+                and then either "indent" them (shift them right) or "unindent" them (shift them left).
+                You can find this command on the Code menu (or just use <b>Tab</b> and <b>Shift-Tab</b>
+                keys).  This is a great command to learn.
+            </p>
+            <div class="answerFrame">
+                <div class="answerButton">Move your mouse here to see the version of the file that follows our conventions.</div>
+                <div class="answer">
+                    <img src="komodo3.png">
+                </div>
+            </div>
+            <p>
+                Notice the vertical lines that Komodo Edit displays at each indentation level, which can help you
+                understand where the indentation points in the file are.
+            </p>
+            <h2>How do I update my page?</h2>
+            <p>
+                Now change the text from <b>Hello</b> to <b>Jello</b>.
+            </p>
+            <p>
+                Switch to Chrome and look at your page.  It still says Hello.  
+            </p>
+            <p>
+                I bet you are thinking you just need to refresh the page to see it change from
+                Hello to Jello.  Press the refresh button.
+            </p>
+            <img src="chrome2.png">
+            <p>
+                You still see Hello.  Why is this?
+            </p>
+            <div class="answerFrame">
+                <div class="answerButton">Move your mouse here to see why.</div>
+                <div class="answer">
+                    <p>When you refresh your browser, it reloads the page from what is saved in your folder.
+                    Since you did not save your page, it loaded the old page again.</p>
+                </div>
+            </div>
+            <p>
+                Save your page in Komodo Edit.  Go to Chrome and refresh.  Now it says Jello.  <span class="woot"></span>
+            </p>
+            <p>
+                Go back to Komodo Edit and undo your change, which will bring
+                back Hello.
+            </p>
+            <p class="sidenote">
+                Undo is a programmers best friend.
+                Notice that undo worked even though we saved the file.                
+            </p>            
+            <h2>What if I make a mistake?</h2>
+            <p>
+                We talked about the fact that HTML is a language, and it has a grammar.  What happens when we don't follow this grammar?
+                Lets see.  Delete the &gt; as highlighted below, save, and refresh in Chrome. 
+            </p>
+            <img src="komodo4.png">
+            <p>
+                You should see a blank page.  When Chrome got to this part it was confused.
+            </p>
+            <div class="code">
+                &lt;pHello&lt/p&gt;
+            </div>
+            <p>
+                Go back to Komodo Edit and undo your change.
+            </p>
+            <h2 id="LessThan">How do I write a less than character?</h2>
+            <p>
+                Say we wanted to write a mathematical expression like the following in HTML.  How would we do it?
+            </p>
+            <p>
+                <span class="code">0 &lt; a &lt; 10</span> 
+            </p>
+            <p>
+                HTML is already using the less than symbol (&lt;) to indicate the start of a tag.  So how do we say
+                we want the &lt; to just be treated as text instead of a tag?
+            </p>
+            <p>
+                It turns out that HTML has a way to do this.  When we want
+                to use a character that is already being used by the language, the language can give a different
+                way of writing it.  
+            </p>
+            <p>
+                Take a look at the <a href="../../../resources/htmlsubset.htm#CharacterReference">Character References</a>
+                in our HTML Subset. Use the syntax provided there to display the mathematical expression
+                above instead of Jello.  Save and reload in Chrome to make sure it matches the mathematical expression
+                above.
+            </p>
+            <div class="answerFrame">
+                <div class="answerButton">If you get stuck, move your mouse here to see the answer.</div>
+                <div class="answer">
+                    <p>                       
+                    <span class="code">0 &amp;lt; a &amp;lt; 10</span>
+                    </p>
+                </div>
+            </div>           
+            <h2>Adding an image to the page</h2>
+            <p>
+                Command-click (Mac) or Right-click (Windows) on the smiley below to get the menu
+                for the image.
+                Choose "save image as" and save the image to your exercise folder as <b>smiley.png</b>.
+            </p>
+            <img src="smiley.png">
+            <p class="sidenote">
+                Be careful using images that you found on the web, since their use may be restricted.  
+            </p>
+            <p>
+                An <a href="../../../resources/htmlsubset.htm#Image">Image Element</a>
+                (abbreviated <b>img</b>) will display an image on a page.  But which image?
+            </p>
+            <p>
+                The Image Element has an <b>Source Attribute</b> which controls
+                which image to display.  
+                In this case, we can just use the name of the image file
+                (<b>smiley.png</b>) as the <b>value</b> for the attribute.  Our image
+                element is then:
+            </p>
+            <div class="code">                       
+                &lt;img src="smiley.png"&gt;
+            </div>
+            <p class="sidenote">
+                Notice the Image Element has <b>start tag</b> (&lt;img&gt;), but no <b>end tag</b> (&lt;/img&gt;).
+                This is because an Image Element is not a container for other elements or text.
+            </p>
+                
+            <p>
+                Add the Image Element so that it appears
+                <b>after</b> your mathematical formula.
+            </p>
+            <p>
+                You should see this:
+            </p>
+            <img src="chrome23.png">
+            <div class="answerFrame">
+                <div class="answerButton">Move your mouse here to see the HTML.</div>
+                <div class="answer">
+                    <img src="komodo5.png">
+                </div>
+            </div>
+            <h2>Adding an image between text</h2>
+            <p>
+                Add a image so that it replaces the variable <b>a</b> in our mathematical expression.
+                You should see the following:
+            </p>
+            <img src="chrome5.png">
+            <h2>Developer Tools</h2>
+            <p>
+                Although most people just use a web browser like Chrome to surf the web, there is a secret
+                (OK, it's not that <a href="https://developers.google.com/chrome-developer-tools/">secret</a>) set of commands for people just like us that are trying
+                to develop a web site.  That set of commands is typically called <b>Developer Tools</b>, and is
+                available on many web browsers. 
+            </p>
+            <p>
+                To bring up Developer Tools for a page loaded in Chrome, choose Tools / Developer Tools
+                from the Chrome menu.  Your window should split in half vertically, and you should see
+                something like the following:
+            </p>
+            <img src="chrome6.png">
+            <h2>The Elements Tab</h2>
+            <p>
+                Notice the <b>Elements</b> tab is selected.  This tab shows you what text and elements are contained
+                within what other elements.  Find the two images that you added to your page.  Note that
+                you may need to expand the paragraph element.
+            </p>
+            <img src="chrome7.png">
+            <p>
+                You may have noticed that when you move your mouse over contents of the <b>Elements</b>
+                tab, the elements on the page highlight.
+            </p>            
+            <p>
+                Try clicking the magnifying glass icon at the bottom of the Chrome window (shown in yellow below):
+            </p>
+            <img src="chrome8.png">
+            <p>
+                Now move your mouse to the web page.  Try clicking on something within the page and notice
+                that it selects the element within the <b>Elements</b> tab.
+            </p>
+            <p class="sidenote">
+                The Elements tab is a great tool for understanding the elements that make up your HTML page.
+                It lets you figure out what elements and text are contained within what other elements.
+                It is also very useful for finding out where a particular element is positioned on the screen.
+            </p>
+            <h2>The Resources Tab</h2>
+            <p>
+                Remember when we talked about how a web browser loads a web page?  Remember the
+                word <b>resource</b>?  What are the resources for this page?
+            </p>
+            <div class="answerFrame">
+                <div class="answerButton">Move your mouse here to see the resources for this page.</div>
+                <div class="answer">
+                <ul>
+                    <li>default.html</li>
+                    <li>smiley.png</li>
+                </ul>
+                </div>
+            </div>            
+            <p>               
+                Click on the <b>Resources</b> tab.  Expand the
+                arrows (under <b>Frames</b>) until you find all the Resources used by this page.
+            </p>
+            <p>
+                Click on each of the resources to preview them.
+            </p>
+            <img src="chrome9.png">            
+            <h2>The Network Tab</h2>
+            <p>
+                Click on the <b>Network</b> tab and refresh the page.
+            </p>
+            <img src="chrome10.png">
+            <p>
+                The Network tab should now have a table with two rows in it.
+                Each row in the table is a resource that the browser has loaded.
+                The first one is <b>default.html</b> resource, which contains the HTML.
+                After the browser has examined the HTML and has found the Image Elements, it
+                loads <b>smiley.png</b>, resulting in another row.
+            </p>
+            <h2>A missing resource</h2>
+            <p>
+                Go back to Komodo Edit and change the value of the <b>src</b> attribute of the
+                first image from "smiley.png" to "grumpy.png".  Save, and go back to Chrome.
+                Refresh the page in Chrome.  
+            </p>
+            <p>
+                You will notice the first image has been replaced with a smaller image that
+                Chrome uses when it can't find an image.
+            </p>
+            <img src="chrome12.png">
+            <p>
+                Take a look at the Network tab now.
+            </p>
+            <img src="chrome11.png">
+            <p>
+                Notice that the second row is red now, because there is an error.  Chrome can not find
+                a resource named "grumpy.png" (there is no such file in your folder).
+            </p>
+            <p class="sidenote">The <b>Network</b> tab is useful for making sure all your resources are loading correctly.</p>
+            <h2>The page title</h2>
+            <p>
+                Lets continue building our web site.
+            </p>
+            <p>
+                Take a look at the <a href="../../../resources/htmlsubset.htm#Title">Title Element</a>
+                section in our HTML Subset.
+            </p>
+            <p>
+                Switch to Komodo Edit and change the title of your page to be <b>Math and Smileys</b>.
+            </p>
+            <p>
+                Save and refresh the page in Chrome.  The new title should be displayed on the tab for the web page.
+            </p>
+            <img src="chrome13.png">
+            <h2>A second page</h2>
+            <p>
+                Most web sites consist of more than one page.  Lets add a second page.
+            </p>
+            <p>
+                Create a new HTML file using File / New on Komodo Edit.  Notice that since
+                you have used the HTML5 template before, it now will show up directly within
+                the File / New menu as a recently used template.
+            </p>
+            <p>
+                Select the template, and a new tab will appear in Komodo Edit.                
+            </p>
+            <p>
+                Fix up the formatting of the file so that it follows the 
+                <a href="../../../resources/htmlsubset.htm#Conventions">Conventions</a> for this class.
+                When you are done, you should have the following:
+            </p>
+            <img src="komodo6.png">
+            <h2>Create an HTML template</h2>
+            <p>
+                Wait, am I going to do this reformating each time I want to create a new page?                
+            </p>
+            <p>
+                Komodo Edit has a way to create your own <b>template</b>.  Since you just reformatted
+                the HTML in the current tab, why don't we save that HTML as a template so we don't have
+                to do the reformatting again.
+            </p>
+            <p>
+                
+                Use File / Save As Other / Template
+                and call it <b>UPrep HTML.html</b>.                
+            </p>
+            <p>
+                Since you changes have now been saved as a template, we can close the tab.
+                Komodo Edit will ask if you want to save the changes for the tab.
+                Select <b>No</b>.
+            </p>
+            <h2>Use your new template</h2>
+            <p>
+                Now go to File / New / From Template, and select <b>My Templates</b>.                
+            </p>
+            <img src="chrome24.png">
+            <p>
+                Choose your template (<b>UPrepHtml</b>) from the list of templates and
+                select <b>Open</b>.
+            </p>
+            <p>
+                A tab should open with the contents of your template.  You can now start building your second page.
+            </p>
+            <p>
+                Change the title of the page to <b>Second Page</b>.  Add a paragraph with the words <b>Second Page</b>
+                to the page.
+            </p>
+            <p>
+                Save this file in your exercise folder.  Name it <b>page2.html</b>.
+            </p>
+            <h2>A hyperlink</h2>
+            <p>
+                Now lets create a hyperlink from the first page to the second page.
+            </p>
+            <p>
+                Switch to the tab for the first page (<b>default.html</b>).  
+            </p>
+            <p>
+                Take a look at the <a href="../../../resources/htmlsubset.htm#Anchor">Anchor Element</a>
+                section in our HTML Subset, which describes how to create a hyperlink.  Use the
+                <b>second</b> option listed there (<b>link to file</b>).
+            </p>
+            <p>
+                Add an Anchor Element at the end of this page that links to the second page (<b>page2.html</b>).
+                Put the text <b>Page 2</b> inside the Anchor Element.
+            </p>
+            <p>
+                Save, switch to Chrome and refresh.  Your page should now have a link.
+            </p>
+            <img src="chrome14.png">
+            <p>
+                When you click on the link, Chrome will navigate to the second page.  <span class="woot"></span>
+            </p>
+            <img src="chrome16.png">
+            <p>
+                Press the Chrome back button to go back to the first page.
+            </p>
+            <h2>An image hyperlink</h2>
+            <p>
+                When you clicked on the <b>Page 2</b> text, Chrome automatically
+                took you to the second page.  But when you click elsewhere on the page, it
+                does not.  How does it know what part of the page is part of the hyperlink,
+                and what parts are not?
+            </p>
+            <div class="answerFrame">
+                <div class="answerButton">Move your mouse here to see the answer.</div>
+                <div class="answer">
+                    <p>
+                        Chrome will navigate if you click on any text or elements
+                        that are <b>contained within</b> the Anchor Element.
+                    </p>
+                </div>
+            </div>
+            <p>
+                So what happens if we put an Image Element inside an Anchor Element?  Lets try and see.
+            </p>
+            <p>
+                Create a second Anchor Element at the end of the first page (<b>default.html</b>).
+                Put another smiley Image Element inside the Anchor Element.  You can use <b>Copy and Paste</b>
+                to reuse existing elements instead of having to retype them.
+            </p>
+            <p class="sidenote">
+                Copy and paste is a great tool for programmers to avoid having to retype something
+                they want to use again. But be very careful that after you have pasted something, that you change everything
+                that needs to be changed for the new usage. Also, when copying from the web, make sure you have
+                the rights to use the thing you are copying.
+            </p>
+            <p>
+                Save, and refresh Chrome.  You should see the following. 
+            </p>
+            <img src="chrome15.png">
+            <p>
+                Try clicking on the third smiley on the page.  Chrome should navigate to the second page. <span class="woot"></span>
+            </p>
+            <h2>A link to UPrep</h2>
+            <p>
+                So far we have been creating links to other pages in our own site.
+                If we want to create a link to another site, we need to use the URL
+                of the resource we want to link to.
+            </p>
+            <p>
+                Take a look at the <a href="../../../resources/htmlsubset.htm#Anchor">Anchor Element</a>
+                section in our HTML Subset, which describes how to create a hyperlink to a URL
+                (see the <b>third</b> option, <b>Link to URL</b>).
+            </p>
+            <p>
+                Add an Anchor Element 
+                containing the text <b>University Prep</b> that links to the
+                URL <b>http://www.universityprep.org</b>.  
+            </p>
+            <p>Save and refresh in Chrome.  You should see the following:</p>
+            <img src="chrome18.png">
+            <p>
+                Click on the Unversity Prep link, and it should take you to
+                University Prep's web site. <span class="woot"></span>
+            </p>            
+            <h2>A link to an image</h2>
+            <p>
+                So far we have been creating links to other pages.  But images are resources
+                just like pages are.  So we should be able to link to an image as well.
+            </p>
+            <p>
+                Add an Anchor Element containing the text <b>Smiley</b> that links to the file
+                <b>smiley.png</b>.  
+            </p>
+            <p>Save and refresh in Chrome.  You should see the following.</p>
+            <img src="chrome19.png">
+            <p>Click the Smiley link.  Chrome should navigate to the image, and will display it.</p>
+            <img src="chrome20.png">
+            <p>Web browsers know how to display all sorts of different kinds of resources,
+            not just HTML.</p>
+            <h2>Done!</h2>
+            <p>
+                Head back to Schoology and mark this as done.
+            </p>
+        </div>
+    </body>
+</html>

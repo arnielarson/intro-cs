@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Exercise 1.3.3</title>
+        <link href="../../../reset.css" rel="stylesheet">
+        <link href="../../../page.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="frame">
+            <h1>Exercise 1.3.3</h1>
+            <h2>Introducing Strings ...</h2>
+            <p>
+                First, lets review some of what we've learned about Javascript variables.
+            </p>
+            
+            <h3>Numbers ...</h3>
+            <p>
+                In this class we started out working with <b>number values</b>.
+                For example, we used number values in variables:
+            </p>
+            <div class="code">
+                function start() {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;var x = <span class="highlight">1</span>;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;var y = <span class="highlight">2</span>;<br>
+                }
+            </div>
+            
+            <h3>Undefined ...</h3>
+            <p>
+                We also found that the value of a variable could be <span class="code">undefined</span>,
+                which is the value that Javascript uses when it does not know what value to use, a sort
+                of <b>unknown</b> value.
+            </p>
+            <p>
+                For example, undefined shows up when we don't assign a variable.
+            </p>
+            <div class="code">
+                function start() {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;var a;&nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">a contains undefined (no value assigned)</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;a = 1;&nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">a contains 1</span><br>
+                }
+            </div>
+            <p>
+                And if we want to use the <b>undefined</b> value, we can use the word <span class="code">undefined</span>.
+                For example:
+            </p>
+            <div class="code">
+                function start() {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;var a;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">a contains undefined</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;a = 1;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">a contains 1</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;a = undefined;&nbsp;<span class="annotation">a contains undefined</span><br>
+                }                
+            </div>
+            
+            <h3>Function ...</h3>
+            <p>
+                We haven't needed to know about this, but <b>functions</b> can
+		be grouped together too.
+            </p>
+            <p>
+                Functions be grouped together with objects (We'll learn more about objects soon).  
+		Javascript and the web browser use this approach for many of functions that 
+		we will be using in this class.  For example, Javascript
+                has a <b>Math</b> object that groups together many function values
+                (and numbers too) that relate to math.  The following examples use
+                <span class="highlight">properties</span> of the Math object:
+            </p>
+            <table class="simple">
+                <tr>
+                    <th>what you do</th>
+                    <th>value of variable a?</th>
+                    <th>explanation</th>
+                </tr>
+                <tr>
+                    <td><div class="code">var a = Math.<span class="highlight">round</span>(1.5);</div></td>
+                    <td><div class="code">2</div></td>
+                    <td>rounds a number up</td>
+                </tr>
+                <tr>
+                    <td><div class="code">var a = Math.<span class="highlight">PI</span>;</td>
+                    <td><div class="code">3.141592653589793</div></td>
+                    <td>approximation of PI</td>
+                </tr>
+                <tr>
+                    <td><div class="code">var a = Math.<span class="highlight">max</span>(1, 2);</div></td>
+                    <td><div class="code">2</div></td>
+                    <td>largest of two numbers</td>
+                </tr>
+                <tr>
+                    <td><div class="code">var a = Math.<span class="highlight">min</span>(1, 2);</div></td>
+                    <td><div class="code">1</div></td>
+                    <td>smallest of two numbers</td>
+                </tr>
+            </table>
+            <p class="sidenote">
+                Why group functions?  There are many reasons.  One reason
+                is to reduce the number of names that your program has to use.
+                The more names there are, the larger the chance that both your program
+                and Javascript use the same name for something (which can lead to problems).
+            </p>
+            <h3>Chrome Console</h3>
+            <p>
+                Lets try some of these out.  Open <b>any</b> web page in Chrome
+                and open <b>Developer Tools</b>.  Choose the icon circled below:
+            </p>
+            <img src="chrome18.png">
+            <p>
+                An area at the bottom should open.  This is called the "console", and
+                it lets you type in some Javascript to try it out.
+            </p>
+            <img src="chrome19.png">
+            <p>
+                Type <span class="code">1+1</span>.  You should see...
+            </p>
+            <img src="chrome20.png">
+            <p>
+                Type <span class="code">Math.min(1, 2)</span>.  You should see...           
+            </p>
+            <img src="chrome21.png">
+            <p>
+                Type <span class="code">Math.min</span>.  You should see that Math.min is a function value...
+            </p>
+            <img src="chrome22.png">
+            <p class="sidenote">
+                Not sure how some Javascript is going to work?  You can always
+                try it out in the console before putting it in your Javascript file.
+                You can press <span class="key">Shift</span> + <span class="key">Enter</span>
+                between lines if there is more than one line.
+            </p>                    
+            <h3>And now... String values</h3>            
+            <p>
+                In this
+                lesson, we are learning a new type of value, called <b>string</b> value.
+                A string is used to hold <b>text</b> in Javascript.                
+            </p>
+            <p>
+                A string value is written as whatever <span class="code"><span class="placeholder">text</span></span> you
+                want surrounded by quotes:
+            </p>
+            <div class="code">
+                "<span class="placeholder">text</span>"
+            </div>
+            <p>
+                For example, the each of the variables in the following function are assigned a <span class="highlight">string value</span>:
+            </p>
+            <div class="code">
+                function start() {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;var firstPlayer = <span class="highlight">"Fredy Montero"</span>;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;var secondPlayer = <span class="highlight">"Alvaro Fernandez"</span>;<br>
+                }<br>
+            </div>
+            
+            <h3>Strings versus numbers</h3>
+            <p>
+                Javascript (and many programming languages) have different <b>kinds</b> of values for
+                text and numbers, since the things you do with numbers and text are different.
+            </p>
+            <p>
+                For example, it makes sense to <b>subtract</b> two <b>number</b> values:
+            </p>
+            <div class="code">
+                var a = 5;<br>
+                var b = 2;<br>
+                var difference = a - b; <span class="annotation">The difference is 3!</span><br>
+            </div>
+            <p>
+                But it does not make sense to subtract two <b>string</b> values:
+            </p>
+            <div class="code">
+                var a = "saber-toothed cat";<br>
+                var b = "house cat";<br>
+                var difference = a - b; <span class="annotation">Um, the difference is... large teeth?</span><br>
+            </div>
+            <p>
+                So just because a string value only has digits (0, 1, 2, etc.) in it, it does
+                not mean it <b>is</b> a number.
+            </p>
+            <div class="code">
+                var a = "123";&nbsp;&nbsp;<span class="annotation">A string value</span><br>
+                var b = 123;&nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">A number value</span><br>
+            </div>
+            
+            <h3 id="NumberToString">Converting a number to a string</h3>
+            <p>
+                So what happens if we have a number value, but we need a string value?
+                Then we need to <b>convert</b> (change) the number
+                into a string value.
+            </p>
+            <p>
+                We can convert a number into a string by calling the <b>toString</b>
+                function.  The toString function acts like a <b>property</b> of
+                a number value.  
+                For example, we can write:                
+            </p>
+            <div class="code">
+                var a = "123";&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">A string value</span><br>
+                var b = 123;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">A number value</span><br>
+                var c = b.toString();&nbsp;&nbsp;&nbsp;<span class="annotation">Converting number to string value</span><br>                
+            </div>
+            <p class="sidenote">
+                Javascript makes the toString property <b>look like</b> a property of the number, but
+                it is not actually storing the toString function value for every number.  Such trickery!
+                But even with all the magic, you won't find a <a href="http://en.wikipedia.org/wiki/Rumpelstiltskin">toGold</a> function.
+            </p>
+            <p>
+                We can try this out in the console.  Type the following.
+            </p>
+            <img src="chrome23.png">
+            <p>
+                First, we make a variable (<b>a</b>) that contains a number (<b>123</b>).  
+                Then we use the <b>toString</b> function to converts the number to a string
+                and store that in another variable (<b>b</b>).  Then we display the value
+                of <b>b</b> (which is a string).
+            </p>
+            <p class="sidenote">
+                Just typing the name of the variable in the console will print the value
+                of the variable.  When you make a variable in the console, the console
+                will always print <b>undefined</b>.  But don't worry, your variable is there.
+            </p>
+            <h3 id="StringToNumber">Converting a string to a number</h3>
+            <p>
+                Ok, we know how to convert a number to a string... what about
+                the other way around (string to number)?
+                This only works if the string actually looks like a number.
+            </p>
+            <p>
+                To convert a string to a number, we can use the <b>parseFloat</b> function.
+                For example:
+            </p>
+            <div class="code">
+                var a = "123.45";&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">A string value</span><br>
+                var b = parseFloat(a);&nbsp;&nbsp;<span class="annotation">A number value (123.45)</span><br>
+            </div>
+            <p>
+                You can try this in the console:
+            </p>
+            <img src="chrome24.png">
+            <p class="sidenote">
+                If you try using the parseFloat function to convert a string that does not look like a number, 
+                the function may return a value called <span class="code">NaN</span>.  This stands for <b>not a number</b>,
+                which is kind of the number equivalent of <span class="code">undefined</span>.
+                You may have seen this when you accidently did math with <span class="code">undefined</span>,
+                for example, <span class="code">undefined + 1</span> produces <span class="code">NaN</span>.
+            </p>
+            
+            <h3 id="Combining">Combining strings</h3>
+            <p>
+                What happens when we want to combine two or more strings to make a larger string?
+                Or combine numbers and strings to make a string?
+            </p>
+            <p>
+                To combine two strings in Javascript, you can <b>add</b> them together
+                (using a <span class="highlight">+</span>).
+                For example:
+            </p>
+            <div class="code">
+                var cat = "cat";<br>
+                var fish = "fish";<br>
+                var catfish = cat <span class="highlight">+</span> fish;&nbsp;<span class="annotation">"catfish"</span><br>
+            </div>
+            <p class="sidenote">
+                Combining two strings like this is called
+                <a href="http://en.wikipedia.org/wiki/Concatenation">Concatenation</a>.
+            </p>
+            <p>
+                Lets look at another example.  Say we have 
+                a number of weasels (999) in a variable, and we want to make
+                the string:<br>
+                <span class="code">"I have 999 weasels"</span>.
+            </p>
+            <p>
+                First we need to convert the number into a string.
+            </p>
+            <div class="code">
+                var weasels = 999;<br>
+                var weaselsString = weasels.toString();&nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">"999"</span><br>
+            </div>
+            <p>
+                Then we can combine the three strings together to make the larger string.
+            </p>
+            <div class="code">
+function start() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var weasels = 999;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var weaselsString = weasels.toString();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var message = "I have " + weaselsString + " weasels";&nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">"I have 999 weasels"</span><br>
+}<br>
+            </div>
+            <p>
+                You can try this in the console:
+            </p>
+            <img src="chrome26.png">
+            <h3 id="Combining">What about quotes in strings?</h3>
+            <p>
+                Since the quote character <span class="code">"</span> is used to
+                say where the text starts, and where the text ends, what happens
+                if we want a quote character <b>in</b> the
+                text?  The answer can be found <a href="../../../resources/jssubset.htm#String">here</a>.
+            </p>
+            <p class="sidenote">
+                This concept is similar to the
+                <a href="../Lesson%201.1%20-%20Web%20page%20basics/Exercise%201.1.1.htm#LessThan">problem</a>
+                we had with less than characters (&lt;) when working with HTML.
+            </p>
+            <p>
+                For example, the following puts quotes around the word <b>good</b>.
+            </p>
+            <img src="chrome27.png">            
+            <p>
+                Try the following in the console.  Make a string that says
+                <b>that was interesting</b>, only put quotes around the word <b>interesting</b>.                
+            </p>
+            <h2>Done!</h2>
+            <p>
+                Head back to Schoology and mark this as done.
+            </p>
+        </div>
+    </body>
+</html>

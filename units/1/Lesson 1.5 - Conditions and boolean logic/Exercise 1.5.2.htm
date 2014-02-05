@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Exercise 1.5.2</title>
+        <link href="../../../reset.css" rel="stylesheet">
+        <link href="../../../page.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="frame">
+            <h1>Exercise 1.5.2</h1>
+            <h2>School classification</h2>
+            <p>
+                The UPrep staff would like you to calculate
+                the  Washington Interscholastic Activities Association
+                <b>classification</b> for the school
+                for this <b>this year</b>.
+            </p>
+            <p>
+                The rules for calculating the classification (based on
+                <b>10th</b> through <b>12th</b> <b>enrollment</b>) can be found 
+                <a href="http://en.wikipedia.org/wiki/Washington_Interscholastic_Activities_Association#Classification">
+                    here</a>.                
+            </p>
+            <h3>Number in a range</h3>
+            <p>
+                If we look at the classification chart, we see that the
+                classification (<b>4A</b>, <b>3A</b>, etc.) is calculated
+                based on the <b>enrollment</b> (the total number of
+                students in grades 10-12).
+            </p>
+            <p id="4A">
+                The <b>4A</b> classification is used if the enrollment
+                is greater than or equal to <b>1304</b>. We already know how to
+                check if a number is greater than a value.  For example,
+                to check for <b>4A</b>, we can write:
+            </p>
+            <div class="code">
+                var is4A = enrollment &gt;= 1304;
+            </div>
+            <p>
+                However, the rest of the classifications are based on a
+                range of values.  For
+                example, the <b>3A</b> classification is used when the
+                enrollment is between
+                <b>1086</b> and <b>1303</b>.  We know
+                how to write:
+            </p>
+            <div class="code">
+                bool isLargeEnoughFor3A = enrollment gt;= 1086;<br>
+                bool isSmallEnoughFor3A = enrollment &lt;= 1303;
+            </div>
+            <p>
+                But we really want a way to calculate whether <b>both</b>
+                values are true.  In order to be in <b>3A</b>, the
+                enrollment must be <b>large enough</b>, but not <b>too large</b>.                
+            </p>
+            <p class="sidenote">
+                For some reason this reminds me of the 
+                <a href="http://en.wikipedia.org/wiki/The_Story_of_the_Three_Bears#Plot">Story of the Three Bears</a>.
+            </p>
+            <h3>Logical AND expression</h3>
+            <p>
+                Javascript has way of calculating whether two boolean
+                values are <b>both</b> true, called a <b>logical AND</b> expression.
+                A logical AND expression is written:
+            </p>
+            <div class="code">
+                <span class="placeholder">firstExpression</span> && <span class="placeholder">secondExpression</span>
+            </div>
+            <p>
+                The result of calculating a logical AND expression is
+                <b>true</b> if <b>both</b> <b>firstExpression</b> and
+                <b>secondExpression</b> are true, and <b>false</b> otherwise.
+            </p>
+            <p>
+                What values would you expect if we calculated the following logical AND
+                expressions?
+            </p>
+            <div class="answerFrame">
+                <div class="answerButton">
+                    Move your mouse to the value column to see the answers.
+                </div>
+                <table class="simple">
+                    <tr>
+                        <th>Logical AND expression</th>
+                        <th>value</th>
+                    </tr>
+                    <tr>
+                        <td><span class="code">true && true</span></td>
+                        <td><div class="answerCell"><span class="code">true</span></div></td>
+                    </tr>
+                    <tr>
+                        <td><span class="code">true && false</span></td>
+                        <td><div class="answerCell"><span class="code">false</span></div></td>
+                    </tr>
+                    <tr>
+                        <td><span class="code">false && true</span></td>
+                        <td><div class="answerCell"><span class="code">false</span></div></td>
+                    </tr>
+                    <tr>
+                        <td><span class="code">false && false</span></td>
+                        <td><div class="answerCell"><span class="code">false</span></div></td>
+                    </tr>
+                </table>
+            </div>
+            <p>
+                A logical AND expression can be used more than once in an
+                expression.  For example, to see if <b>three</b> expressions are
+                all true, we would write:
+            </p>
+            <div class="code">
+                <span class="placeholder">firstExpression</span> && <span class="placeholder">secondExpression</span> && <span class="placeholder">thirdExpression</span><br>
+            </div>
+            <p>
+                Javascript will calculate the values of <b>firstExpression</b> first,
+                then the <b>secondExpression</b>, and so on.  But it only continues
+                to the next expression if the overall result is going to be
+                <b>true</b>.  
+            </p>
+            <p>
+                For example, if calculating <b>firstExpression</b> produces <b>true</b>, it
+                will continue to <b>secondExpression</b>.  If 
+                calculating <b>secondExpression</b> produces <b>false</b>, then
+                it will stop (since there is no point in calculating <b>thirdExpression</b>).
+            </p>
+            <p class="sidenote">
+                You probably use this technique all the time without even thinking
+                about it.  Imagine
+                you wanted to know if <b>everyone</b> in your class ate breakfast this morning.
+                You could ask the first person, and they might say yes.  Then you could
+                ask another person, and they might say no.  Would you continue asking more
+                people?  Probably
+                not, since you know there is at least one person that did not eat breakfast
+                (meaning <b>everyone</b> did not eat breakfast).
+                In programming, this is an example of
+                <a href="http://en.wikipedia.org/wiki/Short-circuit_evaluation">Short Circuit Evaluation</a>.
+            </p>
+            <h3>Using a logical AND expression</h3>
+            <p>
+                We can now use a logical AND expression to calculate
+                whether an enrollment value corresponds to the the
+                <b>3A</b> classification.
+            </p>
+            <div class="code">
+                bool isLargeEnoughFor3A = enrollment &gt;= 1086;<br>
+                bool isSmallEnoughFor3A = enrollment &lt;= 1303;<br>
+                bool is3A = isLargeEnoughFor3A && isSmallEnoughFor3A;                
+            </div>
+            <p>
+                Combining some of the expressions, we have:
+            </p>
+            <div class="code">
+                bool is3A = enrollment &gt;= 1086 && enrollment &lt;= 1303;                
+            </div>
+            <h3>Adding an if statement</h3>
+            <p>
+                If we use our checks for <a href="#4A">4A</a> and <b>3A</b>
+                with <b>if statements</b>, we have:
+            </p>
+            <div class="code">
+                if (enrollment &gt;= 1304) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">the classification is 4A</span><br>
+                } else {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;if (enrollment &gt;= 1086 && enrollment &lt;= 1303) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">the classification is 3A</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;} else {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">the classification is something else</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                }
+            </div>
+            <p>
+                Adding a check for <b>2A</b>, we have:
+            </p>
+            <div class="code">
+                if (enrollment &gt;= 1304) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">the classification is 4A</span><br>
+                } else {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;if (enrollment &gt;= 1086 && enrollment &lt;= 1303) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">the classification is 3A</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;} else {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (enrollment &gt;= 513 && enrollment &lt;= 1085) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">the classification is 2A</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} else {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">the classification is something else</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                }
+            </div>
+            <p>
+                Notice that each subsequent if statement is contained within <b>else</b>
+                of the <b>previous</b> if statement.  Javascript allows us to write this
+                in a way that is easier to read, as follows:
+            </p>
+            <div class="code">
+                if (enrollment &gt;= 1304) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">the classification is 4A</span><br>
+                } else if (enrollment &gt;= 1086 && enrollment &lt;= 1303) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">the classification is 3A</span><br>
+                } else if (enrollment &gt;= 513 && enrollment &lt;= 1085) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">the classification is 2A</span><br>
+                } else {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">the classification is something else</span><br>
+                }
+            </div>            
+            <h3>Inputs</h3>
+            <p>
+                You can find the input data for <b>this year</b> here:
+            </p>
+            <div class="code">                
+var thisYear = {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;grade10: 81,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;grade11: 79,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;grade12: 76<br>
+};<br>                
+            </div>
+            <p class="sidenote">
+                Where are the values for 9th grade?  And the middle school?
+                Since the classification is based only on grades 10-12, we do not
+                need the values for the rest of the school.
+            </p>
+            <h3>The output</h3>
+            <p>
+                Since the classification is just a name, like <b>4A</b>, we can
+                use a <b>string value</b> to represent each classification.
+            </p>
+            <table class="simple">
+                <tr>
+                    <th>Classification</th>
+                    <th>Classification Value</th>
+                </tr>
+                <tr>
+                    <td>4A</td>
+                    <td><span class="code">"4A"</span></td>
+                </tr>
+                <tr>
+                    <td>3A</td>
+                    <td><span class="code">"3A"</span></td>
+                </tr>
+                <tr>
+                    <td>2A</td>
+                    <td><span class="code">"2A"</span></td>
+                </tr>
+                <tr>
+                    <td>1A</td>
+                    <td><span class="code">"1A"</span></td>
+                </tr>
+                <tr>
+                    <td>2B</td>
+                    <td><span class="code">"2B"</span></td>
+                </tr>
+                <tr>
+                    <td>1B</td>
+                    <td><span class="code">"1B"</span></td>
+                </tr>
+            </table>
+            <h3>Bad inputs</h3>
+            <p>
+                In this case our input values make sense.
+            </p>
+            <p>
+                But what happens if our algorithm was given (nonsensical) input values?
+                For example, what if the number of students is negative?
+            </p>                
+            <p>
+                In that case, we can output the value <b>undefined</b>.
+                If you recall, <span class="code">undefined</span> is the value that
+                a variable has before it is assigned a value.                
+            </p>
+            <p>
+                For example:
+            </p>
+            <div class="code">
+                var x;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">After this statement is executed, x has the value undefined</span><br>
+                x = 1;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">After this statement is executed, x has the value 1</span><br>
+                x = undefined;
+                &nbsp;<span class="annotation">After this statement is executed, x has the value undefined</span>
+            </div>            
+            <h2>Ready to start</h2>
+            <p>
+                At this point, you should have all the information
+                necessary to calculate the <b>classification</b>
+                for the school.
+                You will need a <b>plan</b>, of course.
+            </p>
+            <p>
+                Once you have a plan, then go ahead and
+                create a folder for this exercise (<b>Exercise 1.5.2</b>) containing
+                <b>default.html</b> and <b>uprep.cs</b>.
+            </p>
+            <p>
+                Make sure you create appropriate test cases
+                (using <a href="Exercise%201.5.1.htm#Assert">assert</a>) to test
+                your algorithm.
+            </p>
+            <p>
+                Also make sure you check your work.
+                The output you are looking for is <span class="code">"1A"</span>.
+            </p>
+            <h3>Completed program</h3>
+            <p>
+                If you really get stuck, or if you want to check your work when
+                you are done,
+                you can find a completed program
+                <a href="Answer%201.5.2.htm">here</a>.
+            </p>
+            <h2>Done!</h2>
+            <p>
+                Head back to Schoology and mark this as done.
+            </p>
+        </div>
+    </body>
+</html>

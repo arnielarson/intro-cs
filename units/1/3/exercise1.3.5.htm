@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Exercise 1.3.5</title>
+        <link href="../../../reset.css" rel="stylesheet">
+        <link href="../../../page.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="frame">
+            <h1>Exercise 1.3.5</h1>
+            <h2>Number of UPrep Students</h2>
+            <h3>The HTML of an element</h3>
+            <p>
+                Many HTML elements can contain other elements.  For
+                example, the body element below contains 4 other elements:
+            </p>
+            <div class="sidebyside">
+                <div class="side">
+                    <div class="code">
+&lt;!DOCTYPE html&gt;<br>
+&lt;html&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;head&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;Title&lt;/title&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;link rel="stylesheet" href="pets.css"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;script src="pets.js"&gt;&lt;/script&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/head&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;body class="main" onload="start();"&gt;<br><span class="highlight">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;h1 class="section"&gt;Cats&lt;/h1&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p class="detail"&gt;123&lt;/span&gt;&lt;/p&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;h1 class="section"&gt;Dogs&lt;/h1&gt; <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p class="detail"&gt;456&lt;/p&gt;<br></span>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/body&gt;<br>
+&lt;/html&gt;<br>                
+                    </div>
+                </div>
+                <div class="side">
+                    <img src="chrome10.png">
+                </div>
+            </div>
+            <p>
+                How we change these elements from our Javascript?
+            </p>
+            <p>
+                It turns out that each element object that can contain other elements
+                has a property called <b>innerHTML</b>.  The innerHTML is
+                a string value for all the HTML, shown in <span class="highlight">yellow</span>
+                above.
+            </p>
+            <h3>Changing the innerHTML of an element</h3>
+            <p>
+                If we wanted to change the highlighted HTML above to the
+                following:
+            </p>
+            <div class="sidebyside">
+                <div class="side">
+                    <div class="code">
+&lt;!DOCTYPE html&gt;<br>
+&lt;html&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;head&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;Title&lt;/title&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;link rel="stylesheet" href="pets.css"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;script src="pets.js"&gt;&lt;/script&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/head&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;body class="main" id="change" onload="start();"&gt;<span class="highlight"><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;h1 class="section"&gt;Weasels&lt;/h1&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p class="detail"&gt;999&lt;/h1&gt;<br></span>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/body&gt;<br>
+&lt;/html&gt;<br>                
+                    </div>
+                </div>
+                <div class="side">
+                    <img src="chrome11.png">
+                </div>
+            </div>
+            <p id="Body">
+                We can change the value of the <b>innerHTML</b> property
+                of the Body Element.  Of course, we would first name
+                the body element so we can find it (we'll name it <b>pets</b> in this example).
+            </p>
+            <div class="code">
+&lt;!DOCTYPE html&gt;<br>
+&lt;html&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;head&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;Title&lt;/title&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;link rel="stylesheet" href="pets.css"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;script src="pets.js"&gt;&lt;/script&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/head&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;body class="main" <span class="highlight">id="pets"</span> onload="start();"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;h1 class="section"&gt;Cats&lt;/h1&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p class="detail"&gt;123&lt;/span&gt;&lt;/p&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;h1 class="section"&gt;Dogs&lt;/h1&gt; <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p class="detail"&gt;456&lt;/p&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/body&gt;<br>
+&lt;/html&gt;<br>
+                
+            </div>
+            <p>
+                Then we can write:
+            </p>
+            <div class="code">
+                function start() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var body = document.getElementById("pets");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;body.innerHTML = "&lt;h1 class=\"section\"&gt;Weasels&lt;/h1&gt;&lt;p class=\"details\"&gt;999&lt;/p&gt;";<br>
+}<br>
+            </div>
+            <p class="sidenote">
+                You will notice that writing HTML in Javascript is a little tricky.
+                Each time we use a double quote in a string,
+                we have to write <span class="code">\"</span>.
+                You can find more information <a href="../../../resources/jssubset.htm#String">here</a>.
+            </p>
+            <h2>The assignment</h2>
+            <p>
+                In this assignment, we will use Javascript to make the HTML of the UPrep Students page
+                instead of just filling in the values.  This means that all the HTML inside
+                the Body Element will be set by Javascript.
+            </p>
+            <ul>
+                <li>
+                    <p>Make a folder for this Exercise (<b>Exercise 1.3.5</b>).</p>                    
+                </li>
+                <li>
+                    <p>Copy all the files from the last exercise (<a href="exercise1.3.4.htm">Exercise 1.4.4</a>).</p>
+                </li>
+                <li>
+                    <p>You will need to give a name to the body element so you can find it
+                    from your Javascript (as we did <a href="#Body">here</a>).
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        You will need to combine strings (as we did <a href="exercise1.3.3.htm#Combining">here</a>).
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        You will need to convert numbers to strings (as we did <a href="exercise1.3.3.htm#NumberToString">here</a>).
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        The contents of the body element should be <b>empty</b> in the HTML file (since
+                        all the HTML will added by the Javascript).
+                    </p>
+                </li>                    
+                <li>
+                    <p>
+                        When you are done, the page should look the same, even though
+                        all the HTML will be coming from the Javascript.<br>
+                        <img src="chrome2.png">
+                    </p>
+                </li>
+            </ul>
+            <h2>Some reflection</h2>
+            <div class="turn">
+                Now we have made the same page using two different techniques: first by filling in
+                text using the textContent property,
+                and then by filling in HTML using the innerHTML property.<br>
+                <ul>
+                    <li>What did you think about the two techniques?</li>
+                    <li>When would you use which?</li>
+                    <li>Can you mix the techniques?</li>
+                </ul>
+                Turn to your neighbor and share your thoughts.
+            </div>
+            <h2>Done!</h2>
+            <p>
+                Head back to Schoology and submit your work (the CSS and HTML).
+            </p>
+        </div>
+    </body>
+</html>

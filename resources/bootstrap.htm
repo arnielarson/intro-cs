@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Bootstrap</title>
+        <link href="../reset.css" rel="stylesheet">
+        <link href="../page.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="frame" id="Top">
+            <h1>Bootstrap</h1>
+
+            <p>Bootstrap is a CSS framework created by Twitter that
+                takes makes HTML "look nice" and "behave nicely"
+                with less effort on your part.  Here are some
+                of the advantages:
+            <p>
+            <ul>
+                <li>
+                    The Bootstrap
+                    styles are much nicer than "plain" HTML, meaning you will have to create
+                    fewer styles.
+                </li>
+                <li>
+                    Bootstrap has a "grid" (explained below).  A grid is an easy way of saying "what goes where".  A nice advantage
+                    to the Bootstrap grid is that it works nicely on
+                    both desktop and mobile devices (meaning the page will automatically
+                    adapt to larger and smaller screens).
+                </li>
+                <li>
+                    Bootstrap contains additional components that are useful
+                    for creating menus, etc.
+                </li>
+                <li>
+                    Bootstrap has already figured out what colors to use
+                    for different situations: warning a user, in case of a problem, etc.
+                </li>
+            </ul>
+            <h3>Getting Started</h3>
+            <p>
+                To use Bootstrap, do the following:
+            </p>            
+            <ul>
+                <li>Download bootstrap from <a href="http://getbootstrap.com">http://getbootstrap.com</a>.  Choose the "Download Bootstrap" option (not Download Source).</li>  
+                <li>Unzip the contents of the download.  You should see a <b>dist</b> folder.</li>  
+                <li>Copy the contents of the <b>dist</b> folder into the
+                    folder for your program.  You should have three folders in your program folder: <b>css</b>, <b>fonts</b>, and <b>js</b>.  
+                </li>
+                <li>
+                        Use the following template for your HTML pages:
+                        <div class="code">
+&lt;!DOCTYPE html&gt;<br>
+&lt;html&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;head&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;Page Title&lt;/title&gt;<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;!-- bootstrap stuff --&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;link href="css/bootstrap.min.css" rel="stylesheet"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;script src="https://code.jquery.com/jquery.js"&gt;&lt;/script&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;script src="js/bootstrap.min.js"&gt;&lt;/script&gt;<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;!-- your stuff --&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;script src="uprep.js"&gt;&lt;/script&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;link href="uprep.css" rel="stylesheet"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/head&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;body onload="start();"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;!-- you will decide what goes here --&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/body&gt;<br>
+&lt;/html&gt;<br>
+                        </div>
+                </li>
+            </ul>
+            <p>
+                The rest of this document id going to discuss what goes inside
+                the <b>body</b> element.
+            </p>
+            <h3>Adding a Grid</h3>
+            <p>
+                A Grid is a way of deciding "what goes where" on a page.
+                A Grid is arranged into rows and columns.  Each row 
+                can have its own set of columns.  Each column takes
+                up a specific amount of space on the page, measured in 
+                units of 12.  Each column can take up between 1 and 12
+                units of width.
+            </p>
+            <p class="idea">
+                The width of all the columns in a row should add up to 12.
+            </p>
+
+            <p>
+                Lets look at an example.  In this example, we will assume
+                the following styles have been defined in <b>uprep.css</b>
+                which set the background color.  The purpose of
+                these styles is just so we can see the areas that are taken
+                up by each part of the document.
+            </p>
+            <div class="code">
+.red {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;background-color: red;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;color: white;<br>
+}<br>
+<br>
+.green {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;background-color: green;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;color: white;<br>
+}<br>
+<br>
+.blue {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;background-color: blue;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;color: white;<br>
+}<br>
+            </div>
+            <p>
+                This example has three rows.  The rows contain paragraphs
+                but we could have used any element.
+            </p>
+            <ol>
+                <li>
+                      The first row has a single column
+                    that is 12 wide (the full width of the grid).
+                </li>
+                <li>
+                      The second row has three columns that
+                      are all 
+                    4 wide (the full width of the grid).
+                </li>
+                <li>
+                      The third row has two columns.  The first
+                      column is 4 wide and the second is 8 wide.
+                </li>
+            </ol>
+            <p>You can try the example <a href="bootstrap/grid/default.html">here</a>.  Try
+                resizing the Chrome window horizontally and you will see how the grid automatically adjusts.</p>
+            <div class="code">
+&lt;div class="container"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="row"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="col-xs-12"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p class="red"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This is the first row (12)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/p&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="row"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="col-xs-4"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p class="red"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Second row, first column (4)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/p&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="col-xs-4"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p class="green"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Second row, second column (4)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/p&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="col-xs-4"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p class="blue"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Second row, third column (4)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/p&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="row"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="col-xs-4"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p class="red"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Third row, first column (4)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/p&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="col-xs-8"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p class="green"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Third row, second column (8)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/p&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   <br>
+&lt;/div&gt;<br>
+            </div>
+
+            <p>For more grid examples, see the <a href="http://getbootstrap.com/getting-started/#examples">Bootstrap Examples</a>.</p>
+
+            <h3>Fill out the Grid</h3>
+
+            <p>
+                Once you have decided on your grid, you can start adding elements within
+                the grid.   Check out the following references:
+            </p>
+            
+            <ul>
+                <li>
+                    <p>                
+                        <a href="http://getbootstrap.com/css/">Bootstrap CSS</a> describes
+                        basic styling for HTML elements.                         
+                    </p>
+                </li>
+                <li>
+                    <p>                
+                        <a href="http://getbootstrap.com/css/">Bootstrap Components</a> describes
+                        additional types of elements you can add to your page.
+                    </p>
+                </li>
+            </ul>
+        </div>
+    </body>
+</html>

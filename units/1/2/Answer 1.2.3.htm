@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Answer 1.2.3</title>
+        <link href="../../../reset.css" rel="stylesheet">
+        <link href="../../../page.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="frame">
+            <h1>Answer 1.2.3</h1>
+            <h2>Even more UPrep planning</h2>
+            <div class="code">
+function calculateAverageMiddleSchoolStudentsForYear(grade6, grade7, grade8) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var totalStudents;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;totalStudents = grade6 + grade7 + grade8;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return totalStudents / 3; <br>
+}<br>
+<br>
+function calculateAverageUpperSchoolStudentsForYear(grade9, grade10, grade11, grade12) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var totalStudents;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;totalStudents = grade9 + grade10 + grade11 + grade12;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return totalStudents / 4;<br>
+}<br>
+<br>
+function calculateAverageStudentsForYear(grade6, grade7, grade8, grade9,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;grade10, grade11, grade12) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var totalStudents;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;totalStudents = grade6 + grade7 + grade8 + grade9 +<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade10 + grade11 + grade12;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return totalStudents / 7;<br>
+}<br>
+<br>
+function calculateAverageStudents() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var thisYearGrade6 = 66;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var thisYearGrade7 = 74;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var thisYearGrade8 = 74;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var thisYearGrade9 = 82;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var thisYearGrade10 = 81;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var thisYearGrade11 = 79;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var thisYearGrade12 = 76;<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var thisYearAverageStudents = calculateAverageStudentsForYear(<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;thisYearGrade6, thisYearGrade7, thisYearGrade8, thisYearGrade9,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;thisYearGrade10, thisYearGrade11, thisYearGrade12);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var thisYearAverageMiddleSchoolStudents = calculateAverageMiddleSchoolStudentsForYear(<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;thisYearGrade6, thisYearGrade7, thisYearGrade8);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var thisYearAverageUpperSchoolStudents = calculateAverageUpperSchoolStudentsForYear(<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;thisYearGrade9, thisYearGrade10, thisYearGrade11, thisYearGrade12);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var lastYearGrade6 = 65;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var lastYearGrade7 = 70;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var lastYearGrade8 = 72;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var lastYearGrade9 = 80;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var lastYearGrade10 = 80;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var lastYearGrade11 = 80;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var lastYearGrade12 = 67;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var lastYearAverageStudents = calculateAverageStudentsForYear(<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lastYearGrade6, lastYearGrade7, lastYearGrade8, lastYearGrade9,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lastYearGrade10, lastYearGrade11, lastYearGrade12);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var lastYearAverageMiddleSchoolStudents = calculateAverageMiddleSchoolStudentsForYear(<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lastYearGrade6, lastYearGrade7, lastYearGrade8);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var lastYearAverageUpperSchoolStudents = calculateAverageUpperSchoolStudentsForYear(<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lastYearGrade9, lastYearGrade10, lastYearGrade11, lastYearGrade12);<br>
+}<br>
+            </div>
+        </div>
+    </body>
+</html>

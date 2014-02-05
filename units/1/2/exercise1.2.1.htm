@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Exercise 1.2.1</title>
+        <link href="../../../reset.css" rel="stylesheet">
+        <link href="../../../page.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="frame">
+	    </p>
+	      <a href="lesson.htm" class="right">Lesson 1.2</a>
+	    </p>
+
+            <h1>Exercise 1.2.1</h1>
+            <h2>Overview of Javascript</h2>
+            <p>
+                First, read through the <a href="overview.htm">overview</a> on using variables and functions and Javascript.  When you are finished begin reading the exercise below.
+            </p>
+            <h2>UPrep planning exercise</h2>
+            <p>
+                In this exercise, we are going to create a solution to the following (hypothetical) problem:
+            </p>
+            <p>
+                The UPrep staff are planning the 2014/2015 school year and 
+                have some estimates for how many students would be in each
+                grade.  They may want to know the <b>average</b>
+                number of students per grade for the whole school.
+            </p>
+            <h2>Averages</h2>
+            <p>
+                You probably know from math that the average is the
+                sum of the numbers divided by the count of the numbers.
+                For example, to average the numbers:
+            </p>
+            <p>
+                2, 3, 7
+            </p>
+            <p>
+                We first total the numbers:
+            </p>
+            <p>
+                 2 + 3 + 7 = 12
+            </p>
+            <p>
+                Then we divide the total by 3 (since there are three numbers):
+            </p>
+            <p>
+                12 / 3 = 4
+            </p>
+            <h2>Lets make a program!</h2>
+            <p>
+                To solve this problem we will create a <b>program</b>.
+                A program is just a set of Data Structures and Algorithms.
+            </p>
+            <p>
+                There are many ways to construct a program.  Today we are going to
+                use a programming language called <b>Javascript</b>
+                to construct our program.  In our program, we will
+                create an algorithm to solve our problem.                
+            </p>
+            <p>
+                Recall that an algorithm is:
+            </p>
+            <ul>
+                <li>Starts with pieces of data (<b>inputs</b>)</li>
+                <li>Produces pieces of data (<b>outputs</b>)</li>
+                <li>Has a well-defined set of <b>steps</b> for computing the answer</li>
+            </ul>
+            <p>
+                You may also recall that algorithms can also use additional data
+                structures while they are computing the result.  We will call those
+                <b>temporary</b> data structures.
+            </p>
+            <h2>Lets make a plan</h2>
+            <p>
+                When a programmer starts working on a solution to a problem, they often
+                start out by taking notes about what approach they will take to the
+                solution.  They create a <b>plan</b>.
+            </p>
+            <p>
+                We'll alwys make a plan for our problems by answering the following questions:
+            </p>
+            <ul>
+                <li>What is the input data?</li>
+                <li>What is the output data?</li>
+                <li>What are the steps in the algorithm?</li>
+                <li>What temporary data does the algorithm need?</li>
+            </ul>
+
+            <h3>What is the input data?</h3>
+            <p>
+                The UPrep staff have given us our input data, which is a count of students
+                for each grade at UPrep (for the 2013/2014 year).
+            </p>
+            <table class="simple">
+                <tr>
+                    <th>Grade</th>
+                    <th>Number of Students</th>
+                </tr>
+                <tr>
+                    <td>6th grade</td>
+                    <td>66</td>
+                </tr>
+                <tr>
+                    <td>7th grade</td>
+                    <td>74</td>
+                </tr>
+                <tr>
+                    <td>8th grade</td>
+                    <td>74</td>
+                </tr>
+                <tr>
+                    <td>9th grade</td>
+                    <td>82</td>
+                </tr>
+                <tr>
+                    <td>10th grade</td>
+                    <td>81</td>
+                </tr>
+                <tr>
+                    <td>11th grade</td>
+                    <td>79</td>
+                </tr>
+                <tr>
+                    <td>12th grade</td>
+                    <td>76</td>
+                </tr>
+            </table>
+            <h3>What is the output data?</h3>
+            <p>
+                The output is a single number: the <b>average students per grade</b>
+                for the school.
+            </p>
+            <h3>What are the steps for the algorithm?</h3>
+            <p>Our algorithm has two steps:</p>
+            <ol>
+                <li>
+                    Calculate the <b>total students</b> for the school
+                    by adding together the number of students in each grade.
+                </li>
+                <li>
+                    Calculate the <b>average students per grade</b> by
+                    dividing the <b>total students</b> by 7 (the number of grades in the school).
+                </li>
+            </ol>
+            <p class="sidenote">
+                When we write down an informal description of an algorithm (like the above), we
+                call the description <b>pseudocode</b>.
+            </p>
+            <h3>What temporary data does the program need?</h3>
+            <p>
+                The second step of our algorithm needs the <b>total students</b>
+                from the first step.  That calculation is not part of the input or output,
+                but is necessary for the algorithm, so it is temporary data.
+            </p>
+            <h2>Turning the plan into a program</h2>
+            <p>
+                Now that we have a plan, lets create a program using Javascript.
+            </p>
+            <ul>
+                <li>We will use <b>variables</b> to define our data structures.</li>
+                <li>We will use <b>statements</b> to define the steps of our algorithm.</li>
+                <li>We will use <b>functions</b> to group our statements.</li>
+            </ul>
+            <p class="sidenote">
+                You might be wondering, how much of what I'm learning in this class
+                is specific to the Javascript programming language?  Am
+                I going to be able to use any of what I'm learning for other programming
+                languages?  Many (but not all) programming languages have the concepts of
+                variables, statements, and functions.  There is a good chance that
+                what you learn in this class about Javascript will help you learn other languages
+                more easily.
+            </p>
+
+
+
+
+
+            <h2>Done!</h2>
+            <p>
+                This is exercise is done when:
+            </p>
+            <ul>
+                <li>You have an html page that is in an appropriate folder</li>
+                <li>You have a javascript program in the same folder</li>
+                <li>Your program is successfully being run by Chrome</li>
+		<li>You can verify that the output of your program is correct</li>
+            </ul>
+
+            <p>
+                Head back to Schoology and mark this as done.
+            </p>
+        </div>
+    </body>
+</html>

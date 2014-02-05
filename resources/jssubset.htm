@@ -1,0 +1,1695 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Javascript Reference</title>
+        <link href="../reset.css" rel="stylesheet">
+        <link href="../page.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="frame" id="Top">
+            <h1>Javascript Reference</h1>
+            <h2 id="TableOfContents">Table of Contents</h2>            
+            <ul>
+                <li>
+                    <a href="#Introduction">Introduction</a>
+                    <ul>
+                        <li><a href="#Filenames">Where to put Javascript files and how to name them</a></li>
+                        <li><a href="#Structure">What a Javascript file looks like</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#GlobalVariable">Global Variables</a>
+                </li>
+                <li>
+                    <a href="#Function">Functions</a>
+                </li>
+                <li>
+                    <a href="#Statement">Statements</a>
+                    <ul>
+                        <li><a href="#LocalVariable">Local Variable</a></li>
+                        <li><a href="#AssignmentStatement">Assignment</a></li>
+                        <li><a href="#CallStatement">Call</a></li>
+                        <li><a href="#ReturnStatement">Return</a></li>
+                        <li><a href="#IfStatement">If</a></li>
+                        <li><a href="#ForStatement">For and Break</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#ValueExpression">Values</a>
+                    <ul>
+                        <li><a href="#Number">Numbers</a></li>
+                        <li><a href="#Undefined">Undefined</a></li>
+                        <li><a href="#String">Strings</a></li>
+                        <li><a href="#Object">Objects</a></li>
+                        <li><a href="#Boolean">Booleans</a></li>
+                        <li><a href="#Array">Arrays</a></li>
+                        <li><a href="#Function">Functions</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#Expression">Expressions</a>
+                    <ul>
+                        <li><a href="#ValueExpression">Values</a></li>
+                        <li><a href="#MathExpression">Math</a></li>
+                        <li><a href="#CallExpression">Call</a></li>
+                        <li><a href="#NameExpression">Names</a></li>
+                        <li><a href="#PropertyExpression">Properties</a></li>                
+                        <li><a href="#ConditionExpression">Conditions</a></li>
+                        <li><a href="#LogicExpression">Logic</a></li>
+                        <li><a href="#ElementExpression">Elements</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#AdditionalInformation">Additional information</a>
+                    <ul>
+                        <li><a href="#Conventions">Conventions used in this class</a></li>
+                        <li><a href="#Comment">Comments</a></li>
+                        <li><a href="#BreakingLines">Breaking Lines</a></li>
+                        <li><a href="#Name">Choosing names</a></li>
+                        <li><a href="#More">How to learn more</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <h2 id="Introduction">Introduction</h2>
+            <p>
+                Javascript is a programing language use to control a web page.
+            </p>            
+            <h3 id="Filenames">Where to put Javascript files and how to name them</h3>
+            <p>
+            Name each file using a name that describes what the file is for.  You can use the section
+            on <a href="#Name">Naming</a> for guidance on picking names.
+            The filename should end in .js.  Put all the files in the same folder.
+            For example:
+            </p>
+            <p>
+                <div class="code inline">spaceshipLocation.js</div><br>
+                <div class="code inline">moonBase.js</div>
+            </p>
+            <h3 id="Structure">What a Javascript file looks like</h3>
+            <p>
+                A Javascript file consists of global variables and functions.
+            </p>
+            <div class="code">
+                <a class="placeholder" href="#GlobalVariable">Global Variables</a><br>
+                <a class="placeholder" href="#Function">Functions</a><br>
+            </div>
+            <p>
+                For example:
+            </p>
+            <div class="code">
+                // Functions relating to the location of the spaceship.<br>
+                <br>
+                // Keeps track of the spaceship location.<br>
+                var spaceship = {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;x: 0, <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;y: 0<br>
+                };
+                <br>
+                <br>
+                // Moves the spaceship by the specified distance.<br>
+                function moveSpaceship(distance) {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;spaceship.x = spaceship.x + distance.x;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;spaceship.y = spaceship.y + distance.y;<br>
+                }<br>
+                <br>
+                // Moves the spaceship back to the starting position.<br>
+                function resetSpaceship() {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;spaceship.x = 0;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;spaceship.y = 0;<br>
+                }<br>
+                <br>
+                // Returns the x and y distance from the specified point to the spaceship.<br>
+                function getSpaceshipDistance(point) {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;return {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x: point.x - spaceship.x,<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y: point.y - spaceship.x,<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;};<br>
+                }<br>
+            </div>
+            <h2 id="GlobalVariable">Global Variables</h2>
+            <p>
+                A global variable gives a name to place that can hold a value.  
+                The value of a global variable can be used in a <a href="#NameExpression">Name Expression</a>,
+                and changed using a <a href="#AssignmentStatement">Assignment Statement</a>.
+            </p>
+            <p>                
+                Each global variable must have a unique (different) name across all your javascript files.  
+                See <a href="#Name">Names</a> for how to name your global variables.  
+                global variable should have when the program starts.  
+            </p>
+            <p>
+                Try to minimize the number of global
+                variables you create by using the following techniques:
+            </p>
+            <ul>
+                <li>Use parameters for function inputs instead of using global variables.</li>
+                <li>Use return values for function outputs instead of using global variables.</li>
+                <li>Use an object to group related global variables.  Consider having at most one global variable per file.</li>
+            </ul>
+            <p>
+                Global variables should only be accessed (used or changed) using functions defined in the file 
+                that containing the global variable.  Using global variables from other files should be avoided.
+            </p>
+            <p>
+                Each global variable has the following form:
+            </p>
+            <div class="code">
+                var <span class="placeholder">name</span> = <a class="placeholder" href="#Expression">Expression</a>;<br>
+            </div>
+            <p>
+                For example:
+            </p>
+            <div class="code">
+                // Keeps track of the horizontal coordinate of the spaceship<br>
+                var spaceshipX = 0;<br>
+                <br>
+                // move the spaceship left<br>
+                function moveSpaceshipLeft() {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;spaceshipX = spaceshipX - 1;<br>
+                }<br>
+                <br>
+                // move the spaceship right<br>
+                function moveSpaceshipRight() {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;spaceshipX = spaceshipX + 1;<br>
+                }<br>
+            </div>
+            <h2 id="Function">Functions</h2>
+            <p>
+                Functions are a way to write an algorithm.  A function groups a sequence of steps
+                called <a href="#Statement">Statements</a>.
+                By writing different statements, we can construct different algorithms.
+            </p>
+            <p>
+                The <b>inputs</b> to a function are:
+            </p>
+            <ul>
+                <li>The parameters (if the function has parameters).</li>
+                <li>Any <a href="#GlobalVariable">Global Variables</a> that the the statements uses the value of.</li>
+            </ul>
+            <p>
+                The <b>outputs</b> for a function are:
+            </p>
+            <ul>
+                <li>The return value (if the function returns a value).</li>
+                <li>Any <a href="#GlobalVariable">Global Variables</a> that the function writes a value to.</li>
+                <li>Any parameters containing <a href="#Object">Objects</a> or <a href="#Array">Arrays</a> that the function writes
+                a value to.</li>
+            </ul>
+            <div class="code">
+                function <a class="placeholder" href="#Name">Name</a>(<span class="placeholder">parameter-names</span>) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<a class="placeholder" href="#Statement">Statements</a><br>
+                }<br>
+            </div>
+            <p>
+                The following shows a function with three parameters and no return value.
+            </p>
+            <div class="code">
+                // Moves the spaceship by a delta amount<br>
+                function moveSpaceship(spaceship, dx, dy) {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;spaceship.x = spaceship.x + dx;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;spaceship.y = spaceship.y + dy;<br>
+                }<br>                
+            </div>
+            <p>
+                A function does not need to have any parameters.  Each parameter should be separated by a comma (,).  
+                See <a href="#Name">Naming</a> for how to choose the name of parameters.
+            </p>
+            <p>
+                A function does not need to return any values.  If it does, it should always return a value
+                no matter what <a href="#Statement">Statements</a> are executed.
+            </p>
+            <p>
+                The following shows a function with two parameters and a return value. 
+            </p>
+            <div class="code">
+                // Returns the distance to the spaceship<br>
+                function getSpaceshipDistanceX(spaceship, x) {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;var distance = spaceship.x - x;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;return distance;<br>
+                }<br>
+            </div>
+            <p>
+                See the <a href="#ReturnStatement">Return Statement</a> for more information on returning values from a function.
+            </p>
+            <h2 id="Statement">Statements</h2>
+            <p>
+                Statements are used to specify the steps of the algorithm for a <a href="#Function">Function</a>.  
+                Javascript has different types of 
+                statements, and each one has a different syntax.  See the following for details:
+            </p>
+            <ul>
+                <li><a href="#LocalVariable">Local Variable Statement</a>:<br>
+                    <div class="code">
+                         var spaceshipX = 0;
+                    </div>
+                </li>
+                <li><a href="#AssignmentStatement">Assignment Statement</a>:<br>
+                    <div class="code">
+                         spaceshipX = 0;
+                    </div>
+                </li>
+                <li><a href="#CallStatement">Call Statement</a>:<br>
+                    <div class="code">
+                         moveSpaceshipIfPossible(currentPosition); 
+                    </div>
+
+                </li>
+                <li><a href="#ReturnStatement">Return Statement</a>:
+                    <div class="code">
+                        return spaceshipX - x;
+                    </div>
+                </li>
+                <li><a href="#IfStatement">If Statement</a>:<br>
+                    <div class="code">
+                        if (x &lt; moonbaseLeft) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;x = moonbaseLeft;<br>
+                        } else if (x &gt; moonbaseRight) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;x = moonbaseRight;<br>
+                        } else {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;x = moonbaseMiddle;<br>
+                        }<br>
+                    </div>
+                </li>
+                <li><a href="#ForStatement">For And Break Statements</a>:<br>
+                    <div class="code">
+                        var spaceshipSize = 1;<br>
+                        for (;;)<br>
+                        {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;addSpaceship(spaceshipSize);<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;if (spaceshipSize == 3) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;spaceshipSize = spaceshipSize + 1;<br>
+                        }<br>
+                    </div>
+                </li>
+
+            </ul>
+            <h3 id="LocalVariable">Local Variable Statement</h3>
+            <p>
+                A local variable statement defines a place that holds a value.  A local
+                variable is specific to a particular call of a function. 
+            </p>
+            <p>
+                A local variable statement is written:
+            </p>
+            <div class="code">
+                var <span class="placeholder">name</span> = <a class="placeholder" href="#Expression">Expression</a>;
+            </div>
+            <p>
+                The value of a local variable is used using a <a href="#NameExpression">Name Expression</a>,
+                and is changed using an <a href="#AssignmentStatement">Assignment Statement</a>.  For example:
+            </p>
+            <div class="code">
+                function countVisibleObjects(spaceshipCount, asteroidCount) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;var visibleObjects = 0;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;visibleObjects = visibleObjects + spaceshipCount;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;visibleObjects = visibleObjects + asteroidCount;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;return visibleObjects;<br>
+                }
+            </div>
+            <p>
+                If you don't want to give a value, you can leave off the expression
+                and it will start out with the value <a href="#Undefined">Undefined</a>.
+            </p>
+            <div class="code">
+                var <span class="placeholder">name</span>;
+            </div>
+            <p>
+                For example:
+            </p>            
+            <div class="code">
+                function isSpaceshipVisible(spaceship) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;var visible;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;if (spaceship.x &lt; 0) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;visible = false;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;} else {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;visible = true;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;return visible;<br>
+                }
+            </div>
+            <p>
+                A local variable can only be used by the function that it is part of.
+                The name of each local variable must be unique (different) within a the function they
+                are part of.  The <a href="#Name">Names</a> section provide a guide
+                to how to name a local variable.
+            </p>
+            <p>
+                Local variables
+                are commonly used as a <b>scratchpad</b> for temporary calculations while the statements of the
+                of the function are executing.
+            </p>
+            <p>
+                A local variable statement names the local variable and gives it a value.
+            </p>
+            <p>
+                Put the local variable statement before the first use of the variable within the function.  Put the local 
+                variable statement close to the use of the variable to make it easier to spot when reading the code.
+                Do not the use the value of a local variable before its initial value has been assigned.
+            </p>
+            <h3 id="AssignmentStatement">Assignment Statement</h3>
+            <p>
+                An assignment statement assigns a value to a variable.  An assignment statement has the following form:
+            </p>
+            <div class="code">
+                <a class="placeholder" href="#Expression">Left Expression</a> = <a class="placeholder" href="#Expression">Right Expression</a>;
+            </div>
+            <p>
+                The right expression can be any expression.  
+                The left expression indicates what value will be updated to the value of the right expression.
+                The left expression should refer to one of the following:
+            </p>
+            <ul>
+                <li>A <a href="#LocalVariable">Local Variable</a></li>
+                <li>A <a href="#GlobalVariable">Global Variable</a></li>
+                <li>A field of an <a href="#Object">Object</a></li>
+                <li>An item of an <a href="#Array">Array</a></li>
+            </ul>
+            <p>
+                The following are examples of assignment statements:
+            </p>
+            <div class="code">
+                spaceshipX = 0;<br>
+                planet.location = {};<br>
+                sun.x = 123;<br>
+                asteroids[3] = asteroid;<br>
+            </div>
+            <h3 id="CallStatement">Call Statement</h3>
+            <p>
+                A call statement is just like a <a href="#CallExpression">Call Expression</a>, but is used 
+                as a statement.  
+            </p>
+            <p>
+                For example:
+            </p>
+            <div class="code">
+                function newSpaceship() {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;var spaceship = createSpaceship();<br>
+                <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;var distance = calculateDistanceToSun(spaceship);<br>
+                <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;if (distance &lt; 100 ) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;moveSpaceshipUp(spaceship);<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;addSpaceship(spaceship);<br>
+                }<br>
+            </div>
+            <h3 id="ReturnStatement">Return Statement</h3>
+            <p>
+                A return statement stops executing the <a href="#Statement">Statements</a> in the
+                <a href="#Function">Function</a> and return to where the function was called.
+            </p>
+            <p>
+                For example:
+            </p>
+            <div class="code">
+                // Moves the spaceship one unit left if there is room<br>
+                function moveSpaceshipLeftIfPossible(x) {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;if (x &lt; 1) {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;x = x - 1;<br>
+                }<br>
+            </div>
+            <p>
+                A return statement may include a value to return, which can be any <a href="#Expression">Expression</a>.
+            </p>
+            <div class="code">
+                // Returns the distance to the spaceship<br>
+                function getSpaceshipDistanceX(x) {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;var distance = spaceshipX - x;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;return distance;<br>
+                }<br>
+            </div>
+            <p>When the end of a function is reached, the function will automatically return.
+                Do not put a return statement at the end of a function if the function does not return a value.</p>
+            <h3 id="IfStatement">If Statement</h3>
+            <p>
+                An if statement lets you choose which statements to execute based on one or more conditions.
+                Each condition is a <a href="#Expression">Expression</a> that evaluates to the value true or false.  
+                Each condition has a set of <a href="#Statement">Statements</a> that are executed if the condition is true.
+                Each condition is checked in the order they are written until one is found to be true.
+                The following are examples of the different ways an if statement can be written:
+            </p>
+            <span id="IfWithoutElse"></span>
+            <p>In this form of an if statement, <a href="#Statement">Statements 1</a> are only executed 
+                if <a href="#Expression">Condition 1</a> is true.
+            </p>
+            <div class="code">
+                if (<a class="placeholder" href="#Expression">Condition 1</a>) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<a class="placeholder" href="#Statement">Statements 1</a><br>
+                }<br>
+            </div>
+            <p>
+                In the following example, the variable <b>x</b> is assigned the value of
+                <b>moonbaseLeft</b> if it is less than the value of <b>moonbaseLeft</b>.
+            </p>
+            <div class="code">
+                if (x &lt; moonbaseLeft) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;x = moonbaseLeft;<br>
+                }
+            </div>
+            <span id="IfWithElseIf"></span>
+            <p>In this form of an if statement, <a href="#Statement">Statements 1</a> are executed 
+                if <a href="#Expression">Condition 1</a> is true, otherwise 
+                <a href="#Statement">Statements 2</a> are executed 
+                if <a href="#Expression">Condition 2</a> is true.  The 
+                else if can be repeated with additional conditions and statements to
+                test additional cases.
+            </p>
+            <div class="code">
+                if (<a class="placeholder" href="#Expression">Condition 1</a>) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<a class="placeholder" href="#Statement">Statements 1</a><br>
+                } else if (<a class="placeholder" href="#Expression">Condition 2</a>) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<a class="placeholder" href="#Statement">Statements 2</a><br>
+                }<br>
+            </div>
+            <p>
+                In the following example, the variable <b>x</b> is assigned the value of
+                <b>moonbaseLeft</b> if it is less than the value of <b>moonbaseLeft</b>.
+                Otherwise, <b>x</b> is assigned the value of <b>moonbaseRight</b> if it is greater than
+                the value of <b>moonbaseRight</b>.
+            </p>
+            <div class="code">
+                if (x &lt; moonbaseLeft) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;x = moonbaseLeft;<br>
+                } else if (x &gt; moonbaseRight) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;x = moonbaseRight;<br>
+                }<br>
+            </div>
+            
+            <span id="IfWithElse"></span>
+            <p>
+                A final set of statements, called the can <b>Else Statements</b>, can be included which
+                are executed if none of the conditions are true.
+                Else Statements can be added to either of the above forms.  The else statements
+                are executed only if none of the conditions are true.
+            </p>
+            <div class="code">
+                if (<a class="placeholder" href="#Expression">Condition 1</a>) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<a class="placeholder" href="#Statement">Statements 1</a><br>
+                } else {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<a class="placeholder" href="#Statement">Else Statements</a><br>
+                }<br>
+            </div>
+            <p></p>
+            <div class="code">
+                if (<a class="placeholder" href="#Expression">Condition 1</a>) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<a class="placeholder" href="#Statement">Statements 1</a><br>
+                } else if (<a class="placeholder" href="#Expression">Condition 2</a>) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<a class="placeholder" href="#Statement">Statements 2</a><br>
+                } else {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<a class="placeholder" href="#Statement">Else Statements</a><br>
+                }<br>
+            </div>
+            <p>
+                For example, based on the value of <b>x</b>, the value of <b>x</b> is updated to be either
+                <b>moonbaseLeft</b>, <b>moonbaseRight</b>, or <b>moonbaseMiddle</b>.
+            </p>
+            <div class="code">
+                if (x &lt; moonbaseLeft) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;x = moonbaseLeft;<br>
+                } else if (x &gt; moonbaseRight) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;x = moonbaseRight;<br>
+                } else {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;x = moonbaseMiddle;<br>
+                }<br>
+            </div>
+            <h2 id="ForStatement">For And Break Statements</h2>
+            <p>
+                The for and break statements are used to write a <b>for loop</b>.  A for loop 
+                repeats a set of <a href="#Statement">Repeated Statements</a>
+                until the loop ends (breaks).  A for statement can be written with or without
+                a variable.
+            </p>
+            <h3>For loop with variable</h3>
+            <p>
+                A for statement with a variable is written:  
+            </p>
+            <div class="code">
+                for (var <span class="placeholder">name</span> = 
+                    <a class="placeholder" href="#Expression">Expression</a>; 
+                    <a class="placeholder" href="#ConditionExpression">Condition</a>; 
+                    <a class="placeholder" href="#AssignmentStatement">Assignment</a>) { <br>
+                <br>
+
+                &nbsp;&nbsp;&nbsp;&nbsp;<a class="placeholder" href="#Statement">Repeated Statements</a><br>
+                <br>
+
+                }<br>
+            </div>
+            <span id="LoopingThroughArray"></span>
+            <p>
+                You can use a for loop with a variable go the contents of an array.  For example:
+            </p>
+            <div class="code">
+                // move all the spaceships in the array<br>
+                for (var i = 0; i &lt; spaceships.length; i = i + 1) {<br>
+                <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;// get a spaceship from the array<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;var spaceship = spaceships[i];<br>
+                <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;// call moveSpaceship function to move the spaceship<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;moveSpaceship(spaceship);<br>
+                }<br>
+            </div>
+            <span id="LoopingToCount"></span>
+            <p>
+                You can use a for loop to repeat a set of statements a certain number of times.
+            </p>
+            <div class="code">
+                // add 100 asteroids<br>
+                for (var i = 0; i &lt; 100; i = i + 1) {<br>
+                <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;// call addAsteroid to add one asteriod<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;addAsteroid();<br>
+                }<br>
+            </div>
+            <h3>For loop without variable</h3>
+            <p>
+                A for statement without a variable is written:
+            </p>
+            <div class="code">
+                for (;;)<br>
+                {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<a class="placeholder" href="#Statement">Repeated Statements</a><br>
+                }<br>
+            </div>
+            <p>This type of loop typically is used with a <a href="#Break">Break Statement</a>.</p>
+            <h3 id="Break">Break statement</h3>
+            <p>
+                When a <b>break</b> statement is executed, the loop ends, 
+                and execution continues with the statements after the for statement.  
+                A break statement is written as follows:
+            </p>
+            <div class="code">
+                break;
+            </div>
+            <p>
+                For example, the following loop calls the addSpaceship function with an 
+                increasing spaceshipSize.
+            </p>
+            <div class="code">
+                // start with a spaceship size of 1<br>
+                var spaceshipSize = 1;<br>
+                for (;;)<br>
+                {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;// add a spaceship with the current size<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;addSpaceship(spaceshipSize);<br>
+                <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;// once the size is more than 10, stop the loop<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;if (spaceshipSize &gt; 10) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;// double the spaceship size<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;spaceshipSize = spaceshipSize * 2;<br>
+                }<br>
+            </div>
+            <span id="LoopingToFind"></span>
+            <p>
+                You can use a loop with a variable and a break to find an element
+                within an array.
+            </p>
+            <div class="code">
+                // find a spaceship that is off the screen <br>                
+                var foundAt;<br>
+                for (var i = 0; i &lt; spaceships.length; i = i + 1) {<br>
+                <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;// get a spaceship from the array<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;var spaceship = spaceships[i];<br>
+                <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;// if the spaceship is off the screen<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;if (spaceship.x &lt; 0) {<br>
+                <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// record the position in the array<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;foundAt = i;<br>
+                <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// stop the loop<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                }<br>
+                <br>                
+                if (foundAt != undefined) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;// found it<br>
+                } else {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;// didn't find it<br>
+                }<br>
+            </div>
+
+            <h2 id="Expression">Expressions</h2>
+            <p>
+                Javascript has multiple types of expressions, and each one has a different syntax.  
+                See the following for details.   The simplest expressions are just values or names.
+            </p>
+            <ul>
+                <li><a href="#Number">Numbers</a>:<br>
+                    <div class="inline code">1.23</div><br>
+                </li>
+                <li><a href="#String">Strings</a>:<br>
+                    <div class="inline code">"The ship landed"</div><br>
+                </li>
+                <li><a href="#Boolean">Booleans</a>:<br>
+                    <div class="inline code">true</div><br>
+                </li>
+                <li><a href="#Undefined">Undefined</a>:<br>
+                    <div class="inline code">undefined</div><br>
+                <li><a href="#Object">Objects</a>:<br>
+                    <div class="inline code">{x: 1, y: 2}</div><br>
+                </li>
+                <li><a href="#Array">Arrays</a>:<br>
+                    <div class="inline code">[1, 2, 3]</div><br>
+                </li>
+                <li><a href="#NameExpression">Name Expressions</a>:<br>
+                    <div class="inline code">spaceshipCount</div><br>
+                </li>
+                <li><a href="#PropertyExpression">Property Expressions</a>:<br>
+                    <div class="inline code">spaceship.location</div><br>
+                </li>                
+                <li><a href="#ElementExpression">Element Expressions</a>:<br>
+                    <div class="inline code">spaceships[selectedSpaceshipIndex]</div><br>
+                </li>
+                <li><a href="#MathExpression">Math Expressions</a>:<br>
+                    <div class="inline code">spaceshipCount + 1</div><br>
+                    <div class="inline code">spaceshipCount - 1</div><br>
+                    <div class="inline code">spaceshipVelocity / 2</div><br>
+                    <div class="inline code">distanceToSun * distanceToShip</div><br>
+                    <div class="inline code">5 % 3</div><br>
+                    <div class="inline code">-spaceshipDirection</div><br>
+                </li>
+                <li><a href="#CallExpression">Call Expressions</a>:<br>
+                    <div class="inline code">getDistanceToTheSun(x + 1, y)</div><br></li>
+                <li><a href="#ConditionExpression">Condition Expressions</a>:<br>
+                    <div class="inline code">spaceshipCount &gt; 1</div><br>
+                    <div class="inline code">spaceshipCount &lt; 1</div><br>
+                    <div class="inline code">spaceshipCount &lt;= 1</div><br>
+                    <div class="inline code">spaceshipCount &gt;= spaceshipLimit</div><br>
+                    <div class="inline code">spaceshipCount == 0</div><br>
+                    <div class="inline code">spaceshipCount != 1</div><br>
+                </li>
+                <li><a href="#LogicExpression">Logic Expressions</a>:<br>
+                    <div class="inline code">(spaceshipCount == 0) && (asteroidCount &lt; 10)</div><br>
+                    <div class="inline code">(ship.x == 0) || (ship.y == 0)</div><br>
+                    <div class="inline code">!playerWantsToQuit</div><br>
+                </li>
+            </ul>
+            <p>
+                The operator precedence of expressions is listed below, from highest
+                to lowest.  Operators with higher precedence are evaluated before operators
+                with lower precedence.  
+                For example, the multiply (*) operator has higher 
+                precendence than the addition operator (+).
+                Operators listed on the same line have the same precedence,
+                and are evaluated from left to right as they appear in the expression.
+            </p>
+            <p>
+                <ul>
+                    <li>
+                <a href="#PropertyExpression"><div class="inline code">a.b</div></a>
+                <a href="#ElementExpression"><div class="inline code">a[b]</div></a>
+                <a href="#CallExpression"><div class="inline code">a()</div></a>
+                </li>
+                    <li>
+                <a href="#LogicExpression"><div class="inline code">!a</div></a>
+                <a href="#MathExpression"><div class="inline code">-a</div></a>
+                </li>
+                    <li>
+                <a href="#MathExpression"><div class="inline code">a * b</div></a>
+                <a href="#MathExpression"><div class="inline code">a / b</div></a>
+                <a href="#MathExpression"><div class="inline code">a % b</div></a>
+                </li>
+                    <li>
+                <a href="#MathExpression"><div class="inline code">a + b</div></a>
+                <a href="#MathExpression"><div class="inline code">a - b</div></a>
+                </li><li>
+                <a href="#ConditionExpression"><div class="inline code">a &gt;= b</div></a>
+                <a href="#ConditionExpression"><div class="inline code">a &lt;= b</div></a>
+                <a href="#ConditionExpression"><div class="inline code">a &gt; b</div></a>
+                <a href="#ConditionExpression"><div class="inline code">a &lt; b</div></a>
+                </li><li>
+                <a href="#ConditionExpression"><div class="inline code">a == b</div></a>
+                <a href="#ConditionExpression"><div class="inline code">a != b</div></a>
+                </li><li>
+                <a href="#LogicExpression"><div class="inline code">a && b</div></a>
+                </li><li>
+                <a href="#LogicExpression"><div class="inline code">a || b</div></a>
+                </li>
+                </ul>
+                    
+            </p>
+            <p>
+                Parenthesis can be added to control the order of precedence.  For example:
+            </p>
+            <p>
+                <div class="code inline">(spaceshipCount + 1) * spaceshipSize</div>
+            </p>
+            <p>
+                If the expression gets complicated, consider adding parenthesis to make the precedence 
+                clear to the reader.  For example:
+            </p>
+            <p>
+                <div class="inline code">(getDistanceToTheSun(x, y) &gt; 10) || (ship.x != 0)</div>
+            </p>
+            <h3 id="MathExpression">Math Expressions</h3>
+            <p>
+                Addition (+) and substraction (-) are written like they are in math.
+                To multiply, use the star (*).  To divide, use the slash (/).
+            </p>
+            <p>
+                <div class="inline code"><a class="placeholder" href="#Expression">Expression</a> + <a class="placeholder" href="#Expression">Expression</a></div><br>
+                <div class="inline code"><a class="placeholder" href="#Expression">Expression</a> - <a class="placeholder" href="#Expression">Expression</a></div><br>
+                <div class="inline code"><a class="placeholder" href="#Expression">Expression</a> * <a class="placeholder" href="#Expression">Expression</a></div><br>
+                <div class="inline code"><a class="placeholder" href="#Expression">Expression</a> / <a class="placeholder" href="#Expression">Expression</a></div><br>
+            </p>
+            <p>
+                For example:
+            </p>
+            <p>
+                <div class="code">
+                    var spaceshipCount = 0;<br>
+                    spaceshipCount = spaceshipCount + 1;
+                </div>
+                <div class="code">
+                    var spaceshipVelocity = 100;<br>
+                    spaceshipVelocity / 2;
+                </div>
+                <div class="code">
+                    var distance = distanceToSun * distanceToShip;
+                </div>
+            </p>
+            <p>
+                To calculate the modulo (remainder) of two expressions that produce numbers, use the percent sign (%). 
+            </p>
+            <p>
+                <div class="inline code"><a class="placeholder" href="#Expression">Expression</a> % <a class="placeholder" href="#Expression">Expression</a></div>
+            </p>
+            <p>
+                For example, the following expression would produce the value 2, since 2 is the remainder when
+                dividing 5 by 3.
+            </p>
+            <p>
+                <div class="code">
+                    // remainder is 2<br>
+                    var remainder = 5 % 3;
+                </div>
+            </p>
+            <p>
+                To negate (change the sign of) an expression that produces a number, use the minus sign (-).  
+            </p>
+            <p>
+                <div class="inline code">-<a class="placeholder" href="#Expression">Expression</a></div>
+            </p>
+            <p>
+                For example:
+            </p>
+            <div class="code">
+                if (verticalVelocity &lt; 100) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;verticalVelocity = -verticalVelocity;<br>
+                }
+            </div>
+            <span id="NumberFloor"></span>
+            <p>To remove the fractional part of a number, use the <b>Math.floor</b> function.</p>
+            <div class="code">
+                // 123<br>
+                var numberWithoutFraction = Math.floor(123.45);<br>
+            </div>
+
+            <span id="NumberAbs"></span>
+            <p>To get the absolute value of a number, use the <b>Math.abs</b> function.</p>
+            <div class="code">
+                // 123<br>
+                var firstNumber = Math.abs(-123);<br>
+                <br>
+                // 123<br>
+                var secondNumber = Math.abs(123);<br>
+            </div>
+
+            <span id="NumberRandom"></span>
+            <p>To get a random number, use the <b>Math.random</b> function.</p>
+            <div class="code">
+                // random value between 0 and 1<br>
+                var randomNumber = Math.random();<br>
+            </div>
+            <p>To get a random integer between low and high, use this function:
+            <div class="code">
+// make a random integer between low and high, inclusive<br>
+function randomBetween(low, high) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var range = high - low + 1;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var value = Math.floor(Math.random() * range);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return low + value;<br>
+}<br>
+            </div>
+            
+            <h3 id="ConditionExpression">Condition Expressions</h3>
+            <p>
+                Condition expressions are expressions that compare two values
+                and produce a true or false value.
+                The greater than (&gt;), less than (&lt;), less than and or equals (&lt;=), 
+                greater than or equals (&gt;=) are written like they are written in math.
+            </p>
+            <p>
+                <div class="inline code"><a class="placeholder" href="#Expression">Expression</a> &gt; <a class="placeholder" href="#Expression">Expression</a></div><br>
+                <div class="inline code"><a class="placeholder" href="#Expression">Expression</a> &lt; <a class="placeholder" href="#Expression">Expression</a></div><br>
+                <div class="inline code"><a class="placeholder" href="#Expression">Expression</a> &lt;= <a class="placeholder" href="#Expression">Expression</a></div><br>
+                <div class="inline code"><a class="placeholder" href="#Expression">Expression</a> &gt;= <a class="placeholder" href="#Expression">Expression</a></div><br>
+            </p>
+            <p>
+                For example:
+            </p>
+            <div class="code">
+                if (spaceshipCount &gt; 1) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;// do something<br>
+                }
+            </div>
+            <div class="code">
+                if (spaceshipCount &lt; 1) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;// do something<br>
+                }
+            </div>
+            <div class="code">
+                if (spaceshipCount &lt;= 1) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;// do something<br>
+                }
+            </div>
+            <div class="code">
+                if (spaceshipCount &gt;= spaceshipLimit) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;// do something<br>
+                }
+            </div>
+
+            <span id="EqualsAndNotEquals"></span>
+            <p>
+                To test if two values are not equal, use two equals signs (==).  To test if two are not
+                equals, use a not followed by an equals sign (!=).
+            </p>
+            <p>
+                <div class="inline code"><a class="placeholder" href="#Expression">Expression</a> == <a class="placeholder" href="#Expression">Expression</a></div><br>
+                <div class="inline code"><a class="placeholder" href="#Expression">Expression</a> != <a class="placeholder" href="#Expression">Expression</a></div><br>
+            </p>
+            <p>
+                For example:
+            </p>
+            <div class="code">
+                if (spaceshipCount == 0) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;// do something<br>
+                }
+            </div>
+            <div class="code">
+                if (spaceshipCount != 1) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;// do something<br>
+                }
+            </div>
+            <h3 id="LogicExpression">Logic Expressions</h3>
+            <p>
+                To use a logical AND, write two amperands (&amp;&amp;).  To use a logical OR, write two vertical bars (||).
+            </p>
+            <p>
+                <div class="inline code"><a class="placeholder" href="#Expression">Expression</a> && <a class="placeholder" href="#Expression">Expression</a></div><br>
+                <div class="inline code"><a class="placeholder" href="#Expression">Expression</a> || <a class="placeholder" href="#Expression">Expression</a></div><br>
+            </p>
+            <p>
+                For example:
+            </p>
+            <div class="code">
+                if (playerWantsToQuit || (asteroidCount &gt; 1000)) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;// do something<br>
+                }
+            </div>
+            <div class="code">
+                if ((spaceshipCount == 0) &amp;&amp; (asteroidCount &lt; 10)) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;// do something<br>
+                }
+            </div>
+            <div class="code">
+                if ((getDistanceToTheSun(x, y) &gt; 10) || (ship.x != 0)) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;// do something<br>
+                }
+            </div>
+            <span id="LogicalNot"></span>
+            <p>
+                To use a logical NOT, use the exclamation mark (!).
+            </p>
+            <p>
+                <div class="inline code">!<a class="placeholder" href="#Expression">Expression</a></div><br>
+            </p>
+            <p>
+                For example:
+            </p>
+            <p>
+                <div class="code">
+                    var moonVisible = false;<br>
+                    <br>
+                    function switchMoon() {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;moonVisible = !moonVisible;<br>
+                    }<br>
+                </div>
+                <div class="code">
+                    if (!playerWantsToQuit) {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;// do something<br>
+                    }
+                </div>
+
+                <div class="code">
+                    if (!(asteroidCount &gt; 1000)) {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;// do something<br>
+                    }
+                </div>
+
+                <div class="code">
+                    if (!((spaceshipCount == 0) && (asteroidCount &lt; 10))) {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;// do something<br>
+                    }
+                </div>
+            </p>
+            <h3 id="CallExpression">Call Expressions</h3>
+            <p>
+                A call expression is used to call a function.  Calling a function pauses the execution of instructions
+                in the current function and starts executing instructions in the function being called.  When the
+                called function returns, instructions continue executing in the current function.  The result of
+                a call expression is the return value of the function called.
+                A call expression has the following form:
+            </p>
+            <p>
+                <div class="inline code"><a class="placeholder" href="#Expression">Expression</a>(<span class="placeholder">Parameters</span>)</div>
+            </p>
+            <p>
+                The <b>parameters</b> are an optional list of <a href="#Expression">Expressions</a> where each one is separated by a comma (<span class="code">,</span>).  
+                The following are examples of call expressions:
+            </p>
+            <p>
+                <div class="inline code">getDistanceToTheSun(x + 1, y)</div><br>
+                <div class="inline code">countSpaceships(area)</div><br>
+                <div class="inline code">getPlayerSpaceship()</div><br>
+            </p>
+            <p>
+                Each call
+                requires space to keep track of the parameters passed and what instruction to return to while the
+                call is taking place.  If you call functions that in turn call functions, etc. and run you out of space,
+                you will see a "stack overflow" error.
+            </p>
+            <h3 id="PropertyExpression">Property Expressions</h3>
+            <p>
+                A property expression selects a property of an object given a <b>PropertyName</b>.  A property expression consists
+                of a <a href="#Expression">Expression</a> that produces an object, followed by a period (.),
+                followed by the name of the property.  The result of a property expression is the value of the property.
+                The form of a property expression is:
+            </p>
+            <p>
+                <div class="inline code"><a class="placeholder" href="#Expression">Object Expression</a>.<span class="placeholder">PropertyName</span></div>
+            </p>
+            <p>
+                For example:
+            </p>
+            <p>
+                <div class="inline code">spaceship.location</div><br>
+            </p>
+            <h3 id="ElementExpression">Element Expressions</h3>
+            <p>
+                A element expression selects a value in an array given a index.  An element expression consists
+                of a <a href="#Expression">Array Expression</a> that produces the array, followed by an
+                <a href="#Expression">Index Expression</a> surrounded by brackets ([]) that produces the index.  
+                The index is an integer number (no fraction).  The first element is identified by index 0,
+                the second by index 1, and so on.
+                The form of an array expression is:
+            </p>
+            <p>
+                <div class="inline code"><a class="placeholder" href="#Expression">Array Expression</a>[<a class="placeholder" href="#Expression">Index Expression</a>]</div>
+            </p>
+            <p>
+                For example:
+            </p>
+            <p>
+                <div class="inline code">spaceships[selectedSpaceshipIndex]</div><br>
+            </p>
+            <h3 id="NameExpression">Name Expressions</h3>
+            <p>
+                A name expression returns the value of a name that has been defined.  Names are one of the following:
+            </p>
+            <ul>
+                <li>The name of <a href="#GlobalVariable">Global Variable</a></li>
+                <li>The name of a <a href="#LocalVariable">Local Variable</a></li>
+                <li>The name of a <a href="#Function">Parameter</a></li>
+                <li>The name of a <a href="#Function">Function</a></li>
+            </ul>
+            <p>For example:</p>
+            <p>
+                <div class="inline code">spaceshipCount</div><br>
+            </p>
+            <h2 id="ValueExpression">Values</h2>
+            <p>Javascript has different types of values, and each one has a different syntax.  See the following for details:</p>
+            <ul>
+                <li><a href="#Number">Number Values</a></li>
+                <li><a href="#Boolean">Boolean Values</a></li>
+                <li><a href="#String">String Values</a></li>
+                <li><a href="#Undefined">Undefined Value</a></li>
+                <li><a href="#Object">Object Values</a></li>
+                <li><a href="#Array">Array Values</a></li>
+            </ul>
+            <h3 id="Number">Number Values</h3>
+            <p>
+                A number value in Javascript is a 8-byte (double-precision) floating point value.  To write a number, 
+                use the same syntax as you would in math.  When you add a negative sign, make sure there is no space between
+                the negative sign and the digits.  The following are some examples:
+            </p>
+            <p>
+                <div class="inline code">123</div><br>
+                <div class="inline code">-123.45</div><br>
+            </p>
+            <h3 id="Boolean">Boolean Values</h3>
+            <p>
+                A boolean value in Javascript represents true or false.  These values are written as follows:
+            </p>
+            <p>
+                <div class="inline code">true</div><br>
+                <div class="inline code">false</div><br>
+            </p>
+            <h3 id="String">String Values</h3>
+            <p>
+                A string value in Javascript is written as a sequence of characters.  
+                To write a string value, put the text you would like between double quotes (").  
+                The empty string (no characters) is just two sets of double quotes in a row.
+                For example:
+            </p>
+            <p>
+                <div class="inline code">"The ship landed"</div><br>
+                <div class="inline code">""</div><br>
+            </p>
+            <span id="EscapeQuote"></span>
+            <p>
+                If you want to include a double-quote (") in the string, then preceed it with a backslash (\).  For example, 
+                if you wanted a string value with <span class="string">The ship "landed"</span>, you would write:
+            </p>
+            <p>
+                <div class="inline code">"The ship \"landed\""</div><br>
+            </p>
+            <span id="EscapeBackslash"></span>
+            <p>
+                If you want to include a backslash (\) in your string, you need to preceed it with a backslash (\).
+                For example, if you wanted a string value with <span class="string">\o/</span>, you would write:
+            </p>
+            <p>
+                <div class="inline code">"\\o/"</div><br>
+            </p>            
+            <span id="StringLength"></span>
+            <p>
+                A string has a property called <b>length</b> which can be used in an expression to
+                return the number of characters in the string.  
+            </p>
+            <p>
+                In the following example, the variable  
+                 earthLength will have the value 5.
+            </p>
+            <div class="code">
+                var earth = "earth";<br>
+                var earthLength = earth.length;
+            </div>            
+            <span id="StringCombine"></span>
+            <p>
+                To combine strings, add them together using plus (+).  For example:
+            </p>
+            <div class="code">
+                var ship = "Enterprise";<br>
+                var status = "landed";<br>
+                <br>
+                // "Enterprise landed"<br>
+                var message = ship + " " + "landed";                
+            </div>            
+
+
+            <span id="StringJoin"></span>
+            <p>
+                The <b>join</b> function can be used to combine an array of strings
+                into a single string, given a separator.
+            </p>
+            <div class="code">
+                var planets = [<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;"Earth", <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;"Venus",<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;"Saturn" <br>
+                ];<br>
+                <br>
+                // "Earth-Venus-Saturn"<br>
+                var joined = planets.join("-");<br>
+            </div>
+
+            <span id="StringSplit"></span>
+            <p>
+                The <b>split</b> function can be used to break a string into
+                an array of strings, given a separator.
+            </p>
+            <div class="code">
+                // "Earth-Venus-Saturn"<br>
+                var joined = "Earth-Venus-Saturn";<br>
+                <br>
+                // ["Earth", "Venus", "Saturn"]<br>
+                var planets = joined.split("-");<br>
+            </div>
+
+
+            <span id="StringFind"></span>
+            <p>
+                To find the start of a string within another string, use
+                the <b>indexOf</b> function.  If the string is found,
+                then the location of the string is returned (0 is the
+                first character).  If the string is not found, -1
+                is returned.  For example:
+            </p>
+            <div class="code">
+                // "hello"<br>
+                var someString = "hello";<br>                
+                <br>
+                // 1 <br>
+                var location1 = someString.indexOf("ell");<br>
+                <br>
+                // -1 <br>
+                var location2 = someString.indexOf("other");<br>
+            </div>            
+
+            <span id="StringSubstring"></span>
+            <p>
+                To get a string out of another string given an index
+                and length, use the <b>substr</b> function.  The 
+                first character is at index 0.  If the length is not
+                given, the rest of the string is returned.  For example:
+            </p>
+            <div class="code">
+                // "hello"<br>
+                var someString = "hello";<br>                
+                <br>
+                // "ell" <br>
+                var substring1 = someString.substr(1, 3);<br>
+                <br>
+                // "ello" <br>
+                var substring2 = someString.substr(1);<br>
+            </div>            
+            
+
+            <span id="StringChar"></span>
+            <p>
+                To get a character out a string given an index
+                and length, use the <b>charAt</b> function.  The 
+                first character is at index 0.  For example:
+            </p>
+            <div class="code">
+                // "hello"<br>
+                var someString = "hello";<br>                
+                <br>
+                // "e" <br>
+                var char = someString.charAt(1);<br>
+            </div>            
+            
+
+            <span id="StringCharCode"></span>
+            <p>
+                To get a character code (number) out a string given an index,
+                 use the <b>charCodeAt</b> function.  The 
+                first character is at index 0.  For example:
+            </p>
+            <div class="code">
+                // "ABC"<br>
+                var someString = "ABC";<br>                
+                <br>
+                // 66 (which is the UNICODE value for "B")<br>
+                var charCode = someString.charCodeAt(1);<br>
+            </div>            
+            
+
+            <span id="StringLower"></span>
+            <p>
+                To get the lower case version of a string, use the
+                <b>toLowerCase</b> function.  For example:
+            </p>
+            <div class="code">
+                // "HELLO"<br>
+                var someString = "HELLO";<br>                
+                <br>
+                // "hello" <br>
+                var lowerString = someString.toLowerCase();<br>
+            </div>            
+            
+            <span id="StringTrim"></span>
+            <p>
+                To get a string with the <a href="http://en.wikipedia.org/wiki/Whitespace_character">whitespace</a> removed
+                from the 
+                removed from both the beginning and the end of the string, use the
+                <b>trim</b> function.  For example:
+            </p>
+            <div class="code">
+                // "&nbsp;&nbsp;hello&nbsp;&nbsp;"<br>
+                var someString = "&nbsp;&nbsp;hello&nbsp;&nbsp;";<br>                
+                <br>
+                // "hello" <br>
+                var trimmedString = someString.trim();<br>
+            </div>            
+            
+
+            <span id="StringToNumber"></span>
+            <p>
+                To turn a string into a number, use the <b>parseFloat</b> function.  For example:
+            </p>
+            <div class="code">
+                // "123.45"<br>
+                var someString = "123.45";<br>                
+                <br>
+                // 123.45<br>
+                var someNumber = parseFloat(someString);
+            </div>            
+
+            <span id="NumberToString"></span>
+            <p>
+                To turn a number into a string, use the <b>toString</b> function.  For example:
+            </p>
+            <div class="code">
+                // 123.45<br>
+                var someNumber = 123.45;<br>                
+                <br>
+                // "123.45"<br>
+                var someString = someNumber.toString();
+            </div>            
+
+
+            <h3 id="Undefined">Undefined Value</h3>
+            <p>
+                The undefined value in Javascript is used to indicate that a value was not provided.
+                It is written:
+            </p>
+            <p>
+                <span class="code">undefined</span><br>
+            </p>            
+            <h3 id="Object">Object Values</h3>
+            <p>
+                An object value is a group of values accessed by name.  Each named value of an object is called a property.
+                An object value is written as follows:
+            </p>
+            <div class="code">{ <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="placeholder">properties</span><br>
+            }
+            </div>
+            <p>
+                Each <b>property</b> is separated by a comma (<span class="code">,</span>), and has the following form:
+            </p>
+            <p>
+                <div class="inline code"><a class="placeholder" href="#Name">PropertyName</a>: <a class="placeholder" href="#Expression">Expression</a></div>
+            </p>
+            <p>
+                For example:
+            </p>
+            <div class="code">
+                var spaceship = {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;x: 10,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;y: 20,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;width: 100,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;height: 100,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;velocity: 1<br>
+                };<br>
+            </div>
+            <span id="ObjectAccess"></span>
+            <p>
+                An <a href="#PropertyExpression">PropertyExpression</a> can be used to get
+                a value from an object.  For example:
+            </p>
+            <div class="code">
+                var spaceship = {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;x: 10,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;y: 20,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;width: 100,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;height: 100,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;velocity: 1<br>
+                };<br>
+                <br>
+                // get the width of the object (100)<br>
+                var spaceshipWidth = spaceship.width;
+            </div>            
+
+            <span id="ObjectUpdate"></span>
+            <p>
+                An <a href="#AssignmentStatement">Assignment Statement</a> can be used to change
+                values in an object.  For example, the following changes the value in an object.
+            </p>
+            <div class="code">
+                var spaceship = {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;x: 10,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;y: 20,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;width: 100,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;height: 100,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;velocity: 1<br>
+                };<br>
+                <br>
+                // change the width to 200<br>
+                spaceship.width = 200;<br>
+            </div>
+            <h3 id="Array">Array Values</h3>
+            <p>
+                An array value is a group of values accessed by index.  Each value in an array is called an element.
+                An array value is written as follows:
+            </p>
+            <div class="code">[<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="placeholder">element values</span> <br>
+            ]
+            </div>
+            <p>
+                An <b>element value</b> is specified using an <a href="#Expression">Expression</a>.
+                Each element value is separated by a comma (<span class="code">,</span>).
+            </p>            
+            <p>
+                The following example assigns an array of three numbers to a scores variable (10, 21, and 14):
+            </p>
+            <div class="code">
+                var scores = [<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;10,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;20 + 1,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;14<br>
+                ];
+            </div>
+            <span id="ArrayAccess"></span>
+            <p>
+                To get a value from an array, use a <a href="#ElementExpression">Element Expression</a>.
+                For example, the following gets the second value from an array.
+            </p>
+            <div class="code">
+                var scores = [<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;10,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;20 + 1,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;14<br>
+                ];<br>
+                <br>
+                // get the second score (21)<br>
+                var score = scores[1]; 
+            </div>            
+            <span id="ArrayUpdate"></span>
+            <p>
+                An <a href="#AssignmentStatement">Assignment Statement</a> can be used to 
+                change a value in an existing element.
+            </p>
+            <p>
+                For example, the following creates an array with two  elements, and then
+                replaces the second element with a different value.
+            </p>
+            <div class="code">
+                var asteroids = [<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;"Small",<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;"Large"<br>
+                ];<br>
+                <br>
+                asteroids[1] = "Medium";<br>
+            </div>
+            <span id="ArrayLength"></span>
+            <p>
+                An array has a property called <b>length</b> which can be used in an expression to
+                return the number of elements that are in the array.  
+            </p>
+            <p>
+                For example, after the following statements are executed, the 
+                variable numberOfPlanets will have the value 2.
+            </p>
+            <div class="code">
+                var planets = [<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;"Earth", <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;"Mars"<br>
+                ];<br>
+                <br>
+                var numberOfPlanets = planets.length;
+            </div>
+            <span id="ArrayAppend"></span>
+            <p>
+                The <b>push</b> function can be used to add a value to the end of an array:
+            </p>
+            <div class="code">
+                var planets = [<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;"Earth", <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;"Mars"<br>
+                ];<br>
+                planets.push("Saturn");<br>
+            </div>
+
+            <span id="ArrayRemove"></span>
+            <p>
+                The <b>splice</b> function can be used to remove a value from an array.
+            </p>
+            <div class="code">
+                var planets = [<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;"Earth", <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;"Mars"<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;"Saturn"<br>
+                ];<br>
+                // at index 1 remove 1 element ("Mars")<br>
+                planets.splice(1, 1);<br>
+            </div>
+
+            <span id="ArrayInsert"></span>
+            <p>
+                The <b>splice</b> function can be used to insert an element in an array.
+            </p>
+            <div class="code">
+                var planets = [<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;"Earth", <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;"Saturn"<br>
+                ];<br>
+                // at index 1 insert the value "Mars"<br>
+                planets.splice(1, 0, "Mars");<br>
+            </div>
+
+            <h2 id="AdditionalInformation">Additional information</h2>
+            
+            <h3 id="Conventions">Conventions used in this class</h3>
+            <p>To help with readability, we will the following conventions in this class:</p>
+            <ul>
+                <li>Include a comment for each file.</li>
+                <li>Include a comment for each global variable.</li>
+                <li>Include a comment for each function.</li>
+                <li>Use the conventions for choosing names found <a href="#Name">here</a>.</li>
+                <li>Include a blank line between the file comment, each global variable, and each function.</li>
+                <li>When indenting code, use 4 spaces.</li>
+                <li>Break lines over 120 characters to make the file it easy to read in an editor.  Use
+                the conventions <a href="#BreakingLines">here</a> when breaking a line.</li>
+            </ul>
+            
+            <h3 id="Comment">Comments</h3>
+            <p>
+                A comment is used by humans to understand a
+                program, but has no effect on how the program behaves.  A comment can be one or more lines.  
+                Each line starts with two slashes (//).  
+                For example:
+            </p>
+            <div class="code">
+                // This is a comment that gives the reader an understanding of what follows<br>
+                // but does not repeat what is already obvious from reading the code.<br>
+            </div>
+
+            <h3 id="BreakingLines">Breaking Lines</h3>
+            <p>
+                In this class, we will use the following conventions when breaking lines.
+                End a broken line with one of the following:
+            </p>
+            <p>
+                <span class="code">,</span>
+                <span class="code">{</span>
+                <span class="code">(</span>
+                <span class="code">[</span>
+                <span class="code">+</span>
+                <span class="code">-</span>                
+                <span class="code">*</span>
+                <span class="code">/</span>
+                <span class="code">%</span>
+                <span class="code">&amp;&amp;</span>
+                <span class="code">||</span>
+                <span class="code">=</span>
+            </p>
+            <p>
+                After breaking a line, indent the next line by 4 spaces.
+            </p>
+            <p>
+                For example:
+            </p>
+            <div class="code">                
+                <div class="good">do</div><br>var total = spaceship1 + spaceship2 + spaceship3 + spaceship4 + spaceship5 +<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;spaceship6 + spaceship7;<br>
+                <br>                
+                <div class="bad">do not</div><br>var total = spaceship1 + spaceship2 + spaceship3 + spaceship4 + spaceship5 <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;+ spaceship6 + spaceship7;
+            </div>
+            <p class="sidenote">
+                These conventions avoid a problem where Javascript breaks
+                a line for us that we didn't want broken.
+            </p>
+            
+            <h3 id="Name">Choosing names</h3>
+            <p>
+                In this class, we will use the following conventions for the names we create:
+            </p>
+            <ul>
+                <li>
+                    <p>
+                        If a name is a single word, then it should be all lowercase.  For example:<br>
+                        <div class="good">do</div><div class="code inline">spaceship</div><br>
+                        <div class="bad">do not</div><div class="code inline">SPACESHIP</div>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        If a name requires multiple words, then put all the words together (without spaces between
+                        the words).  Only capitalize the first letter of the second and following words.
+                        For example:<br>
+                        <div class="good">do</div><div class="code inline">numberOfSpaceships</div><br>
+                        <div class="bad">do not</div><div class="code inline">NumberOfSpaceships</div><br>
+                        <div class="bad">do not</div><div class="code inline">numberofspaceships</div>                        
+                    </p>
+                    <p class="sidenote">
+                        This style of capitalization in programming is often referred to as 
+                        <a href="http://en.wikipedia.org/wiki/CamelCase">camel casing</a>,
+                        because the start of words look like humps on a camel.
+                    </p>
+                    
+                </li>
+                <li>
+                    <p>
+                        When choosing a name, only use letters (a-z, A-Z), but you can end the name with a number
+                        if you think it is appropriate for the situation.
+                        For example:
+                    </p>
+                    <p>
+                        <div class="good">do</div><div class="code inline">spaceship</div><br>
+                        <div class="good">consider</div><div class="code inline">spaceship1</div><br>
+                        <div class="bad">do not</div><div class="code inline">space2ship</div><br>
+                        <div class="bad">do not</div><div class="code inline">spaceship$</div><br>
+                        <div class="bad">do not</div><div class="code inline">space_ship</div>     
+                    </p>                    
+                </li>
+            </ul>
+            <p>
+                Choosing good names in programming is important because programs usually consist
+                of many names.  In most cases, your program will not produce different results
+                based on what names you choose, but choosing good names can help others
+                understand what you have written.
+            </p>
+            <p class="sidenote">
+                What is a "good" name?  This is a tricky question because so much of it
+                depends on the context in which the name is used.  Choosing a name in a program
+                is similar to choosing a word in an english sentence.
+            </p>
+            <p>
+                The following are some <b>guidelines</b> that can help you choose names:
+            </p>
+            <ul>
+                <li>
+                    <p>Pick names that describe the purpose of what you are naming.  Avoid
+                    names that are generic sounding or just echo a concept in Javascript.</p>
+                    <p>
+                        <div class="good">do</div><div class="inline code">spaceshipSize</div><br>
+                        <div class="bad">avoid</div><div class="inline code">number</div><br>
+                        <div class="bad">avoid</div><div class="inline code">myVar</div><br>
+                        <div class="bad">avoid</div><div class="inline code">param</div><br>
+                        <div class="good">do</div><div class="inline code">moonbase</div><br>                        
+                        <div class="bad">avoid</div><div class="inline code">stuff</div><br>
+                        <div class="bad">avoid</div><div class="inline code">object</div>
+                    </p>
+                </li>
+                <li>
+                    <p>Use names that you think others will understand.  Ask yourself
+                    whether you could explain your choice of name to someone else in the class.</p>
+                    <p>
+                        <div class="good">do</div><div class="inline code">numberOfMoons</div><br>
+                        <div class="bad">avoid</div><div class="inline code">nom</div><br>
+                        <div class="bad">avoid</div><div class="inline code">nmns</div><br>
+                    </p>                    
+                </li>
+                <li>
+                    <p>It is OK to use a longer name if you think it will help the reader understand the meaning.</p>
+                    <p>
+                        <div class="bad">do not</div><div class="inline code">dist</div><br>
+                        <div class="good">do</div><div class="inline code">distance</div><br>
+                        <div class="good">consider</div><div class="inline code">distanceToMoon</div><br>
+                    </p>
+                </li>
+                <li>
+                    <p>Avoid abbreviations unless you are certain the reader will recognize the abbreviation.
+                    </p>
+                    <p>
+                        <div class="good">do</div><div class="inline code">htmlSize</div><br>
+                        <div class="good">do</div><div class="inline code">httpRequest</div><br>
+                        <div class="bad">avoid</div><div class="inline code">roflPoint</div>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        It is acceptable to use single letter character variable
+                        or parameter names (like <span class="code">i</span>
+                        for an index), if the purpose is 
+                        obvious from context .
+                    </p>
+                </li>            
+                <li>
+                    <p>
+                    Avoid the names listed below, since they may conflict with 
+                    the names used by Javascript and your browser.<br>
+                    <div class="bad">avoid</div>
+                    <div class="inline code">break</div>
+                    <div class="inline code">case</div>
+                    <div class="inline code">catch</div> 
+                    <div class="inline code">class</div> 
+                    <div class="inline code">const</div> 
+                    <div class="inline code">continue</div> 
+                    <div class="inline code">debugger</div> 
+                    <div class="inline code">default</div> 
+                    <div class="inline code">delete</div> 
+                    <div class="inline code">do</div> 
+                    <div class="inline code">else</div>
+                    <div class="inline code">enum</div> 
+                    <div class="inline code">export</div> 
+                    <div class="inline code">extends</div> 
+                    <div class="inline code">finally</div> 
+                    <div class="inline code">for</div> 
+                    <div class="inline code">function</div> 
+                    <div class="inline code">if</div> 
+                    <div class="inline code">implements</div> 
+                    <div class="inline code">import</div> 
+                    <div class="inline code">in</div> 
+                    <div class="inline code">instanceof</div> 
+                    <div class="inline code">interface</div> 
+                    <div class="inline code">let</div> 
+                    <div class="inline code">new</div> 
+                    <div class="inline code">package</div> 
+                    <div class="inline code">private</div> 
+                    <div class="inline code">protected</div> 
+                    <div class="inline code">public</div> 
+                    <div class="inline code">return</div> 
+                    <div class="inline code">static</div> 
+                    <div class="inline code">super</div> 
+                    <div class="inline code">switch</div> 
+                    <div class="inline code">this</div> 
+                    <div class="inline code">throw</div> 
+                    <div class="inline code">try</div> 
+                    <div class="inline code">typeof</div> 
+                    <div class="inline code">undefined</div> 
+                    <div class="inline code">var</div> 
+                    <div class="inline code">void</div> 
+                    <div class="inline code">while</div> 
+                    <div class="inline code">window</div> 
+                    <div class="inline code">with</div> 
+                    <div class="inline code">yield</div> 
+                    </p>
+                    <p class="sidenote">
+                        Do I have to memorize this list?  No.  The purpose of this
+                        list is so that if you see a syntax error relating to your name
+                        and you don't understand why, you can check here to see
+                        if the name you have chosen conflicts with Javascript.
+                    </p>
+                </li>
+            </ul>            
+            <h3 id="More">How to learn more</h3>
+            <p>
+                This class teaches a subset (part of) the Javascript syntax.  The subset was chosen
+                both to make learning Javascript easier, and to avoid practices that lead to 
+                code that is more difficult for others to understand and maintain.  As you become a more seasoned 
+                Javascript programmer you will learn more syntax, and some of the rules in this
+                document can be relaxed.  If you are curious, the full (and more precise) syntax for
+                the Javascript language is available <a href="http://ecma-international.org/ecma-262/5.1/">
+                http://ecma-international.org/ecma-262/5.1/</a>.  
+            </p>            
+        </div>
+    </body>
+</html>

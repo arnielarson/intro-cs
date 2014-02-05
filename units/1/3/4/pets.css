@@ -1,0 +1,16 @@
+.main {
+    font-family: cursive;
+    background-color: skyblue;
+}
+
+.section {
+    background-color: white;
+    color: skyblue;
+    padding: 5px;
+    font-size: 16pt;
+}
+
+.detail {
+    font-size: 12pt;
+    padding: 5px;
+}

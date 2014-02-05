@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Overview of Function Parameters</title>
+        <link href="../../../reset.css" rel="stylesheet">
+        <link href="../../../page.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="frame">
+            <h1>Overview of Function Parameters</h1>
+	    <p>
+                we can create a function for each main step.  One function will handle
+                the calculation for last year's data, and one will handle the calculation
+                for this year's data.
+            </p>
+            <div class="code">
+                function calculateLastYearAverageStudents() {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;lastYearTotalStudents = lastYearGrade6 + lastYearGrade7 + <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lastYearGrade8 + lastYearGrade9 + lastYearGrade10 + <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lastYearGrade11 + lastYearGrade12;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;lastYearAverageStudents = lastYearTotalStudents / 7;<br>
+                }<br>
+                <br>
+                function calculateThisYearAverageStudents() {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;thisYearTotalStudents = thisYearGrade6 + thisYearGrade7 + <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;thisYearGrade8 + thisYearGrade9 + thisYearGrade10 + <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;thisYearGrade11 + thisYearGrade12;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;thisYearAverageStudents = thisYearTotalStudents / 7;<br>
+                }<br>                
+            </div>
+            <p>
+                Notice that we are using multiple lines for each statement.  In this class,
+                we will limit each line to <b>120</b> columns when possible.  Komodo Edit shows you the current
+                column number in the bottom right of the window (for example, <img src="komodo9.png" class="inline">).
+            </p>
+            <p class="sidenote">
+                Long lines can make programs more difficult to read since you may need to
+                use a scrollbar to see the entire statement.
+            </p>
+            <p>
+                Since our algorithm requires both of these steps, we can create a third
+                function that will use a call statement to execute each function.
+            </p>
+            <div class="code">
+                function calculateAverageStudents() {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;calculateThisYearAverageStudents();<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;calculateLastYearAverageStudents();<br>
+                }<br>
+            </div>
+            </p>
+            <p class="sidenote">
+                Good programmers care a lot about how easy it is for themselves or others to
+                understand and change the programs they write.  Also, good programmers
+                really don't like it when there is unecessary duplication in their programs.
+            </p>
+            <p>
+                There is a way where we can write our function once, and reuse it for
+                calculating both years.  Lets look at an example
+                to see how.
+            </p>
+            <p>
+                If we wanted to write a function that averaged any
+                two numbers, we might write a function <b>average</b> that had
+                input variables <b>firstNumber</b> and <b>secondNumber</b>, a temporary
+                variable <b>totalOfTwoNumbers</b>, and an output variable
+                <b>averageOfTwoNumbers</b>:
+            </p>
+            <div class="code">
+                var firstNumber;<br>
+                <br>
+                var secondNumber;<br>
+                <br>
+                var totalOfTwoNumbers;<br>
+                <br>
+                var averageOfTwoNumbers;<br>
+                <br>
+                function average() {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;totalOfTwoNumbers = firstNumber + secondNumber;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;averageOfTwoNumbers = totalOfTwoNumbers / 2;<br>
+                }<br>
+            </div>            
+            <p>
+                If we needed to perform two averages (<b>firstAverage</b>
+                and <b>secondAverage</b>) in our program, we would
+                then write:
+            </p>
+            <div class="code">
+                var firstAverage;<br>
+                <br>
+                var secondAverage;<br>
+                <br>
+                function calculateTwoAverages() {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;firstNumber = 1;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;secondNumber = 2;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;average();<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;firstAverage = averageOfTwoNumbers;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;firstNumber = 3;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;secondNumber = 4;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;average();<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;secondAverage = averageOfTwoNumbers;<br>
+                }<br>
+            </div>
+            <p>
+                Did you notice that each time we call the function <b>average</b>,
+                we first have to assign some values to the input
+                variables?  For example, before we call the average
+                function the first time, we write:
+            </p>
+            <div class="code">
+                &nbsp;&nbsp;&nbsp;&nbsp;firstNumber = 1;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;secondNumber = 2;<br>
+            </div>            
+            <p>
+                We can use <b>function parameters</b> to allow us
+                to give the input values to a function more easily.
+                A function parameter
+                is like having a new variable each time the function
+                is called.  This means:
+            </p>
+            <ul>
+                <li>The statement that calls the function gives the value of the parameter.</li>
+                <li>The statements that are part of the function can use the value of the parameter.</li>
+            </ul>
+            <p>
+                When defining our <b>average</b> function, we can replace the input variables
+                <b>firstNumber</b> and <b>secondNumber</b> with parameters of the same name.
+            </p>
+            <div class="code hover">
+                <p class="hover">Move your mouse here to see the changes</p>
+                <span class="remove">var firstNumber;</span><br>
+                <br>
+                <span class="remove">var secondNumber;</span><br>
+                <br>
+                var totalOfTwoNumbers;<br>
+                <br>
+                var averageOfTwoNumbers;<br>
+                <br>
+                function average(<span class="add">firstNumber, secondNumber</span>) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;totalOfTwoNumbers = firstNumber + secondNumber;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;averageOfTwoNumbers = totalOfTwoNumbers / 2;<br>
+                }<br>
+            </div>            
+            <p>
+                When we call the <b>average</b> function, we list the values for each parameter
+                in the same order that they appear in the function definition.  In this
+                case, the first value would be used for <b>firstNumber</b>, and the second
+                value would be used for <b>secondNumber</b>.  Updating our call statements,
+                we have:
+            </p>
+            <div class="code hover">
+                <p class="hover">Move your mouse here to see the changes</p>
+                var firstAverage;<br>
+                <br>
+                var secondAverage;<br>
+                <br>
+                function calculateTwoAverages() {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="remove">firstNumber = 1;</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="remove">secondNumber = 2;</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;average(<span class="add">1, 2</span>);<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;firstAverage = averageOfTwoNumbers;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="remove">firstNumber = 3;</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="remove">secondNumber = 4;</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;average(<span class="add">3, 4</span>);<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;secondAverage = averageOfTwoNumbers;<br>
+                }<br>
+            </div>
+            <h2 id="ReturnValue">Function return value</h2>
+            <p>
+                Using function parameters, we have made it easier for us
+                to give the values for the inputs to the function
+                each time we call the function.
+            </p>
+            <p>
+                But each time we call a function, we need to know what variables
+                it uses as output.  
+            </p>           
+            <div class="code">
+                var firstAverage;<br>
+                <br>
+                var secondAverage;<br>
+                <br>
+                function calculateTwoAverages() {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;average(1, 2);<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;firstAverage = averageOfTwoNumbers;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;average(3, 4);<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;secondAverage = averageOfTwoNumbers;<br>
+                }<br>
+            </div>
+            <p>
+                For example, for the <b>average</b>
+                function, we need to know that it has an output variable
+                named <b>averageOfTwoNumbers</b>.  With many functions in
+                our program,
+                it will be difficult to remember the name of the output
+                variables for each function.
+            </p>
+            <p>
+                By using a <b>function return value</b>, we can avoid having
+                an output variable for each function.  A function return
+                value is like having an output value for each
+                call of a function:
+            </p>
+            <ul>
+                <li>A <b>return statement</b> in the called function gives the output value.</li>
+                <li>The statement that called the function can learn the output value (the <b>return value</b>).</li>
+            </ul>
+            <p>
+                A return statement is written:
+            </p>
+            <div class="code">
+                return <span class="placeholder">expression</span>;
+            </div>
+            <p>
+                Adding a return statement to our <b>average</b> function, we have:
+            </p>
+            <div class="code hover">
+                <p class="hover">Move your mouse here to see the changes</p>
+                var totalOfTwoNumbers;<br>
+                <br>
+                <span class="remove">var averageOfTwoNumbers;</span><br>
+                <br>
+                function average(firstNumber, secondNumber) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;totalOfTwoNumbers = firstNumber + secondNumber;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="remove">averageOfTwoNumbers =</span><span class="add">return</span> totalOfTwoNumbers / 2;<br>
+                }<br>
+            </div>            
+            <p id="MultipleReturnValues">
+                Now that the <b>average</b> function has a return value, we can call
+                it in an <b>expression</b>.  The value returned by the
+                <b>average</b> function will be used in the calculation.  
+            </p>
+            <p>                
+                Updating the calls to <b>average</b>, we have:
+            <p>
+            <div class="code hover">
+                <p class="hover">Move your mouse here to see the changes</p>
+                var firstAverage;<br>
+                <br>
+                var secondAverage;<br>
+                <br>
+                function calculateTwoAverages() {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="add">firstAverage =&nbsp;</span>average(1, 2);<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="remove">firstAverage = averageOfTwoNumbers;</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="add">secondAverage =&nbsp;</span>average(3, 4);<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="remove">secondAverage = averageOfTwoNumbers;</span><br>
+                }<br>
+            </div>
+            <p class="sidenote">
+                You might be wondering what we would do if there were
+                multiple output variables.  We'll cover that in an upcoming
+                lesson.
+            </p>
+            <h2 id="LocalVariable">Local variables</h2>
+            <p>
+                We have changed the input variables to function parameters and the output
+                variable to a return value.  What about the temporary
+                variable <b>totalOfTwoNumbers</b>?
+            </p>
+            <div class="code">
+                var totalOfTwoNumbers;<br>
+                <br>
+                function average(firstNumber, secondNumber) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;totalOfTwoNumbers = firstNumber + secondNumber;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;return totalOfTwoNumbers / 2;<br>
+                }<br>
+            </div>
+            <p>
+                Up until this point, we have been using variables that are called
+                <b>global</b> variables.  Global variables in the program are
+                always present, and are available for use by any function in the program.
+            </p>
+            <p>
+                As we add more functions, it can be difficult to keep track of
+                what functions are using which global variables.
+            </p>
+            <p>
+                In this case, we don't need a variable that is used by more than
+                one function.  The <b>totalOfTwoNumbers</b> variable is only used by
+                the <b>average</b> function.  We also do not need the variable
+                to be always present.  We only need the variable to be present while
+                the statements in the <b>average</b> function are being executed.
+            <p>
+            <p>
+                For cases like these, we can use a <b>local variable</b> instead of
+                a global variable.  A local variable
+                is only usable by the function that it is part of.  A local variable
+                is written like a global variable, only as a statement within the
+                function.  
+            </p>
+            <p>
+                Since a local variable is only present when a function is being
+                called, it can have different value each time a function is called.
+            </p>
+            <p>
+                When we update our <b>average</b> function to use a local variable
+                (instead of a global variable) for the temporary variable
+                <b>totalOfTwoNumbers</b>, we have:
+            </p>
+            <div class="code hover">
+                <p class="hover">Move your mouse here to see the changes</p>
+                <span class="remove">var totalOfTwoNumbers;</span><br>
+                <br>
+                function average(firstNumber, secondNumber) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="add">var totalOfTwoNumbers;</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;totalOfTwoNumbers = firstNumber + secondNumber;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;return totalOfTwoNumbers / 2;<br>
+                }<br>
+            </div>
+            <p>
+                We can also use local variables to store the return
+                value of the average function, since the values are
+                not needed by other functions.
+            </p>
+            <div class="code hover">
+                <p class="hover">Move your mouse here to see the changes</p>
+                <span class="remove">var firstAverage;</span><br>
+                <br>
+                <span class="remove">var secondAverage;</span><br>
+                <br>
+                function calculateTwoAverages() {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="add">var firstAverage;</span><br>                
+                &nbsp;&nbsp;&nbsp;&nbsp;firstAverage =&nbsp;average(1, 2);<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="add">var secondAverage;</span><br>                
+                &nbsp;&nbsp;&nbsp;&nbsp;secondAverage =&nbsp;average(3, 4);<br>
+                }<br>
+            </div>            
+            <h2>Looking back</h2>
+            <p>
+                By using <b>function parameters</b>, a <b>function return value</b>,
+                and <b>local variables</b>, we have simplified writing our 
+                <b>average</b> function.
+            </p>                     
+            <div class="code hover">
+                <p class="hover">Move your mouse here to see the changes</p>
+                <span class="remove">var firstNumber;</span><br>
+                <br>
+                <span class="remove">var secondNumber;</span><br>
+                <br>
+                <span class="remove">var totalOfTwoNumbers;</span><br>
+                <br>
+                <span class="remove">var averageOfTwoNumbers;</span><br>
+                <br>
+                function average(<span class="add">firstNumber, secondNumber</span>) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="add">var totalOfTwoNumbers;</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;totalOfTwoNumbers = firstNumber + secondNumber;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="remove">averageOfTwoNumbers = </span><span class="add">return</span> totalOfTwoNumbers / 2;<br>
+                }<br>
+            </div>
+            <p>
+                We have also simplified calling the <b>average</b> function.
+            </p>
+            <div class="code hover">
+                <p class="hover">Move your mouse here to see the changes</p>
+                <span class="remove">var firstAverage;</span><br>
+                <br>
+                <span class="remove">var secondAverage;</span><br>
+                <br>
+                function calculateTwoAverages() {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="remove">firstNumber = 1;</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="remove">secondNumber = 2;</span><span class="add">var firstAverage;</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="add">firstAverage =&nbsp;</span>average(<span class="add">1, 2</span>);<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="remove">firstAverage = averageOfTwoNumbers;</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="remove">firstNumber = 3;</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="remove">secondNumber = 4;</span><span class="add">var secondAverage;</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="add">secondAverage =&nbsp;</span>average(<span class="add">3, 4</span>);<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="remove">secondAverage = averageOfTwoNumbers;</span><br>
+                }<br>
+            </div>            
+            <p>
+                We have also made the <b>average</b> function easily
+                <b>reusable</b> with different data.                
+            </p>
+            <h2>Improving our UPrep program</h2>
+            <p>
+                If you remember, we noted that our program was not ideal, and could
+                use some improvements.  We can now make those improvements:
+            </p>
+            <ul>
+                <li>We can create a single reusable function (<b>calculateAverageStudentsForYear</b>)
+                instead of the two functions that only work for a specific year. </li>
+                <li>We can use local variables for all our inputs variables, since the
+                values are only used within one function.</li>
+                <li>We can use local variables for our temporary variables, since they are only
+                used while the function is executing.</li>
+                <li>We can use a return value for our output variables, instead
+                of having to have an output variable.</li>
+            </ul>
+            <p>
+                Making the changes to <b>uprep.js</b>, we have the following:
+            </p>
+            <div class="code">
+                function calculateAverageStudentsForYear(grade6, grade7, grade8, grade9,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;grade10, grade11, grade12) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;var totalStudents;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;totalStudents = grade6 + grade7 + grade8 + grade9 +<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade10 + grade11 + grade12;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;return totalStudents / 7;<br>
+                }<br>
+                <br>
+                function calculateAverageStudents() {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;var thisYearGrade6 = 66;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;var thisYearGrade7 = 74;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;var thisYearGrade8 = 74;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;var thisYearGrade9 = 82;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;var thisYearGrade10 = 81;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;var thisYearGrade11 = 79;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;var thisYearGrade12 = 76;<br>
+                <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;var thisYearAverageStudents = calculateAverageStudentsForYear(<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;thisYearGrade6, thisYearGrade7, thisYearGrade8, thisYearGrade9,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;thisYearGrade10, thisYearGrade11, thisYearGrade12);<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;var lastYearGrade6 = 65;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;var lastYearGrade7 = 70;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;var lastYearGrade8 = 72;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;var lastYearGrade9 = 80;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;var lastYearGrade10 = 80;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;var lastYearGrade11 = 80;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;var lastYearGrade12 = 67;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;var lastYearAverageStudents = calculateAverageStudentsForYear(<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lastYearGrade6, lastYearGrade7, lastYearGrade8, lastYearGrade9,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lastYearGrade10, lastYearGrade11, lastYearGrade12);<br>
+                }<br>
+            </div>
+            <p>
+                Update your <b>uprep.js</b> to contain the program above (you can copy and paste), and save.
+            </p>
+            <h2>Inspecting our improved program</h2>
+            <p>
+                In Chrome, reload our page (<b>default.html</b>).  Find the updated <b>uprep.js</b> in the Sources tab,
+                and set a breakpoint on line <b>10</b>.  Reload the page, and Chrome should stop on
+                the breakpoint.
+            </p>
+            <p>
+                If you hover over the first local variable (<b>thisYearGrade6</b>), you will notice that
+                the value is <b>undefined</b>, meaning a value has not yet been assigned.
+            </p>
+            <img src="chrome30.png">
+            <p>
+                  Local variables are only assigned a value once the local
+            variable statement has been executed.  Try stepping and look at the
+            value again.
+            </p>
+            <img src="chrome31.png">
+            <p>
+                Continue stepping until you reach the first statement of
+                the function <b>calculateAverageStudentsForYear</b>.
+            </p>
+            <img src="chrome32.png">
+            <p>
+                Notice that you can hover over the parameters to see
+                their values.
+            </p>
+            <img src="chrome33.png">
+            <h2>Call stack</h2>
+            <p>
+                Notice that Chrome is showing you a <b>call stack</b>.  This
+                is a like a <a href="http://en.wikipedia.org/wiki/Hansel_and_Gretel">trail of breadcrumbs</a> that tells you how the
+                program reached the statement it is stopped at.  Each
+                "breadcrumb" is a call to a function.
+            </p>
+            <img src="chrome29.png">
+            <p>
+                In this case, the call stack is showing that:
+            </p>
+            <ul>
+                <li>The statement for the <b>onload</b> event called <b>calculateAverageStudents</b>,</li>
+                <li>which called <b>calculateAverageStudentsForYear,</b></li>
+                <li>which is where the program is stopped.</b></li>
+            </ul>
+            <p class="sidenote">
+                A function will only produce correct outputs if it is given correct inputs.
+                A saying for this is: <a href="http://en.wikipedia.org/wiki/Garbage_In,_Garbage_Out">Garbage in, Garbage out</a>.
+                Knowing the statement that called a function can help when tracking where bad
+                inputs came from.
+            </p>
+            <h2>Checking the results</h2>
+            <p>
+                Continue stepping until you have stepped through all the statements
+                and are at the end of <b>calculateAverageStudents</b>.
+            </p>
+            <img src="chrome34.png">
+            <p>
+                Check the values of our two output variables.  Our calculations should be the
+                same as before, approximately:                
+            </p>
+            <ul>
+                <li>lastYearAverageStudents: 73.4</li>
+                <li>thisYearAverageStudents: 76</li>
+            </ul>
+            <p class="sidenote">
+                We have successfully <a href="http://en.wikipedia.org/wiki/Code_refactoring">refactored</a> our program.  We improved on the structure
+                of the program, but it still produced the same result.  Good programmers
+                make sure they refactor their programs when they become more complicated
+                than they need to be.
+            </p>
+            <p>
+                Click resume (<img src="chrome19.png" class="inline">) to allow Chrome to
+                continue loading the page.
+            </p>
+            <h2>What if we make a mistake?</h2>
+            <p>
+                So far our Javascript has been "well formed", meaning it follows the Javascript
+                grammar.  What happens if our program does not follow the grammar?                
+            </p>
+            <p>
+                In Komodo Edit, remove the first plus (+) in <b>uprep.js</b> (shown highlighted below):
+            </p>
+            <img src="komodo10.png">
+            <p>
+                You should see the following:
+            </p>
+            <img src="komodo11.png">
+            <p>
+                Since we removed the plus, the following no longer makes sense as
+                a mathematical expression:<br>
+                <span class="code">
+                    grade6  grade7 + grade8 + grade9 + grade10 + grade11 + grade12
+                </span>
+            </p>
+            <p>
+                When our programs do not follow the Javascript grammar, it is called a <b>syntax error</b>.                
+            </p>
+            <p>
+                You may have noticed that Komodo Edit will show us a red "squiggly"
+                line under the statement with the syntax error.  This is similar to the way
+                spelling errors are shown in a word processor:
+            </p>
+            <img src="word1.png">
+            <p>
+                But lets say we didn't see this error, and we ran our program anyways.
+                Save the file, and then set a breakpoint in our program in Chrome and see what happens
+                when the page is reloaded.
+            </p>
+            <p>
+                You might notice that Chrome is not stopping at the breakpoint.  Our
+                first question might be: did Chrome actually find the program?  Check
+                the Network tab to see if <b>uprep.js</b> was loaded.
+            </p>
+            <img src="chrome35.png">
+            <p>
+                Ok, the file appears to be loaded.  Now check the <b>Console</b> tab.
+                This is where Chrome will print out errors and other information.
+            </p>
+            <img src="chrome36.png">
+            <p>
+                Notice the lines in red, which indicate errors:
+            </p>
+            <ul>
+                <li>
+                    The first error (our syntax error) says: "Unexpected identifier" on
+                    line <b>4</b> of <b>uprep.js</b>.
+                    Because of this error, Chrome will give up trying to use <b>uprep.js</b>.
+                </li>
+                <li>
+                    The second error, a reference error, says that the function we called from
+                    our <b>onload</b> event is not defined.  Since Chrome gave up on <b>uprep.js</b>,
+                    there is no such function defined (Chrome is unable to reference the function).                    
+                </li>
+            </ul>
+            <p class="sidenote">
+                Errors that lead to other errors (called <b>cascading</b> errors) are common in programming.  To
+                fix these errors, you need to figure out which error is the <b>root cause</b>,
+                that is, the error that caused the other errors.  In this example, the
+                syntax error was the root cause, and the reference error was a cascading error.
+            </p>
+            <p>
+                Go back to Komodo Edit, undo your change that caused the syntax error, and save.
+            </p>
+            <h2>Done!</h2>
+            <p>
+                Head back to Schoology and mark this as done.
+            </p>
+        </div>
+    </body>
+</html>

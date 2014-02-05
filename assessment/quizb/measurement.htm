@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Measurement</title>
+<link href="../../reset.css" rel="stylesheet">
+<link href="../../page.css" rel="stylesheet">
+</head>
+<body>
+    <div class="frame">    
+        <h2>Quiz B - Practice</h2>
+        
+        <h3>Measurement</h3>
+        
+        <p>
+            The start function expects to to use the <b>formatMeasurementShort</b>
+            and <b>formatMeasurementLong</b> functions to make a distance
+            object into a string that can be shown on the screen.
+        </p>
+        
+        <div class="code">
+function start() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var distance = {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;feet: 0,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;inches: 1<br>
+&nbsp;&nbsp;&nbsp;&nbsp;};<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var longMeasurement = formatMeasurementLong(distance);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var shortMeasurement = formatMeasurementShort(distance);<br>
+}<br>
+<br>
+function formatMeasurementLong(distance) {<br>
+<br>
+}<br>
+<br>
+function formatMeasurementShort(distance) {<br>
+<br>
+}<br>
+        </div>
+             
+        <p>
+            The <b>formatMeasurementLong</b> function should return a string
+            that has the number of feet, followed by a single quote mark ('),
+            followed by the number of inches, followed by a double quote mark (").
+        </p>
+        
+        <p>
+            The <b>formatMeasurementShort</b> function returns the same
+            string as formatMeasurementLong, only it does not include
+            the feet if they are zero, and does not include the inches
+            if they are zero.
+        </p>
+        
+        <p>
+            The correct answers for the above example are:
+        </p>
+        <ul>
+            <li>0'1" (formatMeasurementLong)</li>
+            <li>1" (formatMeasurementShort)</li>
+        </ul>
+        
+        <div class="instruction">
+            <p>Use the following <a href="measurement.zip">zip</a> as a starting point.</p>
+            <p>Complete the <b>formatMeasurementLong</b> and <b>formatMeasurementShort</b> functions.</p>
+        </div>        
+        
+    </div>
+</body>
+</html>

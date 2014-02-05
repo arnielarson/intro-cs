@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Answer 1.5.2</title>
+        <link href="../../../reset.css" rel="stylesheet">
+        <link href="../../../page.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="frame">
+            <h1>Answer 1.5.2</h1>
+            <h2>School classification</h2>
+            <h3>default.html</h3>
+            <div class="code">
+&lt;!DOCTYPE html&gt;<br>
+&lt;html&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;head&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;Page Title&lt;/title&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;script src="uprep.js"&gt;&lt;/script&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/head&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;body onload="calculateSchoolClassification();"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/body&gt;<br>
+&lt;/html&gt;<br>
+            </div>
+            <h3>uprep.js</h3>
+            <div class="code">
+function calculateEnrollmentForYear(year) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return year.grade10 + year.grade11 + year.grade12;<br>
+}<br>
+<br>
+function calculateSchoolClassificationForEnrollment(enrollment) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if (enrollment &gt;= 1304) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return "4A";<br>
+&nbsp;&nbsp;&nbsp;&nbsp;} else if (enrollment &gt;= 1086 &amp;&amp; enrollment &lt;= 1303) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return "3A";<br>
+&nbsp;&nbsp;&nbsp;&nbsp;} else if (enrollment &gt;= 513 &amp;&amp; enrollment &lt;= 1085) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return "2A";<br>
+&nbsp;&nbsp;&nbsp;&nbsp;} else if (enrollment &gt;= 208 &amp;&amp; enrollment &lt;= 512) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return "1A";<br>
+&nbsp;&nbsp;&nbsp;&nbsp;} else if (enrollment &gt;= 93 &amp;&amp; enrollment &lt;= 207) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return "2B";<br>
+&nbsp;&nbsp;&nbsp;&nbsp;} else if (enrollment &gt;= 0 &amp;&amp; enrollment &lt;= 92) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return "1B";<br>
+&nbsp;&nbsp;&nbsp;&nbsp;} else {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return undefined;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+}<br>
+<br>
+function calculateSchoolClassificationForYear(year) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var enrollment = calculateEnrollmentForYear(year);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return calculateSchoolClassificationForEnrollment(enrollment);<br>
+}<br>
+<br>
+function calculateSchoolClassification() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;testSchoolClassification();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var thisYear = {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade10: 81,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade11: 79,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade12: 76<br>
+&nbsp;&nbsp;&nbsp;&nbsp;};<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var clasification = calculateSchoolClassificationForYear(thisYear);<br>
+}<br>
+<br>
+function assert(condition) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if (condition != true) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;debugger;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+}<br>
+<br>
+function testSchoolClassification() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var testYear = {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade10: 1,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade11: 2,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade12: 3<br>
+&nbsp;&nbsp;&nbsp;&nbsp;};<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var testEnrollment = calculateEnrollmentForYear(testYear);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;assert(testEnrollment == 6);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var test4A = calculateSchoolClassificationForEnrollment(1304);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;assert(test4A == "4A");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var test3A = calculateSchoolClassificationForEnrollment(1086);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;assert(test3A == "3A");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var test2A = calculateSchoolClassificationForEnrollment(513);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;assert(test2A == "2A");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var test1A = calculateSchoolClassificationForEnrollment(208);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;assert(test1A == "1A");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var test2B = calculateSchoolClassificationForEnrollment(93);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;assert(test2B == "2B");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var test1B = calculateSchoolClassificationForEnrollment(0);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;assert(test1B == "1B");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var testNegative = calculateSchoolClassificationForEnrollment(-1);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;assert(testNegative == undefined);<br>
+}<br>
+<br>
+
+            </div>
+        </div>
+    </body>
+</html>

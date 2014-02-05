@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Exercise 1.5.2</title>
+        <link href="../../../reset.css" rel="stylesheet">
+        <link href="../../../page.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="frame">
+            <h1>Exercise 1.5.2</h1>
+            <h2>Canvas</h2>
+            <h3>Do your pages have animations?</h3>
+            <p>
+                In this exercise, we are going to be drawing on the canvas
+                at a regular interval to make an animation.
+            </p>
+            <h3>How does animation work?</h3>
+            <p>
+                <a href="http://en.wikipedia.org/wiki/Eadweard_Muybridge">Eadweard Muybridge</a>
+                is credited with pioneering work in motion picture projection.  You may
+                be familiar with the "horse in motion", which showed that all four feet
+                leave the ground at a gallop.
+            </p>
+            <div class="source">
+                <p>[Source: <a href="http://en.wikipedia.org/wiki/Eadweard_Muybridge">Wikipedia</a>]</p>
+                <div class="sidebyside">
+                    <div class="side">
+                        <img src="http://upload.wikimedia.org/wikipedia/commons/d/dd/Muybridge_race_horse_animated.gif">
+                    </div>
+                    <div class="side">
+                        <img width="400" src="http://upload.wikimedia.org/wikipedia/commons/7/73/The_Horse_in_Motion.jpg">
+                    </div>
+                </div>
+            </div>
+            <p>
+                As you can see above, a galloping horse animation is simply a series
+                of pictures (called <b>frames</b>) played fast enough to convince
+                your brain that something is moving.
+            </p>
+            <p>
+                How fast do we need to play the frames in order for it to look right?
+                It <a href="http://en.wikipedia.org/wiki/Frame_rate">varies</a>.
+                Movies are typically around <b>24 frames per second</b>, but video games are
+                typically higher.
+            </p>
+            <h3>When do we draw?</h3>
+            <p>
+                So lets say we want to animate at 2 frames a second.  This means we need to draw,
+                and then wait for a while, and then draw again, and so on.
+            </p>
+            <img src="diagram1.png">
+            <h3>Drawing on a regular basis</h3>
+            <p>
+                To draw each frame, we need to call some function that we have written.  So we really need a way to
+                call a function when a certain amount of time has gone by.  
+            </p>
+            <p>
+                Javascript has a function
+                that lets us do that, called <b>setInterval</b>.  
+            </p>
+            <div class="signature">
+            setInterval(<div class="parameter">function</div>, <div class="parameter">milliseconds</div>)
+            </div>
+            <p>
+                To use this function, we need to give a function that we want to call
+                (which will draw a frame),
+                and we need to give how often we want it called in milliseconds.
+            </p>
+            <p class="idea">
+                A <b>millisecond</b> is 1/1000th of a second, and is abbreviated <b>ms</b>.
+                
+            </p>
+            <p>
+                For example, the following calls <b>setInterval</b>
+                when the page loads so that the function <b>drawFrame</b>
+                will be called twice a second (2 frames per second, or every 500ms which is 1/2 second).
+            </p>
+            <div class="code">
+function drawSomething(context) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">draw something here</span><br>
+}<br>
+<br>
+function drawFrame() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var canvas = document.getElementById("mainCanvas");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var context = canvas.getContext("2d");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;drawSomething(context);&nbsp;&nbsp;&nbsp;&nbsp;<br>
+}<br>
+<br>
+function start() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var framesPerSecond = 2;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;setInterval(drawFrame, 1000 / framesPerSecond);<br>
+}<br>
+            </div>
+            <div class="instruction">
+            <p>
+                Download the <a href="Exercise%201.5.2.zip">zip</a>
+                and change the <b>drawSomething</b> function
+                to draw a <a href="../../../resources/canvassubset.htm#FillCircle">Circle</a>.
+            </p>                
+            </div>
+            <p>
+                Try it out.  You should see a circle on your page.
+            </p>                
+            <h3>It is just sitting there...</h3>
+            <p>
+                At this point, we are drawing 2 frames a second, but the
+                frames are exactly the same each time.  We need to change
+                something, otherwise our animation will never change (which
+                is a pretty boring animation).
+            </p>
+            <p>
+                If we change the <b>x</b> position of the circle each frame
+                (by adding 1 to it), then
+                the circle should move across the screen (from left to right). 
+            </p>
+            <img src="diagram2.png">
+            <p>
+                This means we need to keep track of where the circle is,
+                which means we need a variable.  We need to use a <b>global</b>
+                variable, since the value is not just used within one function.
+            </p>
+            <div class="instruction">
+            <p>
+                Go ahead and make the changes <span class="highlight">shown below</span>.
+            </p>
+                
+            </div>
+            <p>
+                We have added a global
+                variable <b>x</b>, and a function <b>changeSomething</b>
+                that changes it, and we are calling <b>changeSomething</b>
+                each time we draw a frame.  This means the value of the
+                variable x will increase each frame.                
+            </p>
+            <div class="code">
+<span class="highlight">var x = 0;</span><br>
+<br>
+function drawSomething(context) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+}<br>
+<br>
+<span class="highlight">function changeSomething() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;x = x + 1;<br>
+}<br></span>
+<br>
+function drawFrame() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var canvas = document.getElementById("mainCanvas");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var context = canvas.getContext("2d");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="highlight">changeSomething();</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;drawSomething(context);<br>
+}<br>
+<br>
+function start() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var framesPerSecond = 2;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;setInterval(drawFrame, 1000 / framesPerSecond);<br>
+}<br>                
+            </div>
+            <p>
+                Even though the variable is increasing every frame, it does not
+                mean we are drawing anything different.
+            </p>
+            <div class="instruction">
+                <p>
+                Change <b>drawSomething</b>
+                to use the value of <b>x</b> when drawing the circle.
+                </p>                
+            </div>
+            <p>
+                Try it out.  
+            </p>
+            <h3>It is smearing!</h3>
+            <p>
+                You should see a circle slowly smearing from
+                left to right and then disappear off the right edge
+                of the canvas.
+            </p>
+            <img src="chrome1.png">
+            <p>
+                Each time you draw on a canvas, it just adds more
+                "paint".  We want to start with a clean canvas
+                each time we draw a frame in order to make this
+                look like an animation.
+            </p>
+            <div class="instruction">
+                <p>
+                    Before you paint your circle,
+                    <a href="../../../resources/canvassubset.htm#FillCanvas">fill the canvas</a>
+                    with another color.
+                </p>                
+            </div>
+            <p>
+                You should now see a circle moving slowly across the screen.
+            </p>
+            <img src="chrome2.png">                
+            <h3 id="Faster">Can it go faster?</h3>
+            <div class="instruction">
+                
+                <p>
+                    Try increasing the number of frames per second and see
+                    what happens.
+                </p>
+            </div>
+            <div class="instruction">
+            <p>
+                Try increasing x by more than 1 each second and see
+                what happens.
+            </p>
+                
+            </div>
+            <h2>Done!</h2>
+            <p>
+                Head back to Schoology and submit your files.
+            </p>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Exercise 1.6.5</title>
+        <link href="../../../reset.css" rel="stylesheet">
+        <link href="../../../page.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="frame">
+            <h1>Exercise 1.6.5</h1>
+            <h2>Runaway bubbles</h2>
+            <p>                
+                Once our bubbles leave the canvas area, we can remove
+                them from our bubbles array to make space for other
+                bubbles.
+            </p>
+            <img src="capture3.gif">
+            <h3>Exit stage left (or right, or top, or bottom)</h3>
+            <p>
+                We know a bubble has left the canvas when its
+                <b>x, y</b> location is outside of the canvas.
+            </p>
+            <img src="diagram13.png">
+            <p>
+                This should be familiar given our research into bouncing circles
+                .  We can write
+                a function <b>isBubbleRunningAway</b> that returns <b>true</b> if a bubble
+                is outside the canvas, and <b>false</b> otherwise.
+            </p>
+            <div class="idea">
+                <p>                    
+                    The bubble is running away if it is <b>too left</b> OR <b>too right</b> OR <b>too high</b> OR <b>too low</b>.
+                </p>
+            </div>
+            <div class="code">
+function isBubbleRunningAway(bubble, canvas) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if (bubble.x &lt; 0 || bubble.x &gt;= canvas.width ||<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bubble.y &lt; 0 || bubble.y &gt;= canvas.height) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return true;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return false;<br>
+}<br>
+            </div>
+            
+            <div class="instruction">
+                <p>
+                    Copy your files from Exercise 1.6.3 and make a folder for this exercise (<b>Exercise 1.6.5</b>).
+                </p>
+                <p>
+                    Copy the <b>isBubbleRunningAway</b> function to <b>uprep.js</b>.
+                </p>
+            </div>
+            
+            <h3>Pop that bubble</h3>
+            
+            <p>
+                We are going to need to be able to remove a bubble from our array.
+            </p>
+            
+            <p>
+                We know we can make changes to an array, such as removing
+                a value, as long as we know the index.
+            </p>
+            
+            <p>
+                Let's make a function <b>removeBubble</b> that removes a bubble
+                from the bubbles array, given the index of the bubble.
+            </p>
+            
+            <div class="code">
+function removeBubble(index) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">What do we write here?</span><br>
+}<br>                
+            </div>
+            <p>
+                What should we write above?  You might want to refer to
+                this <a href="Exercise%201.6.4.htm#ArrayRemove">example</a>.
+            </p>
+            
+            <div class="space"></div>
+            
+            <p>
+                Here is the completed function.  We just need to use the
+                <b>splice</b> function to remove a value at the index
+                given to the function.
+            </p>
+            
+            <div class="code">
+function removeBubble(index) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bubbles.splice(index, 1);<br>
+}<br>
+            </div>
+            
+            <div class="instruction">
+                <p>
+                    Copy the <b>removeBubble</b> function above to <b>uprep.js</b>.
+                </p>
+            </div>
+            
+            <h3>Which bubble?</h3>
+            
+            <p>
+                We are going to need to check for a runaway bubble each 
+                frame.  If a bubble has run away, then we need to remove it from
+                the array.
+            </p>
+            
+            <p>
+                If we had a function <b>findRunawayBubble</b> that would find the index of a bubble
+                that has run away, then we could write a function <b>removeRunawayBubble</b>
+                that would remove the runaway bubble.
+            </p>
+            
+            <div class="code">
+function removeRunawayBubble(canvas) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var index = findRunawayBubble(canvas);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if (index != undefined) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;removeBubble(index);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+}<br>                
+            </div>
+            
+            <p>
+                The function above expects <b>findRunawayBubble</b> to return
+                the index of a bubble that has run away, or <span class="code">undefined</span>
+                if no bubbles have run away.
+            </p>
+                
+            <div class="instruction">
+                <p>
+                    Copy the <b>removeRunawayBubble</b> function above to <b>uprep.js</b>.
+                </p>
+            </div>
+            
+            <h3>Finishing up</h3>
+            
+            <p>
+                We almost have all the pieces.  Lets call the <b>removeRunawayBubble</b>
+                function for each frame, and add <b>findRunawayBubble</b>.
+            </p>
+            
+            <div class="code">
+<span class="highlight">function findRunawayBubble(canvas) {</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">what goes here?</span><br>
+<span class="highlight">}</span><br>
+<br>
+function changeSomething(canvas) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;moveBubbles();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="highlight">removeRunawayBubble(canvas);</span><br>
+}<br>                
+            </div>
+               
+            <div class="instruction">
+                <p>
+                    Make the changes highlighted above.
+                </p>
+                <p>
+                    Complete <b>findRunawayBubble</b>:  
+                </p>
+                <ul>
+                    <li>
+                        <p>
+                            The function should return the
+                            <b>index</b> of a bubble that is running away, or <span class="code">undefined</span>
+                            if no bubbles are running away.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            The function should use a loop to go through the
+                            values of the bubbles array.   For each bubble,
+                            the function should use the <b>isBubbleRunningAway</b>
+                            function to see if it has found a bubble that is
+                            running away.  Need inspiration?  Look
+                        <a href="Exercise%201.6.4.htm#LoopFind">here</a>.
+                        </p>                        
+                    </li>                        
+                    <li>
+                        <p>
+                            If the loop finds a bubble that is running away, it should
+                            store the index of the bubble in a variable, and stop
+                            the loop (using <span class="code">break</span>).
+                            Need inspiration?  Look
+                            <a href="Exercise%201.6.4.htm#LoopFind2">here</a>.
+                        </p>
+                    </li>
+                </ul>
+            </div>
+            <div class="check">
+                <p>
+                When the bubbles leave the canvas, you should see the number
+                of bubbles decrease.
+                    
+                </p>
+            </div>
+            
+            <h2>Done!</h2>
+            <p>
+                Head back to Schoology and submit your files.
+            </p>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Exercise 1.5.1</title>
+        <link href="../../../reset.css" rel="stylesheet">
+        <link href="../../../page.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="frame">
+            <h1>Exercise 1.5.1</h1>
+            <h2>Canvas</h2>
+            <h3>Do your pages have drawings?</h3>
+            <p>
+                So far our pages have have had text and images on them.
+                In this lesson, we will be working with the HTML
+                <b>Canvas Element</b>
+                which allows us to "draw" whatever we want within
+                an area of the page.
+            </p>
+            <div class="instruction">
+            <p>
+                Read the <a href="../../../resources/canvassubset.htm#Introduction">Introduction</a>
+                in the Canvas Reference.  Come back to this page when you get to
+                the <span class="red">END OF INTRODUCTION</span>.
+            </p>
+            </div>
+                
+            <h3 id="GettingStarted">Getting Started</h3>
+            
+                <div class="instruction">
+                    <p>
+                        Download this <a href="Exercise%201.5.1.zip">zip</a>
+                        as a starting point for this Exercise (<b>Exercise 1.5.1</b>).
+                    </p>
+                </div>
+            
+            <p>
+                The folder includes an HTML page with a named canvas element,
+                an empty CSS file, and the following Javascript.
+                You can get started drawing by filling in the <b>drawSomething</b>
+                function.
+            </p>
+            <div class="code">
+function drawSomething(context) {&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">make your changes here</span><br>
+}<br>
+<br>
+function start() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var canvas = document.getElementById("mainCanvas");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var context = canvas.getContext("2d");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;drawSomething(context);<br>
+}<br>
+            </div>
+                
+                <div class="instruction">
+                    <p>
+                        Change the <b>drawSomething</b> function to draw a <a href="../../../resources/canvassubset.htm#Rectangle">Rectangle</a>
+                        (either filled, stroked, or both).
+                    </p>
+                </div>
+                <div class="instruction">
+                    <p>
+                        Try changing the <a href="../../../resources/canvassubset.htm#ColorsAndLineWidth">Colors And Line Width</a>
+                        of your rectangle.
+                    </p>                    
+                </div>
+            </ul>
+            <h3>The assignment</h3>
+            <div class="instruction">
+            <p>
+                Your assignment is to come up with something you want to draw, and
+                then use canvas to draw it.
+                Use the <a href="../../../resources/canvassubset.htm">Canvas Reference</a>
+                as your guide.
+            </p>
+            <p>
+                It might be helpful to <b>sketch</b> what you want using paper/ink first,
+                or find a picture you are going to base your drawing on.
+            </p>
+            <p>
+                Your drawing must contain: 
+            </p>
+            <ul>
+                <li><a href="../../../resources/canvassubset.htm#Rectangle">At least one Rectangle</a></li>
+                <li><a href="../../../resources/canvassubset.htm#ArcsAndCircles">At least one Arc or Circle</a></li>
+                <li><a href="../../../resources/canvassubset.htm#LinesAndPolygons">A least one Line, Polyline or Polygon</a></li>
+                <li><a href="../../../resources/canvassubset.htm#Text">At least one Text</a></li>
+                <li><a href="../../../resources/canvassubset.htm#Images">At least one Image</a></li>
+            </ul>
+            <p>
+                <b>For example</b>, you drawing might contain: one text, two images, one arc,
+                a filled background (rectangle), and a three lines.
+            </p>
+            <p>
+                If you would like to see an example of a drawing, you can find one                
+                <a href="Pumas.htm">here</a>.
+            </p>
+            </div>
+            
+               
+            <h2>Done!</h2>
+            <p>
+                Head back to Schoology and submit your files.
+            </p>
+        </div>
+    </body>
+</html>

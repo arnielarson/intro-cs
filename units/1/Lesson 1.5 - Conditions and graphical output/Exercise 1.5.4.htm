@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Exercise 1.5.4</title>
+        <link href="../../../reset.css" rel="stylesheet">
+        <link href="../../../page.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="frame">
+            <h1>Exercise 1.5.4</h1>
+            <h2>Canvas</h2>
+            <h3>Some reflection</h3>
+            <p>
+                It is a little sad that we animated our circle right off
+                the edge of our canvas and it disappeared.  We really should make it <b>reflect</b> when it
+                gets to the edge of the canvas, so that it will bounce back
+                and head the other way!
+            </p>
+            <h3>How does reflection work?</h3>
+            <p>
+                When starts, our circle is traveling at (say) 10 pixels per frame towards the right
+                (x is <b>increasing</b>
+                by 10 each frame).  
+            </p>
+            <img src="diagram3.png">
+            <p>
+                When the circle reaches the reflection point, we want to reverse
+                its direction.
+            </p>
+            <img src="diagram14.png">
+            <p>
+                Once the circle has
+                reflected, it will be traveling at 10 pixels per frame towards
+                the left (meaning x is <b>decreasing</b> by 10 each frame).                
+            </p>
+            <img src="diagram4.png">
+            <h3>The direction of travel</h3>
+            <p>
+                We are going to need to keep track of whether the
+                circle is moving to the left or the right.  We can just
+                add a variable called <b>dx</b> (short for &#x0394;x, delta x) which will
+                either be 10 (when moving left to right), or -10 (when moving
+                right to left).
+            </p>
+            <p>
+                Just while we are trying this out, lets change <b>x</b>
+                to start closer to the right edge, say at <b>450</b>
+                (the canvas was set to 500 pixels wide in the HTML).
+            </p>
+            <div class="instruction">
+                <p>
+                    Copy your files from Exercise 1.5.2 and create a
+                    folder for <b>Exercise 1.5.4</b>.
+                    Make the changes <span class="highlight">highlighted</span>
+                    below.
+                </p>                
+            </div>
+            <div class="code">
+var x = <span class="highlight">450</span>;<br>
+<span class="highlight">var dx = 10;</span><br>
+<br>
+function drawSomething(context) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">draw something here</span><br>
+}<br>
+<br>
+function changeSomething() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;x = x + <span class="highlight">dx</span>;<br>
+}<br>
+<br>
+function drawFrame() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var canvas = document.getElementById("mainCanvas");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var context = canvas.getContext("2d");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;changeSomething();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;drawSomething(context);<br>
+}<br>
+<br>
+function start() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var framesPerSecond = 2;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;setInterval(drawFrame, 1000 / framesPerSecond);<br>
+}<br>                
+            </div>
+            <div class="instruction">
+                <p>
+                    Try out these changes.  You should see the circle start towards
+                    the right hand edge of the canvas and then disappear.
+                </p>
+            </div>
+            <h3>Reversing the direction of travel</h3>
+            <p>
+                When the <b>x</b> position of the circle reaches the
+                right edge of the canvas, 
+                then we want to reverse the direction of travel.
+                This means we want to <b>negate</b> (change the sign of)
+                the value of
+                the <b>dx</b> variable.  In Javascript, we can do
+                this as follows:
+            </p>
+            <div class="code">
+                dx = -dx;
+            </div>
+            <p>
+                This means that if <b>dx</b> is 10, then it will change to -10,
+                and if it is -10, it will change to 10.
+            </p>
+            <h3>The right edge of the canvas</h3>
+            <p>
+                How do we know when <b>x</b> has reached the right edge of
+                the canvas?  
+                We can get the width of the canvas using <b>canvas.width</b>,
+                so we know we have reached the right
+                edge when <b>x</b> is greater than or equal to that.
+            </p>
+            <p>
+                In english, this is what we want to do for each frame:
+            </p>
+            <p class="idea">
+                Add <b>dx</b> to the value of <b>x</b>.<br>
+                If <b>x</b> has reached the right edge of the canvas then negate the value of <b>dx</b>.
+            </p>
+            <p>
+                We can use a <a href="Exercise%201.5.3.htm#Comparison">Comparison</a>
+                to calculate whether <b>x</b> has reached the right edge:
+            </p>
+            <div class="code">
+                var reachedRightEdge = x &gt;= canvas.width;
+            </div>
+            <p>
+                We can use an <a href="Exercise%201.5.3.htm#If">If Statement</a>
+                to negate the value of <b>dx</b> once we have reached
+                the right edge.
+            </p>
+            <div class="code">
+                if (reachedRightEdge) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;dx = -dx;<br>
+                }
+            </div>
+            <h3>Time to bounce</h3>
+            <div class="instruction">
+            <p>
+                Make the changes shown <span class="highlighted">highlighted</span> below,
+                and try it out.
+                You should see the circle bounce when it reaches the right edge.  <span class="woot"></span>
+            </p>
+            </div>
+            <div class="code">
+var x = 450;<br>
+var dx = 10;<br>
+<br>
+function drawSomething(context) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">draw something here</span><br>
+}<br>
+<br>
+function changeSomething(<span class="highlight">canvas</span>) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;x = x + dx;<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="highlight">var reachedRightEdge = x &gt;= canvas.width;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if (reachedRightEdge) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dx = -dx;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}</span><br>
+}<br>
+<br>
+function drawFrame() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var canvas = document.getElementById("mainCanvas");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var context = canvas.getContext("2d");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;changeSomething(<span class="highlight">canvas</span>);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;drawSomething(context);<br>
+}<br>
+<br>
+function start() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var framesPerSecond = 2;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;setInterval(drawFrame, 1000 / framesPerSecond);<br>
+}<br>
+                
+            </div>
+            <h3>More bouncing!</h3>
+            <p>
+                But once the circle bounces and reaches the <b>left</b> edge, it will disappear
+                again.  So sad!
+            </p>
+            <p>
+                We need to change our program so that when the circle reaches the left
+                edge of the canvas, we reverse the direction of travel again.  That
+                way we will have two reflection points.
+            </p>
+            <img src="diagram15.png">
+            <p>
+                In english, this is what we want to do for each frame:
+            </p>
+            <p class="idea">
+                Add <b>dx</b> to the value of <b>x</b>.<br>
+                If <b>x</b> has reached the <b>right</b> edge of the canvas then negate the value of <b>dx</b>.<br>
+                If <b>x</b> has reached the <b>left</b> edge of the canvas then negate the value of <b>dx</b>.
+            </p>
+            <p>
+                The left edge of the canvas is 0, so we can see if we have reached
+                the left edge by writing:
+            </p>
+            <div class="code">
+                var reachedLeftEdge = x &lt; 0;
+            </div>
+            <div class="instruction">
+                <p>
+                    Change the function <b>changeSomething</b> function so that the circle bounces
+                    when it reaches the left edge as well.  Tired of waiting for the circle
+                    to move?
+                    Increase the frames per second like
+                    you did <a href="Exercise%201.5.2.htm#Faster">before</a>.                    
+                </p>
+            </div>                
+            <h2>Done!</h2>
+            <p>
+                Head back to Schoology and submit your files.
+            </p>
+        </div>
+    </body>
+</html>

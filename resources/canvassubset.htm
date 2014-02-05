@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Canvas Reference</title>
+        <link href="../reset.css" rel="stylesheet">
+        <link href="../page.css" rel="stylesheet">
+        <script src="canvassubset.js"></script>
+    </head>
+    <body onload="onload();">
+        <div class="frame" id="#Top">
+            <h1>Canvas Reference</h1>
+            <h2 id="TableOfContents">Table of Contents</h2>            
+            <ul>
+                <li>
+                    <a href="#Introduction">Introduction</a>
+                    <ul>
+                        <li><a href="#Element">Canvas Element</a></li>
+                        <li><a href="#Coordinates">Canvas Coordinates</a></li>
+                        <li><a href="#Size">Canvas Size</a></li>
+                        <li><a href="#Context">Canvas Context</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#ColorsAndLineWidth">Colors And Line Width</a>
+                    <ul>
+                        <li><a href="#FillStyle">Fill Style</a></li>
+                        <li><a href="#StrokeStyle">Stroke Style</a></li>
+                        <li><a href="#LineWidth">Line Width</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#Rectangle">Drawing a Rectangle</a>
+                    <ul>
+                        <li><a href="#StrokeRect">Stroke Rect</a></li>
+                        <li><a href="#FillRect">Fill Rect</a></li>
+                        <li><a href="#FillAndStrokeRect">Fill And Stroke Rect</a></li>
+                        <li><a href="#FillCanvas">Fill Canvas</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#ArcsAndCircles">Drawing Arcs and Circles</a>
+                    <ul>
+                        <li><a href="#FillArc">Fill Arc</a></li>
+                        <li><a href="#StrokeArc">Stroke Arc</a></li>
+                        <li><a href="#FillAndStrokeArc">Fill And Stroke Arc</a></li>
+                        <li><a href="#FillCircle">Fill Circle</a></li>
+                        <li><a href="#StrokeCircle">Stroke Circle</a></li>
+                        <li><a href="#FillAndStrokeCircle">Fill And Stroke Circle</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#LinesAndPolygons">Drawing Lines, Polylines and Polygons</a>
+                    <ul>
+                        <li><a href="#Line">Line</a></li>
+                        <li><a href="#PolyLine">Polyline</a></li>
+                        <li><a href="#FillTriangle">Fill Triangle</a></li>
+                        <li><a href="#StrokeTriangle">Stroke Triangle</a></li>
+                        <li><a href="#FillAndStrokeTriangle">Fill And Stroke Triangle</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#Text">Drawing Text</a>
+                    <ul>
+                        <li><a href="#FillText">Fill Text</a></li>
+                        <li><a href="#StrokeText">Stroke Text</a></li>
+                        <li><a href="#Font">Font</a></li>
+                        <li><a href="#TextAlignment">Text Alignment</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#Images">Drawing Images</a>
+                    <ul>
+                        <li><a href="#DrawImage">Draw Image Regular Size</a></li>
+                        <li><a href="#DrawImageStretched">Draw Image Stretched</a></li>
+                        <li><a href="#ImageSize">Image Size</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#Animation">Animation</a>
+                    <ul>
+                        <li><a href="#AnimationTimer">Adding an animation timer</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#More">How to learn more</a>
+                </li>
+            </ul>
+            <h2 id="Introduction">Introduction</h2>
+            <p>
+                The Canvas Element is used to draw shapes on an HTML page.
+            </p>
+            <h3 id="Element">Canvas Element</h3>
+            <p>                
+                We can name and use a canvas element like any other element.
+                In the following example, we find the canvas element
+                named <b>draw</b> from the <b>start</b> function.
+            </p>
+            <div class="file">default.html</div>
+            <div class="code">
+&lt;!DOCTYPE html&gt;<br>
+&lt;html&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;head&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;Page Title&lt;/title&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;script src="draw.js"&gt;&lt;/script&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/head&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;body onload="start();"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="highlight">&lt;canvas width="500" height="500" id="draw"&gt;&lt;/canvas&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/body&gt;<br>
+&lt;/html&gt;<br>
+            </div>
+            <div class="file">draw.js</div>
+            <div class="code">
+                function start()<br>
+                {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;var canvas = document.getElementById(<span class="highlight">"draw"</span>);<br>
+                }<br>
+            </div>
+            <h3 id="Coordinates">Canvas Coordinates</h3>
+            <p>
+                A canvas is made up of a grid of small dots called <b>pixels</b>.  Each pixel has a color.
+            </p>
+            <img src="diagram3.png">
+            <p>
+                The location (coordinate) of a pixel is found on the 
+                canvas using it's <b>X position</b> and it's <b>Y position</b>, which
+                is measured from the top left of the canvas.
+                For example, the <span class="red">red</span> pixel above has an X position of 4, and a Y position
+                of 2.
+            </p>
+            <p class="sidenote">
+                This is a little different than what you are used to with math.  With canvas,
+                the location 0, 0 is the at the top left.
+                Also, with canvas, increasing Y moves towards the bottom of the canvas.
+                You can think of canvas coordinates as: "how many pixels over, and how
+                many pixels down".
+            </p>
+            <h3 id="Size">Canvas Size</h3>
+            <p>
+                A canvas has a width and a height which controls how much space
+                it takes up on the page.  Anything you draw <b>outside</b> this
+                area will not be visible.
+            </p>
+            <p>
+                The size of the canvas can be written using the <b>width</b> and <b>height</b>
+                attributes in the HTML.  For example,
+                the following HTML page sizes the canvas to 500 by 500 pixels.
+            </p>
+            <div class="code">
+&lt;!DOCTYPE html&gt;<br>
+&lt;html&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;head&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;Page Title&lt;/title&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/head&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;body&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;canvas <span class="highlight">width</span>="500" <span class="highlight">height</span>="500"&gt;&lt;/canvas&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/body&gt;<br>
+&lt;/html&gt;<br>
+            </div>
+            <p>
+                The size of the canvas can also be changed by Javascript.
+                For example, the following <b>sizeCanvas</b> function changes the width
+                and height of the canvas to be 500 by 500 pixels.
+            </p>
+            <div class="code">
+                function sizeCanvas(canvas)<br>
+                {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;canvas.<span class="highlight">width</span> = 500;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;canvas.<span class="highlight">height</span> = 500;<br>
+                }<br>
+            </div>
+            <h3 id="Context">Canvas Context</h3>
+            <p>
+                You can <b>not</b> draw using a canvas object.  You have to first get a context object
+                from the canvas that you can use to draw on the canvas.
+            </p>
+            <div class="code">
+                function getContextFromCanvas(canvas)<br>
+                {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;var context = canvas.getContext("2d");<br>
+                }<br>
+            </div>
+            <p class="sidenote">
+                What is this "2d" for?  The canvas also has another kind of context for
+                drawing in three dimensions (called <a href="https://developer.mozilla.org/en-US/docs/Web/WebGL">webgl</a>).                
+            </p>
+            
+            <p><br><br><br><br><span class="red">END OF INTRODUCTION</span><br><br><br><br></p>
+            
+            <h2 id="ColorsAndLineWidth">Colors And Line Width</h2>
+            <p>
+                The <a href="#FillStyle">Fill Style</a> is the color used <b>inside</b> the shape.
+            </p>
+            <p>
+                The <a href="#StrokeStyle">Stroke Style</a> is the color used for the <b>outline</b> of the shape.
+            </p>
+            <p>
+                The <a href="#LineWidth">Line Width</a> is the <b>size</b> of the outline.
+            </p>
+            <h3 id="FillStyle">Fill Style</h3>
+            <p>
+                The <b>fillStyle</b> property of the context controls what color will be
+                used to <b>fill</b> the next shape (or text).  You have the same options for
+                setting the color for the fillStyle has you do with
+                <a href="csssubset.htm#Color">CSS</a>.
+            </p>
+            <div class="signature">
+            context.fillStyle = <div class="parameter">color</div>;
+            </div>
+            <p>
+                For example, the following sets the fillStyle to the color red.
+            </p>
+            <div class="code">
+                function changeFillStyle(context)<br>
+                {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;context.fillStyle = "red";<br>
+                }<br>
+            </div>
+            <h3 id="StrokeStyle">Stroke Style</h3>
+            <p>
+                The <b>strokeStyle</b> property of the context controls what color will be
+                used for the <b>outline</b> of the next shape (or text).  You have the same options for
+                setting the color for the strokeStyle has you do with
+                <a href="csssubset.htm#Color">CSS</a>.
+            </p>
+            <div class="signature">
+            context.strokeStyle = <div class="parameter">color</div>;
+            </div>
+            <p>
+                For example, the following sets the strokeStyle to the color red.
+            </p>
+            <div class="code">
+                function changeStrokeStyle(context)<br>
+                {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;context.strokeStyle = "red";<br>
+                }<br>
+            </div>
+            <h3 id="LineWidth">Line Width</h3>
+            <p>
+                The <b>lineWidth</b> property of the context controls the width
+                of the line (in pixels) that is drawn for the <b>outline</b>
+                of a shape (the stroke).
+            </p>
+            <div class="signature">
+            context.lineWidth = <div class="parameter">width</div>;
+            </div>
+            <p>
+                For example, the following sets the lineWidth to the value 3.
+            </p>
+            <div class="code">
+                function changeLineWidth(context)<br>
+                {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;context.lineWidth = 3;<br>
+                }<br>
+            </div>
+            
+            <h2 id="Rectangle">Drawing rectangles</h2>
+            <p>
+                You can either draw the outline (stroke), the center (fill), or both (fill and stroke)
+                of a rectangle.
+            </p>
+            <p>
+                The coordinates are for the top left of the rectangle, and the width and height.
+            </p>
+            <div class="signature">
+            context.fillRect(<div class="parameter">x</div>,
+                <div class="parameter">y</div>,
+                <div class="parameter">width</div>,
+                <div class="parameter">height</div>);
+            </div>
+            <div class="signature">
+            context.strokeRect(<div class="parameter">x</div>,
+                <div class="parameter">y</div>,
+                <div class="parameter">width</div>,
+                <div class="parameter">height</div>);
+            </div>
+            
+            
+            <h3 id="StrokeRect">Stroke Rect</h3>
+            <div class="sidebyside">
+                <div class="side">
+                    <canvas id="_strokeRect"></canvas>
+                </div>                
+                <div class="side">
+                    <div class="code">
+function strokeRect(context) {&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;context.strokeStyle = "blue";&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;context.strokeRect(10, 10, 50, 50);<br>
+}<br>
+                    </div>
+                </div>
+            </div>
+            
+            <h3 id="FillRect">Fill Rect</h3>
+            <div class="sidebyside">
+                <div class="side">
+                    <canvas id="_fillRect"></canvas>                    
+                </div>                
+                <div class="side">
+                    <div class="code">
+function fillRect(context) {&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;context.fillStyle = "red";<br>
+&nbsp;&nbsp;&nbsp;&nbsp;context.fillRect(10, 10, 50, 50);<br>
+}<br>
+                    </div>
+                </div>
+            </div>
+            
+            <h3 id="FillAndStrokeRect">Fill And Stroke Rect</h3>
+            <div class="sidebyside">
+                <div class="side">
+                    <canvas id="_fillAndStrokeRect"></canvas>
+                </div>                
+                <div class="side">
+                    <div class="code">
+function fillAndStrokeRect(context) {&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;context.fillStyle = "red";<br>
+&nbsp;&nbsp;&nbsp;&nbsp;context.strokeStyle = "blue";&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;context.fillRect(10, 10, 50, 50);&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;context.strokeRect(10, 10, 50, 50);<br>
+}<br>
+                    </div>
+                </div>
+            </div>
+            
+            <h3 id="FillCanvas">Fill Canvas</h3>
+            <p>
+                If you want to fill the entire canvas with a solid color, you
+                can fill a rectangle that starts at 0, 0 and is the size of
+                the canvas.  To
+                get the size of the canvas, first get the canvas object
+                from the context object, and then use the <b>width</b>
+                and <b>height</b> properties of the canvas.
+            </p>
+            
+            <div class="sidebyside">
+                <div class="side">
+                    <canvas id="_fillCanvas"></canvas>                    
+                </div>                
+                <div class="side">
+                    <div class="code">
+function fillCanvas(context) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var canvas = context.canvas;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;context.fillStyle = "red";<br>
+&nbsp;&nbsp;&nbsp;&nbsp;context.fillRect(0, 0, canvas.width, canvas.height);<br>
+}<br>
+                    </div>
+                </div>
+            </div>
+            
+            
+            
+            
+            </h3>
+            <h2 id="ArcsAndCircles">Drawing Arcs and Circles</h2>
+            <p>
+                You can draw an <b>arc</b>, which is a part of the outline
+                of a circle.
+            </p>
+            <div class="signature">
+            context.arc(<div class="parameter">x</div>,
+                <div class="parameter">y</div>,
+                <div class="parameter">radius</div>,
+                <div class="parameter">startingAngle</div>,
+                <div class="parameter">endingAngle</div>);
+            </div>
+            <p>
+                The center of the circle is given as x and y.
+            </p>
+            <img src="diagram6.png">
+            <p>
+                The radius of the circle is the distance from the center
+                of the circle to the outside of the circle.
+            </p>
+            <img src="diagram5.png">
+            <p>
+                You
+                can say where to start drawing and where to end drawing on the circle
+                by giving the starting and ending angle in <b>radians</b>.
+                Radians are like degrees, only instead of starting at 0 and
+                going to 360, radians start at 0 and go to <b>2&#x03C0;</b>.
+                You can use <b>Math.PI</b> to get an (approximate) value
+                for <b>&#x03C0;</b>.
+            </p>
+            <img src="diagram4.png">
+            <p>
+                Before you start drawing your shape, use <b>beginPath</b>.
+            </p>
+            <div class="signature">
+            context.beginPath();
+            </div>
+            
+            <h3 id="FillArc">Fill Arc</h3>
+            <div class="sidebyside">
+                <div class="side">
+                    <canvas id="_fillArc"></canvas>
+                </div>                
+                <div class="side">
+                    <div class="code">
+function fillArc(context) {&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;context.fillStyle = "red";<br>
+&nbsp;&nbsp;&nbsp;&nbsp;context.beginPath();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;context.arc(40, 40, 30, 0, Math.PI);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;context.fill();<br>
+}<br>
+                    </div>
+                </div>
+            </div>
+                
+            <h3 id="StrokeArc">Stroke Arc</h3>
+            <div class="sidebyside">
+                <div class="side">
+                    <canvas id="_strokeArc"></canvas>
+                </div>                
+                <div class="side">
+                    <div class="code">
+function strokeArc(context) {&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;context.strokeStyle = "blue";<br>
+&nbsp;&nbsp;&nbsp;&nbsp;context.beginPath();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;context.arc(40, 40, 30, 0, Math.PI);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;context.stroke();<br>
+}<br>
+                    </div>
+                </div>
+            </div>
+                
+            <h3 id="FillAndStrokeArc">Fill And Stroke Arc</h3>
+            <div class="sidebyside">
+                <div class="side">
+                    <canvas id="_fillAndStrokeArc"></canvas>
+                </div>                
+                <div class="side">
+                    <div class="code">
+function fillAndStrokeArc(context) {&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;context.fillStyle = "red";<br>
+&nbsp;&nbsp;&nbsp;&nbsp;context.strokeStyle = "blue";<br>
+&nbsp;&nbsp;&nbsp;&nbsp;context.beginPath();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;context.arc(40, 40, 30, 0, Math.PI);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;context.fill();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;context.stroke();<br>
+}<br>
+                    </div>
+                </div>
+            </div>
+            
+            <p>By giving a starting angle of 0, and an ending angle of <b>2&#x03C0;</b>,
+            you get a circle (the arc goes all the way around).</p>
+            
+            
+            <h3 id="FillCircle">Fill Circle</h3>
+            <div class="sidebyside">
+                <div class="side">
+                    <canvas id="_fillCircle"></canvas>
+                </div>                
+                <div class="side">
+                    <div class="code">
+function fillCircle(context) {&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;context.fillStyle = "red";<br>
+&nbsp;&nbsp;&nbsp;&nbsp;context.beginPath();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;context.arc(40, 40, 30, 0, Math.PI * 2);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;context.fill();<br>
+}<br>
+                    </div>
+                </div>
+            </div>
+                
+            <h3 id="StrokeCircle">Stroke Circle</h3>
+            <div class="sidebyside">
+                <div class="side">
+                    <canvas id="_strokeCircle"></canvas>
+                </div>                
+                <div class="side">
+                    <div class="code">
+function strokeCircle(context) {&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;context.strokeStyle = "blue";<br>
+&nbsp;&nbsp;&nbsp;&nbsp;context.beginPath();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;context.arc(40, 40, 30, 0, Math.PI * 2);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;context.stroke();<br>
+}<br>
+                    </div>
+                </div>
+            </div>
+                
+            <h3 id="FillAndStrokeCircle">Fill And Stroke Circle</h3>
+            <div class="sidebyside">
+                <div class="side">
+                    <canvas id="_fillAndStrokeCircle"></canvas>
+                </div>                
+                <div class="side">
+                    <div class="code">
+function fillAndStrokeCircle(context) {&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;context.fillStyle = "red";<br>
+&nbsp;&nbsp;&nbsp;&nbsp;context.strokeStyle = "blue";<br>
+&nbsp;&nbsp;&nbsp;&nbsp;context.beginPath();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;context.arc(40, 40, 30, 0, Math.PI * 2);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;context.fill();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;context.stroke();<br>
+}<br>
+                    </div>
+                </div>
+            </div>            
+                
+            <h2 id="LinesAndPolygons">Drawing Lines, Polylines and Polygons</h2>
+            <p>
+                To draw a line, polyline or polygon, you have to give the location
+                of all the points.
+            </p>
+            <img src="diagram8.png">
+            <p>
+                When giving the points, pretend you are using a pen.
+                You can either pick up the pen and move it somewhere
+                (<b>moveTo</b>), or you can draw from the current place to a new
+                place (<b>lineTo</b>).
+            </p>
+            <div class="signature">
+            context.moveTo(<div class="parameter">x</div>,
+                <div class="parameter">y</div>);
+            </div>
+            <div class="signature">
+            context.lineTo(<div class="parameter">x</div>,
+                <div class="parameter">y</div>);
+            </div>
+            
+            <p>
+                Before you start drawing your shape, use <b>beginPath</b>.
+            </p>
+            <div class="signature">
+            context.beginPath();
+            </div>
+          
+            
+            <h3 id="Line">Line</h3>
+            <div class="sidebyside">
+                <div class="side">
+                    <canvas id="_line"></canvas>
+                </div>                
+                <div class="side">
+                    <div class="code">
+function line(context) {&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;context.strokeStyle = "blue";<br>
+&nbsp;&nbsp;&nbsp;&nbsp;context.beginPath();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;context.moveTo(10, 10);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;context.lineTo(60, 60);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;context.stroke();<br>
+}<br>
+                    </div>
+                </div>
+            </div>            
+            
+            <h3 id="PolyLine">Polyline</h3>
+            <div class="sidebyside">
+                <div class="side">
+                    <canvas id="_polyLine"></canvas>
+                </div>                
+                <div class="side">
+                    <div class="code">
+function polyLine(context) {&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;context.strokeStyle = "blue";<br>
+&nbsp;&nbsp;&nbsp;&nbsp;context.beginPath();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;context.moveTo(10, 10);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;context.lineTo(60, 60);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;context.lineTo(10, 60);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;context.stroke();<br>
+}<br>
+                    </div>
+                </div>
+            </div>            
+            
+            <p>
+                If you want to close your polygon (connect the last point
+                you drew to the starting point), then
+                use <b>closePath</b> after the last point.
+                
+            </p>
+            <div class="signature">
+            context.closePath();
+            </div>
+            
+            <h3 id="FillTriangle">Fill Triangle</h3>
+            <div class="sidebyside">
+                <div class="side">
+                    <canvas id="_fillTriangle"></canvas>
+                </div>                
+                <div class="side">
+                    <div class="code">
+function fillTriangle(context) {&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;context.fillStyle = "red";<br>
+&nbsp;&nbsp;&nbsp;&nbsp;context.beginPath();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;context.moveTo(10, 10);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;context.lineTo(60, 60);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;context.lineTo(10, 60);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;context.closePath();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;context.fill();<br>
+}<br>
+                    </div>
+                </div>
+            </div>            
+            
+            <h3 id="StrokeTriangle">Stroke Triangle</h3>
+            <div class="sidebyside">
+                <div class="side">
+                    <canvas id="_strokeTriangle"></canvas>
+                </div>                
+                <div class="side">
+                    <div class="code">
+function strokeTriangle(context) {&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;context.strokeStyle = "blue";<br>
+&nbsp;&nbsp;&nbsp;&nbsp;context.beginPath();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;context.moveTo(10, 10);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;context.lineTo(60, 60);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;context.lineTo(10, 60);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;context.closePath();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;context.stroke();<br>
+}<br>
+                    </div>
+                </div>
+            </div>            
+            
+            
+            <h3 id="FillAndStrokeTriangle">Fill And Stroke Triangle</h3>
+            <div class="sidebyside">
+                <div class="side">
+                    <canvas id="_fillAndStrokeTriangle"></canvas>
+                </div>                
+                <div class="side">
+                    <div class="code">
+function fillAndStrokeTriangle(context) {&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;context.fillStyle = "red";<br>
+&nbsp;&nbsp;&nbsp;&nbsp;context.strokeStyle = "blue";<br>
+&nbsp;&nbsp;&nbsp;&nbsp;context.beginPath();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;context.moveTo(10, 10);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;context.lineTo(60, 60);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;context.lineTo(10, 60);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;context.closePath();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;context.fill();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;context.stroke();<br>
+}<br>
+<br>
+                    </div>
+                </div>
+            </div>            
+            
+            <h2 id="Text">Drawing Text</h2>
+            <p>
+                When drawing text, the starting point for the text is
+                given as x and y.
+                The <b>x</b> position is the <b>left</b> of the text (but this can
+                be controlled using the <a href="#TextAlignment">Text Alignment</a>).
+                The <b>y</b> position is the
+                <a href="http://en.wikipedia.org/wiki/Baseline_(typography)">Baseline</a> of the text.
+            </p>
+            <img src="diagram7.png">
+            
+            <h3 id="FillText">Fill Text</h3>
+            <p>
+                To draw text filled, use <b>fillText</b>.
+            </p>
+            <div class="signature">
+            context.fillText(<div class="parameter">text</div>,
+                <div class="parameter">x</div>,
+                <div class="parameter">y</div>);
+            </div>
+            
+            
+            <div class="sidebyside">
+                <div class="side">
+                    <canvas id="_fillText"></canvas>
+                </div>                
+                <div class="side">
+                    <div class="code">
+function fillText(context) {&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;context.fillStyle = "red";<br>
+&nbsp;&nbsp;&nbsp;&nbsp;context.font = "20pt Arial";<br>
+&nbsp;&nbsp;&nbsp;&nbsp;context.fillText("hello", 10, 50);<br>
+}<br>
+                    </div>
+                </div>
+            </div>            
+            
+            
+            
+            <h3 id="StrokeText">Stroke Text</h3>
+            <p>
+                To draw the outline of text, use <b>strokeText</b>.
+            </p>
+            <div class="signature">
+            context.strokeText(<div class="parameter">text</div>,
+                <div class="parameter">x</div>,
+                <div class="parameter">y</div>);
+            </div>
+            
+            
+            <div class="sidebyside">
+                <div class="side">
+                    <canvas id="_strokeText"></canvas>
+                </div>                
+                <div class="side">
+                    <div class="code">
+function strokeText(context) {&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;context.strokeStyle = "blue";<br>
+&nbsp;&nbsp;&nbsp;&nbsp;context.font = "20pt Arial";<br>
+&nbsp;&nbsp;&nbsp;&nbsp;context.strokeText("hello", 10, 50);<br>
+}<br>
+                    </div>
+                </div>
+            </div>            
+            
+            
+            <h3 id="Font">Font</h3>
+            <p>
+                The <b>font</b> property controls what font is used to draw the text.
+                Include both the size (for example, 20pt) and the name of the font.
+            </p>            
+            <div class="signature">
+            context.font = <div class="parameter">font</div>;
+            </div>
+            
+            <div class="code">
+            function setFont(context) {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;context.font = "20pt Arial";<br>
+            }<br>
+            </div>
+            
+            <h3 id="TextAlignment">Text Alignment</h3>
+            <p>
+                Normally text is drawn where the <b>x</b> position is on the <b>left</b>
+                of the text, but the <b>textAlign</b> property allows you to
+                use the <b>center</b> or <b>right</b> as well.
+            </p>
+            
+            <div class="sidebyside">
+                <div class="side">
+                    <canvas id="_fillTextLeft"></canvas>
+                </div>                
+                <div class="side">
+                    <div class="code">
+function fillTextLeft(context) {&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;context.fillStyle = "red";<br>
+&nbsp;&nbsp;&nbsp;&nbsp;context.textAlign = "left";<br>
+&nbsp;&nbsp;&nbsp;&nbsp;context.font = "20pt Arial";<br>
+&nbsp;&nbsp;&nbsp;&nbsp;context.fillText("hello", 70, 50);<br>
+}<br>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="sidebyside">
+                <div class="side">
+                    <canvas id="_fillTextCenter"></canvas>
+                </div>                
+                <div class="side">
+                    <div class="code">
+function fillTextCenter(context) {&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;context.fillStyle = "red";<br>
+&nbsp;&nbsp;&nbsp;&nbsp;context.textAlign = "center";<br>
+&nbsp;&nbsp;&nbsp;&nbsp;context.font = "20pt Arial";<br>
+&nbsp;&nbsp;&nbsp;&nbsp;context.fillText("hello", 70, 50);<br>
+}<br>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="sidebyside">
+                <div class="side">
+                    <canvas id="_fillTextRight"></canvas>
+                </div>                
+                <div class="side">
+                    <div class="code">
+function fillTextRight(context) {&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;context.fillStyle = "red";<br>
+&nbsp;&nbsp;&nbsp;&nbsp;context.textAlign = "right";<br>
+&nbsp;&nbsp;&nbsp;&nbsp;context.font = "20pt Arial";<br>
+&nbsp;&nbsp;&nbsp;&nbsp;context.fillText("hello", 70, 50);<br>
+}<br>
+                    </div>
+                </div>
+            </div>            
+            
+            
+            
+            <h2 id="Images">Drawing Images</h2>
+            <p>
+                Before you can draw an image, you need to follow these steps:
+            </p>
+            <ul>
+                <li>
+                    <p>
+                        Add the image to your page using an
+                        <a href="htmlsubset.htm#Image">Image Element</a>.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Give the image a name using the 
+                        <a href="htmlsubset.htm#Identifier">Identifier Attribute</a>.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        You might want to hide the image on the page using the CSS
+                        <a href="csssubset.htm#Display">Display Property</a>.
+                    </p>
+                </li>
+            </ul>
+            <p>For example:</p>
+            <div class="file">default.html</div>
+            <div class="code">
+&lt;!DOCTYPE html&gt;<br>
+&lt;html&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;head&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;Page Title&lt;/title&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;script src="uprep.js"&gt;&lt;/script&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/head&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;body&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="highlight">&lt;img src="smiley.png" class="hidden" id="smiley"&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/body&gt;<br>
+&lt;/html&gt;<br>
+                
+            </div>
+            <div class="file">uprep.css</div>
+            <div class="code">
+                <span class="highlight">.hidden { <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;display: none; <br>
+                }</span>
+            </div>
+
+            <p>
+                Once you have followed the steps avove, you can either draw an image with its original size, or stretched
+                to a particular size.  In either case, the top left of the image will start at the location you give for x and y.
+            </p>
+            
+            <h3 id="DrawImage">Draw Image Regular Size</h3>
+            
+            <p>
+                Drawing an image will draw it on the canvas using the
+                same size it was originally.
+            </p>
+            
+            <div class="signature">
+            context.drawImage(<div class="parameter">image</div>,
+                <div class="parameter">x</div>, <div class="parameter">y</div>);
+            </div>
+            <img id="smiley" src="smiley.png" class="hidden">
+                
+            <div class="sidebyside">
+                <div class="side">
+                    <canvas id="_drawImage"></canvas>
+                </div>                
+                <div class="side">
+                    <div class="code">
+function drawImage(context) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var image = document.getElementById("smiley");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;context.drawImage(image, 10, 10);<br>
+}<br>
+                    </div>
+                </div>
+            </div>
+
+            <h3 id="DrawImageStretched">Draw Image Stretched</h3>
+            
+            <p>
+                If you want to draw your image stretched, you can give a width and height
+                as well.  
+            </p>
+            <div class="signature">
+            context.drawImage(<div class="parameter">image</div>,
+                <div class="parameter">x</div>,
+                <div class="parameter">y</div>,
+                <div class="parameter">width</div>,
+                <div class="parameter">height</div>);
+            </div>
+            
+            <div class="sidebyside">
+                <div class="side">
+                    <canvas id="_drawImageStretched"></canvas>
+                </div>                
+                <div class="side">
+                    <div class="code">
+function drawImageStretched(context) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var image = document.getElementById("smiley");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;context.drawImage(image, 10, 10, 200, 100);<br>
+}<br>
+                    </div>
+                </div>
+            </div>
+
+            <h3 id="ImageSize">Image Size</h3>
+            <p>
+                If you want to get the size of an image for your calculations, you can use
+                the <b>width</b> and <b>height</b> properties
+                of the image object to find the original image size.
+            </p>
+            <div class="code">
+
+function drawImageStretched(context) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var image = document.getElementById("smiley");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var width = image.width;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var width = image.height;<br>
+}<br>
+            </div>
+
+            <h2 id="Animation">Animation</h2>
+
+            <h3 id="AnimationTimer">Adding an animation timer</h3>
+
+            <p>The <b>setInterval</b> will call the function you name over and over.  Typically
+                you call this function when the program starts.
+                The speed of the timer is given in milliseconds (1000's of a second).</p>
+
+            <div class="code">
+// add some variables here that will be used to draw a frame<br>
+<br>
+function drawFrame() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// draw one frame using the variables<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// update the variables<br>
+}<br>
+<br>
+function start() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var framesPerSecond = 30;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;setInterval(drawFrame, 1000 / framesPerSecond);<br>
+}<br>
+            </div>
+
+            
+            <h2 id="More">How to learn more</h2>
+            <p>
+                This class teaches a subset (part of) the Canvas syntax.
+                The mozilla developer site has more 
+                information about Canvas:
+            </p>
+            <p>                
+                <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Canvas_tutorial/Drawing_shapes">
+                    https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Canvas_tutorial/Drawing_shapes
+                </a>
+            </p>
+         </div>
+    </body>
+</html>

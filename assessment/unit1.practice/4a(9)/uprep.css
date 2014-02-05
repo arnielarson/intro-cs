@@ -1,0 +1,25 @@
+.bodyStyle {
+    background-color: lightyellow;
+    font-size: 24pt;
+    color: blue;
+}
+
+.style1 {
+    background-color: white;
+    color: blue;
+    border-style: solid;
+    border-width: 2px;
+    padding: 10px;
+    font-size: 18pt;
+}
+
+.style2 {
+    background-color: white;
+    color: white;
+    border-style: solid;
+    border-width: 5px;
+    border-color: blue;
+    padding: 10px;
+    border-radius: 20px;
+    font-size: 18pt;
+}

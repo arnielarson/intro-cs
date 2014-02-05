@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Exercise 1.3.2</title>
+        <link href="../../../reset.css" rel="stylesheet">
+        <link href="../../../page.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="frame">
+            <h1>Exercise 1.3.2</h1>
+            <h2>Number of UPrep Students</h2>
+            <h3>Even better than a blank page!</h3>
+            <p>
+                In this class, we have had a number of exercises where you have been knee-deep
+                in the Javascript and not even a <b>single thing</b>
+                showed up on the screen.  
+                Things are about
+                to change...  <span class="woot"></span>
+            </p>
+            <p>
+                In this series of exercises, we are now going to use a web page
+                for the <b>output</b> of an algorithm.
+                Remember this?<br>
+                <img src="diagram5.png"><br>
+                The <b>output</b> of an algorithm doesn't just have to sit in a variable
+                once we have calculated it.
+                We can send it to the screen, send it to a 3d printer, send it
+                to another computer, ... 
+            </p>
+            <h3>The assignment</h3>
+            <p id="Match">
+                We are going to make the following page for the UPrep staff.  It shows
+                the <b>number of students</b> in each grade.<br>
+                <img src="chrome2.png">
+            </p>
+            <h3>The plan</h3>
+            <p>
+                The above picture is the final product.  We need to take things
+                step by step.
+                The overall plan is as follows:
+            </p>
+            <ol>
+                <li>Create an HTML page that just uses fake student numbers.</li>
+                <li>Style the page using CSS.</li>
+                <li>Add Javascript that fills in the actual student numbers.</li>
+            </ol>
+            <p>
+                We will do steps <b>1</b> and <b>2</b> in this Exercise, and
+                step <b>3</b> in the following exercises.
+            </p>
+            <p class="sidenote">
+                It is common to have a plan like this when creating web sites.  First, you might
+                make a website that looks nice, but uses fake data and does not actually work
+                (often called called a
+                <b>design mockup</b>).  When you are happy with the design of the site,
+                and you know what the site is supposed to do,
+                then you actually write the Javascript and make the site work correctly.
+                The job of creating the design mockup may done by someone
+                that knows CSS and HTML
+                (and <a href="http://en.wikipedia.org/wiki/Graphic_design">Graphic Design</a>),
+                but may not know Javascript.
+            </p>
+            <h3>First, the HTML</h3>
+            <p class="sidenote">
+                If you are stuck on this part, you might want to review
+                <a href="../Lesson%201.1%20-%20Web%20page%20basics/Exercise%201.1.1.htm">Exercise 1.1.1</a>.
+            </p>            
+            <p>
+                Remember when we said that HTML was for was <b>what</b> we wanted displayed
+                on a page, and CSS was for <b>how</b> we want it to look?
+                We need to start with the HTML.
+            </p>
+            <p>
+                Lets first identify what kind of elements we will be using:
+            </p>
+            <img src="diagram3.png">
+            <p>
+                Now that we know what kind of elements to use, lets try to create
+                the HTML for this page.
+            </p>
+            <ul>
+                <li>
+                    <p>
+                        Create a folder for this exercise (<b>Exercise 1.4.2</b>).   
+                    </p>
+                </li>
+                <li>
+                    
+            <p>
+                You can find the image to use for the UPrep logo here (Save Image As... to your folder):<br>
+                <img src="logo-uprep.png">
+            </p>
+                </li>
+            <li>
+                <p>
+                    Create a <b>default.html</b> file in your folder.
+                </p>
+            </li>
+            <li>
+            <p>
+                Add the different elements inside the HTML body element.
+                If you need help on writing the HTML, you can use the following reference:
+                <ul>
+                    <li><a href="../../../resources/htmlsubset.htm#Paragraph">Paragraph Element</a></li>
+                    <li><a href="../../../resources/htmlsubset.htm#Header">Header Element</a> (using an <b>h1</b> element is fine)</li>
+                    <li><a href="../../../resources/htmlsubset.htm#Image">Image Element</a></li>
+                </ul>
+            </p>
+            </li>
+            <li>
+            <p>
+                We can just use fake student numbers for now, like <b>6</b> for sixth
+                grade, <b>7</b> for seventh grade, etc.
+            </p>
+            </li>
+            </ul>
+            <p>
+                When you load your page in Chrome, it should look something like the following.                
+            </p>
+            <img src="chrome3.png">
+            <h3>Next, the CSS</h3>
+            <p class="sidenote">
+                If you get stuck on this part, you might want to refer
+                back to <a href="Exercise%201.4.1.htm">Exercise 1.4.1.htm</a>.
+            </p>
+            <p>
+                Ok, lets make the page look nicer by adding some CSS!
+            </p>
+            <ul>
+                <li>
+                    <p>Create a CSS file <b>uprep.css</b> in your folder.</p>
+                </li>
+                <li>
+                    <p>Link the CSS file to your HTML file using
+                    the <a href="../../../resources/htmlsubset.htm#Link">Link Element</a>.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Add CSS styles to your CSS file.   You can name
+                        them whatever you want (but don't use spaces in the names).
+                Here is a guide to what properties your styles will need:
+                        <img src="diagram4.png">                        
+                    </p>
+                </li>
+                </li>
+                <li>
+                    <p>Add a
+                    <a href="../../../resources/htmlsubset.htm#Class">Class Attribute</a>
+                    to each element you want styled.</p>
+                </li>                
+                <li>                    
+                    <p>Here is some additional information you will need:</p>
+                    <ul>
+                        <li>
+                            <p>
+                            The blue color is <span class="code">#005784</span>.
+                                
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                            The font is <span class="code">Arial, sans-serif</span>.
+                                
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                            The font sizes are <span class="code">16pt</span> and
+                            <span class="code">20pt</span>.                            
+                            </p>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    Does it have to <a href="#Match">match</a> perfectly?  No, but your styles
+                    should have the properties shown above.
+                </li>
+            </ul>
+            
+            <h2>Done!</h2>
+            <p>
+                Head back to Schoology and submit your work (the CSS and HTML).
+            </p>
+        </div>
+    </body>
+</html>

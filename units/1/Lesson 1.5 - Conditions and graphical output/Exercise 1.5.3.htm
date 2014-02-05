@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Exercise 1.5.3</title>
+        <link href="../../../reset.css" rel="stylesheet">
+        <link href="../../../page.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="frame">
+            <h1>Exercise 1.5.3</h1>
+            <h2>Conditions</h2>
+            <h3>Jumping around</h3>
+            <p>
+                So far in this class, we have learned about <b>three</b> ways
+                we can control how our functions work.
+            </p>
+            <p>
+                We can either write our <b>statements one after another</b>, and the
+                computer will execute them in the <span class="red">order</span> we write them:
+            </p>
+            <img class="code" src="diagram6.png">
+            <p>
+                Or we can <b>call</b> a function, which puts the current function
+                "on hold", and starts another function.
+            </p>
+            <img class="code" src="diagram5.png">
+            <p>
+                Or we can <b>return</b> from a function, which stops the current function
+                and gives an answer back to the function that called it.
+            </p>
+            <img class="code" src="diagram7.png">
+            <p>
+                But what if we <b>sometimes</b> want to do one thing, and sometimes
+                do another thing?  What if we want to make a decision?
+            </p>
+            <p>
+                In this exercise, we are going to learn about <b>conditions</b>,
+                which will allow us to make decisions in our functions.
+            </p>
+            <h3>How much do I need to pay?</h3>
+            <p>
+                Lets start with an example.  Say we needed to calculate
+                the total amount that someone
+                has to pay at a store, including the sales tax.  The amount of sales tax (the rate)
+                <a href="http://dor.wa.gov/Docs/forms/ExcsTx/LocSalUseTx/LocalSlsUseFlyer_13_Q4_alpha.pdf">varies</a>
+                for different cities.                
+            </p>
+            <p>
+                We can write the function <b>calculateSalesTax</b>:
+            </p>
+            <img class="code" src="diagram13.png">
+            <div class="instruction">
+                <p>
+                    This function has a flaw.  Can you find it?
+                </p>                
+            </div>
+            <div class="answerFrame">
+                <div class="answerButton">Move your mouse here to see the flaw.</div>
+                <div class="answer">
+                    <p>
+                        The function only works for cities that have a tax rate
+                        of <b>0.095</b>.  Seattle has a tax rate of 0.095,
+                        and Winthrop has a tax rate of 0.078.
+                    </p>
+                </div>
+            </div>
+            <div class="space"></div>
+            <h3>Am I in Seattle?  Or Winthrop?</h3>
+            <p>
+                In order to correct this function, we need to use the correct
+                tax rate for the city.  For Winthrop, the rate is <b>0.078</b>.
+                So we can add that rate.
+            </p>
+            <img class="code" src="diagram8.png">
+            <p>
+                But that still isn't right.  We want to <b>pick</b> which rate to use
+                based on what city (Seattle or Winthrop).
+            </p>
+            <p>
+                The <b>city</b> parameter tells us what city we are in.  In order
+                to pick the right rate, we need to compare the value of city to
+                see which city we are in.
+                But how do we compare values?
+            </p>
+            <h3 id="Comparison">Comparing values</h3>
+            <p>
+                From math, you probably remember how to compare values using
+                various symbols.  Javascript also has a set of symbols.  Lets
+                compare the two:
+            </p>
+            <div class="sidebyside">
+                <div class="side">
+                    <table class="simple">
+                        <tr>
+                            <th>Math<br>Symbol</th>
+                            <th>Meaning</th>
+                            <th>Math<br>Example</th>
+                        </tr>
+                        <tr>
+                            <td>&lt;</td>
+                            <td>Less than</td>
+                            <td>a &lt 5</td>
+                        </tr>
+                        <tr>
+                            <td>&#x2264;</td>
+                            <td>Less than or equal to</td>
+                            <td>a &#x2264; 5</td>
+                        </tr>
+                        <tr>
+                            <td>&gt;</td>
+                            <td>Greater than</td>
+                            <td>a &gt; 5</td>
+                        </tr>
+                        <tr>
+                            <td>&#x2265;</td>
+                            <td>Greater than or equal to</td>
+                            <td>a &#x2265; 5</td>
+                        </tr>                
+                        <tr>
+                            <td>=</td>
+                            <td>Equal to</td>
+                            <td>a = 5</td>
+                        </tr>                
+                        <tr>
+                            <td>&#x2260;</td>
+                            <td>Not equal to</td>
+                            <td>a &#x2260; 5</td>
+                        </tr>                
+                    </table>
+                </div>
+                <div class="side">
+                    <table class="simple">
+                        <tr>
+                            <th>Javascript<br>Symbol</th>
+                            <th>Meaning</th>
+                            <th>Javascript<br>Example</th>
+                        </tr>
+                        <tr>
+                            <td><span class="code">&lt;</span></td>
+                            <td>Less than</td>
+                            <td><span class="code">a &lt 5</span></td>
+                        </tr>
+                        <tr>
+                            <td><span class="code">&lt;=</span></td>
+                            <td>Less than or equal to</td>
+                            <td><span class="code">a &lt;= 5</span></td>
+                        </tr>
+                        <tr>
+                            <td><span class="code">&gt;</span></td>
+                            <td>Greater than</td>
+                            <td><span class="code">a &gt; 5</span></td>
+                        </tr>
+                        <tr>
+                            <td><span class="code">&gt;=</span></td>
+                            <td>Greater than or equal to</td>
+                            <td><span class="code">a &gt;= 5</span></td>
+                        </tr>                
+                        <tr>
+                            <td><span class="code">==</span></td>
+                            <td>Equal to</td>
+                            <td><span class="code">a == 5</span></td>
+                        </tr>                
+                        <tr>
+                            <td><span class="code">!=</span></td>
+                            <td>Not equal to</td>
+                            <td><span class="code">a != 5</span></td>
+                        </tr>                
+                    </table>
+                </div>                
+            </div>
+            <p class="sidenote">
+                Thinking "is <span class="code">a</span> equal to <span class="code">5</span>?", and then writing 
+                <span class="code">a = 5</span> instead of
+                <span class="code">a == 5</span> is a common programming
+                mistake.  When your program runs, it may <b>change</b>
+                the value of <span class="code">a</span> instead of comparing <span class="code">5</span> with it!  
+            </p>
+            <h3>Boolean values</h3>
+            <p>
+                As you might imagine, the result of a making a comparison in Javascript is a
+                <b>value</b> which is either <b>true</b> or <b>false</b>.  This is called a <b>boolean value</b>,
+                and is written in Javascript as <span class="code">true</span>
+                and <span class="code">false</span>.  
+            </p>
+            <p class="sidenote">
+                The word <b>boolean</b> is a reference to 
+                <a href="http://en.wikipedia.org/wiki/George_Boole">George Boole</a>,
+                an English <a href="http://en.wikipedia.org/wiki/Logician">Logician</a>. 
+            </p>
+            <p>
+                The following are examples of comparing against different values
+                of the variable <b>a</b>.
+            </p>
+            <table class="simple">
+                <tr>
+                    <th>Comparison</th>
+                    <th>When a is 4</th>
+                    <th>When a is 5</th>
+                    <th>When a is 6</th>
+                </tr>
+                <tr>
+                    <td><span class="code">a &lt 5</span></td>
+                    <td><span class="code">true</span></td>
+                    <td><span class="code">false</span></td>
+                    <td><span class="code">false</span></td>
+                </tr>
+                <tr>
+                    <td><span class="code">a &lt;= 5</span></td>
+                    <td><span class="code">true</span></td>
+                    <td><span class="code">true</span></td>
+                    <td><span class="code">false</span></td>
+                </tr>
+                <tr>
+                    <td><span class="code">a &gt; 5</span></td>
+                    <td><span class="code">false</span></td>
+                    <td><span class="code">false</span></td>
+                    <td><span class="code">true</span></td>
+                </tr>
+                <tr>
+                    <td><span class="code">a &gt;= 5</span></td>
+                    <td><span class="code">false</span></td>
+                    <td><span class="code">true</span></td>
+                    <td><span class="code">true</span></td>
+                </tr>                
+                <tr>
+                    <td><span class="code">a == 5</span></td>
+                    <td><span class="code">false</span></td>
+                    <td><span class="code">true</span></td>
+                    <td><span class="code">false</span></td>
+                </tr>                
+                <tr>
+                    <td><span class="code">a != 5</span></td>
+                    <td><span class="code">true</span></td>
+                    <td><span class="code">false</span></td>
+                    <td><span class="code">true</span></td>
+                </tr>                
+            </table>
+            <h3>Comparing strings</h3>            
+            <p>
+                We can compare <b>string values</b> as well.
+                The following are examples of comparing against different values
+                of the variable <b>a</b>.
+            </p>
+            <table class="simple">
+                <tr>
+                    <th>Comparision</th>
+                    <th>When a is<br>"cat"</th>
+                    <th>When a is<br>"dog"</th>
+                    <th>When a is<br>"Cat"</th>
+                </tr>
+                <tr>
+                    <td><span class="code">a == "cat"</span></td>
+                    <td><span class="code">true</span></td>
+                    <td><span class="code">false</span></td>
+                    <td><span class="code">false</span></td>
+                </tr>
+                <tr>
+                    <td><span class="code">a != "cat"</span></td>
+                    <td><span class="code">false</span></td>
+                    <td><span class="code">true</span></td>
+                    <td><span class="code">true</span></td>
+                </tr>       
+            </table>
+            <p>
+                Notice that comparing strings is <b>case sensitive</b>, meaning
+                that whether the letters are upper or lower case matters
+                ("cat" is different than "Cat").
+            </p>
+            <h3>Checking the city</h3>
+            <p>
+                To see what city we are in, we can add variables that
+                use comparisons to calculate whether we are in Seattle or Winthrop.
+            </p>
+            <img class="code" src="diagram9.png">
+            <p>
+                The variables will have these values:
+            </p>
+            <table class="simple">
+                <tr>
+                    <th>Variable</th>
+                    <th>When city is<br>"Seattle"</th>
+                    <th>When city is<br>"Winthrop"</th>
+                </tr>
+                <tr>
+                    <td><span class="code">inSeattle</span></td>
+                    <td><span class="code">true</span></td>
+                    <td><span class="code">false</span></td>
+                </tr>
+                <tr>
+                    <td><span class="code">inWinthrop</span></td>
+                    <td><span class="code">false</span></td>
+                    <td><span class="code">true</span></td>
+                </tr>       
+            </table>                        
+            <h3>Which rate?</h3>
+            <p>
+                Now we know when we are in Seattle (<span class="code">inSeattle</span> is
+                <span class="code">true</span>), and when we are in Winthrop
+                (<span class="code">inWinthrop</span> is <span class="code">true</span>).
+            </p>
+            <p>
+                When we are in Seattle, we want the rate to be assigned to <b>0.095</b>.
+            </p>
+            <img class="code" src="diagram10.png">
+            <p>
+                When we are in Winthrop, we want the rate to be assigned to <b>0.078</b>.
+            </p>               
+            <img class="code" src="diagram11.png">
+            <p>
+                So we really need a way to pick between these two rates based on the values
+                of inSeattle and inWinthrop.
+            </p>
+            <h3 id="If">If statement</h3>
+            <p>
+                Javascript has an <b>If statement</b> that we can use for this situation.
+            </p>
+            <div class="instruction">                
+                <p>
+                    Read about the <a href="../../../resources/jssubset.htm#IfStatement">If
+                    Statement</a> here.
+                </p>
+            </div>
+            <p>
+                Written in english, here is what we want our if statement to do:
+            </p>
+            <p class="idea">
+                If we are in Seattle, use a rate of 0.095.<br>
+                If we are in Winthrop, use a rate of 0.078.<br>
+                Otherwise, we don't know what rate to use.
+            </p>
+            <p>
+                Adding an if statement to our function, we have:
+            </p>
+            <img class="code" src="diagram12.png">
+            <p>
+                Let's try it out.
+            </p>
+            <div class="instruction">
+                <p>
+                    Download this <a href="Exercise%201.5.3.zip">zip</a>, and <b>step</b> through the lines of the program.
+                    Watch the variables in <b>calculateSalesTax</b> change as you step.
+                </p>                
+            </div>
+            <p>
+                Did you notice what happened when we calculated the tax for another
+                city (Olympia)?  The <b>return</b> statement immediately stops
+                the <b>calculateSalesTax</b> function and returns the answer (in this case, <b>undefined</b>,
+                because the function does not know the rate for Olympia).
+            </p>
+            <h3>Summary</h3>
+            <p>
+                Based on the value of conditions, we can <b>execute</b> some statements
+                and <b>skip</b> others.  We can now have our functions make decisions.
+            </p>
+            <div class="sidebyside">
+                <div class="side">
+                    <img src="diagram22.png">
+                </div>
+                <div class="side">
+                    <img src="diagram23.png">
+                </div>
+                <div class="side">
+                    <img src="diagram24.png">
+                </div>
+            </div>
+            <h2>Done!</h2>
+            <p>
+                Head back to Schoology and mark this as done.
+            </p>
+        </div>
+    </body>
+</html>

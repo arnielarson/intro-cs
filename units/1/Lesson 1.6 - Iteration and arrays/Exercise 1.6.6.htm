@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Exercise 1.6.6</title>
+        <link href="../../../reset.css" rel="stylesheet">
+        <link href="../../../page.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="frame">
+            <h1>Exercise 1.6.6</h1>
+            <h2>Blowing bubbles</h2>
+            
+            <h3>Blowing a bubble</h3>
+            
+            <p>
+                We are going to need to replace the bubbles that pop.
+                This means we need to be able to create a new bubble object.
+                Lets look at the properties of a bubble object, and see
+                what we need to do to create one:
+            </p>
+            
+            <ul>                
+                <li>
+                    <p>
+                        The <b>x</b> and <b>y</b> store the location of the bubble.  To give the bubbles
+                        the most room to move about, we should start them in the middle of the canvas.
+                        The middle is located at <b>half the width</b>, and <b>half the height</b>.<br>
+                        <img src="diagram14.png">
+                    </p>
+                    
+                </li>
+                <li>
+                    <p>
+                        The <b>dx</b> and <b>dy</b> control the speed an direction of our bubble.
+                        Since our bubbles <a href="Exercise%201.6.3.htm#Drift">drift</a>, these
+                        values are changing (randomly) each frame, so we can just start them at 0 and 0.
+                    </p>                    
+                </li>
+                <li>
+                    <p>
+                        The <b>radius</b> controls the size of the bubble.  Rather than
+                        just having a single sized bubble, lets have some variety.  We can
+                        use <b>randomBetween</b> to have bubbles with a radius between 10 and 20.
+                    </p>
+                </li>
+            </ul>
+            
+            <p>
+                Lets add a function that will make a bubble
+                and then add it to the bubbles array.
+            </p>
+            
+            <div class="code">
+function addBubble(canvas) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var radius = randomBetween(10, 20);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var bubble = {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x: canvas.width / 2,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y: canvas.height / 2,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;radius: radius,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dx: 0,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dy: 0<br>
+&nbsp;&nbsp;&nbsp;&nbsp;};<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">what goes here?</span><br>
+}<br>                
+            </div>
+            
+            <div class="instruction">
+                <p>
+                    Copy your files from Exercise 1.6.5 and make a folder for this exercise (<b>Exercise 1.6.6</b>).
+                </p>
+                <p>
+                    Copy the <b>addBubble</b> function to <b>uprep.js</b>.
+                </p>
+                <p>
+                    Complete the <b>addBubble</b> function so it adds the new bubble
+                    to the bubble array.  Need inspiration?  Look
+                    <a href="Exercise%201.6.4.htm#ArrayAppend">here</a>.
+                </p>
+            </div>
+            
+            <p>
+                We can now use our <b>addBubble</b> function to make sure we
+                add a bubble each time one is removed.
+            </p>
+            
+            <div class="code">
+function removeRunawayBubble(canvas) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var index = findRunawayBubble(canvas);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if (index != undefined) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;removeBubble(index);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="highlight">addBubble(canvas);</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+}<br>                
+            </div>
+            
+            <div class="instruction">
+                <p>
+                    Make the change highlighted above.
+                </p>
+            </div>
+            
+            <div class="check">
+                <p>
+                    The bubbles that pop should be replaced. <span class="woot"></span>
+                </p>
+            </div>
+            
+            <h3>More, please</h3>
+            
+            <p>                
+                Instead of just having two bubbles, lets make more.  And rather
+                than writing each bubble, lets start with an empty <b>bubbles</b>
+                array and then use our <b>addBubble</b> function to add as many
+                as we want.
+            </p>
+            
+            <div class="sidebyside">
+                <div class="side">
+                    <p><span class="highlight">Change this...</span></p>
+                    <div class="code">
+var bubble1 = {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;x: 50,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;y: 50,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;dx: 1,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;dy: 2,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;radius: 10<br>
+};<br>
+<br>
+var bubble2 = {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;x: 90,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;y: 90,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;dx: 7,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;dy: 2,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;radius: 30<br>
+};<br>
+<br>
+var bubbles = [<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bubble1,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bubble2<br>
+];<br>
+                    </div>
+                </div>
+                <div class="side">
+                    <p><span class="highlight">To this...</span></p>
+                    <div class="code">
+var bubbles = [];<br>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="instruction">
+                <p>
+                    Make the changes highlighted above.
+                </p>
+            </div>
+            
+            <p>
+                We can now add our bubbles when the page loads.
+            </p>
+            
+            <div class="code">
+function start() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var framesPerSecond = 30;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;setInterval(drawFrame, 1000 / framesPerSecond);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="highlight">var canvas = document.getElementById("mainCanvas");</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">what goes here?</span><br>
+}<br>
+            </div>
+            
+            <div class="instruction">
+                <p>
+                    Make the change highlighted above.
+                </p>
+                <p>
+                    Add code that uses a for loop to add 10 bubbles to the
+                    bubbles array.
+                    You will need to call <b>addBubble</b> each
+                    time the loop repeats.  Need inspiration?  Look
+                    <a href="Exercise%201.6.4.htm#LoopRepeatTimes">here</a>.
+                </p>
+            </div>
+            
+            <div class="check">
+                <p>
+                    You should have 10 bubbles.
+                </p>
+            </div>
+            
+            <div class="instruction">
+                <p>
+                    How about trying 100 bubbles?  or 1000?  <span class="woot"></span>
+                </p>
+            </div>
+            
+            <h2>Done!</h2>
+            <p>
+                Head back to Schoology and submit your files.
+            </p>
+        </div>
+    </body>
+</html>

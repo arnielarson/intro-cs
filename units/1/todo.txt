@@ -1,0 +1,52 @@
+Style [http://cs50.tv/2012/fall/shorts/style/style-720p.mp4]
+Caesar cipher [http://cs50.tv/2012/fall/shorts/caesar_cipher/caesar_cipher-720p.mp4]
+
+style
+- introduced with each concept
+
+testing (after conditions and boolean logic)
+- introduce debugger statement
+- motivate testing
+- caveat testing (quote)
+
+functions (update)
+- a function is a value
+
+mouse and touch input
+- what to do here
+
+keyboard input
+- have a section on this?
+
+parallelism
+- web workers
+- what is the assignment?
+
+HTML Canvas subset document
+•	doctype, html, body, head
+
+HTML subset document
+•	doctype, html, body, head
+•	h1-h6
+•	p,br
+•	ol, ul, li
+•	span
+•	div
+•	table,tr,td
+•	link (stylesheet)
+•	link (javascript)
+•	escaping
+CSS subset document
+•	font-family
+•	font-size
+•	font-weight
+•	align: left, right, center
+•	color, background-color
+•	margin
+•	padding
+•	display: block, inline-block
+•	position: absolute, relative
+•	left, top, right, bottom
+•	width, height
+JQuery subset document
+•	

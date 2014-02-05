@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Overview Lesson 1.2</title>
+        <link href="../../../reset.css" rel="stylesheet">
+        <link href="../../../page.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="frame">
+            <h1>Overview of functions and variables</h1>
+
+            <h2>Variables </h2>
+            <p>
+                A <b>variable</b> is a place in a computer that holds a <b>value</b>. A value is a piece of data, for example, the total number of students. Each variable has a name. You can think of a variable as a named "box" that you can put a value in.
+            </p>
+            <p>
+                To define a variable in Javascript, we write the following:
+            </p>
+            <div class="code">
+                var <span class="placeholder">name</span> = <span class="placeholder">value</span>;
+            </div>
+            <p>
+                If we don't know the value for a variable, we write:
+            </p>
+            <div class="code">
+                var <span class="placeholder">name</span>;
+            </div>
+            <p class="sidenote">
+                Yes, <b>var</b> is short for <b>variable</b>.  Abbreviations are
+                common in programming.  
+            </p>
+            <h2>Statements</h2>
+            <p>
+                A <b>statement</b> can be used to write down a <b>step</b> of an algorithm.                
+                We create an algorithm by combining statements together.
+            </p>
+            <p>
+                A computer will <b>execute</b> (perform) the statements <b>in the order we write them</b>.
+                Each statement may change the values in our data structure.  So the order
+                of the statements is important.  
+            </p>
+            <p>
+                For example, if you are drawing a circle and a square on a piece of paper,
+                it may matter what order you draw them, because the paper is changing as you draw:
+            </p>
+            <div class="sidebyside">
+                <div class="side">
+                    <ol>
+                        <li>Draw a blue circle</li>
+                        <li>Draw a red square</li>
+                    </ol>
+                    <img src="diagram6.png">
+                </div>
+                <div class="side">
+                    <ol>
+                        <li>Draw a red square</li>
+                        <li>Draw a blue circle</li>
+                    </ol>
+                    <img src="diagram7.png">
+                </div>
+            </div>
+            <p>
+                There are different kinds of statements that we can use.
+                We will start with the <b>assignment statement</b>.
+            </p>
+            <h2>Assignment Statement</h2>
+            <p>
+                The assignment statement is used to <b>change</b> the value of a variable.
+                The assignment statement is written:
+            </p>
+            <div class="code">
+                <span class="placeholder">name</span> = <span class="placeholder">value</span>;
+            </div>
+            <p>
+                Examples of assiging a value to a variable:
+            </p>
+            <div class="code">
+                total = 123;<br>
+                average = 456;
+            </div>
+            <p>
+                When the assignment statement is executed, the <b>value</b> is placed
+                in the variable named <b>name</b>.  We call this <b>assigning a value</b>
+                to a variable.
+            </p>
+            <h2>Expressions</h2>
+            <p>
+		Expressions can be used to assign the results of calculations to variables.
+            </p>
+            <p>
+                There are different kinds of expressions.  But one kind you probably
+                already know are <b>mathematical expressions</b>.
+            </p>
+            <div class="code">
+		( 1 + 2 ) * 3
+            </div>
+            <p>
+                This should be very similar to what you are used to when
+                using your calculator for basic math.
+            <p>
+            <ul>
+                <li>numbers</li>
+                <li><span class="code">+</span> (for addition)</li>
+                <li><span class="code">-</span> (for subtraction)</li>
+                <li><span class="code">*</span> (for multiplication)</li>
+                <li><span class="code">/</span> (for division)</li>
+                <li>parenthesis (to control the order of operations)</li>
+            </ul>
+            <p>
+                In addition to using numbers in expressions, we can use the names of
+                variables.
+            </p>
+            <p>
+                For example, the following mathematical expression calculates with three different variables.
+            </p>
+            <div class="code">
+                 ( var1 + var2 ) / var3
+            </div>
+            <h2>Assigning an expression</h2>
+            <p>
+                We can use an expression with an assignment statement to first
+                calculate a value, and then assign that value to a variable.
+                To do this, we write:
+            </p>
+            <div class="code">
+                <span class="placeholder">name</span> = <span class="placeholder">expression</span>;
+            </div>
+            <p>
+                First the <b>expression</b> will be calculated then
+                the calculated value will be placed in the variable named <b>name</b>.
+            </p>
+            <h2>Function definition</h2>
+            <p>
+                A <b>function</b> is a way of grouping a set of statements together.  We can
+                <b>name</b> a function, which will let us refer to that particular set of
+                statements.  This is what a function looks like.
+            </p>
+            <div class="code">
+                function <span class="placeholder">name</span>() {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="placeholder">statements</span><br>
+                }
+            </div>
+            <h2>Function parameters</h2>
+
+            <p>
+                <b>Function Parameters</b> are a way to pass variables and the information contained therein to a function.
+            </p>
+            <p>
+                <b>Function Parameters</b> are used by the statements in the function.
+            </p>
+            <div class="code">
+                function name(<span class="placeholder">parameters</span>) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;statements<br>
+                }
+            </div>
+	    <p> Why is using function <b>parameters</b> a good idea?  </p>
+ 	    <p> Instead of using specific<b>global variables</b> you can 
+ 		reuse the function with different variables.
+	    </p>
+            <h2>Return Values</h2>
+	    <p>
+                Functions are also able to return a value.  To do this we use the return statement.
+            </p>
+            <div class="code">
+                function name(parameters) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;statements<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="placeholder">return</span> value;<br>
+                }
+            </div>
+            <h2>How to load our function</h2>
+            <p>
+                When Chrome loads our HTML page how does it know to load our Javascript program?  </p>   
+            <p> It will know if we use a  
+<a href="../../../resources/htmlsubset.htm#Script">Script Element</a>. 
+                This tells Chome to load our Javascript program.  For example:
+            </p>
+            <img src="komodo7.png">
+
+            <p>
+		Now all of our Javascipt functions and variables have been loaded into Chrome.
+	    </p>
+            <p>
+                But has our program been run?  To cause the statements of our function to execute we need to <b>call</b> our function.  
+		Javascript has many ways to call a function.  One particular way is to use the <b>onload</b> attribute of the body tag.  Here's an example of calling a funtion from html with the <b>onload</b> attribute.
+            </p>
+            <div class="code">
+                <span class="placeholder">name</span>();
+            </div>
+            <h2>When to call our function</h2>
+            <p>
+                When do we want to call our function?
+            </p>
+            <p>
+                HTML allows us to execute a Javascript statement when
+                (an <b>event</b> occurs) within the HTML page.
+                The following are only a few examples of events that can be used to call Javascript funtions:
+            </p>
+            <ul>
+                <li>When the mouse is clicked.</li>
+                <li>When a key is pressed.</li>
+                <li>When the browser window is resized.</li>
+                <li>When an HTML element has loaded.</li>
+            </ul>
+            <p>
+                For this example, we will called function when
+                the Body Element has loaded.  The value of the <b>onload</b>
+                attribute of the Body Element contains a Javascript
+                statement to execute when the page has loaded.  
+            </p>
+            <h2>Showing Output</h2>
+            <p>
+                There are many ways to view the output from a program.  In this class we will learn many of them. 
+One of the easiest ways is to use the alert function.  For example, to see the value of a variable try:  
+            </p>
+            <div class="code">
+                var name = value; <br>
+                <span class="placeholder">alert</span>(name);
+            </div>
+            <h2>Overview</h2>
+            <p>
+		We are now able to create our first Javascript programs
+            </p>
+            <p>
+                What happens when Chrome loads an html page?
+            </p>
+            <ul>
+                <li>Fetches the HTML page,</li>
+                <li>Examines the HTML elements,</li>
+                <li>If there is a Script Element, the Javascript resourece is fetched,</li>
+                <li>Execute the Javascript statement that is value of
+                the <b>onload</b> attribute of the Body Element,
+                </li>
+                <li>This will call our function</li>
+            </ul>
+            <p>
+                This is how our Javascript program gets executes by Chrome.
+            </p>
+
+            <h2>Putting this all in perspective</h2>
+            <p>
+                In this exercise, we went though the following process:
+            </p>
+            <ol>
+                <li>Understand the problem</li>
+                <li>Make a plan for how to solve the problem</li>
+                <li>Turn the plan into a Javascript program</li>
+                <li>Execute the program in Chrome</li>
+            </ol>
+        </div>
+    </body>
+</html>

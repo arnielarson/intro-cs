@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CSS Reference</title>
+        <link href="../reset.css" rel="stylesheet">
+        <link href="../page.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="frame" id="#Top">
+            <h1>CSS Reference</h1>
+            <h2 id="TableOfContents">Table of Contents</h2>            
+            <ul>
+                <li>
+                    <a href="#Introduction">Introduction</a>
+                    <ul>
+                        <li><a href="#Filenames">Where to put CSS Files and how to name them</a></li>
+                        <li><a href="#Grammar">What a CSS file should look like</a></li>                    
+                        <li><a href="#YourRules">Making your own styles</a></li>                    
+                        <li><a href="#Linking">How to use a CSS file from an HTML file</a></li>                    
+                    </ul>
+                </li>
+                <li>
+                    <a href="#Text">Text Properties</a>
+                    <ul>
+                        <li><a href="#FontFamily">Font Family</a></li>
+                        <li><a href="#FontSize">Font Size</a></li>
+                        <li><a href="#FontStyle">Font Style</a></li>
+                        <li><a href="#FontWeight">Font Weight</a></li>
+                        <li><a href="#Color">Color</a></li>
+                        <li><a href="#TextAlign">Text Align</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#Background">Background Properties</a>
+                    <ul>
+                        <li><a href="#BackgroundColor">Background Color</a></li>
+                        <li><a href="#BackgroundImage">Background Image</a></li>
+                        <li><a href="#BackgroundRepeat">Background Repeat</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#Box">Box Properties</a>
+                    <ul>
+                        <li><a href="#Margin">Margin</a></li>
+                        <li><a href="#Padding">Padding</a></li>
+                        <li><a href="#BorderStyle">Border Style</a></li>
+                        <li><a href="#BorderColor">Border Color</a></li>
+                        <li><a href="#BorderWidth">Border Width</a></li>
+                        <li><a href="#BorderRadius">Border Radius</a></li>
+                        <li><a href="#Display">Display</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#More">How to learn more</a>
+                </li>
+            </ul>
+            <h2 id="Introduction">Introduction</h2>
+            <p>
+                Cascading Style Sheets (CSS) can be used to provide styling information for an HTML page.                
+            </p>
+            <p>
+                A CSS file is a <b>resource</b> that is used by an HTML page. 
+            </p>
+            <h3 id="Filenames">Where to put CSS Files and how to name them</h3>
+            <p>
+            Name each file using a short name that describes what the file is for.  Avoid
+            spaces in the name.  Add <b>.css</b> to the end you choose.
+            Put all the CSS files in the same folder as the HTML files.
+            For example:
+            </p>
+            <p>
+                <div class="code inline">default.html</div><br>
+                <div class="code inline">space.css</div><br>
+            </p>
+            <h3 id="Grammar">What a CSS file should look like</h3>
+            <p>
+                A CSS file contains a set of <b>styles</b>, one after another.  Each style has a name
+                and properties.  For example, the following CSS file (<b>space.css</b>)
+                has two styles:
+                one named <b>spaceship</b> and one named <b>moon</b>.
+            </p>
+            <div class="file">space.css</div>            
+            <div class="code">
+                .spaceship {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;color: red;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;font-size: 24pt;<br>
+                }<br>
+                <br>
+                .moon {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;color: blue;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;font-size: 9pt;<br>
+                }
+            </div>
+            <p>The properties are written one after another
+            between the <span class="code">{</span> and
+            the <span class="code">}</span> of the style.</p>
+            <p>                
+            In the above example, the <b>spaceship</b> style has two properties:
+            <ul>
+                <li>
+                    The <b>color</b> property
+            has the value <b>red</b>, meaning the text should be red.
+                </li>
+                <li>
+            The <b>font-size</b>
+            property has the value <b>24pt</b>, meaning the text should be 24 points
+            in size (a point is about 1/72nd of an inch).  
+                </li>
+            </ul>
+            <h3 id="YourRules">Making your own styles</h3>
+            <p>
+                When choosing names of styles, pick names that describe the purpose
+                of the style. 
+                If a name requires multiple words, then put all the words together
+                (<span class="red">no spaces</span>), but only capitalize 
+                the first letter of the second and following words.  For example:
+            </p>
+            <p>
+                <div class="code inline">mainSpaceship</div><br>
+            </p>            
+            <p>
+                You can have as many styles as you would like.  There are
+                many properties to choose from.  Check out the
+                <a href="#TableOfContents">Table Of Contents</a>
+                for a guide.
+            </p>
+            <h3 id="Linking">How to use a CSS file with an HTML file</h3>
+            <p>
+                There are two steps to using a CSS file from an HTML file:
+                <ul>
+                    <li>
+                        Reference the CSS file from the HTML file using a 
+                        <a href="htmlsubset.htm#Link">Link Element</a>.
+                    </li>
+                    <li>
+                        Use the <a href="htmlsubset.htm#Class">Class Attribute</a>
+                        for each element that you want to style.  The value
+                        of the Class Attribute names what style to use.  
+                    </li>
+                </ul>
+                <p>
+                For example, the following HTML document links to the CSS file
+                <b>space.css</b>, shown above.  The first paragraph uses the
+                <b>spaceship</b> style, and the second paragraph uses the
+                <b>moon</b> style.                    
+                </p>
+            </p>
+            <div class="file">default.html</div>                
+            <div class="code">
+&lt;!DOCTYPE html&gt;<br>
+&lt;html&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;head&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;Space&lt;/title&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="highlight">&lt;link rel="stylesheet" href="space.css"&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/head&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;body&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p <span class="highlight">class="spaceship"</span>&gt;Atlantis&lt;/p&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p <span class="highlight">class="moon"</span>&gt;Europa&lt;/p&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/body&gt;<br>
+&lt;/html&gt;<br>
+            </div>
+            <p>
+                The following shows the effects of using the above styles.
+                Move your mouse into the following box to see the effect of the styles.
+            </p>
+            <div class="css">
+                <div class="styled">
+                    <p style="font-size:24pt;color:red;">Atlantis</p>
+                    <p style="font-size:9pt;color:blue;">Europa</p>                        
+                </div>
+                <div class="unstyled">
+                    <p style="">Atlantis</p>
+                    <p style="">Europa</p>                        
+                </div>
+            </div>
+            <h2 id="Text">Text Properties</h2>
+            <p>The following CSS properties control how text is displayed on a page.</p>
+            <h3 id="FontFamily">Font Family</h3>
+            <p>The <b>font-family</b> property controls what font is used for text.
+            The value of the <b>font-family</b> property is a set of font names,
+            separated by commas (<span class="code">,</span>).
+            If a font name has a space in it, use double quotes around the name (<span class="code">"</span>).
+            </p>
+            <p>
+            If the first font is not found on the computer viewing the page,
+            then the next font is tried, and so on until a font is found.
+            Since different computers might have different fonts installed,
+            it is usually good to choose fonts that tend to work on all computers.
+            You can find a list by seaching for <b>web safe fonts</b>, or use one of
+            the following links:
+            <ul>
+                <li><a href="http://www.w3schools.com/cssref/css_websafe_fonts.asp">http://www.w3schools.com/cssref/css_websafe_fonts.asp</a></li>
+                <li><a href="http://www.webdesigndev.com/web-development/16-gorgeous-web-safe-fonts-to-use-with-css">http://www.webdesigndev.com/web-development/16-gorgeous-web-safe-fonts-to-use-with-css</a></li>
+            </ul>
+            </p>
+            <div class="css">
+                <div class="unstyled">
+                    <p style="">Example</p>
+                </div>
+                <div class="styled">
+                    <p style="font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;">Example</p>
+                </div>
+            </div>
+            <div class="code">
+                .example { <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;<br>
+                }
+            </div>
+            <div class="code">
+                &lt;p class="example"&gt;Example&lt;/p&gt;
+            </div>
+            <h3 id="FontSize">Font Size</h3>
+            <p>The <b>font-size</b> property gives the size of the font.
+            </p>
+            <p>
+            Font sizes are
+            typically specified in <b>points</b>, which are 1/72nd of an inch.  To
+            specify a size in points, write <span class="code">pt</span> after the
+            number.                
+            </p>
+            <div class="css">
+                <div class="unstyled">
+                    <p style="">Example</p>
+                </div>
+                <div class="styled">
+                    <p style="font-size: 24pt;">Example</p>
+                </div>
+            </div>
+            <div class="code">
+                .example { <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;font-size: 24pt;<br>
+                }
+            </div>
+            <div class="code">
+                &lt;p class="example"&gt;Example&lt;/p&gt;
+            </div>
+            <h3 id="FontStyle">Font Style</h3>
+            <p>The <b>font-style</b> property can be used to
+            make text <b>italic</b>.
+            </p>
+            <div class="css">
+                <div class="unstyled">
+                    <p style="">Example</p>
+                </div>
+                <div class="styled">
+                    <p style="font-style: italic;">Example</p>
+                </div>
+            </div>
+            <div class="code">
+                .example { <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;font-style: italic;<br>
+                }
+            </div>
+            <div class="code">
+                &lt;p class="example"&gt;Example&lt;/p&gt;
+            </div>
+            <h3 id="FontWeight">Font Weight</h3>
+            <p>The <b>font-weight</b> property can be used to
+            make text <b>bold</b>.
+            </p>
+            <div class="css">
+                <div class="unstyled">
+                    <p style="">Example</p>
+                </div>
+                <div class="styled">
+                    <p style="font-weight: bold;">Example</p>
+                </div>
+            </div>
+            <div class="code">
+                .example { <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;font-weight: bold;<br>
+                }
+            </div>
+            <div class="code">
+                &lt;p class="example"&gt;Example&lt;/p&gt;
+            </div>
+            <h3 id="Color">Color</h3>
+            <p>The <b>color</b> property can be used to
+            say what <b>color</b> to use for text.
+                For controlling the color <b>around</b> the text,
+                see <a href="#BackgroundColor">Background Color</a>.
+            </p>
+            <p>
+                You can select a <b>named</b> color here:
+		<a href="http://w3schools.com/tags/ref_colornames.asp">
+                    http://w3schools.com/tags/ref_colornames.asp
+                </a>.  For example, the following uses the color named
+                <span class="code">red</span>.
+            </p>
+            <div class="css">
+                <div class="unstyled">
+                    <p style="">Example</p>
+                </div>
+                <div class="styled">
+                    <p style="color: red;">Example</p>
+                </div>
+            </div>
+            <div class="code">
+                .example { <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;color: red;<br>
+                }
+            </div>
+            <div class="code">
+                &lt;p class="example"&gt;Example&lt;/p&gt;
+            </div>
+            <p>
+                Or you can make your own color by:                
+            </p>
+            <ul>
+                <li>Selecting a custom color: <a href="http://w3schools.com/tags/ref_colorpicker.asp">
+                http://w3schools.com/tags/ref_colorpicker.asp
+                </a></li>
+                <li>
+                    Mixing two colors: <a href="http://w3schools.com/tags/ref_colormixer.asp">
+                    http://w3schools.com/tags/ref_colormixer.asp
+                    </a>
+                </li>
+            </ul>
+            <p>
+                These colors are numbers (shown in base 16, or <b>hexadecimal</b>)
+                that are in the form <span class="code">#<span class="placeholder">hhhhhh</span></span>,
+                where <span class="code">h</span> is a hexadecimal digit (0-9 or A-F).
+            </p>
+            <p>
+                For example, the following uses the color <span class="code">#FF00FF</span>:
+                
+            </p>
+            <div class="css">
+                <div class="unstyled">
+                    <p style="">Example</p>
+                </div>
+                <div class="styled">
+                    <p style="color: #FF00FF;">Example</p>
+                </div>
+            </div>
+            <div class="code">
+                .example { <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;color: #ff00ff;<br>
+                }
+            </div>
+            <div class="code">
+                &lt;p class="example"&gt;Example&lt;/p&gt;
+            </div>
+            <p>
+                Color values are sometimes also written in the
+                form <span class="code">rgb(<span class="placeholder">r</span>,
+                <span class="placeholder">g</span>,
+                <span class="placeholder">b</span>)</span>, where <span class="placeholder">r</span>,
+                <span class="placeholder">g</span>, and <span class="placeholder">b</span>
+                are integer numbers between 0 and 255 for how much red, green, and blue
+                are in the color (0 being the darkest, and 255 being the brightest).
+            </p>
+            <p>
+                For example, the following uses the color <span class="code">rgb(255, 0, 0)</span>:                
+            </p>
+            <div class="css">
+                <div class="unstyled">
+                    <p style="">Example</p>
+                </div>
+                <div class="styled">
+                    <p style="color: rgb(255,0,0);">Example</p>
+                </div>
+            </div>
+            <div class="code">
+                .example { <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;color: rgb(255, 0, 0);<br>
+                }
+            </div>
+            <div class="code">
+                &lt;p class="example"&gt;Example&lt;/p&gt;
+            </div>
+            <h3 id="TextAlign">Text Align</h3>
+            <p>The <b>text-align</b> property controls whether
+            the text is displayed on the left, on the right, or
+            in the center.
+            </p>
+            <div class="css">
+                <div class="unstyled">
+                    <p style="">Example</p>
+                </div>
+                <div class="styled">
+                    <p style="text-align: center;">Example</p>
+                </div>
+            </div>
+            <div class="code">
+                &lt;p class="example"&gt;Example&lt;/p&gt;
+            </div>
+            <div class="code">
+                .example { <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;text-align: center;<br>
+                }
+            </div>
+            <div class="css">
+                <div class="unstyled">
+                    <p style="">Example</p>
+                </div>
+                <div class="styled">
+                    <p style="text-align: right;">Example</p>
+                </div>
+            </div>
+            <div class="code">
+                &lt;p class="example"&gt;Example&lt;/p&gt;
+            </div>
+            <div class="code">
+                .example { <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;text-align: right;<br>
+                }
+            </div>
+            
+            <h2 id="Background">Background Properties</h2>
+            <p>The following CSS properties control how the area around
+            the content (text or image) of an HTML element is displayed.
+            See the 
+            <a href="#Box">Box Properties</a> for more information.
+            </p>
+            <p>
+            Most  HTML Elements have a background.  Most elements start out with
+            a <b>transparent</b> (see through) background, meaning the background of the <b>containing
+            element</b> is used.
+            </p>
+            <p>
+                The <b>body</b> element starts out with a background of <b>white</b>,
+                which is why you start out with a white page.
+            </p>
+            <h3 id="BackgroundColor">Background Color</h3>
+            <p>The <b>background-color</b> property gives a single color for the background.
+            You can use the same kind of values for the Background Color property as you can
+            with the <a href="#Color">Color Property</a>.
+            </p>
+            <p>
+                For example, the following uses the named color <b>yellow</b>
+                as the background.
+            </p>
+            <div class="css">
+                <div class="unstyled">
+                    <p style="">Example</p>
+                </div>
+                <div class="styled">
+                    <p style="background-color: yellow;">Example</p>
+                </div>
+            </div>
+            <div class="code">
+                .example { <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;background-color: yellow;<br>
+                }
+            </div>
+            <div class="code">
+                &lt;p class="example"&gt;Example&lt;/p&gt;
+            </div>
+            
+            <h3 id="BackgroundImage">Background Image</h3>
+            <p>The <b>background-image</b> property uses an image to display the
+            background.  The value of the <b>background-image</b> property
+            is the name of the <b>image file</b>.
+            </p>
+            <p>
+                For example, the following uses an image file named <b>smiley.png</b>.
+                You can use the <a href="#BackgroundRepeat">Background Repeat</a>
+                property to control whether the image is repeated.
+            </p>
+            <div class="file">smiley.png</div>            
+            <p><img src="smiley.png"></p>
+            <div class="css">
+                <div class="unstyled">
+                    <p style="">Example</p>
+                </div>
+                <div class="styled">
+                    <p style="background-image: url('smiley.png');">Example</p>
+                </div>
+            </div>
+            <div class="code">
+                .example { <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;background-image: url("smiley.png");<br>
+                }
+            </div>
+            <div class="code">
+                &lt;p class="example"&gt;Example&lt;/p&gt;
+            </div>
+            
+            <h3 id="BackgroundRepeat">Background Repeat</h3>
+            <p>The <b>background-repeat</b> property controls how the
+            image used with the <a href="#BackgroundImage">Background Image</a>
+            property is repeated.
+            </p>
+            <p>
+                The following examples uses an image file named <b>smiley.png</b>
+                as the background image.
+            </p>
+            <div class="file">smiley.png</div>            
+            <p><img src="smiley.png"></p>
+            <p>
+                This example does not repeat the image.
+            </p>
+            <div class="css">
+                <div class="unstyled">
+                    <p style="">Example</p>
+                </div>
+                <div class="styled">
+                    <p style="background-image: url('smiley.png');background-repeat: no-repeat;">Example</p>
+                </div>
+            </div>
+            <div class="code">
+                .example { <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;background-image: url("smiley.png");<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;background-repeat: no-repeat;<br>
+                }
+            </div>
+            <div class="code">
+                &lt;p class="example"&gt;Example&lt;/p&gt;
+            </div>
+            
+            <p>
+                The following example repeats the image in the horizontal direction.
+            </p>
+            <div class="css">
+                <div class="unstyled">
+                    <p style="">Example</p>
+                </div>
+                <div class="styled">
+                    <p style="background-image: url('smiley.png');background-repeat: repeat-x;">Example</p>
+                </div>
+            </div>
+            <div class="code">
+                .example { <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;background-image: url("smiley.png");<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;background-repeat: repeat-x;<br>
+                }
+            </div>
+            <div class="code">
+                &lt;p class="example"&gt;Example&lt;/p&gt;
+            </div>
+            
+            <p>
+                The following example repeats the image in the vertical direction.
+            </p>
+            <div class="css">
+                <div class="unstyled">
+                    <p style="">Example</p>
+                </div>
+                <div class="styled">
+                    <p style="background-image: url('smiley.png');background-repeat: repeat-y;">Example</p>
+                </div>
+            </div>
+            <div class="code">
+                .example { <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;background-image: url("smiley.png");<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;background-repeat: repeat-y;<br>
+                }
+            </div>
+            <div class="code">
+                &lt;p class="example"&gt;Example&lt;/p&gt;
+            </div>
+            
+            
+            <h2 id="Box">Box Properties</h2>
+            <p>Many HTML elements have <b>box</b> properties that control what is
+            displayed <b>around</b> or <b>behind</b> the element content (text or image).
+            </p>
+            <img src="diagram1.png">
+            <p>
+                The <b>box</b> is the overall space on the page that an element takes up, and is
+                made up of the following:
+                <ul>
+                    <li>The <b>margin</b> is the amount of space that separates
+                    this element from other elements.  This part is transparent.
+                    The size of the margin depends on the <a href="#Margin">Margin Property</a>.
+                    <p class="sidenote">
+                        An element may have a margin even if you haven't set it.
+                    </p>
+                    </li>
+                    <li>The <b>border</b> is the amount of space that is
+                    taken up by the border.  What the border looks like depends on
+                    on the <a href="#BorderStyle">Border Style Property</a>.  The size of
+                    the border depends on the <a href="#BorderWidth">Border Width Property</a>.
+                    <p class="sidenote">
+                        If you don't say what <a href="#BorderStyle">Border Style</a> to use, there will be no border.
+                    </p>
+                    </li>
+                    <li>The <b>padding</b> is the amount of space to display
+                    around the text or image.  The size of the padding depends on
+                    the <a href="#Padding">Padding Property</a>.
+                    What is displayed in this area is displayed depends on the
+                    <a href="#Background">Background Properties</a>.
+                    <p class="sidenote">
+                        An element may have padding even if you haven't set it.
+                    </p>
+                    </li>
+                </ul>                    
+            </p>
+            <h3 id="Margin">Margin Property</h3>
+            <p>
+                The <b>padding</b> property is one way to put space around an element.
+            </p>
+            <p>
+                Read about <a href="#Box">Box Properties</a> before using this property.
+            </p>
+            <p>
+                The following example uses a margin of <b>20</b> pixels.
+            </p>
+            <div class="css">
+                <div class="unstyled">
+                    <p style="background-color: yellow; margin: 10px;">Example</p>
+                    <p style="background-color: yellow; margin: 10px;">Example</p>
+                </div>
+                <div class="styled">
+                    <p style="background-color: yellow; margin: 20px;">Example</p>
+                    <p style="background-color: yellow; margin: 20px;">Example</p>
+                </div>
+            </div>
+            <div class="code">
+                .example { <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;margin: 20px;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;background-color: yellow;<br>
+                }
+            </div>
+            <div class="code">
+                &lt;p class="example"&gt;Example&lt;/p&gt;<br>
+                &lt;p class="example"&gt;Example&lt;/p&gt;
+            </div>            
+            
+            <h3 id="Padding">Padding Property</h3>
+            <p>
+                The <b>padding</b> property is one way to put space around an element.
+            </p>
+            <p>
+                Read about <a href="#Box">Box Properties</a> before using this property.
+            </p>
+            <p>
+                The following example uses a padding of <b>10</b> pixels.
+            </p>
+            <div class="css">
+                <div class="unstyled">
+                    <p style="background-color: yellow; padding: 0px;">Example</p>
+                    <p style="background-color: yellow; padding: 0px;">Example</p>
+                </div>
+                <div class="styled">
+                    <p style="background-color: yellow; padding: 10px;">Example</p>
+                    <p style="background-color: yellow; padding: 10px;">Example</p>
+                </div>
+            </div>
+            <div class="code">
+                .example { <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;padding: 10px;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;background-color: yellow;<br>
+                }
+            </div>
+            <div class="code">
+                &lt;p class="example"&gt;Example&lt;/p&gt;<br>
+                &lt;p class="example"&gt;Example&lt;/p&gt;
+            </div>            
+            
+            <h3 id="BorderStyle">Border Style</h3>
+            <p>
+                The <b>border-style</b> property controls whether the border is
+                solid, dashed, dotted, etc.
+            </p>
+            <p>
+                Read about <a href="#Box">Box Properties</a> before using this property.
+            </p>
+            <p>
+                The following example uses a border style of <b>solid</b>.
+            </p>
+            <div class="css">
+                <div class="unstyled">
+                    <p style="background-color: yellow; border-style: none;">Example</p>
+                    <p style="background-color: yellow; border-style: none;">Example</p>
+                </div>
+                <div class="styled">
+                    <p style="background-color: yellow; border-style: solid;">Example</p>
+                    <p style="background-color: yellow; border-style: solid;">Example</p>
+                </div>
+            </div>
+            <div class="code">
+                .example { <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;border-style: solid;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;background-color: yellow;<br>
+                }
+            </div>
+            <div class="code">
+                &lt;p class="example"&gt;Example&lt;/p&gt;<br>
+                &lt;p class="example"&gt;Example&lt;/p&gt;
+            </div>
+            <p>
+                You can find other border styles at:
+                <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/border-style#Values">
+                    https://developer.mozilla.org/en-US/docs/Web/CSS/border-style#Values
+                </a>.
+            </p>           
+            
+            
+            <h3 id="BorderColor">Border Color</h3>
+            <p>
+                The <b>border-color</b> property controls what color the border is.
+            </p>
+            <p>
+                Read about <a href="#Box">Box Properties</a> before using this property.
+            </p>
+            <p>
+                The following example uses a border style of <b>solid</b>
+                and a border color of <b>red</b>.  The colors are
+                the same as those used with the <a href="#Color">Color Property</a>.
+            </p>
+            <div class="css">
+                <div class="unstyled">
+                    <p style="background-color: yellow; border-style: none;">Example</p>
+                    <p style="background-color: yellow; border-style: none;">Example</p>
+                </div>
+                <div class="styled">
+                    <p style="background-color: yellow; border-style: solid;border-color:red;">Example</p>
+                    <p style="background-color: yellow; border-style: solid;border-color:red;">Example</p>
+                </div>
+            </div>
+            <div class="code">
+                .example { <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;border-style: solid;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;border-color: red;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;background-color: yellow;<br>
+                }
+            </div>
+            <div class="code">
+                &lt;p class="example"&gt;Example&lt;/p&gt;<br>
+                &lt;p class="example"&gt;Example&lt;/p&gt;
+            </div>            
+
+
+            <h3 id="BorderWidth">Border Width</h3>
+            <p>
+                The <b>border-width</b> property controls the how big the border is.
+            </p>
+            <p>
+                Read about <a href="#Box">Box Properties</a> before using this property.
+            </p>
+            <p>
+                The following example uses a border style of <b>solid</b>
+                and a border width of <b>10px</b>.
+            </p>
+            <div class="css">
+                <div class="unstyled">
+                    <p style="background-color: yellow; border-style: none;">Example</p>
+                    <p style="background-color: yellow; border-style: none;">Example</p>
+                </div>
+                <div class="styled">
+                    <p style="background-color: yellow; border-style: solid;border-width:10px;">Example</p>
+                    <p style="background-color: yellow; border-style: solid;border-width:10px;">Example</p>
+                </div>
+            </div>
+            <div class="code">
+                .example { <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;border-style: solid;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;border-width: 10px;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;background-color: yellow;<br>
+                }
+            </div>
+            <div class="code">
+                &lt;p class="example"&gt;Example&lt;/p&gt;<br>
+                &lt;p class="example"&gt;Example&lt;/p&gt;
+            </div>
+            
+            
+            <h3 id="BorderRadius">Border Radius</h3>
+            <p>
+                The <b>border-radius</b> property controls how rounded the border is.
+                Using a larger border radius will produce a more rounded look.
+            </p>
+            <p>
+                Read about <a href="#Box">Box Properties</a> before using this property.
+            </p>
+            <p>
+                The following example uses a border style of <b>solid</b>
+                and a border radius of <b>10px</b>.
+            </p>
+            <div class="css">
+                <div class="unstyled">
+                    <p style="background-color: yellow; border-style: none;">Example</p>
+                    <p style="background-color: yellow; border-style: none;">Example</p>
+                </div>
+                <div class="styled">
+                    <p style="background-color: yellow; border-style: solid;border-radius:10px;">Example</p>
+                    <p style="background-color: yellow; border-style: solid;border-radius:10px;">Example</p>
+                </div>
+            </div>
+            <div class="code">
+                .example { <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;border-style: solid;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;border-radius: 10px;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;background-color: yellow;<br>
+                }
+            </div>
+            <div class="code">
+                &lt;p class="example"&gt;Example&lt;/p&gt;<br>
+                &lt;p class="example"&gt;Example&lt;/p&gt;
+            </div>
+            
+            
+            <h3 id="Display">Display</h3>
+            <p>
+                The <b>display</b> property controls how the box flows
+                along with the rest of the content on the page, or
+                whether the element is displayed at all.
+            </p>
+            
+            
+            <p>
+                The following example uses a display of <b>none</b>,
+                which hides the element.
+            </p>
+            <div class="css">
+                <div class="unstyled">
+                    <p style="background-color: yellow;">Example</p>
+                    <p style="background-color: yellow;">Example</p>
+                </div>
+                <div class="styled">
+                    <p style="background-color: yellow;display:none;">Example</p>
+                    <p style="background-color: yellow;display:none;">Example</p>
+                </div>
+            </div>
+            <div class="code">
+                .example { <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;background-color: yellow;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;display: none;<br>
+                }
+            </div>
+            <div class="code">
+                &lt;p class="example"&gt;Example&lt;/p&gt;<br>
+                &lt;p class="example"&gt;Example&lt;/p&gt;
+            </div>                  
+            
+            
+            <p>
+                The following example uses a display of <b>inline</b>, which
+                makes an element flow like a <a href="htmlsubset.htm#Span">Span Element</a>.
+            </p>
+            <div class="css">
+                <div class="unstyled">
+                    <p style="background-color: yellow;">Example</p>
+                    <p style="background-color: yellow;">Example</p>
+                </div>
+                <div class="styled">
+                    <p style="background-color: yellow;display:inline;">Example</p>
+                    <p style="background-color: yellow;display:inline;">Example</p>
+                </div>
+            </div>
+            <div class="code">
+                .example { <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;background-color: yellow;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;display: inline;<br>
+                }
+            </div>
+            <div class="code">
+                &lt;p class="example"&gt;Example&lt;/p&gt;<br>
+                &lt;p class="example"&gt;Example&lt;/p&gt;
+            </div>                  
+            
+            <h2 id="More">How to learn more</h2>
+            <p>
+                This class teaches a subset (part of) the CSS syntax.  The subset was chosen
+                both to make learning CSS easier, and to avoid practices that lead to 
+                CSS documents that are more difficult for others to understand and maintain.
+                As you become a more seasoned CSS author you will learn more syntax, and some
+                of the rules in this document can be relaxed.  If you are curious, the full
+                (and more precise) syntax for the CSS language is available
+                <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3">
+                https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3</a>.  
+            </p>
+            <p>
+                You can usually find what you want by doing a web search on
+                what you want as long as you include the word <b>CSS</b>.
+                For example, if you wanted to know about how to set the font
+                size, you could search for <b>CSS font size</b>.
+                Although <b>W3Schools</b> is usually the first link, you may
+                need to look at additional links to find what you need.
+            </p>
+            <p>
+                The mozilla developer site is a good resource for CSS:
+                <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">https://developer.mozilla.org/en-US/docs/Web/CSS</a>.                
+            </p>
+         </div>
+    </body>
+</html>

@@ -1,0 +1,42 @@
+0 - arrays and loops (INFO)
+- sum of numbers (soccer salaries)
+- the steps in a for loop (numbers)
+- sum of objects (soccer salaries)
+- ZIP - try it out
+
+1 - draw
+- GIVEN: overall structure
+- GIVEN: two bubbles
+- DO: write the array initializer for the two objects
+- GIVEN: draw bubble
+- DO: loop over the array and draw
+
+2 - move
+- GIVEN: randomBetween
+- GIVEN: moveBubble
+- GIVEN: changeSomething
+- DO: moveBubbles
+
+3 - remove & find (INFO)
+- removing a player
+- find a player
+- remove the player (shift up, change length)
+- remove all that make less than X (loop)
+- ZIP - try it out
+
+4 - remove
+- DO: removeRunawaysBubbles
+- DO: removeBubble
+- GIVEN: isBubbleRunningAway
+
+5 - add (INFO)
+- add a player
+- ZIP - try it out
+
+6 - add
+- DO: addBubbles
+- DO: addBubble
+
+7 - quiz
+
+8 - optional

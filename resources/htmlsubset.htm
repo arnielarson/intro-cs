@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>HTML Reference</title>
+        <link href="../reset.css" rel="stylesheet">
+        <link href="../page.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="frame" id="Top">
+            <h1>HTML Reference</h1>
+            <h2 id="TableOfContents">Table of Contents</h2>            
+            <ul>
+                <li>
+                    <a href="#Introduction">Introduction</a>
+                    <ul>
+                        <li><a href="#Filenames">Where to put HTML files and how to name them</a></li>
+                        <li><a href="#Structure">What an HTML file looks like</a></li>
+                        <li><a href="#CharacterReference">Character References</a></li>                    
+                    </ul>
+                </li>
+                <li>
+                    <a href="#InsideHead">Elements that go in the &lt;head&gt;</a>
+                    <ul>
+                        <li><a href="#Title">Title Element</a> (what the browser shows on the tab)</li>
+                        <li><a href="#Link">Link Element</a> (to add a CSS file)</li>
+                        <li><a href="#Script">Script Element</a> (to add a Javascript file)</li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#InsideBody">Elements that go in the &lt;body&gt;</a>
+                    <ul>
+                        <li><a href="#Header">Header Element</a> (for the start of a section)</li>
+                        <li><a href="#Paragraph">Paragraph Element</a> (for a paragraph)</li>
+                        <li><a href="#Image">Image Element</a> (to display an image)</li>
+                        <li><a href="#Span">Span Element</a> (to mark a range of text)</li>
+                        <li><a href="#Division">Division Element</a> (to divide the page into parts)</li>
+                        <li><a href="#Anchor">Anchor Element</a> (to make a hyperlink)</li>
+                        <li><a href="#Audio">Audio Element</a> (to play a sound)</li>
+                        <li><a href="#Table">Table Element</a> (for tables)</li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#Attributes">Attributes you can add to an element</a>
+                    <ul>
+                        <li><a href="#Identifier">Identifier Attribute</a> (for naming an element)</li>
+                        <li><a href="#Class">Class Attribute</a> (for choosing the style for an element)</li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#AdditionalInformation">Additional information</a>
+                    <ul>
+                        <li><a href="#Conventions">Conventions used in this class</a></li>                    
+                        <li><a href="#Name">Choosing names</a></li>                    
+                        <li><a href="#More">How to learn more</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <h2 id="Introduction">Introduction</h2>
+            <p>
+                HTML (HyperText Markup Language) is a language use to write down
+                the contents of a web page.
+            </p>
+            <p>
+                <a href="csssubset.htm">Cascading Style Sheets (CSS)</a> are typically used with HTML to
+                provide the styling for a page.
+            </p>
+            <p>
+                <a href="jssubset.htm">Javascript</a> is usually added to a page
+                to control what happens when the page is used.
+            </p>
+            <h3 id="Filenames">Where to put HTML files and how to name them</h3>
+            <p>
+            Name each file using a short name that describes what the file is for.  You can use the section
+            on <a href="#Name">Naming</a> for guidance on picking names, and then add <b>.html</b> to the end you choose.
+            Put all the files in the same folder.  If there is a home page, name it <b>default.html</b>.
+            For example:
+            </p>
+            <p>
+                <div class="code inline">default.html</div><br>
+                <div class="code inline">typesOfSpaceships.html</div><br>
+                <div class="code inline">moonBases.html</div>
+            </p>
+            <h3 id="Structure">What an HTML looks like</h3>
+            <p>
+                An HTML file looks like the following:
+            </p>
+            <div class="code">
+                &lt;!DOCTYPE html&gt;<br>
+                &lt;html&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;head&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="placeholder" href="#InsideHead">Elements that go in the head</a><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;/head&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;body&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="placeholder" href="#InsideBody">Elements that go in the body</a><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;/body&gt;<br>
+                &lt;/html&gt;<br>                
+            </div>            
+
+            <h2 id="CharacterReference">Character References</h2>
+            <p>
+                Some characters are used by HTML for writing elements (for example, &lt; and &gt;),
+                so we need to use a different way of writing these characters
+                if we want to include them in the text of the document or in attribute values.
+                The solution is to write a <b>character reference</b> as a substitute for the character.                
+                The following table gives some common character
+                references:
+            </p>
+            <table class="simple">
+                <tr>
+                    <th>Character</th>
+                    <th>Character Reference</th>
+                </tr>
+                <tr>
+                    <td>&lt;</td>
+                    <td><span class="code">&amp;lt;</span></td>
+                </tr>
+                <tr>
+                    <td>&gt;</td>
+                    <td><span class="code">&amp;gt;</span></td>
+                </tr>
+                <tr>
+                    <td>&amp;</td>
+                    <td><span class="code">&amp;amp;</span></td>
+                </tr>
+                <tr>
+                    <td>&quot;</td>
+                    <td><span class="code">&amp;quot;</span></td>
+                </tr>
+            </table>
+            <p>
+                It is only necessary to use an character reference for quote
+                (") when it appears in an attribute value.
+            </p>
+            <h2 id="InsideHead">Elements that go in the &lt;head&gt;</h2>
+            <p>
+                The elements within the Head Element (abbreviated <b>head</b>) provide information <b>about</b> the Page.
+                The following elements can appear within a Head Element.
+            </p>
+            <ul>
+                <li><a href="#Title">Title Element</a> (what the browser shows on the tab)</li>
+                <li><a href="#Link">Link Element</a> (to add a CSS file)</li>
+                <li><a href="#Script">Script Element</a> (to add a Javascript file)</li>
+            </ul>
+            <h3 id="Title">Title Element</h3>
+            <p>
+                The Title Element (<b>title</b>) gives a short summary of
+                the HTML document.  The title of an HTML document is displayed outside of the body
+                content for the page, typically on the <b>tab</b> for the page.
+            </p>
+            <p>In the following example, the title is Lunar Lander.</p>
+            <div class="code">
+                &lt;title&gt;Lunar Lander&lt;/title&gt;
+            </div>
+            <h3 id="Link">Link Element</h3>
+            <p>
+                The Link Element in HTML can be used to add one or more Cascading Style Sheet (CSS)
+                files to the page.  The value of the <b>href</b> attribute
+                should be the name of a CSS file in the same folder as the HTML document.
+            </p>
+            <p>
+                For more information on CSS, see the <a href="csssubset.htm">CSS Reference</a>.
+            </p>
+            <div class="code">
+                &lt;link rel="stylesheet" href="file1.css"&gt;<br>
+                &lt;link rel="stylesheet" href="file2.css"&gt;<br>
+            </div>
+            <h3 id="Script">Script Element</h3>            
+            <p>
+                The Script Element in HTML can be used to add one or more Javascript files to the page.
+                The value of the <b>src</b> attribute
+                should be the name of a Javascript file in the same folder as the HTML document.
+            </p>
+            <p>
+                For more information on Javascript, see the <a href="jssubset.htm">Javascript Reference</a>.
+
+            </p>
+            <p>The following example links to two Javascript files.</p>
+            <div class="code">
+                &lt;script src="file1.js"&gt;&lt;/script&gt;<br>
+                &lt;script src="file2.js"&gt;&lt;/script&gt;
+            </div>
+            <h2 id="InsideBody">Elements that go in the &lt;body&gt;</h2>
+            <p>
+                The elements contained within the Body Element (<b>body</b>) determine what the web browser
+                displays for the page.  The following elements can appear within the Body Element:
+            </p>
+            <ul>
+                <li><a href="#Paragraph">Paragraph Element</a> (for a paragraph)</li>
+                <li><a href="#Header">Header Element</a> (for the start of a section)</li>
+                <li><a href="#Division">Division Element</a> (to divide the page into parts)</li>
+                <li><a href="#Anchor">Anchor Element</a> (to make a hyperlink)</li>
+                <li><a href="#Image">Image Element</a> (to display an image)</li>
+                <li><a href="#Audio">Audio Element</a> (to play a sound)</li>
+                <li><a href="#Table">Table Element</a> (for tables)</li>
+            </ul>
+            <h3 id="Paragraph">Paragraph Element</h3>
+            <p>
+                The Paragraph Element (abbreviated <b>p</b>) is used to separate paragraphs.  The text
+                and elements that appear within the paragraph make
+                up the paragraph.                
+            </p>
+            <p>
+                The following example shows two paragraphs containing text.
+            </p>
+            <div class="code">
+                &lt;p&gt;This is some text in the first paragraph.&lt;/p&gt;<br>
+                &lt;p&gt;This is some text in the second paragraph.&lt;/p&gt;<br>
+            </div>
+            <h3 id="Header">Header Elements</h3>
+            <p>
+                The header elements (abbreviated <b>h1</b> through <b>h6</b>) represent the headings
+                of a document.  Headings can be used to organize a document into chapters, sections,
+                etc.  The first-level heading element (<b>h1</b>) is the most important
+                sixth-level heading element (<b>h6</b>) is the least important.
+            </p>
+            <p class="sidenote">
+                Be careful not to confuse these header elements (used for headings) with the <b>head</b> element
+                (which provides information about the page).
+            </p>
+            <p>
+                The heading element appear before the elements that make up the content of the heading.
+                Heading elements typically contain text, but may also contain other elements.
+            </p>
+            <p>
+                The following example uses headings to represent two sections that each have two chapters.
+            </p>
+            <div class="code">
+                &lt;h1&gt;Section 1/h1&gt;<br>
+                &lt;h2&gt;Chapter 1&lt;/h2&gt;<br>
+                &lt;p&gt;Paragraph 1&lt;/p&gt;<br>
+                &lt;p&gt;Paragraph 2&lt;/p&gt;<br>
+                &lt;h2&gt;Chapter 2&lt;/h2&gt;<br>
+                &lt;p&gt;Paragraph 1&lt;/p&gt;<br>
+                &lt;p&gt;Paragraph 2&lt;/p&gt;<br>
+                <br>
+                &lt;h1&gt;Section 2/h1&gt;<br>
+                &lt;h2&gt;Chapter 1&lt;/h2&gt;<br>
+                &lt;p&gt;Paragraph 1&lt;/p&gt;<br>
+                &lt;p&gt;Paragraph 2&lt;/p&gt;<br>
+                &lt;h2&gt;Chapter 2&lt;/h2&gt;<br>
+                &lt;p&gt;Paragraph 1&lt;/p&gt;<br>
+                &lt;p&gt;Paragraph 2&lt;/p&gt;<br>
+            </div>
+            <h3 id="Division">Division Element</h3>
+            <p>
+                The division (abbreviated <b>div</b>) element is used to divide up (or group) portions of a document.
+                You can think of it as a generic container for other elements.
+            </p>
+            <p>
+                Grouping elements together can be useful when styling a page (using <a href="csssubset.htm">CSS</a>),
+                since the style can be applied to the whole group.
+            </p>
+            <p>
+                In the following example, one division contains asteroids, and the other has spaceships:
+            </p>
+            <div class="code">
+                &lt;div&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;Asteroid1&lt;/p&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;Asteroid2&lt;/p&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;Asteroid3&lt;/p&gt;<br>
+                &lt;/div&gt;<br>
+                &lt;div&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;Spaceship1&lt;/p&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;Spaceship2&lt;/p&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;Spaceship3&lt;/p&gt;<br>
+                &lt;/div&gt;
+            </div>
+            <h3 id="Span">Span Element</h3>
+            <p>
+                The Span (<b>span</b>) is used to create an element for a particular range (portion) of text.
+            </p>
+            <p>
+                A Span can useful when styling a page
+                (using <a href="csssubset.htm">CSS</a>),
+                since a particular style can be applied to the text range.
+                In the following example, a Span is used with a <a href="#Class">Class Attribute</a>
+                to specify that the words Moonbase and Asteroid Belt should be styled
+                using whatever styling has been defined for the <b>important</b> style.
+            </p>
+            <div class="code">
+                &lt;p&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;The &lt;span class="important"&gt;Moonbase&lt;/span&gt; is next to the<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;span class="important"&gt;Asteroid Belt&lt;/span&gt;.<br>
+                &lt;/p&gt;
+            </div>
+            <span id="ChangeSpan"></span>
+            <p>
+                A Span is also useful if you want to use or change a range of text
+                from Javascript.
+                In the following
+                example, a Span is used with <a href="#Identifier">Identifier Attribute</a>
+                which is used by the <b>start</b> function to change the text of the span.                
+            </p>
+            <div class="code">
+                &lt;p&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;The &lt;span id="changeme"&gt;before&lt;/span&gt; will be changed.<br>
+                &lt;/p&gt;
+            </div>
+            <div class="code">
+                function start() {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;var spanElement = document.getElementById("changeme");<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;spanElement.textContent = "after";<br>
+                }<br>
+            </div>
+            <h3 id="Anchor">Anchor Element</h3>
+            <p>
+                An Anchor Element (abbreviated <b>a</b>) provides a <b>hyperlink</b> from the current page to another location.
+                When the user clicks on the hyperlink, the web browser will <b>navigate</b> to that location.
+                The text or elements contained within the Anchor Element are what the user should
+                click on in order to navigate.
+                The value of the <b>href</b> attribute indicates where to navigate, as follows:
+            </p>
+            <ol>
+                <li><b>Link within page.</b>  If the value of the <b>href</b> attribute looks like
+                <span class="code">#<span class="placeholder">name</span></span>, the browser will
+                attempt to navigate to
+                an element in the same HTML document that has the name.  To name an element,
+                use the <a href="#Identifier">Identifier Attribute</a>.  For example, the following Anchor
+                Element will navigate to an element named <b>moon</b>.
+                <div class="code">
+                    &lt;p&gt;Go to the &lt;a href="#moon"&gt;Moon&lt;/a&gt;&lt;/p&gt;<br>
+                    &lt;p id="moon"&gt;The Moon&lt;/p&gt;
+                </div></li>
+                <li><b>Link to file.</b>  If the value of the <b>href</b> attribute is a file name, the browser will attempt to
+                navigate to the file located in the same folder as the HTML document.  For example, the following Anchor
+                Element will navigate to a file called <b>moonbase.html</b>:
+                <div class="code">
+                    &lt;a href="moonbase.html"&gt;Moon Base&lt;/a&gt;
+                </div></li>
+                <li><b>Link to URL.</b> If the value of the <b>href</b> attribute is a URL, the browser will attempt to
+                navigate to the resource located at that URL.  For example, the following Anchor Element
+                will navigate to the University Prep home page.
+                <div class="code">
+                    &lt;a href="http://www.universityprep.org/"&gt;University Prep&lt;/a&gt;
+                </div></li>
+            </ol>
+            <h3 id="Image">Image Element</h3>
+            <p>
+                An Image Element (abbreviated <b>img</b>) displays an image.  The source attribute (abbreviated <b>src</b>)
+                names the image to display.  The value of the source attribute should be
+                the name of an image file that is in the same location as the HTML document.
+            </p>
+            <p>
+                An Image Element does not contain any elements or text.
+            </p>
+            <p>
+                The following example displays three images.  There are many formats for representing
+                images.  The images in the following example are of type
+                are:
+                <ul>
+                    <li><a href="http://en.wikipedia.org/wiki/Portable_Network_Graphics">PNG</a></li>
+                    <li><a href="http://en.wikipedia.org/wiki/Jpeg">JPEG</a></li>
+                    <li><a href="http://en.wikipedia.org/wiki/Gif">GIF</a></li>
+                </ul>
+            </p>
+            <div class="code">
+                &lt;img src="image1.png"&gt;<br>
+                &lt;img src="image1.jpg"&gt;<br>
+                &lt;img src="image1.gif"&gt;<br>
+            </div>
+
+            <h3 id="Audio">Audio Element</h3>
+            <p>
+                An Audio Element is a way to add a sound to a page.  Once you have the audio element on
+                the page, then you can play (or replay) the sound.
+            </p>
+            <p>
+                The source attribute (abbreviated <b>src</b>)
+                names the sound to display.  The value of the source attribute should be
+                the name of a audio file (like a MP3 file) that is in the same location as the HTML document.
+            </p>
+            <div class="code">
+<audio src="my.mp3" id="mysound"></audio>
+&lt;audio src="my.mp3" id="mysound"&gt;&lt;/audio&gt;<br>
+            </div>
+            <div class="code">
+                function start() {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;var audioElement = document.getElementById("myaudio");<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;// to start (or continue) playing<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;audioElement.play();<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;// to pause playing<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;audioElement.pause();<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;// to replay from the beginning<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;audioElement.currentTime = 0;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;audioElement.play();<br>
+                }
+            </div>
+
+            <h3 id="Table">Table Element</h3>
+            <p>
+                An Table Element arranges text or other elements into a table.  A table
+                has a header part (abbreviated <b>thead</b>) which contains the names of the columns, and a body part
+                (abbreviated <b>tbody</b>) which contains the data of the table.                 
+            </p>
+            <p>
+                Both the header part and body part can have multiple rows (abbreviated <b>tr</b>).  Within
+                a row, each cell is either a table header cell (abbreviated <b>th</b>) or a table data
+                cell (abbreviated <b>td</b>).
+            </p>
+            <p>
+                The following example shows a table with two columns and three rows.  The first column is
+                named <b>Letters</b> and contains the letters <b>A-C</b>. The second column is
+                named <b>Numbers</b> and contains the numbers <b>1-3</b>.
+            </p>
+            <div class="code">
+&lt;table&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;thead&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;tr&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;Letters&lt;/th&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;Numbers&lt;/th&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/tr&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/thead&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;tbody&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;tr&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;A&lt;/td&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;1&lt;/td&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/tr&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;tr&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;B&lt;/td&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;2&lt;/td&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/tr&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;tr&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;C&lt;/td&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;3&lt;/td&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/tr&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/tbody&gt;<br>
+&lt;/table&gt;<br>
+            </div>
+            <span id="ChangeTable"></span>
+            <p>To add the rows using Javascript, use the 
+                <b>innerHTML</b> property of the table body element to add the HTML for the 
+                rows.  For example:</p>
+            <div class="code">
+&lt;table&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;thead&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;tr&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;Player&lt;/th&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;Score&lt;/th&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/tr&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/thead&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;tbody id="players"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/tbody&gt;<br>
+&lt;/table&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+            </div>
+            <div class="code">
+var players = [<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name: "Bob",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;score: 1<br>
+&nbsp;&nbsp;&nbsp;&nbsp;},<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name: "Cindy",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;score: 2<br>
+&nbsp;&nbsp;&nbsp;&nbsp;},<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name: "Fred",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;score: 0<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+];<br>
+<br>
+function start() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// get the table body element by giving its id<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var playersElement = document.getElementById("players");<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// for each player in the array<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var html = "";<br>
+&nbsp;&nbsp;&nbsp;&nbsp;for (var i = 0; i &lt; players.length; i = i + 1) {<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// get the player object<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var player = players[i];<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// add the HTML string for the row<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;html = html + "&lt;tr&gt;&lt;td&gt;" + player.name + "&lt;/td&gt;&lt;td&gt;" + <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;player.score.toString() + "&lt;/td&gt;&lt;/tr&gt;";<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// change the HTML of the table body element<br>
+&nbsp;&nbsp;&nbsp;&nbsp;playersElement.innerHTML = html;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+}<br>               
+            </div>
+
+            <h2 id="Attributes">Attributes you can add to an element</h2>
+            <p>
+                An attribute is a way to add some extra 
+                information to an element.
+                The following attributes can be added to an element:
+                <ul>
+                    <li><a href="#Identifier">Identifier Attribute</a> (for naming an element)</li>
+                    <li><a href="#Class">Class Attribute</a> (for choosing the style for an element)</li>
+                </ul>
+            </p>            
+            <h3 id="Identifier">Identifier Attribute</h3>
+            <p>
+                The Identifier Attribute (abbreviated <b>id</b>) gives a name to an <b>element</b> so it
+                can be referred to
+                elsewhere (for example, from an <a href="#Anchor">Anchor element</a>, or from Javascript).
+                Follow the guidance on <a href="#Name">Naming</a> when choosing a value this attribute.
+                This attribute does not affect the display of the element.  The value of each <b>id</b>
+                attribute must be unique within the HTML document.  The case of identifier names
+                matters (for example, <b>aBC</b> is different than <b>abc</b>).
+            </p>
+            <p>
+                In the following example, a paragraph element is named "nameOfMoon".
+            </p>
+            <div class="code">
+                &lt;p id="nameOfMoon"&gt;Saturn&lt;/p&gt;                
+            </div>
+            <h3 id="Class">Class Attribute</h3>
+            <p>
+                The Class Attribute (<b>class</b>) is used to say what style is used for an <b>element</b>.
+                The value of the Class Attribute should be the name of a style in a Cascading Style Sheet
+                (CSS) document that has been linked to the HTML Document.  See the <a href="#Link">Link Element</a>
+                for how to link a CSS document to an HTML Document.  The case of style names
+                matters (for example, <b>aBC</b> is different than <b>abc</b>).
+            </p>
+            <p>
+                In the following example, a paragraph containing the text "Legal Notice" is styled
+                with a style named "warning". 
+            </p>
+            <div class="code">
+                &lt;p class="warning"&gt;Read the following legal notice before continuing!&lt;/p&gt;                
+            </div>
+            <span id="ChangeClass"></span>
+            <p>
+                To change the class of an element using Javascript, use the <b>className</b> property.
+            </p>
+            <div class="code">
+function start() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// get an element using its id<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var someElement = document.getElementById("someid");<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// if the element has the style named "hidden"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if (someElement.className == "hidden") {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// switch to the style named "visible"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;someElement.className = "visible";<br>
+&nbsp;&nbsp;&nbsp;&nbsp;} else {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// otherwise switch to the style named "hidden"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;someElement.className = "hidden";<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+}<br>
+            </div>
+
+
+
+            <h2 id="AdditionalInformation">Additional information</h2>
+            <h3 id="Conventions">Conventions</h3>
+            <p>
+                This class uses the following conventions when writing HTML documents:
+            </p>
+            <ul>
+                <li>Use <b>lowercase</b> for HTML tag names (&lt;p&gt; instead of &lt;P&gt;).
+                <li>Use <b>lowercase</b> for HTML attribute names (src="moon.gif" intead of SRC="moon.gif").</li>
+                <li>Keep each line less than <b>120</b> characters to make the file it easy to read in an editor.</li>
+                <li>When an element is contained within another element, indent it with <b>4 spaces</b>.</li>
+                <li>Follow the conventions described in <a href="#Name">Names</a>.</li>
+                <li>We will use double (instead of single) quotes around attribute values.</li>
+                <li>Do not include blank lines unless you feel that it helps with readability.</li>
+            </ul>
+            <h3 id="Name">Choosing names</h3>
+            <p>
+                The following conventions are used both for constructing names for <a href="#Filenames">Files</a>
+                and names for <a href="#Identifier">Identifiers</a> within
+                the HTML page.
+            </p>
+            <p>
+                Pick names that describe the purpose of what you are naming without being overly verbose. 
+                If a name requires multiple words, then put all the words together (no spaces), but only capitalize 
+                the first letter of the second and following words.  For example:
+            </p>
+            <p>
+                <div class="code inline">moonbase</div><br>
+                <div class="code inline">mainAsteroidBelt</div><br>
+            </p>
+            <p>
+                When choosing a name, only use letters (a-z, A-Z), and avoid abbreviations.
+            </p>            
+            
+            <h3 id="More">How to learn more</h3>
+            <p>
+                This class teaches a subset (part of) the HTML syntax.  The subset was chosen
+                both to make learning HTML easier, and to avoid practices that lead to 
+                HTML documents that are more difficult for others to understand and maintain.
+                As you become a more seasoned HTML author you will learn more syntax, and some
+                of the rules in this document can be relaxed.  If you are curious, the full
+                (and more precise) syntax for the HTML language is available
+                <a href="http://www.w3.org/html/wg/drafts/html/master/Overview.html">
+                http://www.w3.org/html/wg/drafts/html/master/Overview.html</a>.  
+            </p>
+        </div>
+    </body>
+</html>

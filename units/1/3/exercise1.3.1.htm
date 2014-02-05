@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Exercise 1.3.1</title>
+        <link href="../../../reset.css" rel="stylesheet">
+        <link href="../../../page.css" rel="stylesheet">
+        <style>
+            .cssexample {
+                background-color:#efefef;
+                border: #eee 1px dotted;
+            }
+            .style1 {
+                border:solid 8px #036355;
+                padding:10px;
+                color:#333;
+                color:white;
+                font-size:22pt;
+                background-color:black;
+                font-weight:bold;
+                font-family:monospace;
+                background-image: url('inside-uprep.png');
+            }
+            .style2 {
+                padding:10px;
+                border:solid 1px rgb(0, 87, 132);
+                background-color:white;
+                color:rgb(0, 87, 132);
+                font-size:24pt;
+                font-family:'Kepler Std Light 1166513', Rockwell, Georgia, 'Times New Roman', 'Bitstream Vera Serif', serif;  
+            }
+            .style3 {
+                text-align:center;
+                font-weight:bold;
+                font-style:italic;
+                border-radius:10px;
+                padding:10px;
+                background-color:green;
+                color:white;
+                font-size:18pt;
+                font-family:Georgia;                
+            }
+        </style>
+    </head>
+    <body>
+        <div class="frame">
+            <h1>Exercise 1.3.1</h1>
+            <h2>Cascading Style Sheets (CSS)</h2>
+            <h3>Do your pages have style?</h3>
+            <p>
+                When we write a paragraph element in HTML:
+            </p>
+            <div class="code">
+                &lt;p&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;University Prep Pumas!<br>
+                &lt;/p&gt;
+            </div>
+            <p>
+                We are saying <b>what</b> we want displayed:
+                a paragraph with the words "University Prep Pumas!".  But
+                we aren't saying <b>how</b> we want it to look: that
+                is the job of CSS.
+            </p>
+            <p>
+                For example, here is the above paragraph with three different CSS styles:
+            </p>
+            <div class="cssexample">
+            <p class="style1">
+                University Prep Pumas!
+            </p>
+            <p class="style2">
+                University Prep Pumas!
+            </p>
+            <p class="style3">
+                University Prep Pumas!
+            </p>
+            </div>
+            <p>
+                CSS is not limited to paragraphs.  Most elements on the page
+                can be styled with CSS.
+            </p>
+            <h3>How does CSS work?</h3>
+            <p>
+                CSS is another <b>resource</b> that you use from your HTML
+                page.  This means you need to create a CSS file (ending in <b>.css</b>) and
+                <b>link</b> it to your
+                HTML file in order to use the styles in the CSS file.  This
+                is very similar to how you include a <b>Javascript</b> file in your HTML.
+            </p>
+            <div class="sidebyside">
+                <div class="side">
+                    <img src="diagram1.png">
+                </div>
+                <div class="side">
+                    <div class="code">
+&lt;!DOCTYPE html&gt;<br>
+&lt;html&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;head&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;University Prep&lt;/title&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="blue">&lt;link rel="stylesheet" href="uprep.css"&gt;&lt;/link&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="red">&lt;script src="uprep.js"&gt;&lt;/script&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/head&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;body&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/body&gt;<br>
+&lt;/html&gt;<br>                        
+                    </div>
+                </div>
+            </div>
+            <h3>What is in a CSS file?</h3>
+            <p>
+                A CSS file is full of <b>styles</b>.  Each style has a different <b>name</b>,
+                and you get to choose the name.
+            </p>
+            <p>
+                When we write an HTML element, we can say <b>which style</b> to use for the element
+                by giving its name (using the <b>class</b> attribute).
+            </p>
+            <div class="sidebyside">
+                <div class="side">
+                    <img src="diagram2.png">
+                </div>
+                <div class="side">
+                    <p><b>HTML + CSS</b></p>
+                    <div class="cssexample">                       
+                        <p class="style1">University Prep Pumas!</p>
+                        <p class="style2">I love UPrep!</p>
+                        <p class="style3">UPrep is an amazing school</p>                    
+                        <p class="style3">University Prep Pumas!</p>                                        
+                    </div>
+                </div>
+            </div>
+            <h3>So how do we write a style?</h3>
+            <p>
+                CSS is a <b>language</b> for describing styles.  What does that language look like?
+                Lets look at the CSS styles for our example:
+            </p>
+            <div class="sidebyside">
+                <div class="side">
+                    <p class="style1">style1</p>
+                </div>
+                <div class="side">
+                    <div class="code">
+    .style1 {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;border-style: solid;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;border-width: 8px;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;border-color: #036355;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;padding: 10px;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;color: white;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;font-size: 22pt;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;background-color: black;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;font-weight: bold;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;font-family: monospace;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;background-image: url("inside-uprep.png");<br>
+    }<br>                    
+                    </div>
+                </div>                
+            </div>
+            <div class="sidebyside">
+                <div class="side">
+                    <p class="style2">style2</p>
+                </div>
+                <div class="side">
+                    <div class="code">
+.style2 {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;padding: 10px;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;border-style: solid;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;border-width: 1px;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;border-color: rgb(0, 87, 132);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;background-color: white;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;color: rgb(0, 87, 132);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;font-size: 24pt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;font-family: "Kepler Std Light 1166513", Rockwell,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Georgia, "Times New Roman",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Bitstream Vera Serif", serif;  <br>
+}<br>
+                    </div>
+                </div>
+            </div>
+            <div class="sidebyside">
+                <div class="side">
+                    <p class="style3">style3</p>
+                </div>
+                <div class="side">
+                    <div class="code">               
+.style3 {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;text-align: center;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;font-weight: bold;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;font-style: italic;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;border-radius: 10px;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;padding: 10px;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;background-color: green;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;color: white;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;font-size: 18pt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;font-family: Georgia;<br>
+}<br>
+                    </div>
+                </div>
+            </div>
+            <p>
+                See if you can match any parts of the CSS style language with what the style looks like.
+            </p>
+            <h3>What are the rules for the CSS language?</h3>
+            <p>
+                Although it may look complicated, the CSS language has only a few concepts:
+            </p>
+            <ul>
+                <li>A CSS file contains a set of styles, one after another.</li>
+                <li>Each style has a <span class="code"><span class="placeholder">style name</span></span>, and a set of properties.</li>
+                <li>Each property has <span class="code"><span class="placeholder">property name</span></span> and a <span class="code"><span class="placeholder">property value</span></span>.</li>
+                <li>Properties with different names control different parts of the style.</li>
+            </ul>
+            <p>For example, a style with three properties will always look like this (only with the 
+            <span class="code"><span class="placeholder">&nbsp;&nbsp;&nbsp;&nbsp;</span></span> filled in):</p>
+            <div class="code">
+                .<span class="placeholder">style name</span> {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="placeholder">property name</span>: <span class="placeholder">property value</span>;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="placeholder">property name</span>: <span class="placeholder">property value</span>;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="placeholder">property name</span>: <span class="placeholder">property value</span>;<br>
+                }
+            </div>
+            <div class="sidenote">
+                Another language, and another set of rules!  CSS is pretty picky, so...<br>
+                <ul>
+                    <li>Remember the period!  <span class="code">.</span><br></li>
+                    <li>Remember the colon!  <span class="code">:</span><br></li>
+                    <li>Remember the semicolon! <span class="code">;</span><br></li>
+                    <li>Remember the braces!  <span class="code">{</span> and <span class="code">}</span><br></li>
+                </ul>
+            </div>
+            <h3>What properties can I use?</h3>
+            <p>
+                Once you understand the basic pattern for writing CSS, the questions are then:
+                <ul>
+                    <li>What properties are there?</li>
+                    <li>What do they do?</li>
+                    <li>What values can I used for a property?</li>
+                </ul>
+            </p>
+            <p>
+                These questions are answered in our <a href="../../../resources/csssubset.htm">CSS Reference</a>.
+            </p>
+            <p class="sidenote">
+                You might want bookmark the <a href="../../../resources/csssubset.htm">CSS Reference</a>.  We are going to be using it for the rest of the course.
+            </p>
+            <h2>Lets try it out!</h2>
+            <p>
+                One way to see what the properties do is just to try changing their
+                values and see what happens.  Let's try:
+            </p>
+            <ul>
+                <li>
+                    <p>
+                        Download this <a href="Exercise%201.3.1.zip">zip</a>
+                        file and copy the contents to a new folder for this
+                        exercise (<b>Exercise 1.3.1</b>).                        
+                    </p>
+                </li>
+                <li>
+                    <p>
+                    Open <b>default.html</b> in Chrome.  You should see:<br>
+                    <img src="chrome1.png">                        
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Try changing the property value of one of the
+                        <b>font-size</b> properties to <b>72pt</b>, or <b>7pt</b>.
+                        You have to save the CSS file and refresh Chrome in order to see the effect.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Try changing <b>other</b> property values in the CSS file.  
+                        Don't know what a property does?  Or how to pick the value for it?
+                        Check out the the <a href="../../../resources/csssubset.htm">CSS Reference</a>.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Add a <b>new property</b> to one of the styles, and see what happens.          
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Add a <b>new style</b> to your CSS file with some properties.  Use the new
+                        style for one of the elements in the HTML (use the 
+                        <a href="../../../resources/htmlsubset.htm#Class">Class Attribute</a>
+                        to say what style to use).   
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Add a style to the <b>Body Element</b>
+                        by using the
+                        <a href="../../../resources/htmlsubset.htm#Class">Class Attribute</a>.
+                    </p>
+                </li>
+            </ul>
+            <h2>Done!</h2>
+            <p>
+                Head back to Schoology and mark this as done.
+            </p>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Exercise 1.5.1</title>
+        <link href="../../../reset.css" rel="stylesheet">
+        <link href="../../../page.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="frame">
+            <h1>Exercise 1.5.1</h1>
+            <h2>Largest and smallest grade</h2>
+            <p>
+                The UPrep staff are back again with another request.  They want
+                to make sure that the number of students in each grade is
+                not too small or too large.
+                They would like you to calculate the <b>smallest</b> number
+                of students in any grade, as well as the <b>largest</b> number
+                of students in any grade.                
+            </p>
+            <p>
+                They would like you to perform this calculation for
+                <b>this year</b>.
+            </p>
+            <h3>Comparing values</h3>
+            <p>
+                In order to calculate which grade has the most students,
+                we need to compare the values of each grade.  But how do we
+                compare two values?
+            </p>
+            <p>
+                From math, you probably remember how to compare values using
+                various symbols.  Javascript also has a set of symbols.  Lets
+                compare the two:
+            </p>
+            <div class="sidebyside">
+                <div class="leftside">
+                    <table class="simple">
+                        <tr>
+                            <th>Math<br>Symbol</th>
+                            <th>Meaning</th>
+                            <th>Math<br>Example</th>
+                        </tr>
+                        <tr>
+                            <td>&lt;</td>
+                            <td>Strictly less than</td>
+                            <td>a &lt 5</td>
+                        </tr>
+                        <tr>
+                            <td>&#x2264;</td>
+                            <td>Less than or equal to</td>
+                            <td>a &#x2264; 5</td>
+                        </tr>
+                        <tr>
+                            <td>&gt;</td>
+                            <td>Strictly greater than</td>
+                            <td>a &gt; 5</td>
+                        </tr>
+                        <tr>
+                            <td>&#x2265;</td>
+                            <td>Greater than or equal to</td>
+                            <td>a &#x2265; 5</td>
+                        </tr>                
+                        <tr>
+                            <td>=</td>
+                            <td>Equal to</td>
+                            <td>a = 5</td>
+                        </tr>                
+                        <tr>
+                            <td>&#x2260;</td>
+                            <td>Not equal to</td>
+                            <td>a &#x2260; 5</td>
+                        </tr>                
+                    </table>
+                </div>
+                <div class="rightside">
+                    <table class="simple">
+                        <tr>
+                            <th>Javascript<br>Symbol</th>
+                            <th>Meaning</th>
+                            <th>Javascript<br>Example</th>
+                        </tr>
+                        <tr>
+                            <td><span class="code">&lt;</span></td>
+                            <td>Strictly less than</td>
+                            <td><span class="code">a &lt 5</span></td>
+                        </tr>
+                        <tr>
+                            <td><span class="code">&lt;=</span></td>
+                            <td>Less than or equal to</td>
+                            <td><span class="code">a &lt;= 5</span></td>
+                        </tr>
+                        <tr>
+                            <td><span class="code">&gt;</span></td>
+                            <td>Strictly greater than</td>
+                            <td><span class="code">a &gt; 5</span></td>
+                        </tr>
+                        <tr>
+                            <td><span class="code">&gt;=</span></td>
+                            <td>Greater than or equal to</td>
+                            <td><span class="code">a &gt;= 5</span></td>
+                        </tr>                
+                        <tr>
+                            <td><span class="code">==</span></td>
+                            <td>Equal to</td>
+                            <td><span class="code">a == 5</span></td>
+                        </tr>                
+                        <tr>
+                            <td><span class="code">!=</span></td>
+                            <td>Not equal to</td>
+                            <td><span class="code">a != 5</span></td>
+                        </tr>                
+                    </table>
+                </div>                
+            </div>
+            <p class="sidenote">
+                Thinking "is <span class="code">a</span> equal to <span class="code">5</span>?", and then writing 
+                <span class="code">a = 5</span> instead of
+                <span class="code">a == 5</span> is a common programming
+                mistake.  When your program runs, it may <b>change</b>
+                the value of <span class="code">a</span> instead of comparing <span class="code">5</span> with it!  
+            </p>
+            <h3>Boolean values and expressions</h3>
+            <p>
+                As you might imagine, the result of a making a comparison in Javascript is a
+                value which is either <b>true</b> or <b>false</b>.  This is called a <b>boolean value</b>,
+                and is written in Javascript as <span class="code">true</span>
+                and <span class="code">false</span>.  
+            </p>
+            <p>
+                An expression that produces a boolean value when calculated is called
+                a <b>boolean expression</b>.  
+            </p>
+            <p class="sidenote">
+                The word <b>boolean</b> is a reference to 
+                <a href="http://en.wikipedia.org/wiki/George_Boole">George Boole</a>,
+                an English <a href="http://en.wikipedia.org/wiki/Logician">Logician</a>. 
+            </p>
+            <p>
+                The following provide some examples of boolean expressions and the values
+                they produce when calculated for different values of the
+                variable <b>a</b>.
+            </p>
+            <table class="simple">
+                <tr>
+                    <th>Boolean<br>expression</th>
+                    <th>When a is<br>4</th>
+                    <th>When a is<br>5</th>
+                    <th>When a is<br>6</th>
+                </tr>
+                <tr>
+                    <td><span class="code">a &lt 5</span></td>
+                    <td><span class="code">true</span></td>
+                    <td><span class="code">false</span></td>
+                    <td><span class="code">false</span></td>
+                </tr>
+                <tr>
+                    <td><span class="code">a &lt;= 5</span></td>
+                    <td><span class="code">true</span></td>
+                    <td><span class="code">true</span></td>
+                    <td><span class="code">false</span></td>
+                </tr>
+                <tr>
+                    <td><span class="code">a &gt; 5</span></td>
+                    <td><span class="code">false</span></td>
+                    <td><span class="code">false</span></td>
+                    <td><span class="code">true</span></td>
+                </tr>
+                <tr>
+                    <td><span class="code">a &gt;= 5</span></td>
+                    <td><span class="code">false</span></td>
+                    <td><span class="code">true</span></td>
+                    <td><span class="code">true</span></td>
+                </tr>                
+                <tr>
+                    <td><span class="code">a == 5</span></td>
+                    <td><span class="code">false</span></td>
+                    <td><span class="code">true</span></td>
+                    <td><span class="code">false</span></td>
+                </tr>                
+                <tr>
+                    <td><span class="code">a != 5</span></td>
+                    <td><span class="code">true</span></td>
+                    <td><span class="code">false</span></td>
+                    <td><span class="code">true</span></td>
+                </tr>                
+            </table>
+            <h3>Simplifying the problem</h3>
+            <p>
+                We need to find the <b>smallest</b> and the <b>largest</b> number
+                of students in any grade.
+                How are we going to do that?  
+            </p>
+            <p>
+                Lets simplify the problem:
+            </p>
+            <ul>
+                
+            <li>
+                Instead of trying to solve both the smallest and largest, lets
+                focus on finding the <b>smallest</b> first.
+            </li>
+            <li>
+                Instead of trying to find the smallest of all <b>7</b> grades,
+                lets try and find the smallest of <b>2</b> grades.
+            </li>
+            <li>
+                Finding the smallest of two grades is really just finding
+                the smallest of two numbers.
+            </li>
+            </ul>
+            <p class="sidenote">
+                When faced with a larger problem, break the problem down into
+                something simpler and try to solve that instead.  It might
+                give you clues as to how to solve the bigger problem.
+            </p>
+            <h3>The smaller of two numbers</h3>
+            <p>
+                To create our function that returns the smaller of two numbers (the <b>minimum</b>),
+                we know we need to compare the numbers to see which one is smaller.
+            </p>
+            <div class="code">
+                function minimum(first, second) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;var firstIsSmaller = first &lt; second;<br>
+                }<br>
+            </div>
+            <p>
+                When the first statement is executed, the value of <b>firstIsSmaller</b>
+                will <b>true</b> if the first number is smaller, and <b>false</b> otherwise.
+            </p>
+            <p>
+                Based on the value of <b>firstIsSmaller</b>, we will either need
+                to return the first number, or the second number.  
+                If <b>firstIsSmaller</b> is <b>true</b> then we want to:
+            </p>
+            <div class="code">
+                return first;
+            </div>
+            <p>
+                Otherwise, we want to:
+            </p>
+            <div class="code">
+                return second;
+            </div>
+            <h3>If statement</h3>
+            <p>
+                An <b>if statement</b> is a way to <b>conditionally</b> execute
+                a set of statements.   
+            </p>
+            <p>
+                Based on some condition
+                (like <b>firstIsSmaller</b> being true), an if statement will either execute
+                one set of statements (<span class="code">return first;</span>), otherwise
+                the if statement will execute a second set of
+                statements (<span class="code">return last;</span>).                            
+            </p>
+            <p>
+                The form of the if statement we will use is as follows:
+            </p>
+            <div class="code">
+                if (<span class="placeholder">expression</span>) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="placeholder">statements</span><br>
+                } else {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="placeholder">statements</span><br>
+                }
+            </div>
+            <p>
+                If the boolean <b>expression</b> is <b>true</b>, the <b>first</b>
+                set of <b>statements</b> are executed, otherwise
+                the <b>second</b> set of <b>statements</b> are executed.
+            </p>
+            <p id="Minimum">
+                Applying our <b>if statement</b> with our <b>minimum</b> function, we have:
+            </p>
+            <div class="code">
+                function minimum(first, second) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;var firstIsSmaller = first &lt; second;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;if (firstIsSmaller) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return first;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;} else {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return second;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                }<br>
+            </div>
+            <h3>Testing the minimum function</h3>
+            <p>
+                Lets test our minimum function to see how it works.
+                We can just try it with some different parameter values
+                and see what return values we get.
+            </p>
+            <p class="sidenote">
+                When working on a larger problem, it is a good idea to try
+                out parts of your program as you develop them.  That way
+                when you assemble the parts, you will have more confidence that
+                the overall program will be correct.
+            </p>  
+            <p>
+                Create a new folder for this exercise (Excercise 1.5.1).
+            </p>
+            <p>
+                Create a <b>default.html</b> in the folder with the
+                following:
+            </p>            
+            <div class="code">
+&lt;!DOCTYPE html&gt;<br>
+&lt;html&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;head&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;TEMP&lt;/title&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;script src="temp.js"&gt;&lt;/script&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/head&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;body onload="testMinimum();"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/body&gt;<br>
+&lt;/html&gt;<br>
+            </div>
+            <p>
+                Create a <b>uprep.js</b> in the folder with the following:
+            </p>
+            <div class="code">
+function minimum(first, second) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var firstIsSmaller = first &lt; second;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if (firstIsSmaller) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return first;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;} else {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return second;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+}<br>
+<br>
+function testMinimum() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var shouldBe3 = minimum(3, 4);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var shouldBe5 = minimum(6, 5);<br>
+}<br>                
+            </div>
+            <p>
+                Load <b>default.html</b> in Chrome, and use a breakpoint to
+                stop on the first statement of <b>testMinimum</b>.
+            </p>
+            <img src="chrome1.png">
+            <p>
+                Step into <b>testMinimum</b>.  
+            </p>
+            <img src="chrome2.png">            
+            <p>
+                Look at the values of <b>first</b>, <b>second</b>,
+                and <b>firstIsSmaller</b>.
+            </p>
+            <p class="sidenote">
+                In additional to using <b>watch expressions</b> and <b>hover</b>,
+                you can use
+                <b>Scope Variables</b> / <b>Local</b> to see the values of
+                parameters and local variables.<br>
+                <img src="chrome3.png">            
+            </p>
+            <p>
+                When we step again, we will execute the following statement:
+            </p>
+            <div class="code">
+                var firstIsSmaller = first &lt; second;
+            </div>
+            <p>
+                What is your prediction for what value <b>firstIsSmaller</b>
+                will have after we step?
+                Go ahead and step.
+            </p>
+            <p>
+                We are now positioned on the beginning of the <b>if statement</b>.                
+            </p>
+            <img src="chrome4.png">            
+            <p>
+                When we step, what statement will be executed next?
+                Go ahead and step.
+            </p>
+            <p>
+                We are now positioned on a <b>return</b> statement.
+            </p>
+            <p>
+                Step, and you should be at the end of the function.  A
+                <b>return</b> statement will always skip to the end
+                of a function, even if there are statements following it.
+            </p>
+            <img src="chrome5.png">    
+            <p>
+                Step again, and you should be at the statement after the
+                first call to <b>minimum</b>.  The value of <b>shouldBe3</b>
+                should be 3, since that is the smaller of 3 and 4.
+            </p>
+            <p>
+                Step through the second call to <b>minimum</b> in the same
+                way.  Check the value of <b>firstIsSmaller</b>, and
+                check to see which statements are executed.
+            </p>
+            <p>
+                Finally, check the value of shouldBe5.                
+            </p>
+            <h3 id="TestCases">Test cases</h3>
+            <p>
+                The purpose of the <b>testMinimum</b> function was
+                not to help with the specific problem that the UPrep
+                staff asked us to solve.  It was to figure out whether
+                a specific function we wrote worked correctly for
+                certain inputs.
+            </p>
+            <div class="code">
+function testMinimum() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var shouldBe3 = minimum(3, 4);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var shouldBe5 = minimum(6, 5);<br>
+}<br>                
+            </div>
+            <p>
+                This is an example of <b>software testing</b>.  We are trying
+                out our algorithm with different <b>test inputs</b>,
+                and checking the outputs to see if they are correct.  
+                Each different way we test our algorithm is called a <b>test case</b>.
+            </p>
+            <p>
+                Why did we need two calls to <b>minimum</b> (two test cases)?   Each
+                call caused the function to execute different statements.
+                By having two calls, we could test all the <b>paths</b>
+                through the function.
+            </p>
+            <img src="chrome10.png">
+            <p>
+                By testing the different paths of a function,
+                we have greater confidence that the function will
+                give correct answers for all inputs.
+            </p>
+            <p class="sidenote">
+                How "much" of a program has been tested is referred to as
+                <a href="http://en.wikipedia.org/wiki/Code_coverage">
+                    Code Coverage
+                </a>. 
+            </p>                
+            <h3>Checking for correct values</h3>
+            <p>
+                We named the variables <b>shouldBe3</b> and <b>shouldBe4</b>
+                so we could use Chrome to check that the values were correct.
+                But what happens if we had many functions?  And many test cases?
+            </p>
+            <p>
+                We really need to be able to easily know whether the function
+                works correctly for each test case without having to look
+                at the value in the Chrome debugger.
+            </p>
+            <p>
+                We can use an <b>if statement</b> to automatically test if
+                the value returned by the <b>minimum</b> function is
+                correct.  If it is not correct, we can call a new
+                function <b>testFailed</b>.  
+            </p>
+            <p>
+                For example, we can update the first test case to call the
+                <b>testFailed</b> function if the value of <b>shouldBe3</b>
+                is not 3.
+            </p>
+            <div class="code">
+&nbsp;&nbsp;&nbsp;&nbsp;var shouldBe3 = minimum(3, 4);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if (shouldBe3 != 3) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;testFailed();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;} else {&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>                
+            </div>
+            <p>
+                Notice the <b>else</b> part of the <b>if statement</b>
+                does not have any statements.  In this case, we can
+                leave out the <b>else</b> part.  
+            </p>
+            <div class="code">
+&nbsp;&nbsp;&nbsp;&nbsp;var shouldBe3 = minimum(3, 4);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if (shouldBe3 != 3) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;testFailed();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+            </div>
+            <p id="Bug">
+                Lets introduce a bug (defect) in our <b>minimum</b> function
+                and make sure that our <b>testFailed</b>
+                function is called.  We'll change the function to
+                return <b>0</b> for all inputs.
+            </p>
+            <p>
+                Updating our program (to include the <span class="red">bug</span>), we have:
+            </p>
+            <div class="code">
+function minimum(first, second) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="red">return 0;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;var firstIsSmaller = first &lt; second;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if (firstIsSmaller) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return first;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;} else {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return second;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+}<br>
+<br>
+function testFailed() {&nbsp;&nbsp;&nbsp;&nbsp;<br>
+}<br>
+<br>
+function testMinimum() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var shouldBe3 = minimum(3, 4);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if (shouldBe3 != 3) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;testFailed();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var shouldBe5 = minimum(6, 5);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if (shouldBe5 != 5) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;testFailed();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+}<br>
+            </div>
+            <p>
+                Update your program to the above, and step through
+                <b>testMinimum</b>.  You should see that <b>testFailed</b>
+                was called.
+            </p>
+            <img src="chrome6.png">
+            <p>
+                Well, this is definitely an improvement because now
+                we can just put a breakpoint on <b>testFailed</b>,
+                and if we stop at the breakpoint, we know that something
+                failed.  And if we continue stepping, we will back
+                to one statement <b>past</b> the test case that failed.
+            </p>
+            <h3>The debugger statement</h3>
+            <p>
+                Javascript has a statement called the <b>debugger statement</b>.
+                When the debugger statement is executed, Chrome will
+                stop at the debugger statement like it would a breakpoint.
+            </p>
+            <p>
+                The debugger statement is written:
+            </p>
+            <div class="code">
+                debugger;
+            </div>
+            <p>
+                If we add a debugger statement to <b>testFailed</b>,
+                then we don't even need to set a breakpoint on <b>testFailed</b>.
+                Chrome will automatically stop if a test case failed.
+            </p>
+            <p>
+                Lets try it.  Add a <b>debugger statement</b> to
+                the <b>testFailed</b> function and try it out.
+            </p>
+            <h3 id="Assert">Assert</h3>
+            <p>
+                Each test case typically has the following steps:
+            </p>
+            <ul>
+                <li>Call the function with the test inputs.</li>
+                <li>Check to see if the return value is a particular value.</li>
+                <li>Do something to let you know that the test failed.</li>
+            </ul>
+            <p>
+                To make test cases easier to write, we can use an 
+                <b>assert function</b>.  The idea behind an assert function is:
+            </p>
+            <p class="idea">
+                I <b>assert</b> that the following condition should
+                always be <b>true</b>.  If the condition is not true, I want to know about
+                it, because it means that there is a bug in my program!
+            </p>
+            <p>
+                In our case, we can add an assert function as follows:
+            </p>
+            <div class="code">
+function assert(condition) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if (condition != true) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;debugger;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+}<br>                
+            </div>
+            <p>
+                Our <b>assert</b> function will execute the <b>debugger</b>
+                statement in the case where the condition is not true.
+            </p>
+            <p>
+                Updating our program to use assert, we have:
+                
+            </p>
+            <div class="code">
+function minimum(first, second) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return 0;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var firstIsSmaller = first &lt; second;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if (firstIsSmaller) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return first;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;} else {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return second;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+}<br>
+<br>
+function assert(condition) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if (condition != true) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;debugger;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+}<br>
+<br>
+function testMinimum() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var shouldBe3 = minimum(3, 4);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;assert(shouldBe3 == 3);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var shouldBe5 = minimum(6, 5);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;assert(shouldBe5 == 5);<br>
+}<br>                
+            </div>
+            <p>
+                Try it out.  Chrome should break at the <b>debugger</b> statement like before
+                (since our program still has a bug).
+            </p>
+            <img src="chrome9.png">
+            <p>
+                Now that we know that our assert function works, we can remove the
+                <a href="#Bug">bug</a> we added earlier, and try again.  This
+                time Chrome will not break at the <b>debugger</b> statement,
+                since the bug has been removed.
+            </p>
+            <h3>The smaller of three numbers</h3>
+            <p>
+                Now that we can find the smallest of <b>two</b> numbers, how can we
+                find the smaller of <b>three</b> numbers?  
+            </p>
+            <div class="answerFrame">
+                <div class="answerButton">Move your mouse here to see the answer.
+                </div>
+                <div class="answer">
+                    <ol>
+                        <li>Find the minimum of the first number and the second number (call that <b>firstMinimum</b>).</li>
+                        <li>Find the minimum of <b>firstMinimum</b> and the third number.</li>
+                    </ol>
+                </div>                
+            </div>
+            <div class="space"></div>
+            <p>
+                For three numbers we have:
+            </p>
+            <div class="code">
+                function minimumOf3(first, second, third) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;var firstMinimum = minimum(first, second);<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;return minimum(firstMinimum, third);<br>
+                }<br>
+            </div>
+            <p>
+                We can continue with this pattern.  For four numbers we have:
+            </p>
+            <div class="code">
+                function minimumOf4(first, second, third, fourth) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;var firstMinimum = minimum(first, second);<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;var secondMinimum = minimum(firstMinimum, third);<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;return minimum(secondMinimum, fourth);<br>
+                }<br>
+            </div>
+            <p>
+                We want to find the minimum of 7 numbers (all 7 grades).  We can
+                use the same pattern as above.
+            </p>                
+            <h3>Maximum of two numbers</h3>
+            <p>
+                We know how to calculate the minumum of two numbers.  
+            </p>
+            <div class="code">
+function minimum(first, second) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var firstIsSmaller = first &lt; second;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if (firstIsSmaller) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return first;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;} else {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return second;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+}<br>
+            </div>
+            <p  id="Maximum">
+                How do we calculate the <b>maximum</b> of two numbers?
+                What do we need to change in the above?
+            </p>
+            <div class="answerFrame">
+                <div class="answerButton">Move your mouse here to see the answer.</div>
+                <div class="answer">
+                    <p>
+                        There are multiple ways we could write the maximum
+                        function.  Here are some examples:
+                    </p>
+                    <div class="code">
+function maximum(first, second) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var firstIsLarger = first &gt; second;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if (firstIsLarger) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return first;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;} else {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return second;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+}<br>
+                    </div>                    
+                    <div class="code">
+function maximum(first, second) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var firstIsSmaller = first &lt; second;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if (firstIsSmaller == false) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return first;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;} else {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return second;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+}<br>
+                    </div>
+                    <div class="code">
+function maximum(first, second) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var firstIsSmaller = first &lt; second;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if (firstIsSmaller) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return second;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;} else {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return first;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+}<br>
+                    </div>
+                </div>
+            </div>
+            <h3>Maximum of three numbers</h3>
+            <p>
+                We can calculate the maximum of three (or more) numbers using the same
+                pattern as we used for the minimum.  For example, for three
+                numbers we have:
+            </p>
+            <div class="code">
+                function maximumOf3(first, second, third) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;var firstMaximum = maximum(first, second);<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;return maximum(firstMaximum, third);<br>
+                }<br>
+            </div>
+            <h2>Creating a plan</h2>
+            <p>
+                At this point, we know how to do the the minimum and
+                maximum calculations, and are ready to create an overall plan for
+                our program.  Lets look at the inputs and outputs for the
+                problem that the UPrep staff gave us.
+            </p>
+            <h3>Inputs</h3>
+            <p>
+                The <b>inputs</b> are the number of students in each grade for <b>this year</b>.
+            </p>
+            <div class="code">
+var thisYear = {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;grade6: 66,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;grade7: 74,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;grade8: 74,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;grade9: 82,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;grade10: 81,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;grade11: 79,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;grade12: 76<br>
+};<br>                
+            </div>
+            <h3>Outputs</h3>
+            <p>
+                The <b>outputs</b> are two numbers:
+            </p>
+            <ul>
+                <li><b>minimumStudents</b>, the smallest number of students in any grade.</li>
+                <li><b>maximumStudents</b>, the largest number of students in any grade.</li>
+            </ul>            
+            <h3>Algorithm</h3>
+            <p>
+                We will use the <b>minimum</b> and <b>maximum</b> functions that we
+                developed in this exercise.
+            </p>
+            <p>
+                We will use the patterns we developed in this excercise
+                to find the minimum and maximum of <b>grade6</b>
+                through <b>grade12</b>.
+            </p>
+            <h2>Creating a program</h2>
+            <p>
+                Update <b>uprep.js</b> and <b>default.html</b> as necessary
+                to calculate two output values from the inputs.                
+            </p>
+            <p>
+                You can use the definition of <a href="#Minimum">minimum</a>
+                and <a href="#Maximum">maximum</a> that we worked on this
+                exercise.
+            </p>
+            <p>
+                The answers we are looking for are the following:
+            </p>
+            <table class="simple">
+                <tr>
+                    <th>Minimum<br>Students</th>
+                    <th>Maximum<br>Students</th>
+                </tr>
+                <tr>
+                    <td>66</td>
+                    <td>82</td>
+                </tr>
+            </table>
+            <p>
+                If you get stuck, or if you want to check your work when
+                you are done,
+                you can find the answer <a href="Answer%201.5.1.htm">here</a>.
+            </p>
+            <h2>Done!</h2>
+            <p>
+                Head back to Schoology and mark this as done.
+            </p>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,29 @@
+BNF for SCANNER (text to tokens)
+
+<tokens> ::= <token> | <token> <document>
+<token> ::= <tokenWithoutWhitespace> | <tokenWithoutWhitespace> <whitespace> | <whitespace> <tokenWithoutWhitespace> <whitespace> 
+<whitespace> := " "
+<tokenWithoutWhitespace> ::= <number> | <symbols>
+<symbols> ::= <leftParen> | <rightParen> | <add> | <subtract> | <multiply> | <divide>
+<leftParen> ::= "("
+<rightParen> ::= ")"
+<add> ::= "+"
+<subtract> ::= "-"
+<multiply> ::= "*"
+<divide> ::= "/"
+<number> ::= <digit> | <digit> <number>
+<digit> ::= "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" 
+
+
+BNF for PARSER (tokens to trees)
+
+<expression> ::= <additionOrSubtraction>
+<additionOrSubtraction> ::= <multiplicationOrDivision> | <addition> | <subtraction>
+<addition> ::= <multiplicationOrDivision> | <multiplicationOrDivision> "+" <additionOrSubtraction>
+<subtraction> ::= <multiplicationOrDivision> | <multiplicationOrDivision> "-" <additionOrSubtraction>
+<multiplicationOrDivision> ::= <numberOrParenthesis> | <multiplication> | <division>
+<multiplication> ::= <numberOrParenthesis> <multiply> <multiplicationOrDivision>
+<division> ::= <numberOrParenthesis> <divide> <multiplicationOrDivision>
+<numberOrParenthesis> ::= <parenthesis> | <number>
+<parenthesis> ::= <leftParen> <additionOrSubtraction> <rightParen>
+

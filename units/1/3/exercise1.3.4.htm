@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Exercise 1.3.4</title>
+        <link href="../../../reset.css" rel="stylesheet">
+        <link href="../../../page.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="frame">
+            <h1>Exercise 1.3.4</h1>
+            <h2>Number of UPrep Students</h2>
+
+            <p>
+               The code for this exercise can be downloaded:<a href="Exercise%201.3.4.zip">zip</a>.
+            </p>
+            <h3>An object for every element</h3>
+            <p>
+                When Chrome loads an HTML page, it makes an <b>object</b> for every HTML Element
+                that it sees.  There is an object for the HTML Element (<span class="code">html</span>), the
+                Body Element (<span class="code">body</span>), each Paragraph Element (<span class="code">p</span>), and so on.
+            </p>
+            <img src="diagram6.png">
+            <p>
+                The properties of one of these objects 
+                store all the information about the element, for example, the <b>width</b>
+                or <b>height</b> of the element on the screen, the text contained by the element (<b>textContent</b>),
+                the name of the style that is being used for the element
+                (<b>className</b>), and many more
+                properties.
+            </p>
+            <p>
+                We can use these objects from our Javascript just like the objects we created
+                ourselves (in <a href="../Lesson%201.3%20-%20Objects/Exercise%201.3.2.htm">Exercise 1.3.2</a>).
+            </p>
+            <p>
+                Since there is always an object for the HTML Element (<span class="code">html</span>),
+                the web browser adds a variable for that object called <span class="code">document</span>.
+            </p>
+                        <img src="diagram8.png">
+            <p>
+                But what about all the other elements?  How do we get the objects for those?
+            </p>
+            <p>
+                The answer is... we have to have a way of saying which ones we want...
+            </p>
+            <h3>Naming the element we want</h3>
+            <p>
+                In order to use an element object from Javascript, we need to have a variable
+                that is referencing the object.  For example, in order to
+                use the paragraph object shown above, we could have a <b>catsParagraph</b>
+                variable that is referencing the paragraph object.
+            </p>
+            <img src="diagram7.png">
+            <p>
+                But there is more than one paragraph in our example.  How do we say which one
+                we want?  We give the paragraph a <b>name</b> in the HTML by using the
+                <a href="../../../resources/htmlsubset.htm#Identifier">Identifier Attribute</a>.
+            </p>
+            <div class="sidebyside">
+                <div class="side">
+                    <div class="code">
+&lt;!DOCTYPE html&gt;<br>
+&lt;html&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;head&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;Title&lt;/title&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;link rel="stylesheet" href="pets.css"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/head&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;body class="main"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;h1 class="section"&gt;Cats&lt;/h1&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p class="detail" <span class="red">id="cats"</span>&gt;?&lt;/p&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;h1 class="section"&gt;Dogs&lt;/h1&gt; <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p class="detail"&gt;?&lt;/p&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/body&gt;<br>
+&lt;/html&gt;<br>                
+                    </div>
+                </div>
+                <div class="side">
+                    <img src="chrome5.png">
+                </div>
+            </div>
+            <h3 id="AddingJs">Finding the element object</h3>
+            <p>
+                Now that the element we want has a name (<b>cats</b>), lets add some Javascript
+                that will find the object element.
+            </p>
+            <p>
+                Lets add a <b>start</b> function to our example that is called when the page loads.
+                We can use the start function to change the text of the paragraph.
+            </p>
+            <div class="sidebyside">
+                <div class="side">
+                    <div class="file">default.html</div>
+                    <div class="code">
+                        &lt;!DOCTYPE html&gt;<br>
+&lt;html&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;head&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;Title&lt;/title&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;link rel="stylesheet" href="pets.css"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="highlight">&lt;script src="pets.js"&gt;&lt;/script&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/head&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;body class="main" <span class="highlight">onload="start();"</span>&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;h1 class="section"&gt;Cats&lt;/h1&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p class="detail" id="cats"&gt;?&lt;/p&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;h1 class="section"&gt;Dogs&lt;/h1&gt; <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p class="detail"&gt;?&lt;/p&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/body&gt;<br>
+&lt;/html&gt;<br>
+                    </div>
+                </div>
+                <div class="side">
+                    <div class="file">pets.js</div>
+                    <div class="code">
+function <span class="highlight">start</span>() {<br>
+}<br>
+                    </div>
+                </div>
+            </div>
+            <p>
+                We will need a variable to reference the paragraph object.  
+                To do that, we 
+                can add a <b>catsParagraph</b> variable:
+            </p>
+            <div class="code">
+function start() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="highlight">var catsParagraph;</span><br>
+}<br>                
+            </div>
+            <p>
+                Now we just need to assign the object we want to the
+                <b>catsParagraph</b> variable.  
+            </p>
+            <p>
+                To do this, we use the
+                <b>document.getElementById</b> function.   And we give
+                the function the name of the element we want (<b>cats</b>)
+                as a string value.
+                This function
+                is able to find any element the document, as long as it
+                has named using the <a href="../../../resources/htmlsubset.htm#Identifier">Identifier Attribute</a>.  
+            </p>
+            <div class="code">
+function start() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var catsParagraph <span class="highlight">= document.getElementById("cats");</span><br>
+}<br>                
+            </div>
+            <h3>Looking at the element</h3>
+            <p>
+                To see what text the catsParagraph object contains, we can look at the value of the <b>textContent</b>
+                property.  The textContent is a property for all the text contained within an HTML element.
+            </p>
+            <div class="code">
+function start() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var catsParagraph = document.getElementById("cats");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var catsText = <span class="highlight">catsParagraph.textContent;</span><br>
+}<br>                
+            </div>
+            <h3>Lets take a look!</h3>
+            <p>
+                Take a look at this example and see what you think:
+            </p>
+            <ul>
+                <li>
+                    <p>
+                        Download the following <a href="Exercise%201.3.4.zip">zip</a>.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Use the Chrome Console and create the variables catsParagraph and catsText.
+		    </p>
+		</li>
+		<li>
+		    <p>
+			What value does the <b>catsText</b> variable contain?<br>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Use the Chrome Console with the <b>catsParagraph</b> object, can you see what other properties it has?
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Use the Chrome Console, can you change the <b>textContent</b> property for the <b>catsParagraph</b>
+                        object?  <br>
+                    </p>                    
+                </li>
+            </ul>
+            <h3 id="Changing">Changing an element object</h3>
+            <p>
+                Ok!  Now we know that if we change the <b>textContent</b> (for example), then the text
+                of that element will change on the screen.
+            </p>
+            <p>
+                That means we can replace the fake value (<b>?</b>) with the real value.    
+            </p>
+            <p class="sidenote">
+                A common technique in web page design is to have some parts of the page
+                be written in the HTML (the parts that are not calculated), and then have the
+                Javascript "fill in" the calculated values.
+            </p>
+            <p>
+                Change the example so that it changes the <b>textContent</b> to the string
+                "123" in the Javascript.                
+            </p>            
+            <div class="code">
+function start() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var catsParagraph = document.getElementById("cats");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="highlight">catsParagraph.textContent = "123";</span><br>
+}<br>                
+            </div>
+            <p>
+                Here is what you should see:
+            </p>
+            <div class="sidebyside">
+                <div class="side">
+                    <p>before you made the change</p>
+                    <img src="chrome6.png">
+                </div>
+                <div class="side">
+                    <p>after you made the change</p>
+                    <img src="chrome7.png">                    
+                </div>
+            </div>                
+            <h3 id="Span">Changing text in the middle of a paragraph</h3>
+            <p>
+                In this previous example, we were replacing the entire text of
+                a paragraph.  What happens if we want to change some text
+                in the middle of a paragraph?  For example, what if our
+                example looked like this:
+            </p>
+            <img src="chrome8.png">
+            <p>
+                HTML has a type of element called a
+                <a href="../../../resources/htmlsubset.htm#Span">Span Element</a> that we can use
+                for a <b>range of text</b>.  And since it is an element,
+                we can give it a name, and then find it from our Javascript,
+                and change the text.
+            </p>
+            <p>
+                
+            </p>
+            <p>
+                For example, instead of this:
+            </p>
+            <div class="code">
+&lt;!DOCTYPE html&gt;<br>
+&lt;html&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;head&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;Title&lt;/title&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;link rel="stylesheet" href="pets.css"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;script src="pets.js"&gt;&lt;/script&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/head&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;body class="main" onload="start();"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;h1 class="section"&gt;Cats&lt;/h1&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="highlight">&lt;p class="detail"&gt;Number of cats: ?&lt;/p&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;h1 class="section"&gt;Dogs&lt;/h1&gt; <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p class="detail"&gt;Number of dogs: ?&lt;/p&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/body&gt;<br>
+&lt;/html&gt;<br>
+            </div>
+            <p>
+                We would write this:
+            </p>
+            <div class="code">
+&lt;!DOCTYPE html&gt;<br>
+&lt;html&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;head&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;Title&lt;/title&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;link rel="stylesheet" href="pets.css"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;script src="pets.js"&gt;&lt;/script&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/head&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;body class="main" onload="start();"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;h1 class="section"&gt;Cats&lt;/h1&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="highlight">&lt;p class="detail"&gt;Number of cats: &lt;span id="cats"&gt;?&lt;/span&gt;&lt;/p&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;h1 class="section"&gt;Dogs&lt;/h1&gt; <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p class="detail"&gt;Number of dogs: ?&lt;/p&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/body&gt;<br>
+&lt;/html&gt;<br>
+            </div>
+            <p>
+                When we ran our start function, it would just change the text
+                of the span element, instead of the paragraph element.
+            </p>
+            <div class="code">
+function start() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var catsParagraph;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;catsParagraph = document.getElementById("cats");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;catsParagraph.textContent = "123";<br>
+}<br>                
+            </div>
+            <p>
+                And we would see:
+            </p>
+            <img src="chrome9.png">
+            <p class="sidenote">
+                Span elements are also very useful for styling.  If you just want to style
+                one word in a paragraph, use a span element with a
+                <a href="../../../resources/htmlsubset.htm#Class">Class Attribute</a>
+                that gives the name of the style to use.
+            </p>           
+            <h2>The next part of the assignment</h2>
+            <p>
+                As you may recall, we are taking this assignment in steps.  We are now
+                ready to tackle the third step:
+            </p>
+            <ol>
+                <li>Create an HTML page that just uses fake student numbers.</li>
+                <li>Style the page using CSS.</li>
+                <li><span class="highlight">Add Javascript that fills in the actual student numbers.</span></li>
+            </ol>
+            <p>
+                Here are some instructions for this part of the assignment:
+            </p>
+            <ul>
+                <li>
+                    <p>
+                        Create a folder for this exercise (<b>Exercise 1.3.4</b>).
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Copy the files you created for (<a href="Exercise%201.3.2.htm">Exercise 1.4.2</a>)
+                        into this folder.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        You will need to add some Javascript to your HTML
+                        (like we did in <a href="#AddingJs">this</a> example).
+                    </p>                    
+                </li>
+                <li>
+                    <p>
+                        You will need to add <a href="../../../resources/htmlsubset.htm#Span">Span Elements</a>
+                        to your page so that you can replace the fake numbers with the real numbers (just
+                        like we did in <a href="#Span">this</a> example).
+                    </p>                    
+                </li>
+                <li>
+                    <p>
+                        When the page loads, you should find each of the Span Elements and change them
+                        (like we did in <a href="#Span">this</a> example).
+                    </p>                    
+                </li>
+                <li>
+                    <p>
+                        You will be using the values from the following year <b>object</b> to fill the page.
+                    </p>
+                    <div class="code">
+var year = {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;grade6: 66,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;grade7: 74,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;grade8: 74,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;grade9: 82,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;grade10: 81,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;grade11: 79,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;grade12: 76<br>
+};&nbsp;&nbsp;&nbsp;&nbsp;<br>
+                    </div>
+		    <p>
+			Remember, you can access the values of this year object like this:
+ 		    </p>
+                    <div class="code">
+year.grade6;
+		    </div>
+                </li>
+                <li>
+                    <p>
+                        Make sure you convert the number value to text before assigning
+                        them to the <b>textContent</b> property (like we did in <a href="exercise1.3.3.htm#NumberToString">this</a>
+                        example).
+                    </p>
+                </li>              
+            </ul>
+            <h3>The final result</h3>
+            <p>
+                When you are done, your page should look something like this.
+            </p>
+            <img src="chrome2.png">
+            <h2>Done!</h2>
+            <p>
+                Fun stuff!  <span class="woot"></span>
+            </p>
+            <p>
+                Head back to Schoology and submit your work (the CSS and HTML).
+            </p>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,35 @@
+.style1 {
+    border-style: solid;
+    border-width: 8px;
+    border-color: #036355;
+    padding: 10px;
+    color: white;
+    font-size: 22pt;
+    background-color: black;
+    font-weight: bold;
+    font-family: monospace;
+    background-image: url("inside-uprep.png");
+}
+
+.style2 {
+    padding: 10px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(0, 87, 132);
+    background-color: white;
+    color: rgb(0, 87, 132);
+    font-size: 32pt;
+    font-family: "Kepler Std Light 1166513", Rockwell, Georgia, "Times New Roman", "Bitstream Vera Serif", serif;  
+}
+
+.style3 {
+    text-align: center;
+    font-weight: bold;
+    font-style: italic;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: green;
+    color: white;
+    font-size: 18pt;
+    font-family: Georgia;
+}

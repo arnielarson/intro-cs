@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Exercise 2.3.1 - Individual Project</title>
+        <link href="../../../reset.css" rel="stylesheet">
+        <link href="../../../page.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="frame">
+            <h1>Exercise 2.3.1 - Individual Project</h1>
+
+            <p>
+                We will be spending most of Unit 2 working on an individual 
+                project.  This project is designed to give you experience
+                building a larger program, and in the process learn data modeling
+                and algorithm design skills.  This project is in addition
+                to the group project in Unit 3.
+            </p>
+
+            <h2>Overview</h2>
+
+            <ul>
+                <li>
+                    <p>
+                        You will choose from one of the projects listed <a href="#Choices">below</a>.
+                        The projects are ordered from least difficult (first) to most difficult (last).
+                        However, the difficulty of all projects can be increased
+                        by having a more elaborate design.
+                    </p>
+                </li>
+                <li>
+                    <p>You are encouraged to work with other students, but the work you hand in must be your own.  You may 
+                        use the <a href="../../../resources/bootstrap.htm">Bootstrap</a> CSS framework.</p>
+
+                </li>
+
+                <li>
+                    <p>The project is due at <span class="red">8:00AM on Monday December 9th</span>.  This means you have <span class="red">five</span> class days to work on this this,
+                        due to the Thanksgiving holiday. Three of the days are blue days (45 minutes).</p>
+                    <img src="timeline.png">
+                </li>
+                <li>
+                    <p>This project will count as the Unit Test for Unit 2.</p>
+                </li>
+            </ul>
+
+            <h3>Stages</h3>
+
+            <p>
+                There are several stages to this project:
+            </p>
+
+            <ul>
+                <li>
+                    <p>
+                        Read all the instructions.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Write a <a href="#Proposal">Proposal</a> and submit it before you start.
+                        This will give you early feedback from your teachers on your approach.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Design the solution to your problem.  Use <a href="../../../resources/theplan.htm">The Plan</a>
+                        to help you work through tough parts.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Write and test the code.  Use <a href="../../../resources/guide.htm">The Guide</a>, which contains examples of the concepts we have learned in this class.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Write a <a href="#Reflection">Reflection</a>.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Submit ALL your program files and your Reflection.  You may need to 
+                        create a ZIP to upload if you have many files.
+                    </p>
+                </li>
+            </ul>
+
+            <h2 id="Proposal">Proposal</h2>
+
+            <p>
+                Before you start programming, you should submit a proposal to get feedback 
+                from your teachers on what you plan to do for the project.  Your proposal should briefly describe <span class="red">what</span>
+                your program is going to do to solve the particular problem you chose.
+            </p>
+
+            <h2 id="Reflection">Reflection</h2>
+
+            <p>
+                You should submit a reflection document at the same time you submit your final program.  Your  reflection
+                should include answers to the following questions.  You can submit a Word document or a link
+                to a Google document.
+            </p>
+            <ol>
+                <li>
+                    <p>
+                        If you were to start over, what would you do differently?
+                        How can your solution be improved?
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Would this program be a good starting point to solve other problems?
+                    </p>
+                </li>
+                <li>
+                    <p>Analyze the speed of your program by following these steps:</p>
+                    <ol type="a">
+                        <li>
+                            Capture a profile using these <a href="../../../resources/profiling.htm">instructions</a>.
+                        </li>
+                        <li>
+                            Include a <span class="red">screenshot</span> of the profile in your document.  
+                        </li>
+                        <li>
+                            Inlclude the name of the function that is 
+                            taking the <span class="red">most time</span>.  There will be functions in the profile that you did not write, so choose the function that YOU wrote that took the largest
+                            percentage of time.
+                        </li>
+                        <li>
+                            Write a <span class="red">hypothesis</span> as
+                            to why the function is taking the most time.  Think back to our discussion
+                            about speed of an algorithm when we were using the <a href="../../../resources/speed/default.html">Speed Calculator</a>.
+                        </li>
+                    </ol>
+                </li>
+                <li>
+                    <p>Analyze the size of your program by following these steps:</p>
+                    <ol type="a">
+                        <li>
+                            Based on your understanding of the data structures used by your program,
+                            and the amount of data that they hold, write a hypothesis statement as to
+                            which data structure data structure will require
+                            the <span class="red">most memory</span>.  
+                        </li>
+                        <li>
+                            Defend your hypothesis by including information from the <a href="../../../resources/space/default.html">Space Calculator</a>.
+                        </li>
+                        <li>
+                            Include the <span class="red">hypothesis</span> statement in your reflection.
+                        </li>
+                    </ol>
+                </li>
+            </ol>
+
+            <h2>Rubric</h2>
+
+            <p>This project will be assessed based on how well it accomplishes the following:</p>
+
+            <ul>
+                <li>
+                    <p>
+                        Your program solves the problem that was described.
+                    </p>
+                </li>                
+                <li>
+                    <p>
+                        You have included a way for the user to control what the program 
+                        does (input).
+                        Your teachers can figure out how to operate your program
+                        without asking you for help.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        You understand and can explain all the code you submitted.  Your 
+                        teachers may ask you to explain the code you submitted.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        You chose the correct Javascript concept for each part of your program.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Your algorithms are easy to understand because you have broken down
+                        the problem into sub problems and have created functions for each
+                        sub problem.  You wrote functions that can be used by different
+                        parts of the code instead of duplicating 
+                        the same code.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        You have used the appropriate data structures for each part
+                        of your program.  For example, you used arrays for lists of things, objects for related things, etc.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Your program is easy to read because you have included <a href="../../../resources/jssubset.htm#Comment">Comments</a> and have chosen good
+                        <a href="../../../resources/jssubset.htm#Name">Names</a>.
+                        Some of the projects include a ZIP download which contain Javascript
+                        data.  You are not responsible for the naming used in these files.                    
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Your program appears to function correctly.
+                        Your program is error free in Chrome <span class="red">after</span>
+                        your teachers have tried to use it.  This means you need to test
+                        the different cases.  You may want to have another student
+                        try your program before handing it in.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        You submitted a complete reflection.
+                    </p>
+                </li>
+            </ul>
+
+            <h2 id="Choices">Project Choices</h2>  
+
+            <h3>Seattle Weather</h3>
+
+            <div class="grid">
+                <div class="grid60">
+                    <p>
+                        Let the user explore the weather of Seattle.
+                    </p>
+                    <ul>
+                        <li>
+                            <p>
+                                You have been given daily weather information for Seattle
+                                since 2000.
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                Design a engaging way for a user to explore the weather information.
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                Your data includes: wind, snow, temperature and rainfall for
+                                each day.
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                You can download the data here: <a href="weather.zip">weather.zip</a>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                You can download the description of the data here: <a href="weather.pdf">weather.pdf</a>
+                            </p>
+                        </li>
+                    </ul>            
+                </div><div class="grid40">
+                    <p>
+                        <img src="weather.png"  width="200">
+                    </p>                    
+                </div>                
+
+            </div>
+
+
+
+            <h3>New Car</h3>
+
+            <div class="grid">
+                <div class="grid60">
+                    <p>
+                        Help the user pick which 2014 model year car to buy.
+                    </p>
+
+
+                    <ul>
+                        <li>
+                            <p>
+                                You have been given information about 2014 model year cars.
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                Design a useful way for a user to choose a car.
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                Your data includes: make, model, engine size, and fuel efficiency.
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                You can download the data here: <a href="cars.zip">cars.zip</a>
+                            </p>
+                        </li>
+                    </ul>                       
+                </div><div class="grid40">
+                    <p>
+                        <img src="car.png" width="200">
+                    </p>
+                </div>
+            </div>
+
+            <h3>Morse Code Translator</h3>
+            <div class="grid">
+                <div class="grid60">
+                    <p>
+                        Translate English to Morse Code.
+                    </p>
+
+                    <ul>
+                        <li>
+                            <p>
+                                The user types English and your program shows them Morse Code.
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                Find out more about Morse Code here: <a href="http://en.wikipedia.org/wiki/Morse_code">http://en.wikipedia.org/wiki/Morse_code</a>
+                            </p>
+                        </li>
+                    </ul>
+                </div><div class="grid40">
+                    <p>
+                        <img src="morse.png" width="200">
+                    </p>
+                </div>
+            </div>
+
+            <h3>Pig Latin Translator</h3>
+
+            <div class="grid">
+                <div class="grid60">
+                    <p>
+                        Translate English to Pig Latin.
+                    </p>
+
+                    <ul>
+                        <li>
+                            <p>
+                                The user types English and your program shows them Pig Latin.
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                Find out more about Pig Latin here: <a href="http://en.wikipedia.org/wiki/Pig_Latin">http://en.wikipedia.org/wiki/Pig_Latin</a>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                Avehay unfay!
+                            </p>
+                        </li>
+                    </ul>
+                </div><div class="grid40">
+                    <p>
+                        <img src="piglatin.png" width="200">
+                    </p>
+                </div>
+            </div>
+
+
+            <h3>Mouse in a Maze</h3>
+            <div class="grid">
+                <div class="grid50">
+                <p>
+                    A mouse is trying to get out of a maze.
+                </p>
+                <ul>
+                    <li>
+                        <p>
+                            Your mouse should follow an algorithm that you design.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            An animation should show the user the progress of the mouse.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            The mouse and maze do not need to look like the picture.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            You have to decide how the mouse is allowed to move.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            You must detect when the mouse escapes.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            You will <span class="red">not</span> be graded on whether the mouse actually escapes.
+                        </p>
+                    </li>
+                </ul>
+                </div><div class="grid50">
+                    <p>
+                        <img width="300" src="maze.png">
+                    </p>
+                </div>
+            </div>
+
+
+            <h3>Simulated Life</h3>
+            <div class="grid">
+                <div class="grid50">
+                    <p>
+                        An algorithm for simulated life.
+                    </p>
+                    <ul>
+                        <li>
+                            <p>
+                                Write an animation of Conway's Game of Life.  Find out more at <a href="http://en.wikipedia.org/wiki/Conway's_Game_of_Life">
+                                    http://en.wikipedia.org/wiki/Conway's_Game_of_Life</a>.
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                You can decide what size of grid to use, and what pattern
+                                to start with (or let the user choose). 
+                            </p>
+                        </li>
+                    </ul>
+                </div><div class="grid50">
+                    <p>
+                        <img class="framed" width="300" src="http://upload.wikimedia.org/wikipedia/commons/e/e5/Gospers_glider_gun.gif">
+                    </p>
+                </div>
+            </div>
+
+
+            <h3 id="Custom">Design your own project</h3>
+                <div class="grid">
+                <div class="grid80">
+                    <p>
+                        The most important thing is that you find a project that is interesting to <span class="red">you</span>.
+                        Do the projects above not pique your interest?  More interested in Music? Science? Art?  Culture? Sports? Games? Space? Animals?  Design your own!
+                    </p>
+                    <ul>
+                        <li>
+                            <p>
+                                Remember you have 5 days.
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                Not sure if it is an appropriate project?  You teachers can help.
+                            </p>
+                        </li>
+                    </ul>
+
+                </div><div class="grid20">
+                    <p>
+                        <img height="100px" src="custom.png">
+                    </p>
+                </div>
+            <p>
+                 If you want to work with a data set that you have found on the web, 
+                 your teachers can help you get the data into a format that you can use in your project.  Here are some example sources, but you can also find your own.  
+            </p>
+            <ul>
+                <li>
+                    <p>
+                    <a href="http://apps.who.int/gho/data/node.main">World Health Organization</a><br>
+                </p>
+                <p class="quote">
+                    "The GHO data repository provides access to over 50 datasets on priority health topics including mortality and burden of diseases, the Millennium Development Goals (child nutrition, child health, maternal and reproductive health, immunization, HIV/AIDS, tuberculosis, malaria, neglected diseases, water and sanitation), non communicable diseases and risk factors, epidemic-prone diseases, health systems, environmental health, violence and injuries, equity among others. In addition, the GHO provides on-line access to WHO's annual summary of health-related data for its 194 Member states: the World Health Statistics 2012."" [Source: http://apps.who.int/gho/data/node.main]
+                </p>
+                </li>
+                <li>
+                    <p>
+                        <a href="http://www.82games.com/newuser.htm">82games.com (NBA statistics)</a>
+                    </p>
+                    <p class="quote">
+                        "Our website is geared towards providing innovative statistical coverage and analysis of the NBA for team executives, coaches, fans, and the media." [Source: http://www.82games.com/newuser.htm]
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <a href="http://www.census.gov/2010census/data/">2012 US Census</a>
+                    </p>
+                    <p class="quote">
+                        "Our website is geared towards providing innovative statistical coverage and analysis of the NBA for team executives, coaches, fans, and the media." [Source: http://www.census.gov/2010census/data/]
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <a href="http://datacatalog.worldbank.org/">The World Bank</a>
+                    </p>
+                    <p class="quote">
+                        "World Bank Open Data: free and open access to data about development in countries around the globe." [Source: http://data.worldbank.org/]
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <a href="http://www.biogeography.org/html/Resources/databases.html">International Biogeography Society List of Databases</a>
+                    </p>
+                    <p class="quote">
+                        Biogeography, the study of the geography of life, has a long and distinguished history, and one interwoven with that of ecology and evolutionary biology.  Traditionally viewed as the study of geographic distributions, modern biogeography now explores a great diversity of patterns in the geographic variation of nature — from physiological, morphological and genetic variation among individuals and populations to differences in the diversity and composition of biotas along geographic gradients.  Given its interdisciplinary and integrative nature, biogeography is now broadly recognized as a unifying field that provides a holistic understanding of the relationships between the earth and its biota. Our abilities to develop more general theories of the diversity of life, and to conserve biological diversity may well rest on insights from the field of biogeography.  [Source: http://www.biogeography.org/html/About%20IBS/about_ibs.html]
+                    </p>
+                </li>
+
+                <li>
+                    <p>
+                        <a href="http://www.pro-football-reference.com/">Pro-Football Reference</a>
+                    </p>
+                    <p class="quote">
+                        Pro Football Statistics.
+                    </p>
+                </li>
+
+                <li>
+                    <p>
+                        <a href="http://www.hockey-reference.com/">Hockey Reference</a>
+                    </p>
+                    <p class="quote">
+                        Hockey Statistics.
+                    </p>
+                </li>
+
+                <li>
+                    <p>
+                        <a href="http://www.baseball-reference.com/">Baseball Reference</a>
+                    </p>
+                    <p class="quote">
+                        Baseball Statistics.
+                    </p>
+                </li>                       
+
+                <li>
+                    <p>
+                        <a href="http://astrostatistics.psu.edu/datasets/index.html">Penn State Astrostatistics</a>
+                    </p>
+                    <p class="quote">
+                        Astronomy at the beginning of the 21st century, and particularly research arising from wide-field survey observatories at various wavebands, finds itself with serious challenges in statistical treatments of data to achieve its astrophysical goals. A vast range of statistical problems arise in the scientific interpretation of astronomical studies involving sampling, multivariate and survival analysis, image and spatial analysis, signal processing and time series analysis, nonlinear regression, and more. [Source: http://astrostatistics.psu.edu/]
+                    </p>
+
+                </li>
+                <li>
+                    <p>
+                        <a href="http://sos.noaa.gov/Datasets/index.html">National Oceanic and Atmospheric Administration (NOAA) Data Sets</a>
+                    </p>
+                    <p class="quote">
+                        The Science On a Sphere&reg; Data Catalog is comprised of datasets from NOAA, NASA, universities, science centers and other organizations. The datasets are divided into the categories of Atmosphere, Ocean, Land, Astronomy, Models and Simulations, and Extras. 
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <a href="http://vincentarelbundock.github.io/Rdatasets/datasets.html">Data Sets that come with "R"</a>
+                    </p>
+                    <p class="quote">
+                         Rdatasets is a collection of 680 datasets that were originally distributed alongside the statistical software environment R and some of its add-on packages. The goal is to make these data more broadly accessible for teaching and statistical software development. [Source: http://vincentarelbundock.github.io/Rdatasets/]
+                    </p>
+                </li>                        
+            </ul>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Speed Calculator</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://code.jquery.com/jquery.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="uprep.js"></script>
+        <script src="worker.js"></script>
+    </head>
+    <body onload="start();">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="page-header">
+                      <h1>Speed Calculator</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+
+                    <label>Algorithm:
+                        <select id="algorithm">
+                            <option value="algorithm1">algorithm1</option>
+                            <option value="algorithm2">algorithm2</option>
+                            <option value="algorithm3">algorithm3</option>
+                        </select>
+                    </label>
+
+                    <pre class="pre-scrollable" id="code">
+                    </pre>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <label>Input:
+                        <input id="input" type="number" min="0" max="100000000000" value="10000000">
+                    </label>
+                    <label>Workers:
+                        <input id="workers" type="number" min="0" max="16" value="1">
+                    </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <input type="button" class="btn btn-primary" value="Start" id="start">
+                    <input type="button" class="btn btn-default" value="Clear" id="clear">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <span id="progress">
+                    </span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>
+                                    Algorithm
+                                </th>
+                                <th>
+                                    Workers
+                                </th>
+                                <th>
+                                    Input
+                                </th>
+                                <th>
+                                    Seconds
+                                </th>
+                                <th>
+                                    Input/Seconds
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody id="results">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

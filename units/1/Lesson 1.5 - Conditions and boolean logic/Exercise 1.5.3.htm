@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Exercise 1.5.3</title>
+        <link href="../../../reset.css" rel="stylesheet">
+        <link href="../../../page.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="frame">
+            <h1>Exercise 1.5.3</h1>
+            <h2>Class size change</h2>
+            <p>
+                The UPrep staff has an additional question
+                that they would like you to answer.  They are
+                interested in how much each class has <b>changed in size</b>
+                from last year to this year.
+            </p>
+            <p>
+                For example, if the <b>11th</b> grade had <b>80</b> students last year,
+                and the <b>12th</b> grade has <b>76</b> students this year, then the
+                class decreased by <b>4</b> students (since 11th graders
+                last year are 12th graders this year).
+            </p>
+            <p>
+                They would like you to calculate for <b>7th</b> grade through <b>12th</b> grade
+                whether the class has 
+                <b>increased</b> or <b>decreased</b> by more than
+                <b>4</b> students.
+            </p>
+            <h3>Calculating the change</h3>
+            <p>
+                We should be able to calculate the <b>change</b> for each grade by
+                subtracting the value for <b>this year</b> from the corresponding
+                value from <b>last year</b>.
+            </p>
+            <p>
+                That means an increase is a <b>positive</b> number, and a decrease
+                is a <b>negative</b> number.
+            </p>
+            <h3>Checking the change</h3>
+            <p>
+                So if we know the <b>change</b> value, we can
+                calculate whether the value has decreased or increased by more than 4
+                by writing:
+                
+            </p>
+            <div class="code">
+                var increasedByMoreThan4 = change &gt; 4;<br>
+                var decreasedByMoreThan4 = change &lt; -4;
+            </div>
+            <p>
+                This will give us two values that are either true or false.
+                We want a way to calculate whether <b>either</b>
+                value is true.   
+            </p>
+            <h3>Logical OR</h3>
+            <p>
+                Javascript has way of calculating whether <b>either</b>
+                of two boolean
+                values are true, called a <b>logical OR</b> expression.
+                A logical OR expression is written:
+            </p>
+            <div class="code">
+                <span class="placeholder">firstExpression</span> || <span class="placeholder">secondExpression</span>
+            </div>
+            <p>
+                The result of calculating a logical OR expression is
+                <b>true</b> if <b>either</b> <b>firstExpression</b> or
+                <b>secondExpression</b> are true, and <b>false</b> otherwise.
+            </p>
+            <p>
+                What values would you expect if we calculated the following logical OR
+                expressions?
+            </p>
+            <div class="answerFrame">
+                <div class="answerButton">
+                    Move your mouse to the value column to see the answers.
+                </div>
+                <table class="simple">
+                    <tr>
+                        <th>Logical OR expression</th>
+                        <th>value</th>
+                    </tr>
+                    <tr>
+                        <td><span class="code">true || true</span></td>
+                        <td><div class="answerCell"><span class="code">true</span></div></td>
+                    </tr>
+                    <tr>
+                        <td><span class="code">true || false</span></td>
+                        <td><div class="answerCell"><span class="code">true</span></div></td>
+                    </tr>
+                    <tr>
+                        <td><span class="code">false || true</span></td>
+                        <td><div class="answerCell"><span class="code">true</span></div></td>
+                    </tr>
+                    <tr>
+                        <td><span class="code">false || false</span></td>
+                        <td><div class="answerCell"><span class="code">false</span></div></td>
+                    </tr>
+                </table>
+            </div>
+            <p>
+            <p>
+                Just like a logical AND expression, a logical OR expression can be used
+                more than once in an expression.  For example, to see if <b>three</b>
+                expressions are all true, we would write:
+            </p>
+            <div class="code">
+                <span class="placeholder">firstExpression</span> || <span class="placeholder">secondExpression</span> || <span class="placeholder">thirdExpression</span><br>
+            </div>
+            <p>
+                Just like a logical AND expression, Javascript may not need to calculate
+                all the expressions in a logical OR expression.  As soon as one of the
+                calculated expressions produces true, the
+                overall expression is true, and Javascript can stop.
+            </p>
+            <p>
+                For example, if calculating <b>firstExpression</b> produces <b>false</b>, it
+                will continue to <b>secondExpression</b>.  If 
+                calculating <b>secondExpression</b> produces <b>true</b>, then
+                it will stop (since there is no point in calculating <b>thirdExpression</b>).
+            </p>
+            <p class="sidenote">
+                Once again, you probably use this technique all the time without even thinking
+                about it.  Imagine
+                you wanted to know if <b>anyone</b> in your class ate breakfast this morning.
+                You could ask the first person, and they might say no.  Then you could
+                ask another person, and they might say yes.  Would you continue asking more
+                people?  Probably
+                not, since you know there is at least one person that ate breakfast
+                (meaning <b>someone</b> ate breakfast).  This is another example of 
+                <a href="http://en.wikipedia.org/wiki/Short-circuit_evaluation">Short Circuit Evaluation</a>.
+            </p>
+            <h3>Using a logical OR expression</h3>
+            <p>
+                We can now use a logical OR expression to calculate
+                whether a change is greater than 4.
+            </p>
+            <div class="code">
+                var increasedByMoreThan4 = change &gt; 4;<br>
+                var decreasedByMoreThan4 = change &lt; -4;<br>
+                var changedByMoreThan4 = increasedByMoreThan4 || decreasedByMoreThan4;                
+            </div>
+            <p>
+                Combining some of the expressions, we have:
+            </p>
+            <div class="code">
+                var changedByMoreThan4 = change &gt; 4 || change &lt; -4;                
+            </div>
+            <h3>Inputs</h3>
+            <p>
+            <p>
+                You can find the input data for <b>this year</b> here:
+            </p>
+            <div class="code">
+                var thisYear = {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;grade7: 74,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;grade8: 74,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;grade9: 82,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;grade10: 81,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;grade11: 79,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;grade12: 76<br>
+                };<br>
+            </div>
+            <p class="sidenote">
+                Where is <b>grade6</b>?  We can't calculate
+                the change for this grade because these
+                students were not at the school last year.
+            </p>
+            <p>
+                You can find the input data for <b>last year</b> here:
+            </p>
+            <div class="code">
+                var lastYear = {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;grade6: 65,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;grade7: 70,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;grade8: 72,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;grade9: 80,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;grade10: 80,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;grade11: 80<br>
+                };<br>
+            </div>
+            <p class="sidenote">
+                Where is <b>grade12</b>?  They graduated!
+            </p>
+            <h3>The output</h3>
+            <p>
+                The output for this exercise should be an
+                object value with a property
+                for <b>grade7</b> through <b>grade12</b>.
+            </p>
+            <p>
+                Each property should have a boolean value
+                that is <b>true</b> if the change
+                was greater than 4, and <b>false</b> otherwise.
+            </p>
+            <h2>Ready to start</h2>
+            <p>
+                At this point, you should have all the information
+                necessary to calculate the output described above.
+                You will need a <b>plan</b>, of course.
+            </p>
+            <p>
+                Once you have a plan, then go ahead and
+                create a folder for this exercise (<b>Exercise 1.5.3</b>) containing
+                <b>default.html</b> and <b>uprep.cs</b>.
+            </p>
+            <p>
+                Make sure you create appropriate test cases
+                (using <a href="Exercise%201.5.1.htm#Assert">assert</a>) to test
+                your algorithm.
+            </p>
+            <p>
+                Also make sure you check your work.
+            </p>
+            <div class="answerFrame">
+                <div class="answerButton">Move your mouse here to see the answer.</div>
+                <div class="answer">
+                    <div class="code">
+                        var tooLargeChanges = {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;grade7: true,<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;grade8: false,<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;grade9: true,<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;grade10: false,<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;grade11: false,<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;grade12: false<br>
+                        }
+                    </div>
+                    
+                </div>
+            </div>            
+            <h3>Completed program</h3>
+            <p>
+                If you really get stuck, or if you want to check your work when
+                you are done,
+                you can find a completed program
+                <a href="Answer%201.5.3.htm">here</a>.
+            </p>
+            <h2>Done!</h2>
+            <p>
+                Head back to Schoology and mark this as done.
+            </p>
+        </div>
+    </body>
+</html>

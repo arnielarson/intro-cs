@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Exercise 1.6.3</title>
+        <link href="../../../reset.css" rel="stylesheet">
+        <link href="../../../page.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="frame">
+            <h1>Exercise 1.6.3</h1>
+            <h2>Bubbles</h2>
+            <h3>Bubbles on the move...</h3>
+            <p>
+                In this exercise, we'll change the location of the bubbles each frame:
+            </p>
+            <img src="capture2.gif">
+            <h3>That is random</h3>
+            <p>
+                Notice the bubbles are not moving in a straight line.  They are
+                moving somewhat randomly.  How do we make random movement?
+                Javascript has a function called <b>random</b> that is part
+                of the <b>Math</b> object.  Here's what happens when we try
+                to use it in the Chrome console:
+            </p>
+            <img src="chrome5.png">
+            <div class="idea">
+                <p>
+                    The Math.random function returns a <a href="http://en.wikipedia.org/wiki/Pseudorandomness">
+                    psuedo-random number</a>.  Statistically, pseudo-random numbers may look evenly distributed,
+                    but they are made using an algorithm.
+                </p>
+            </div>
+            <p class="sidenote">
+                You may have heard the
+                <a href="http://www.nytimes.com/2013/09/06/us/nsa-foils-much-internet-encryption.html">stories</a>
+                in the news about the
+                "<a href="http://www.nsa.gov/">NSA</a> spying on us".
+                Some of the discussion actually has to do with the algorithms that
+                make random numbers (called random number generators, or RNGs).
+                One use for random numbers are to make keys that secure communications
+                (like when you buy something on the internet with a credit card).  If someone
+                (like the NSA) can guess 
+                the keys, because of a <a href="http://en.wikipedia.org/wiki/Dual_EC_DRBG#Controversy">flaw</a> in the random number generator,
+                then your communications are not quite as secure as you think they are.
+            </p>
+            
+            <h3>Random range</h3>
+            <p>
+                The <b>Math.random</b> function will give us a random number N,
+                where 0 &lt;= N &lt; 1.  But what if we want a random number between
+                any two numbers?
+            </p>
+            <div class="idea">
+                <p>                    
+                    Lets say we want a random <b>integer</b> N where 5 &lt;= N &lt;= 15.
+                </p>
+                <ul>
+                    <li>
+                        <p>
+                            If with start with <b>Math.random</b>, and multiply by 11, we will have N where 0 &lt;= N &lt; 11.
+                        </p></li>
+                    <li>
+                        <p>
+                            If we remove the fraction using <b>Math.floor</b>, we will have an <b>integer</b> N where 0 &lt;= N &lt;= 10.
+                        </p></li>
+                    <li>
+                        <p>
+                            If we add 5, then we will have N where 5 &lt;= N &lt; 15.
+                        </p>
+                    </li>
+                </ul>
+                
+            </div>
+            
+            <p>
+                Or, using charts:
+            </p>
+            <img src="excel1.png">
+            
+            <p>
+                Now we can write a function <b>randomBetween</b> that will give us a random integer
+                between any lower and a higher integer.
+            </p>
+            <div class="code">
+function randomBetween(low, high) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var range = high - low + 1;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var delta = Math.floor(Math.random() * range);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return low + delta;<br>
+}<br>
+                
+            </div>
+            
+            <div class="instruction">
+                <p>
+                    Copy your files from Excercise 1.6.2 and make a folder for this exercise (<b>Exercise 1.6.3</b>).
+                </p>
+                <p>
+                    Copy the <b>randomBetween</b> function to <b>uprep.js</b>.
+                </p>
+            </div>
+            
+            <h3 id="Drift">A drifting bubble</h3>
+            
+            <p>
+                The <b>location</b> of each bubble is tracked by the <b>x</b> and <b>y</b> properties.
+                The <b>delta</b> (speed and direction per frame) of each bubble is tracked by the <b>dx</b> and <b>dy</b> properties.
+            </p>
+            <img src="diagram4.png">
+            <p>
+                So to move our bubble each frame, we need to do the following:
+            </p>
+            <div class="code">
+                bubble.x = bubble.x + bubble.dx;<br>
+                bubble.y = bubble.y + bubble.dy;
+            </div>
+            <div class="idea">
+                <p>
+                    But... what if we randomly change <b>dx</b> and <b>dy</b> a little bit each frame too.
+                </p>
+                <p>Then
+                    our bubble will appear to drift about.</p>                    
+            </div>
+            <p>
+                We can use <b>randomBetween</b> to make a random integer that we can use to either increase
+                or decrease the value of <b>dx</b> and <b>dy</b>.  We just need to pick a range
+                that goes from a negative number to a positive number, like -1 to 1.  Then
+                <b>randomBetween</b> will give us back -1, 0, and 1. 
+            </p>
+            <p>
+                We can then write an <b>moveBubble</b> function, includes the drift:
+            </p>
+            <div class="code">
+function moveBubble(bubble) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bubble.dx = bubble.dx + randomBetween(-1, 1);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bubble.dy = bubble.dy + randomBetween(-1, 1);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bubble.x = bubble.x + bubble.dx;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bubble.y = bubble.y + bubble.dy;<br>
+}<br>                
+            </div>
+            
+            <div class="instruction">
+                <p>
+                    Copy the <b>moveBubble</b> function to <b>uprep.js</b>.
+                </p>
+            </div>
+            
+            <h3>Move those bubbles</h3>
+            <p>
+                We need to add some code that will moves the bubbles each frame.
+            </p>
+            <div class="code">
+                <span class="highlight">function moveBubbles() {<br>
+<br>
+}<br>
+<br>
+function changeSomething(canvas) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;moveBubbles();<br>
+}<br></span>
+                <br>
+function drawFrame() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var canvas = document.getElementById("mainCanvas");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var context = canvas.getContext("2d");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="highlight">changeSomething(canvas);</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;drawSomething(context);<br>
+}<br>
+                
+            </div>
+            
+            <div class="instruction">
+                <p>
+                    Make the changes highlighted above.
+                </p>
+                <p>
+                    Change <b>moveBubbles</b> to use <b>moveBubble</b>
+                    to move each bubble in the <b>bubbles</b> array.
+                </p>
+                <p>
+                    Need inspiration?  You will need to use a
+                    for loop, as we discussed <a href="Exercise%201.6.1.htm#For">here</a>.
+                </p>
+                <p>
+                    Each time the loop repeats, you should get the bubble from the
+                    array, and call <b>moveBubble</b> to move the bubble.
+                </p>
+            </div>
+
+            <div class="check">
+                <p>
+                    You should see two bubbles drift about and then disappear off the screen.
+                </p>
+            </div>
+               
+            <h2>Done!</h2>
+            <p>
+                Head back to Schoology and submit your files.
+            </p>
+        </div>
+    </body>
+</html>

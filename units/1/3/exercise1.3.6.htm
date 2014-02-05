@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Exercise 1.3.6</title>
+        <link href="../../../reset.css" rel="stylesheet">
+        <link href="../../../page.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="frame">
+            <h1>Exercise 1.3.6</h1>
+            <h2>Character Codes</h2>
+            <h3>Copyright</h3>
+            <p>
+                Have you ever come across some characters on a web page
+                that are not on your keyboard?  For example,
+                the copyright symbol at the bottom of
+                <a href="https://www.facebook.com/">https://www.facebook.com/</a>?
+            </p>
+            <img src="chrome12.png">
+            <p>
+                These characters are not on your keyboard, but they are
+                still characters, and we can still use them in our HTML
+                and our Javascript.  We just need to know their <b>character code</b>.
+            </p>
+            <h3>Character Codes</h3>
+            <p>
+                Every character that you can use in a computer has a character code (a <b>number</b>).
+                This means that text in a computer is really just a series of numbers
+                in a row, but the computer knows that these series of numbers meant
+                to be used as characters and not numbers.
+            </p>
+            <p>
+                To see this in action, go to the following web site and type
+                some text.
+            </p>
+            <p>
+                <a href="http://ascii.co.uk/interactive">http://ascii.co.uk/interactive</a>
+            </p>
+            <p>
+                For example:
+            </p>
+            <img src="chrome13.png">
+            <p>
+                You should see a series of boxes appear that have the number
+                (the character code) of each of the characters you typed.
+            </p>
+            <p class="sidenote">
+                The character code is also shown in base 16 (<b>Hex</b>,
+                short for hexadecimal)
+                and base 8 (<b>Oct</b>, short for octal).  Programmers
+                sometimes like to use different number bases.
+            </p>
+            <h3>Who decides?</h3>
+            <p>
+                But who picks the character code for a character?  Who decides that
+                an <span class="key">U</span> is an <b>85</b>, a <span class="key">P</span>
+                is an <b>80</b>, and so on?  
+            </p>
+            <p>
+                Whatever numbers we pick, we better all agree, otherwise when
+                one computer reads the web page that was made by another computer,
+                it might get confused.
+            </p>
+            <h3>We need a table</h3>
+            <p>
+                So we really need a <b>table</b> that shows us what character codes
+                go with what characters.
+            </p>
+            <p>
+                One of the first such tables (finalized in 1963) had only <b>128</b> different
+                characters.
+                It was called
+                <a href="http://en.wikipedia.org/wiki/ASCII">ASCII</a>,
+                which is short for
+                American Standard Code for Information Interchange.
+            </p>
+            <p>
+                You can see part of the table here:                
+                <a href="http://ascii.co.uk/table">http://ascii.co.uk/table</a>
+            </p>
+            <h3>We need a bigger table</h3>
+            <p>
+                When you looked at the ASCII table, you may have noticed that
+                the letters are mostly english.  What about the rest of the
+                languages in the world?
+            </p>
+            <p>
+                In 1991, the first version of a standard called 
+                <a href="http://en.wikipedia.org/wiki/Unicode">Unicode</a>
+                was finalized.  This version of Unicode allowed for up
+                to <b>65535</b> characters.
+                This larger range of character codes (larger table) allowed
+                for characters used in many more written languages.  Since
+                1991, even more characters have been added.
+            </p>
+            <p>
+                Take a look: 
+                <a href="http://www.unicode.org/charts/">http://www.unicode.org/charts/</a>.
+                You will find <b>Scripts</b>(writing systems) at the top,
+                and <b>Symbols and Punctuation</b> at the bottom.                
+            </p>
+            <p class="sidenote">
+                You might want to bookmark this page, if you want to use
+                any of the unicode special characters in this class.
+            </p>
+            <p>
+                As you can see, there is quite a variety!  Here are some examples:
+            </p>
+            <ul>
+                <li><a href="http://www.unicode.org/charts/PDF/U0600.pdf">Arabic</a></li>
+                <li><a href="http://www.unicode.org/charts/PDF/U1800.pdf">Mongolian</a></li>
+                <li><a href="http://www.unicode.org/charts/PDF/U13000.pdf">Egyptian Hieroglyphs</a></li>
+                <li><a href="http://www.unicode.org/charts/PDF/U13A0.pdf">Cherokee</a></li>
+                <li><a href="http://www.unicode.org/charts/PDF/U2600.pdf">Miscellaneous Symbols</a> (snowman!)</li>
+                <li><a href="http://www.unicode.org/charts/PDF/U2800.pdf">Braille Patterns</a></li>
+                <li><a href="http://www.unicode.org/charts/PDF/U2190.pdf">Arrows</a></li>
+                <li><a href="http://www.unicode.org/charts/PDF/U1F600.pdf">Emoticons</a></li>
+                <li>and of course, <a href="http://www.unicode.org/charts/PDF/U0000.pdf">ASCII</a></li>
+            </ul>
+            <p>
+                And if you look under
+                <a href="http://www.unicode.org/charts/PDF/U0080.pdf">
+                    Punctuation / General Punctuation / Latin-1 Punctuation</a>,
+                you will find the copyright symbol:
+            </p>
+            <img src="chrome14.png">
+            <p>
+                The number below the character (<b>00A9</b>)
+                is the character code shown in hexadecimal (base 16, or <b>hex</b> for short).
+            </p>
+            <h3 id="Copyright">So how do we use these characters?</h3>
+            <p>
+                If we have the character code in <b>hex</b>, we can write these
+                characters in both Javascript and HTML.
+            </p>
+            <p>
+                For example, to write the copyright symbol (<b>00A9</b> in hex) followed
+                by the year in <b>HTML</b>, we would write:
+            </p>
+            <div class="sidebyside">
+                <div class="side">
+                    <div class="code">
+                        &lt;p&gt;<span class="highlight">&amp;#x00A9;</span> 2013&lt;/p&gt;
+                    </div>
+                </div>
+                <div class="side">
+                    <p style="font-size:24pt;"><span class="highlight">&#x00A9;</span> 2013</p>
+                </div>
+            </div>
+            <p>
+                To write the same thing in <b>Javascript</b>, we would write:
+            </p>
+            <div class="code">
+                var copyright = "<span class="highlight">\u00A9</span> 2013";
+            </div>
+            <p class="sidenote">
+                You might notice that some of the character codes have 5 hex digits,
+                which means we can't use them with Javascript.
+            </p>
+            <h3>But there's a catch...</h3>
+            <p>
+                The UNICODE standard has a lot of different characters.
+            </p>
+            <p>
+                But remember, there are different <b>fonts</b>, too.  For example, the
+                character <span class="key">A</span> looks different with different
+                fonts.
+            </p>
+            <p>
+                <span style="font-size:48pt;font-family:Palatino;">A</span> 
+                <span style="font-size:48pt;font-family:Garamond;">A</span> 
+                <span style="font-size:48pt;font-family:Bookman;">A</span>
+                <span style="font-size:48pt;font-family:'Avant Garde';">A</span>
+                <span style="font-size:48pt;font-family:Verdana;">A</span>
+                <span style="font-size:48pt;font-family:Georgia;">A</span>
+                <span style="font-size:48pt;font-family:'Comic Sans MS';">A</span>
+                <span style="font-size:48pt;font-family:'Trebuchet MS';">A</span>
+                <span style="font-size:48pt;font-family:'Arial Black';">A</span>
+                <span style="font-size:48pt;font-family:Impact;">A</span>
+                <span style="font-size:48pt;font-family:Courier;">A</span>
+            </p>
+            <p>
+                So a font is really a <b>table</b> as well.  The table
+                says what <b>picture</b> to use for each character in that font.
+            </p>
+            <p>
+                And it turns out that not every font has a picture for every character.
+                For example, if you use one of the
+                <a href="http://www.unicode.org/charts/PDF/U2800.pdf">Braille Patterns</a>
+                they may or may not work depending on what font you use.
+            </p>
+            <p>
+                If you see a character like this:                
+            </p>
+            <p>
+                <img src="chrome32.png">
+            </p>
+            <p>
+                It usually means that there is no picture for that character code
+                in that font.
+            </p>
+            <p class="sidenote">
+                So, how do you know what font works for what characters?
+                If you search for the words <b>font</b>, <b>unicode</b>,
+                and the hex characters of the character, you may find a list
+                of fonts.  Of course, you may not have that font on your computer.
+            </p>
+            <h2>The assignment</h2>
+            <p>
+                Lets use these techniques to add a copyright symbol at the bottom of our UPrep page.
+            </p>
+            <p class="sidenote">
+                Of course, if we were doing this for a real web site, we would need
+                to take additional <a href="http://www.copyright.gov/circs/circ66.pdf">steps</a>.
+            </p>
+            <ul>
+                <li>
+                    <p>
+                        Create a folder for this exercise (<b>Exercise 1.3.6</b>)
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Copy the files from <a href="exercise1.3.4.htm">Exercise 1.3.4</a>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Use the techniques found <a href="#Copyright">here</a> to
+                        add a copyright symbol to the bottom of the page.  It should
+                        look something like this:<br>
+                        <img src="chrome15.png">
+                    </p>
+                </li>
+            </ul>
+            <h2>Done!</h2>
+            <p>
+                Head back to Schoology and submit your files to the dropbox.
+            </p>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Gotchas</title>
+        <link href="../../../../reset.css" rel="stylesheet">
+        <link href="../../../../page.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="frame">
+            <p><b>default.html</b></p>
+            <div class="code">
+&lt;!DOCTYPE html&gt;<br>
+&lt;html&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;head&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;Page Title&lt;/title&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;script src="uprep.js"&gt;&lt;/script&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/head&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;body onload="calculateSomething();"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/body&gt;<br>
+&lt;/html&gt;<br>
+            </div>
+            <p><b>uprep.js</b></p>
+            <div class="code">
+            function add(a, b) {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="highlight">var</span> total;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;total = a + b;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;return total;<br>
+            }<br>
+            <br>
+            function calculateSomething() {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;var sum = add(1, 2);<br>
+            }<br>
+            </div>
+        </div>
+    </body>
+</html>

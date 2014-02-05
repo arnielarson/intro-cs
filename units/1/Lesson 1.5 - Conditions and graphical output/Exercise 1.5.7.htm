@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Exercise 1.5.7</title>
+        <link href="../../../reset.css" rel="stylesheet">
+        <link href="../../../page.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="frame">
+            <h1>Exercise 1.5.7</h1>
+            <h2>Canvas</h2>
+            <h3>Terrible tar pit of slowness</h3>
+            <p>
+                Now we are going to add a tar pit to our animation.  Each frame that our
+                circle is "in" the tar, the circle will <b>lose</b> some <b>speed</b>.
+                Each frame the circle is not in the tar, the circle will <b>gain</b> some speed.
+            </p>
+            <img src="diagram19.png">
+            <p>
+                We'll say that the circle is "in" the tar if the <b>center of the circle</b>
+                is inside the tar area (a rectangle).
+            </p>                
+            <div class="sidebyside">
+                <div class="side">
+                    <img src="diagram17.png">
+                </div>
+                <div class="side">
+                    <img src="diagram18.png">                    
+                </div>
+            </div>
+            <h3>Where is the tar pit?</h3>
+            <p>
+                Lets make some variables for the location of the tar pit:
+                the <b>left</b> and <b>right</b> (horizontal coordinates), and the <b>top</b> and
+                <b>bottom</b> (vertical coordinates).
+            </p>
+            <div class="code">
+                var tarLeft = 100;<br>
+                var tarRight = 200;<br>
+                var tarTop = 300;<br>
+                var tarBottom = 400;<br>
+            </div>
+            <img src="diagram20.png">
+            <h3>How do we know the circle is in the pit?</h3>
+            <p>
+                The variables <b>x</b> and <b>y</b> have the center of our circle.  But how do
+                we know when the center is in the tarpit rectangle?
+            </p>
+            <p>
+                To be in the tarpit, <b>x</b> needs to be between the <b>left</b>
+                and <b>right</b>, and <b>y</b> needs to be between <b>top</b>
+                and <b>bottom</b>.
+            </p>
+            <img src="diagram21.png">
+            <p>
+                In english, the circle is in the tarpit when:
+            </p>
+            <p class="idea">
+                <b>x</b> is greater than or equal to the <b>left</b> edge of the tarpit <b>AND</b><br>
+                <b>x</b> is less than the <b>right</b> edge of the tarpit <b>AND</b><br>
+                <b>y</b> is greater than or equal the <b>top</b> edge of the tarpit <b>AND</b><br>
+                <b>y</b> is less than the <b>bottom</b> edge of the tarpit.
+            </p>
+            <p>
+                We know how to write these four conditions:
+            </p>
+            <div class="code">
+var pastLeft = x &gt;= tarLeft;<br>
+var beforeRight = x &lt; tarRight;<br>
+var belowTop = y &gt;= tarTop;<br>
+var aboveBottom = y &lt; tarBottom;<br>
+            </div>
+            <h3>How do we write AND?</h3>
+            <p>
+                Our english sentence had the word <b>AND</b> in it.
+            </p>
+            <p>
+                In Javascript, <b>AND</b> is written using the symbol <span class="code">&&</span>, and
+                which is used to combine two or more <b>boolean</b> values.  <b>AND</b> is
+                true if <b>all</b> the values being combined are <b>true</b>.
+            </p>
+            
+            <div class="answerFrame">
+                <div class="answerButton">
+                    Move your mouse to the Answer column to see how <b>AND</b> works.
+                </div>
+                <table class="simple">
+                    <tr>
+                        <th>Example</th>
+                        <th>Answer</th>
+                    </tr>
+                    <tr>
+                        <td><span class="code">true && true</span></td>
+                        <td><div class="answerCell"><span class="code">true</span></div></td>
+                    </tr>
+                    <tr>
+                        <td><span class="code">true && false</span></td>
+                        <td><div class="answerCell"><span class="code">false</span></div></td>
+                    </tr>
+                    <tr>
+                        <td><span class="code">false && true</span></td>
+                        <td><div class="answerCell"><span class="code">false</span></div></td>
+                    </tr>
+                    <tr>
+                        <td><span class="code">false && false</span></td>
+                        <td><div class="answerCell"><span class="code">false</span></div></td>
+                    </tr>
+                </table>
+            </div>
+            
+            <p>
+                Using <b>AND</b>, we can now calculate if the circle is in the tar:
+            </p>
+            <div class="code">
+var pastLeft = x &gt;= tarLeft;<br>
+var beforeRight = x &lt; tarRight;<br>
+var belowTop = y &gt;= tarTop;<br>
+var aboveBottom = y &lt; tarBottom;<br>
+var inTar = pastLeft <span class="highlight">&amp;&amp;</span> beforeRight <span class="highlight">&amp;&amp;</span> belowTop <span class="highlight">&amp;&amp;</span> aboveBottom;<br>
+
+            </div>
+            
+            <h3>What about OR?</h3>
+            <p>
+                In Javascript, <b>OR</b> is written using the symbol <span class="code">||</span>, and
+                is also used to combine two or more <b>boolean</b> values.
+                <b>OR</b> is
+                true if <b>any</b> of the values being combined are <b>true</b>.
+            </p>
+            
+            <div class="answerFrame">
+                <div class="answerButton">
+                    Move your mouse to the Answer column to see how <b>OR</b> works.
+                </div>
+                <table class="simple">
+                    <tr>
+                        <th>Example</th>
+                        <th>Answer</th>
+                    </tr>
+                    <tr>
+                        <td><span class="code">true || true</span></td>
+                        <td><div class="answerCell"><span class="code">true</span></div></td>
+                    </tr>
+                    <tr>
+                        <td><span class="code">true || false</span></td>
+                        <td><div class="answerCell"><span class="code">true</span></div></td>
+                    </tr>
+                    <tr>
+                        <td><span class="code">false || true</span></td>
+                        <td><div class="answerCell"><span class="code">true</span></div></td>
+                    </tr>
+                    <tr>
+                        <td><span class="code">false || false</span></td>
+                        <td><div class="answerCell"><span class="code">false</span></div></td>
+                    </tr>
+                </table>
+            </div>
+            
+            <p id="OR">
+                We could have used <b>OR</b> when we check to see if the
+                circle reached the left or right side.  Rather than writing:
+            </p>
+            
+            <div class="code">
+var reachedRightEdge = x &gt;= canvas.width;<br>
+if (reachedRightEdge) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;dx = -dx;<br>
+}<br>
+var reachedLeftEdge = x &lt; 0;<br>
+if (reachedLeftEdge) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;dx = -dx;<br>
+}&nbsp;&nbsp;&nbsp;&nbsp;<br>
+            </div>
+            
+            <p>
+                We could have written the following, since we negate the
+                value of <b>dx</b> in either case (either if <b>reachedLeftEdge</b>
+                OR <b>reachedRightEdge</b>):
+            </p>
+            
+            <div class="code">
+var reachedRightEdge = x &gt;= canvas.width;<br>
+var reachedLeftEdge = x &lt; 0;<br>
+if (reachedRightEdge <span class="highlight">||</span> reachedLeftEdge) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;dx = -dx;<br>
+}<br>
+            </div>
+            
+            <h3>Slowing down and speeding up</h3>
+            
+            <p>
+                The <b>dx</b> variable is keeping track of what direction the circle is moving
+                horizontally, and how fast it is traveling horizontally.
+            </p>
+            
+            <p>
+                To slow things down horizontally, we can simply multiply <b>dx</b>
+                by a value that
+                is less than one.  For example, if we multiply by 0.50, then we are
+                reducing the speed by 50%.  If we multiply by 0.95, we are reducing
+                the speed by 5%.  Similarly, to speed things up, we can multiply by
+                1.50 to increase the speed by 50%, or 1.05 to increase the speed by 5%.
+            </p>
+            <p>
+                We can do the same thing to slow things down vertically.
+            </p>
+            <p>
+                To make the amounts easy to change, we can just add <b>slowdown</b>
+                and <b>speedup</b> variables.
+            </p>
+            <div class="code">
+            var slowdown = 0.90;<br>
+            var speedup = 1.01;<br>
+                
+            </div>
+            
+            <h3>Drawing the tar pit</h3>
+            <p>
+                We will need to draw the tar pit.  It is a black rectangle.
+            </p>
+            <div class="code">
+context.fillStyle = "black";<br>
+context.fillRect(tarLeft, tarTop, tarRight - tarLeft, tarBottom - tarTop);<br>
+            </div>
+            
+           
+            <h3>Into the pit</h3>
+            
+            <div class="instruction">
+                <p>
+                    Starting with the files from the last exercise,
+                    create a folder for this exercise (<b>Exercise 1.5.7</b>).
+                    Make the changes <span class="highlight">highlighted</span> below
+                    (you can copy and paste whatever parts you want):
+                </p>
+            </div>
+            <div class="code">
+                <span class="highlight">var tarLeft = 100;<br>
+                var tarRight = 200;<br>
+                var tarTop = 300;<br>
+                var tarBottom = 400;<br>
+                var slowdown = 0.90;<br>
+                var speedup = 1.01;<br></span>
+                <br>
+                <br>
+<span class="highlight">function inTarPit(x, y) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var pastLeft = x &gt;= tarLeft;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var beforeRight = x &lt; tarRight;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var belowTop = y &gt;= tarTop;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var aboveBottom = y &lt; tarBottom;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var inTar = pastLeft &amp;&amp; beforeRight &amp;&amp; belowTop &amp;&amp; aboveBottom;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return inTar;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+}</span><br>
+<br>
+function drawSomething(context) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;...<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">Draw pit after filling background, but before drawing circle</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="highlight">context.fillStyle = "black";<br>
+&nbsp;&nbsp;&nbsp;&nbsp;context.fillRect(tarLeft, tarTop, tarRight - tarLeft, tarBottom - tarTop);</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;...<br>
+}<br>    
+function changeSomething(canvas) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;...<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="highlight">if (inTarPit(x, y)) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dx = dx * slowdown;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">Something similar for vertical</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;} else {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dx = dx * speedup;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">Something similar for vertical</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;}</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;...<br>
+}<br>
+                
+            </div>            
+            <div class="instruction">
+                <p>Try it out.  The circle should slow down when its center is in the tar pit rectangle.</p>
+            </div>
+            
+            <div class="instruction">
+                <p>Go through the code and see if there is anywhere you can use an <b>AND</b>
+                or an <b>OR</b>.  If there is, then update it.  There should be at least one
+                place (as mentioned <a href="#OR">here</a>).</p>
+            </div>
+            
+            <h2>Done!</h2>
+            <p>
+                Head back to Schoology and submit your files.
+            </p>
+        </div>
+    </body>
+</html>

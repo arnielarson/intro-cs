@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Exercise 1.6.2</title>
+        <link href="../../../reset.css" rel="stylesheet">
+        <link href="../../../page.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="frame">
+            <h1>Exercise 1.6.2</h1>
+            <h2>Bubbles</h2>
+            <h3>Bubbles, bubbles, bubbles...</h3>
+            <p>
+                In this lesson, we are going to be making a <b>bubble</b> animation.
+                Along the way we are going to get
+                good at working with arrays and using loops.
+            </p>
+            <p>
+                Rather than try to tackle this all at once, we'll break it down
+                into manageable steps:
+            </p>
+            <ol>
+                <li>
+                    Draw two bubbles which we are storing in an array.<br>
+                    <img width="100" src="capture1.gif">
+                </li>
+                <li>
+                    Go through the array and move the bubbles randomly.<br>
+                    <img width="100" src="capture2.gif">
+                </li>
+                <li>
+                    If the bubbles move off the screen, remove them from the array.<br>
+                    <img width="100" src="capture3.gif">
+                </li>
+                <li>
+                    Increase the number of bubbles.
+                    If we run low, then add more bubbles to the
+                    array.<br>
+                    <img width="100" src="capture4.gif">
+                </li>
+            </ol>
+            
+            <h3>We need some animation</h3>
+            <p>
+                Lets start with the code we used in our last animation, but
+                make some adjustments.
+            </p>
+            <div class="code">
+function drawSomething(context) {<br>
+<br>
+}<br>
+<br>
+function drawFrame() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var canvas = document.getElementById("mainCanvas");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var context = canvas.getContext("2d");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;drawSomething(context);<br>
+}<br>
+<br>
+function start() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var framesPerSecond = 30;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;setInterval(drawFrame, 1000 / framesPerSecond);<br>
+}<br>
+                
+            </div>
+            
+            <div class="instruction">
+                <p>
+                    Download this <a href="Exercise%201.6.2.zip">zip</a>
+                    as a starting point for this exercise (<b>Exercise 1.6.2</b>).
+                </p>                
+            </div>
+            
+            <h3>The sky is blue</h3>
+            
+            <p>
+                If you recall from our last animation, we need to draw
+                the background or our animation will smear.  We can use the following
+                to make a blue background.
+            </p>
+            
+            <div class="code">
+function drawBackground(context) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;context.fillStyle = "#74d0ff";<br>
+&nbsp;&nbsp;&nbsp;&nbsp;context.fillRect(0, 0, context.canvas.width, context.canvas.height);<br>
+}<br>
+                
+            </div>
+            
+            <div class="instruction">
+                <p>
+                    Copy/paste the <b>drawBackground</b> function above to <b>uprep.js</b>,
+                    and call it from <b>drawSomething</b>.
+                </p>                
+            </div>
+            
+            <div class="check">
+                <p>
+                    Your background should now be blue.
+                </p>
+            </div>
+            
+            <h3>We need some bubbles</h3>
+            <p>
+                Lets summarize what we need for our bubbles, in english:
+            </p>
+            <div class="idea">
+                <p>
+                    We need a <b>list</b> of bubbles.  Each <b>bubble</b> should have:
+                </p>
+                <ul>
+                    <li>A location on the screen (x, y).</li>
+                    <li>A distance the bubble moves each frame (dx, dy).</li>
+                    <li>A size (radius).</li>
+                </ul>
+            </div>
+            <p>
+                So how should we store this data?
+            </p>
+            <div class="answerFrame">
+                <div class="answerButton">Move your mouse here to see the answer</div>
+                <div class="answer">
+                    <p>
+                    We need a list of bubbles, so we should use an <b>array</b>.
+                    The location (x, y), the distance moved (dx, dy), and the
+                    radius are <b>related</b> values, so we should use an <b>object</b>
+                    for each bubble.
+                    </p>
+                </div>
+            </div>
+            <div class="space"></div>
+            
+            <h3>We need two bubbles</h3>
+            
+            <p>
+                We are going to start with two bubble objects.
+            </p>
+            
+            <div class="code">
+var bubble1 = {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;x: 50,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;y: 50,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;dx: 1,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;dy: 2,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;radius: 10<br>
+};<br>
+<br>
+var bubble2 = {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;x: 90,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;y: 90,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;dx: 7,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;dy: 2,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;radius: 30<br>
+};<br>
+                
+            </div>
+            
+            <div class="instruction">
+                <p>
+                    Copy the two bubbles above.  Paste them at the top of the <b>uprep.js</b>
+                    file.
+                </p>                
+            </div>
+            
+            <h3>We need a bubble array</h3>
+            
+            <p>
+                We said we needed an array of bubbles.  Lets add that now.
+            </p>            
+            
+            <div class="instruction">
+                <p>
+                    After the two bubbles, add a variable called <b>bubbles</b>
+                    that holds the two bubbles.  
+                </p>
+                <p>
+                    Need inspiration?  Look 
+                    <a href="Exercise%201.6.1.htm#Array">here</a>.
+                </p>
+            </div>
+            
+            <h3>Number of bubbles</h3>
+            
+            <p>
+                Later in this lesson, we are going to be changing the
+                number of bubbles in the array.  Lets add some
+                text to the canvas that displays the number of bubbles
+                so we know how many we have in the array.
+            </p>
+            
+            <div class="instruction">
+                <p>
+                    Change <b>drawBackground</b> to display the number
+                    of bubbles in the <b>bubbles</b> array.
+                </p>
+                <p>
+                    How to get the length of the bubbles array?  Look                   
+                    <a href="Exercise%201.6.1.htm#ArrayLength">here</a>.
+                </p>
+                <p>
+                    Use <a href="../../../resources/canvassubset.htm#Text">fillText</a>
+                    to draw the text.
+                </p>
+            </div>
+            
+            <div class="check">
+                <p>
+                    Your background should now draw the number of bubbles.
+                </p>
+            </div>
+            
+            <img src="chrome1.png">
+                
+            <h3>Drawing a bubble</h3>
+            <p>
+                We need a way to draw a bubble.  We can write a function that
+                draws a circle using the values in a bubble object.
+            </p>
+            <div class="code">
+function drawBubble(context, <span class="highlight">bubble</span>) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;context.strokeStyle = "white";<br>
+&nbsp;&nbsp;&nbsp;&nbsp;context.beginPath();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;context.arc(<span class="highlight">bubble.x</span>,
+<span class="highlight">bubble.y</span>,
+<span class="highlight">bubble.radius</span>, 0, Math.PI * 2);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;context.stroke();<br>
+}<br>
+            </div>
+            <img src="chrome2.png">
+            <h3>But we can do better</h3>
+            <p>
+                But wouldn't this look more like an bubble?
+            </p>
+            <img src="chrome3.png">
+            <p>
+                In graphics, we can fill with a solid color, or we can
+                fill with a <a href="http://en.wikipedia.org/wiki/Color_gradient">color gradient</a>,
+                which can blend two or more colors.
+                Here, we are using a radial (circular) gradient that starts
+                as blue (#74d0ff) at the center of the bubble (0%), is blue from the center to
+                40% (0.4) of the way to the outside, and then changes to white at the outside
+                of the circle (100%).  If you would like more information on gradient fills, check out
+                this <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Canvas_tutorial/Applying_styles_and_colors#A_createRadialGradient_example">page</a>.
+            </p>
+            <div class="code">
+function drawBubble(context, bubble) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var gradient = context.createRadialGradient(bubble.x, bubble.y, 0,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bubble.x, bubble.y, bubble.radius);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;gradient.addColorStop(0, "#74d0ff");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;gradient.addColorStop(0.4, "#74d0ff");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;gradient.addColorStop(1, "white");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;context.fillStyle = gradient;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;context.beginPath();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;context.arc(bubble.x, bubble.y, bubble.radius, 0, Math.PI * 2);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;context.fill();<br>
+}<br>
+            </div>
+            
+            <div class="instruction">
+                <p>
+                    Copy the <b>drawBubble</b> function above and paste it into
+                    <b>uprep.js</b>.
+                </p>
+            </div>
+            
+            <h3>Time to draw some bubbles</h3>
+            
+            <p>
+                Every frame we will need to draw all the bubbles in the array.
+                Lets add the <b>drawBubbles</b> function that will take care
+                of that.  We can call it from <b>drawSomething</b>, after
+                we draw the background.
+            </p>
+            
+            <div class="code">
+<span class="highlight">function drawBubbles(context) {<br>
+<br>
+}</span><br>
+<br>
+function drawSomething(context) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;drawBackground(context);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="highlight">drawBubbles(context);</span><br>
+}<br>
+                
+            </div>
+            
+            <div class="instruction">
+                <p>
+                    Make the changes highlighted above.
+                </p>
+                <p>
+                    Change <b>drawBubbles</b> to use <b>drawBubble</b>
+                    to draw each bubble in the <b>bubbles</b> array.
+                </p>
+                <p>
+                    Need inspiration?  You will need to use a
+                    for loop, as we discussed <a href="Exercise%201.6.1.htm#For">here</a>.
+                </p>
+                <p>
+                    Each time the loop repeats, you should get the bubble from the
+                    array, and call <b>drawBubble</b> to draw the bubble.
+                </p>
+            </div>
+            
+            <div class="check">
+                <p>
+                    You should see two bubbles.
+                </p>
+            </div>
+            
+            <img src="chrome4.png">
+            
+               
+            <h2>Done!</h2>
+            <p>
+                Head back to Schoology and submit your files.
+            </p>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Answer 1.5.3</title>
+        <link href="../../../reset.css" rel="stylesheet">
+        <link href="../../../page.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="frame">
+            <h1>Answer 1.5.3</h1>
+            <h2>Class size change</h2>
+            <h3>default.html</h3>
+            <div class="code">
+&lt;!DOCTYPE html&gt;<br>
+&lt;html&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;head&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;Page Title&lt;/title&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;script src="uprep.js"&gt;&lt;/script&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/head&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;body onload="calculateSchoolGrowth();"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/body&gt;<br>
+&lt;/html&gt;<br>
+            </div>
+            <h3>uprep.js</h3>
+            <div class="code">
+function calculateChangeInClassSize(lastYear, thisYear) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade7: thisYear.grade7 - lastYear.grade6,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade8: thisYear.grade8 - lastYear.grade7,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade9: thisYear.grade9 - lastYear.grade8,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade10: thisYear.grade10 - lastYear.grade9,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade11: thisYear.grade11 - lastYear.grade10,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade12: thisYear.grade12 - lastYear.grade11<br>
+&nbsp;&nbsp;&nbsp;&nbsp;};<br>
+}<br>
+<br>
+function isChangeTooLarge(change) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return change &lt; -4 || change &gt; 4;<br>
+}<br>
+<br>
+function calculateChangesThatAreTooLarge(changes) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade7: isChangeTooLarge(changes.grade7),<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade8: isChangeTooLarge(changes.grade8),<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade9: isChangeTooLarge(changes.grade9),<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade10: isChangeTooLarge(changes.grade10),<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade11: isChangeTooLarge(changes.grade11),<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade12: isChangeTooLarge(changes.grade12)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;};<br>
+}<br>
+<br>
+function calculateSchoolGrowth() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;testSchoolGrowth();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var thisYear = {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade7: 74,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade8: 74,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade9: 82,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade10: 81,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade11: 79,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade12: 76<br>
+&nbsp;&nbsp;&nbsp;&nbsp;};<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var lastYear = {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade6: 65,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade7: 70,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade8: 72,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade9: 80,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade10: 80,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade11: 80<br>
+&nbsp;&nbsp;&nbsp;&nbsp;};<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var changes = calculateChangeInClassSize(lastYear, thisYear);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var tooLargeChanges = calculateChangesThatAreTooLarge(changes);<br>
+}<br>
+<br>
+function assert(condition) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if (condition != true) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;debugger;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+}<br>
+<br>
+function testSchoolGrowth() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var positiveChange1 = isChangeTooLarge(4);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;assert(positiveChange1 == false);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var positiveChange2 = isChangeTooLarge(5);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;assert(positiveChange2 == true);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var negativeChange1 = isChangeTooLarge(-4);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;assert(negativeChange1 == false);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var negativeChange2 = isChangeTooLarge(-5);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;assert(negativeChange2 == true);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var testThisYear = {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade7: 1,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade8: 2,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade9: 3,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade10: 4,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade11: 5,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade12: 6<br>
+&nbsp;&nbsp;&nbsp;&nbsp;};<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var testLastYear = {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade6: 1,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade7: 1,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade8: 1,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade9: 1,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade10: 1,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade11: 1<br>
+&nbsp;&nbsp;&nbsp;&nbsp;};<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var changes = calculateChangeInClassSize(testLastYear, testThisYear);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;assert(changes.grade7 == 0);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;assert(changes.grade8 == 1);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;assert(changes.grade9 == 2);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;assert(changes.grade10 == 3);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;assert(changes.grade11 == 4);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;assert(changes.grade12 == 5);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var tooLargeChanges = calculateChangesThatAreTooLarge(changes);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;assert(tooLargeChanges.grade7 == false);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;assert(tooLargeChanges.grade8 == false);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;assert(tooLargeChanges.grade9 == false);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;assert(tooLargeChanges.grade10 == false);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;assert(tooLargeChanges.grade11 == false);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;assert(tooLargeChanges.grade12 == true);<br>
+}<br>
+
+            </div>
+        </div>
+    </body>
+</html>

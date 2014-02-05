@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>3.2.2 - First Node App</title>
+        <link href="../../../reset.css" rel="stylesheet">
+        <link href="../../../page.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="frame">
+            <h1>3.2.2 - First Node App</h1>
+            <p>
+                To make sure we have Nitrous set up correctly, we will
+                create a simple application.
+            </p>
+            <p>
+                There are many ways to author a web application.
+                We are going to use 
+                a technology called <span class="red">node.js</span>, which allows
+                us to write the server code using Javascript.
+            </p>
+            <img src="node.png" height="50">
+            <h3>Start Nitrous</h3>
+            <p>
+                <img src="chrome7.png">
+            </p>
+            <h3>Start Your Box</h3>
+            <div class="instruction">
+                <p>
+                Click on your Box and select start from the menu that appears.
+                </p>
+            </div>
+            <p>
+                <div class="sidebyside">
+                    <div class="side">
+                        <img src="chrome8.png" height="100">
+                    </div>
+                    <div class="side">
+                        <img src="chrome9.png" height="100">
+                    </div>
+                </div>
+            </p>
+            <p class="sidenote">
+                Your Box will automatically stop when you are not using it,
+                which will save "N2O".
+            </p>
+            <h3>Open the IDE</h3>
+            <div class="instruction">
+                <p>
+                    Click the IDE button to open the IDE.
+                </p>
+            </div>
+
+            <p>
+                <img src="chrome10.png">
+            </p>
+            <p class="sidenote">
+                IDE is short for "Integrated Development Environment".
+            </p>            
+            <h3>Hide the Box</h3>
+            <div class="instruction">
+                <p>
+                Click on the blue divider shown below.  This should hide the
+                Box area, giving you more space to work.
+                </p>
+            </div>
+            <p>
+                <img src="chrome11.png" height="200">
+            </p>
+            <h3>Create package.json</h3>
+            <p class="sidenote">
+                The file package.json is a javascript file that tells node.js what software you need 
+                for your web server.  The word "JSON" stands for JavaScript Object Notation,
+                which is really just Javascript but is limited to values (no functions).
+            </p>
+            <div class="instruction">
+                <p>
+                Right click on the "~" folder, and select <b>New File</b>.
+                </p>
+                <p>
+                Name the file <b>package.json</b>.
+                <span class="red">Make sure the spelling is exact</span>.
+                </p>
+                <p>
+                Click the name of the file to open the file.
+                </p>
+            </div>
+            <img src="chrome12.png" height="100">
+            <div class="instruction">
+                <p>
+                Paste the following Javascript in the file and save.
+                </p>
+            </div>
+            <div class="code">
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"version": "0.0.1" ,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"scripts": {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"start": "node app"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;},<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"dependencies": {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"express": "3.x"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+}<br>
+            </div>
+            <h3>Create server.js</h3>
+            <p class="sidenote">
+                The file server.js is the main javascript file for your web server.
+            </p>
+            <div class="instruction">
+                <p>
+                Add a second file in the "~" folder called <b>server.js</b>.
+                <span class="red">Make sure the spelling is exact</span>.
+                </p>
+                <p>
+                Paste the following Javascript in the file and save.
+                </p>
+            </div>
+            <div class="code">
+function redirectRequest(request, response) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;response.redirect("/default.html");<br>
+}<br>
+<br>
+function start() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var http = require("http");  <br>
+&nbsp;&nbsp;&nbsp;&nbsp;var express  = require("express");  <br>
+&nbsp;&nbsp;&nbsp;&nbsp;var app = express();  <br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// add request logging<br>
+&nbsp;&nbsp;&nbsp;&nbsp;app.use(express.logger());<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// allow files in workspace folder to be retrieved<br>
+&nbsp;&nbsp;&nbsp;&nbsp;app.use(express.static(__dirname + '/workspace'));<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// handle request for root<br>
+&nbsp;&nbsp;&nbsp;&nbsp;app.get("/", redirectRequest);  <br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var server = http.createServer(app);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var port = 3000;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;server.listen(port);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;console.log("Server running on port " + port); <br>
+}<br>
+<br>
+start();<br>
+            </div>
+
+            <h3>Install packages</h3>
+            <p class="sidenote">
+                Node comes with a "Node Package Manager" (npm) which helps you get the software
+                you need onto the server.
+            </p>
+            <div class="instruction">
+                <p>
+                    Click on the console area (bottom area of the application).  Type the following and press enter:<br>
+                    <div class="code inline">npm install</div><br>
+                </p>
+            </div>
+            <img src="chrome13.png" height="200">
+            <p class="sidenote">
+                You will see some warnings in red, but you can ignore them.
+            </p>
+
+            <h3>Start Node</h3>
+            <p class="sidenote">
+                On the client, there is Chrome.  On the server, there is node.js.
+            </p>
+            <div class="instruction">
+                <p>
+                    Type the following command into the console and press enter:<br>
+                    <div class="code inline">node server.js</div><br>
+                </p>
+            </div>
+            <img src="chrome14.png">
+            <h3>Create an HTML file</h3>
+            <p class="sidenote">
+                All the files in the workspace folder are run by the web browser.
+            </p>
+            <div class="instruction">
+                <p>
+                    Create a file in the <span class="red">workspace</span> folder called <b>default.html</b>.
+                </p>
+                <p>
+                    Paste the following in the file and save.
+                </p>
+            </div>
+            <div class="code">
+&lt;!DOCTYPE html&gt;<br>
+&lt;html&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;head&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;My First Web Application&lt;/title&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/head&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;body&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;h1&gt;My First Web Application!&lt;/h1&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/body&gt;<br>
+&lt;/html&gt;<br>
+            </div>
+            <h3>See your application in Chrome</h3>
+            <div class="instruction">
+                <p>
+                    Select Port 3000 from the Preview menu to see your application in Chrome.
+                </p>
+            </div>
+            <img src="chrome15.png">
+        </div>
+    </body>
+</html>

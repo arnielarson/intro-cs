@@ -1,0 +1,129 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <link href="../reset.css" rel="stylesheet">
+    <link href="../page.css" rel="stylesheet">
+    <style>
+        input[type="range"] { padding: 0px; }
+        .example { margin: 10px; }
+        .type { display: inline-block; min-width: 100px; }
+    </style>
+</head>
+    <body>
+        <div class="frame">            
+            <p>
+            <a href="../default.htm" class="right">Introduction To Computer Science</a>
+            </p>
+            <h1>Example &lt;form&gt; fields</h1>
+            <p>
+                The following some examples of elements used to construct fields within forms.
+            </p>
+            <p>
+                For more information and additional options, see the 
+                <a href="http://www.w3.org/html/wg/drafts/html/master/forms.html#attr-input-type">HTML5</a>
+                specification:
+            </p>
+            <form action="javascript:;">
+                <h2>&lt;input&gt;</h2>
+                <p>Select the type of input using the "type" attribute.  Below are example of different input types.</p>
+                <div class="example">
+                    <label>
+                        <span class="type">text</span>
+                        <input type="text" value="abc">
+                    </label>
+                </div>
+                <div class="example">
+                    <label>
+                        <span class="type">number</span>
+                        <input type="number" value="123" min="0" max="500">
+                    </label>
+                </div>
+                <div class="example">
+                    <label>
+                        <span class="type">password</span>
+                        <input type="password" value="secret">
+                    </label>
+                </div>
+                <div class="example">
+                    <label>
+                        <span class="type">range</span>
+                        <input type="range" value="0" min="0" max="100">
+                    </label>
+                </div>
+                <div class="example">
+                    <label>
+                        <span class="type">color</span>
+                        <input type="color" value="red">
+                    </label>
+                </div>
+                <div class="example">
+                    <label>
+                        <span class="type">checkbox</span>
+                        <input type="checkbox" value="on">
+                    </label>
+                </div>
+                <div class="example">
+                    <span class="type">radio</span>
+                    <label>
+                        <input type="radio" checked="checked" name="radioGroup">
+                        <span class="label">option1</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="radioGroup">
+                        <span class="label">option2</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="radioGroup">
+                        <span class="label">option3</span>
+                    </label>
+                    </div>
+                </div>
+                <div class="example">
+                    <label>
+                        <span class="type">button</span>
+                        <input type="button" value="Button">
+                    </label>
+                </div>
+                <div class="example">
+                    <label>
+                        <span class="type">submit</span>
+                        <input type="submit" value="Submit">
+                    </label>
+                </div>
+                <h2>&lt;textarea&gt;</h2>
+                <p>A textarea can be used for multi-line text.</p>
+                <div class="example">
+                    <textarea></textarea>
+                </div>            
+                <h2>&lt;select&gt;</h2>
+                <p>A select can be use to let the user select from a set of options.</p>
+                <div class="example">
+                    <select>
+                        <option value="value1">Value1</option>
+                        <option value="value2">Value2</option>
+                        <option value="value3">Value3</option>
+                    </select>
+                </div>            
+                <h2>&lt;fieldset&gt;</h2>
+                <p>A fieldset can be used to name and visually group a set of fields.</p>
+                <div class="example">
+                    <fieldset>
+                        <legend>legend</legend>
+                        <div class="example">
+                            <label>
+                                <span class="type">text</span>
+                                <input type="text" value="abc">
+                            </label>
+                        </div>
+                        <div class="example">
+                            <label>
+                                <span class="type">number</span>
+                                <input type="number" value="123" min="0" max="500">
+                            </label>
+                        </div>
+                    </fieldset>
+                </div>            
+            </form>
+        </div>
+    </body>
+ </html> 

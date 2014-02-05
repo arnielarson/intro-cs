@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Exercise 1.6.8</title>
+        <link href="../../../reset.css" rel="stylesheet">
+        <link href="../../../page.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="frame">
+            <h1>Exercise 1.6.8</h1>
+            <h2>If you finish</h2>
+            
+            <p>
+                If you finish the other exercises, here are some ideas for additional exploration.
+            </p>            
+           
+            <h3>Growing bubbles</h3>
+            
+            <p>
+                Make each bubble grow a little each frame, and if they reach
+                a certain size, then pop them.  
+            </p>
+            <img src="capture5.gif">
+            <div class="instruction">
+                <p>
+                    Increase the radius of each bubble each frame.
+                </p>
+                <p>
+                    Each frame, check if the radius is too large, and
+                    if so, remove the bubble from the array.
+                </p>
+            </div>
+            
+            <h3>Limited drift</h3>
+            
+            <p>
+                Allow the bubbles to drift, but only for N frames (say 10).
+            </p>
+            
+            <img src="capture6.gif">
+            <div class="instruction">
+                <p>
+                    Add a property to each bubble to keep track of how many frames a bubble
+                    has been around.
+                </p>
+                <p>
+                    Add one to the property each frame.
+                </p>
+                <p>
+                    Only change dx and dy if the bubble has been around for less than
+                    say, 10 frames.
+                </p>
+            </div>
+            
+            
+            <h3>Warp speed</h3>
+            
+            <p>
+                Hit warp speed in a bubble factory.
+            </p>
+            
+            <img src="capture7.gif">
+                
+            <div class="instruction">
+                <p>
+                    Start each bubble at a random point in the canvas. 
+                </p>
+                <p>
+                    Each frame, calculate dx and dy so that they move the bubble
+                    closer to the center.
+                </p>
+                <p>
+                    When the bubble reaches approximately the center, remove it.
+                </p>
+            </div>
+
+            <h3>Gravity</h3>
+            
+            <p>
+                Add some gravity.
+            </p>
+            
+            <img src="capture8.gif">
+                
+            <div class="instruction">
+                <p>
+                    Start each bubble 1/4 of the way down the canvas.
+                </p>
+                <p>
+                    Each frame, add 1 to dy, to simulate gravity.
+                </p>
+            </div>
+            
+            <h3>Colors</h3>
+            
+            <p>
+                Change the color based on how long the bubble has been around.
+            </p>
+            
+            <img src="capture9.gif">
+                
+            <div class="instruction">
+                <p>
+                    Add a property to each bubble that counts how many frames
+                    it has been around.
+                </p>
+                <p>
+                    Add one to the property each frame.
+                </p>
+                <p>
+                    Add an array of color names.
+                </p>
+                <p>
+                    Compute the index of the color to use from the colors array
+                    based on the frame count for the bubble.
+                    The larger the frame count, the larger the index.
+                </p>
+            </div>
+            
+            <h2>Done!</h2>
+            <p>
+                If you are ready to share your work, 
+                head back to Schoology and submit your files.
+            </p>
+        </div>
+    </body>
+</html>

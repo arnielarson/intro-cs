@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Exercise 1.2.5</title>
+        <link href="../../../reset.css" rel="stylesheet">
+        <link href="../../../page.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="frame">
+            </p>
+              <a href="lesson.htm" class="right">Lesson 1.2</a>
+            </p>
+
+            <h1>Exercise 1.2.5</h1>
+            <h2>How Many Coins?</h2>
+            <p>
+                If you buy something at a shop, and you give the shopkeeper
+                too much money, they will (hopefully) give you some change back.
+            </p>
+            <p>
+                In this exercise, we will create a <b>function</b> that
+                calculates <b>how many coins</b> a shopkeeper will give as change.
+            </p>
+            <p>
+                We will assume that the shopkeeper only
+                gives change using the following <b>coins</b>:
+            </p>
+            <table class="simple">
+                <tr>
+                    <th>Name of<br>Coin</th><th>Cents per<br> Coin</th>
+                </tr>
+                <tr>
+                    <td>Quarter</td><td>25</td>
+                </tr>
+                <tr>
+                    <td>Dime</td><td>10</td>
+                </tr>
+                <tr>
+                    <td>Nickel</td><td>5</td>
+                </tr>
+                <tr>
+                    <td>Penny</td><td>1</td>
+                </tr>
+            </table>
+            <p>
+                Also, the shopkeeper would rather give you
+                a <b>large</b> coin rather than a <b>small</b>
+                coin.
+            </p>
+            <p>
+                The <b>input</b> to your function should be the <b>amount of
+                change</b> in cents.  The <b>output</b> should be the <b>number
+                of coins</b>.
+            </p>
+            <h3>Example</h3>
+            <p>
+                For example, if the amount of change is <b>97</b> cents, the shopkeeper will give <b>7</b> coins:
+            </p>
+            <table class="simple">
+                <tr>
+                    <th>Name of <br>Coin</th><th>Cents per <br>Coin</th><th>Number of<br>Coins</th><th>Total<br>Cents</th>
+                </tr>
+                <tr>
+                    <td>Quarter</td><td>25</td><td>3</td><td>75</td>
+                </tr>
+                <tr>
+                    <td>Dime</td><td>10</td><td>2</td><td>20</td>
+                </tr>
+                <tr>
+                    <td>Nickel</td><td>5</td><td>0</td><td>0</td>
+                </tr>
+                <tr>
+                    <td>Penny</td><td>1</td><td>2</td><td>2</td>
+                </tr>
+                <tr>
+                    <th>Total</td><th></th><th>7</th><th>97</th>
+                </tr>
+            </table>
+            <h3>What you need to know</h3>
+            <p>
+                There is more than one solution to this problem.  But you will probably
+                need to know how to
+                do at least one of the following:
+            </p>
+            <ul>
+                <li>How to remove the fractional part of a number.</li>
+                <li>How to find the remainder of a division.</li>
+            </ul>
+            <p>
+                The following sections explain these techniques, which
+                may also give you some clues as to how to solve the problem.
+            </p>
+            <h3>Removing the fractional part of a number</h3>
+            <p>
+                In the number <span class="code">3.1415927</span>,
+                the integer part of the number is <span class="code">3</span> and the fractional
+                part of the number is <span class="code">.1415927</span>.
+            </p>
+            <p>
+                Javascript has a function that will remove the fractional part of a number
+                called <b>Math.floor</b>.  
+                For example, after the following statements are executed, the variable <b>numberWithoutFraction</b>
+                will have the value <span class="code">3</span>.
+            </p>
+            <div class="code">
+                var numberWithFraction = 3.1415927;<br>
+                var numberWithoutFraction = Math.floor(numberWithFraction);
+            </div>
+            <p class="sidenote">
+                As you might guess, there is also a "ceiling" function (<b>Math.ceil</b>)
+                You can learn more about these functions 
+                <a href="http://en.wikipedia.org/wiki/Floor_and_ceiling_functions">
+                    here
+                </a>.
+            </p>
+            <h3>Find the remainder of a division</h3>
+            <p>
+                You may recall from math that if you divide one number
+                by another number you may have a remainder
+                (the part of the first number that could not be divided
+                evenly by the second number).
+            </p>
+            <p>
+                In Javascript, we can <b>divide</b> two numbers using the symbol <span class="code">/</span>.
+                For example, after the following statements are executed, the variable <b>numberWithFraction</b>
+                will have the value <span class="code">2.5</span>.
+            </p>
+            <div class="code">
+                var firstNumber = 5;<br>
+                var secondNumber = 2;<br>
+                var numberWithFraction = firstNumber / secondNumber;
+            </div>
+            <p>
+                In a way similar to division, Javascript uses the symbol
+                <span class="code">%</span> for <b>remainder</b>.  
+                After the below statements are executed, the variable <b>remainder</b>
+                will have the value <span class="code">1</span>.
+            </p>
+            <div class="code">
+                var firstNumber = 5;<br>
+                var secondNumber = 2;<br>
+                var remainder = firstNumber % secondNumber;
+            </div>
+            <p>
+                The value
+                <span class="code">5</span> can be divided evenly by
+                <span class="code">2</span> twice, but <span class="code">1</span> is left over
+                (the remainder).                
+            </p>
+            <h3>Ready to start</h3>
+            <p>
+                First create a folder for your work (Exercise 1.2.4).
+            </p>
+            <p>
+                Once you have a plan, you can create the
+                function that calculates the number of coins, and make sure it
+                gives the right answer (<b>7</b>) for change of <b>97</b>.                
+            </p>
+            <h2>Done!</h2>
+            <p>
+                Head back to Schoology and mark this as done.
+            </p>
+        </div>
+    </body>
+</html>

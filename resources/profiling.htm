@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Profiling</title>
+        <link href="../reset.css" rel="stylesheet">
+        <link href="../page.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="frame">
+            <h1>Profiling</h1>
+            <p>Profiling is a process where you use a <b>Profiler</b> (software) to analyze the
+                speed of a program.  We will use the Profiler that is part of Developer
+                Tools in Chrome.
+            </p>
+            <h2>Capturing a profile</h2>
+            <p>
+                When you run a Profiler it will capture (record) a <b>Profile</b>, which is a recording
+                of what went happened as the program ran.  The Profiler can then use
+                the information in the Profile to show you what functions took the most time
+                to execute.
+            </p>
+            <p>
+                To capture a profile, follow the following steps:
+            </p>
+            <ul>
+                <li>
+                    <p>Load your program into Chrome</p>
+                </li>
+                <li>
+                    <p>Open Developer Tools</p>
+                </li>
+                <li>
+                    <p>Click on the <b>Profiles</b> tab, and make sure "Collect Javascript CPU Profile" is selected. <img src="profiling1.png"></p>
+                </li>
+                <li>
+                    <p>Click the <b>Start</b> button to start capturing the profile.</p>
+                </li>
+                <li>
+                    <p>
+                        Use your program the way you think a user would use it.
+                    </p>
+                </li>
+                <li>
+                    <p>Click the <b>Stop</b> button to stop the capture.</p>
+                </li>
+                <li>
+                    <p>Chrome will show you the profile.<br>
+                        <img src="profiling2.png">
+                    </p>
+                    <p>
+                        The profile information will contain functions that you wrote
+                        as well as functions that you did not write.  For example, in the bubbles
+                        example, the function <b>drawFrame</b> function is listed, but the
+                        canvas functions like <b>fill</b> an <b>arc</b> are also listed.                    </p>
+                </li>
+                <li>
+                    <p>
+                        The <b>Self</b> column is the percent of time taken by the 
+                        function <b>not including</b> any functions it called.  
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        The <b>Total</b> column is the percent of time taken by the 
+                        function <b>including</b> any functions it called.  
+                    </p>
+                </li>
+            </ul>
+            
+         </div>
+    </body>
+</html>

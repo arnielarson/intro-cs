@@ -1,0 +1,113 @@
+MODELING DATA
+
+two types of values:
+- scalars: numbers, text, booleans, null
+- structures: objects (related values), arrays (repeating values)
+- we can combine these arbitrarily
+
+modeling data
+- given a problem, what data structure should I use?
+- what do I want to represent (not everything)?
+- how should I represent it?
+
+practice (problems)
+- 
+
+PROBLEM SOLVING
+- simplified version of "how to program it"
+
+life algorithm
+- http://en.wikipedia.org/wiki/Conway%27s_Game_of_Life
+- 2d or 1d array?
+- different seeds
+- requires array
+- requires animation
+- have all the grids as data
+
+bar chart
+- plot the number of students in a school object
+- make an array with the values in it
+- generalize this to take an array of values
+- need to scale the values (min, max)
+
+RUNNING TIME
+
+Number of items.  O(1)
+Sum of items. O(n)
+Selection sort.  O(n^2)
+Binary search O(log n)
+Merge sort.  O(n log n)
+
+Generate an array with n random numbers.
+
+Test with 1,100,1000,10000,100000,1000000.
+
+Test function: will generate array for N, and call other function with array, and return time.  We can get time from debugger, and chart N vs. Time.
+
+What do we see?  Different curves: quadratic, logarithmic, linear, constant.
+
+Introduction to asymptotic notation, and classes of algorithm running times.
+
+Notice that we all got the same result, even though our computers were different speeds.
+
+Why running time is important.  Explanation of what is computable by different running times.
+
+
+SORTING
+
+sorting an array
+- bubble sort 
+- light ones float to the top
+- repeat with smaller length list
+- http://cs50.tv/2012/fall/shorts/bubble_sort/bubble_sort-720p.mp4
+- mentions asymptotic notation
+
+comparer
+- generalizes the notion of comparison
+
+insertion sort
+- http://cs50.tv/2012/fall/shorts/insertion_sort/insertion_sort-720p.mp4
+- does insertion at the end by shifting to the right until correct position found
+
+selection sort
+- http://cs50.tv/2012/fall/shorts/selection_sort/selection_sort-720p.mp4
+- pick the one that is smallest, of the remaining
+
+merge sort
+- nlogn
+- requires additional storage
+
+javascript methods
+- quicksort
+- sort method on array
+
+SEARCHING
+
+linear search
+- http://cs50.tv/2012/fall/shorts/linear_search/linear_search-720p.mp4
+
+binary search
+- first part: binary search in array
+- http://cs50.tv/2012/fall/shorts/binary_search/binary_search-720p.mp4
+
+ADDITIONAL DATA STRUCTURES
+
+stack
+- use insert/delete to implement a stack
+- concept of fifo, real world equivalents
+
+queue
+- use insert/delete to implement a queue
+- concept of lifo, real world equivalents
+
+hash tables
+- the concept of hashing
+- TODO: has to be a simple example for this
+
+trees
+- binary search tree?
+
+graphs
+- facebook friends
+
+

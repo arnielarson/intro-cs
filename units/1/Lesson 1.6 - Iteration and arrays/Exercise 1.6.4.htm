@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Exercise 1.6.4</title>
+        <link href="../../../reset.css" rel="stylesheet">
+        <link href="../../../page.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="frame">
+            <h1>Exercise 1.6.4</h1>
+            <h2>More on Arrays and Loops</h2>
+            <p>
+                In this exercise, we are going to take a closer look at
+                arrays and loops.  Below is a summary of what we will cover.
+                We will be using most of these techniques in the next
+                exercise.
+            </p>
+            <ul>
+                <li>
+                    <a href="#Arrays">More on Arrays</a>
+                    <ul>
+                        <li>
+                            <a href="#ArrayChange">Changing a value in an array</a>
+                        </li>
+                        <li>
+                            <a href="#ArrayAppend">Adding to the end of an array</a>
+                        </li>
+                        <li>
+                            <a href="#ArrayInsert">Inserting a value into an array</a>
+                        </li>
+                        <li>
+                            <a href="#ArrayRemove">Removing a value from an array</a>
+                        </li>
+                    </ul>
+                </li>                
+                <li>
+                    <a href="#Loops">More on loops</a>
+                    <ul>
+                        <li>
+                            <a href="#LoopFind">Finding a value in an array</a>
+                        </li>
+                        <li>
+                            <a href="#LoopRepeatTimes">Repeat it this many times</a>
+                        </li>
+                        <li>
+                            <a href="#LoopRepeatUntil">Repeat it until done</a>
+                        </li>
+                    </ul>
+                </li>                
+            </ul>
+            <h2>Example</h2>
+            <p>
+                This exercise uses the following example, which stores
+                the names of four Sounders players in an array.
+            </p>
+            <div class="sidebyside">
+                <div class="side">
+                    <div class="code">
+function start() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var players = [<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Montero",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Fernandez",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Gspurning",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Rosales"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;];<br>
+                        }<br>
+                    </div>
+                </div>
+                <div class="side">
+                    <img src="diagram2.png">                    
+                </div>
+            </div>            
+            <h2 id="Arrays">More on Arrays</h2>
+
+            <p class="idea">
+                The real power of arrays is that we can change
+                the values they contain after they have been created.
+            </p>
+            <h3 id="ArrayChange">Changing a value in an array</h3>
+            <p>
+                We can change a value in an array, as long as we know
+                the index of the value we want to change.  For
+                example, we could change change "Fernandez" (
+                which is at index 1) to "Alonso":
+            </p>
+            <div class="sidebyside">
+                <div class="side">
+                    <p>Before</p>                            
+                    <img src="diagram12.png">                    
+                </div>
+                <div class="side">
+                    <p>After</p>                            
+                    <img src="diagram10.png">                    
+                </div>
+            </div>
+            <p>
+                We can write this in Javascript like this:
+            </p>
+            <div class="code">
+function start() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var players = [<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Montero",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Fernandez",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Gspurning",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Rosales"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;];<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="highlight">players[1] = "Alonso";</span><br>
+}<br>
+            </div>
+            
+            <h3 id="ArrayAppend">Adding to the end of an array</h3>
+            <p>
+                Using our example, if we want to add the player "Alonso"
+                to the end of the array, the length of the array would
+                increase by one, and "Alonso" would be set.
+            </p>
+            <div class="sidebyside">
+                <div class="side">
+                    <p>Before</p>                            
+                    <img src="diagram2.png">                    
+                </div>
+                <div class="side">
+                    <p>After</p>                            
+                    <img src="diagram7.png">                    
+                </div>
+            </div>
+            <p>
+                We can write this in Javascript like this:
+            </p>
+            <div class="code">
+function start() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var players = [<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Montero",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Fernandez",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Gspurning",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Rosales"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;];<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="highlight">players.push("Alonso");</span><br>
+}<br>
+            </div>            
+            <div class="signature">
+                <div class="parameter">array</div>.push(<div class="parameter">value</div>);
+            </div>            
+            <p>
+            <h3 id="ArrayInsert">Inserting a value into an array</h3>
+            <p>
+                What if we want to insert a value before the end of the array?
+            </p>
+            <p>
+                When inserting a value, the values that follow will be shifted down.
+                For example,
+                to insert "Alonso" at index two, then two values
+                would need to shift down.                
+            </p>
+            <div class="sidebyside">
+                <div class="side">
+                    <p>Before</p>                            
+                    <img src="diagram2.png">                    
+                </div>
+                <div class="side">
+                    <p>After</p>                            
+                    <img src="diagram8.png">                    
+                </div>
+            </div>
+            <p>
+                We can write this in Javascript like this:
+            </p>
+            <div class="code">
+function start() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var players = [<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Montero",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Fernandez",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Gspurning",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Rosales"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;];<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="highlight">players.splice(2, 0, "Alonso");</span><br>
+}<br>
+            </div>
+            <p>
+                The first parameter (<span class="code">2</span>) says what index to insert at.
+                The second parameter (<span class="code">0</span>) is always zero.  The third parameter
+                is what value to insert (<span class="code">"Alonso"</span>).
+            </p>
+            <div class="signature">
+                <div class="parameter">array</div>.splice(<div class="parameter">index</div>,
+                0, <div class="parameter">value</div>);
+            </div>            
+            <h3 id="ArrayRemove">Removing a value from an array</h3>
+            <p>
+                We can also remove a value from an array at an index.
+            </p>
+            <p>
+                When removing a value from an array, then the values that follow it
+                will shift upward.  For example,
+                to remove the value "Gspurning" at index 2, then one value
+                would need to shift up.                
+            </p>
+            <div class="sidebyside">
+                <div class="side">
+                    <p>Before</p>                            
+                    <img src="diagram11.png">                    
+                </div>
+                <div class="side">
+                    <p>After</p>                            
+                    <img src="diagram9.png">                    
+                </div>
+            </div>            
+            <p>
+                We can write this in Javascript like this:
+            </p>
+            <div class="code">
+function start() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var players = [<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Montero",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Fernandez",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Gspurning",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Rosales"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;];<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="highlight">players.splice(2, 1);</span><br>
+}<br>
+                
+            </div>
+            <p>
+                The first parameter (<span class="code">2</span>) says what index to remove at.
+                The second parameter (<span class="code">1</span>) is always one.
+            </p>
+            <div class="signature">
+                <div class="parameter">array</div>.splice(<div class="parameter">index</div>, 1);
+            </div>
+            
+            <h2 id="Loops">More on Loops</h2>
+            <p class="idea">
+                So far we have been using loops to go through all the elements of an array.
+                We can use loops for many other things as well.
+            </p>
+            
+            <h3 id="LoopFind">Finding a value in an array</h3>
+            <p>
+                Lets say we want to remove the value "Gspurning" from our array.
+                In order to <a href="#ArrayRemove">remove</a> the value, we need to find the index of
+                the value.  
+            </p>
+            <p>
+                We can step through the values of the array, looking to see
+                if we have found the one we are looking for.
+            </p>
+            <div class="code">
+function start() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var players = [<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Montero",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Fernandez",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Gspurning",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Rosales"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;];<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="highlight">var lookingFor = "Gspurning";<br>
+&nbsp;&nbsp;&nbsp;&nbsp;for (var i = 0; i &lt; players.length; i = i + 1) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var player = players[i];<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (player == lookingFor) {</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">found it!</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="highlight">}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}</span><br>
+}<br>
+
+            </div>
+            
+            <p>
+                When we find the player, then we want to do two things:
+            </p>
+            <ul>
+                <li>Stop the loop, since we have found what we are looking for.</li>
+                <li>Store the index that we found the player at.</li>
+            </ul>
+            <p class="idea" id="LoopFind2">
+                The <span class="code">break</span> statement will stop a loop.
+            </p>
+            <p>
+                Adding a variable <span class="code">foundAt</span> to store the index we found the
+                player at, and using the <span class="code">break</span> statement
+                to stop, we have:
+            </p>
+            <div class="code">
+function start() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var players = [<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Montero",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Fernandez",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Gspurning",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Rosales"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;];<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var lookingFor = "Gspurning";<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="highlight">var foundAt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;for (var i = 0; i &lt; players.length; i = i + 1) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var player = players[i];<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (player == lookingFor) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="highlight">foundAt = i;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="highlight">break;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+}<br>                
+            </div>
+            
+            <p>
+                When the loop ends, then <span class="code">foundAt</span> will have the index
+                of the player that we found (2).  
+            </p>
+            <p>
+                If <span class="code">"Gspurning"</span> had not been in the array,
+                then <span class="code">foundAt</span>
+                would have the value <span class="code">undefined</span>.                
+            </p>
+            
+            <h3 id="LoopRepeatTimes">Repeat it this many times</h3>
+            <p>
+                We can use a loop any time we want to repeat something
+                a certain number of times.  
+            </p>
+            <p>
+                For example, to remove the first player in the array,
+                we <a href="#ArrayRemove">know</a> we can do:
+            </p>
+            <div class="code">
+function start() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var players = [<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Montero",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Fernandez",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Gspurning",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Rosales"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;];<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="highlight">players.splice(0, 1);</span><br>
+}<br>
+            </div>
+            <p>
+                To remove the first <b>three</b> players, we can use a loop that counts
+                to 3.  The for loop variable <span class="code">i</span> will have the values
+                1, 2, and 3.
+            </p>
+            <div class="code">
+function start() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var players = [<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Montero",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Fernandez",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Gspurning",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Rosales"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;];<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="highlight">for (var i = 1; i &lt;= 3; i = i + 1) {</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;players.splice(0, 1);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="highlight">}</span><br>
+}<br>
+            </div>            
+            
+            <h3 id="LoopRepeatUntil">Repeat it until done</h3>
+            <p>
+                We can also use a loop to continue repeating
+                something until we are done.
+            </p>
+            
+            <p>
+                For example, to remove the first player in the array,
+                we <a href="#ArrayRemove">know</a> we can do:
+            </p>
+            <div class="code">
+function start() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var players = [<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Montero",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Fernandez",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Gspurning",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Rosales"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;];<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="highlight">players.splice(0, 1);</span><br>
+}<br>
+            </div>
+            <p>
+                If we wanted to keep removing the first player in the
+                array until there are only two players left, then
+                we can leave out the variable, and use <span class="code">break</span>
+                to decide when the the loop stops.
+            </p>
+            <p class="idea">
+                A for loop does not have a variable.
+            </p>
+            <p>
+                In this case, we want to continuing removing a player
+                until the length of the players array is two (meaning there
+                are two players left in the array).
+            </p>
+            <div class="code">
+function start() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var players = [<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Montero",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Fernandez",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Gspurning",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Rosales"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;];<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="highlight">for (;;) {</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="highlight">if (players.length == 2) {</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="highlight">break;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="highlight">}</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;players.splice(0, 1);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="highlight">}</span><br>
+}<br>
+                
+            </div>
+            
+            <h2>Try it out</h2>
+            
+            <div class="instruction">
+                <p>                    
+                    Download the following <a href="Exercise%201.6.4.zip">zip</a>.
+                </p>
+                <p>                    
+                    Step through the examples.
+                </p>
+                <p>
+                    It might be convenient to use the Chrome <b>Scope Variables</b>
+                    to watch the values change as you step (see below).
+                </p>
+            </div>
+            
+            <img src="chrome6.png">
+            
+               
+            <h2>Done!</h2>
+            <p>
+                Head back to Schoology and mark this as done.
+            </p>
+        </div>
+    </body>
+</html>
