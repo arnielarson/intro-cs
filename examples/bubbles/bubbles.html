@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Bubbles</title>
+        <script src="uprep.js"></script>
+        <link rel="stylesheet" href="uprep.css">
+    </head>
+    <body onload="start();">
+        <table>
+            <tr>
+                <td><button input="add" onclick="addBubble()">Add a Bubble</button></td>
+                <td><button input="remove" onclick="removeBubble()">Remove a Bubble</button></td>
+            </tr>
+            <tr>
+                <td>Number of Bubbles: </td>
+                <td><input id="numBubbles" readonly></input></td>
+            </tr>
+        </table>
+        <canvas width="500" height="500" id="mainCanvas"></canvas>
+        
+    </body>
+</html>

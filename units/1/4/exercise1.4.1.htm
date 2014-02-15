@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Exercise 1.4.1</title>
+        <link href="../../../reset.css" rel="stylesheet">
+        <link href="../../../page.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="frame">
+            <h1>Exercise 1.4.1</h1>
+            <h2>The two years</h2>
+            <p>
+                If we look at the data structure diagram we used in the last lesson, we can
+                see that there are really two groups of input variables: one for <b>this year</b>
+                and one for <b>last year</b>.
+            </p>
+            <img src="diagram1.png">
+            <p>
+                Our program would be more clear if we could
+                represent this <b>grouping</b> in our data structures.
+            </p>
+            <h3>Year objects</h3>
+            <p>
+                To do this, we can use an <b>object</b>.  
+                An object <b>contains</b>
+                a set of properties.  Each <b>property</b> has a <b>name</b> and a <b>value</b>.
+            </p>
+            <p>
+                A common use of objects is to group a known set of values.
+            </p>
+            <p>
+                In our example, we have two years, so we need two objects: one for <b>this year</b>
+                and one for <b>last year</b>.  Updating our diagram to use objects, we have:
+
+            </p>
+            <img src="diagram2.png">
+            <h3 id="WritingObjects">Writing objects</h3>
+            <p>
+                In Javascript, an object is a <b>value</b> (just like a number is a value).
+            </p>
+            <p>
+                The way we write an object value in Javascript is as follows:                
+            </p>
+            <div class="code">
+                { <span class="placeholder">properties</span> }
+            </div>
+            <p>
+                Each <b>property</b> is separated by a comma (<span class="code">,</span>), and is written:
+            </p>
+            <div class="code">
+                <span class="placeholder">name</span>: <span class="placeholder">expression</span>
+            </div>
+            <p>
+                For example, for <b>this year</b>, we can write the object value with seven properties:
+            </p>
+            <div class="code">
+                {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;grade6: 66,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;grade7: 74,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;grade8: 74,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;grade9: 82,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;grade10: 81,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;grade11: 79,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;grade12: 76<br>
+                }<br>
+            </div>
+            <p>
+                For <b>last year</b>, we can write another object value with seven properties:
+            </p>
+            <div class="code">
+                {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;grade6: 65,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;grade7: 70,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;grade8: 72,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;grade9: 80,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;grade10: 80,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;grade11: 80,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;grade12: 67<br>
+                }<br>
+            </div>
+            <h3>Object references</h3>
+            <p>
+                We can place an object value in a variable, 
+                like we can a number.  When an object is placed in a variable,
+                the variable <b>references</b> (points to) the object value.
+            </p>
+            <p>
+                Updating our diagram to include <b>thisYear</b> and <b>lastYear</b> variables, we have:
+            </p>
+            <img src="diagram3.png">
+            <p>
+                We can have more than one variable reference the same object.
+                For example, in the following diagram 
+                the <b>thisYear</b> and <b>year2013</b>
+                variables both reference the same object.
+            </p>
+            <img src="diagram4.png">
+            <p>
+                To represent the above diagram in Javascript, we can write:
+            </p>
+            <div class="code">
+                var thisYear = {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;grade6: 66,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;grade7: 74,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;grade8: 74,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;grade9: 82,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;grade10: 81,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;grade11: 79,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;grade12: 76<br>
+                };<br>
+                var year2013 = thisYear;<br>
+                <br>
+                var lastYear = {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;grade6: 65,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;grade7: 70,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;grade8: 72,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;grade9: 80,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;grade10: 80,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;grade11: 80,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;grade12: 67<br>
+                };<br>
+                var year2012 = lastYear;
+            </div>
+            <p class="sidenote">
+                <img src="diagram5.png" class="right">
+                The use of <b>references</b> is common in programming.
+                You are probably used to this idea when surfing the web: two different
+                web pages might reference the same page using a hyperlink.
+            </p>
+            <p>
+                Each time we write an object value, we get a different object.
+                Just because an object contains properties with names and
+                values that are the same as another object, it does not
+                mean that it is the same object.
+            </p>
+            <p>
+                For example, if for some reason UPrep had the same enrollment
+                for the last two years, we could still have separate objects for
+                this year and last year.
+            </p>
+            <div class="code">
+                var thisYear = {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;grade6: 66,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;grade7: 74,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;grade8: 74,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;grade9: 82,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;grade10: 81,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;grade11: 79,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;grade12: 76<br>
+                };<br>
+                <br>
+                var lastYear = {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;grade6: 66,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;grade7: 74,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;grade8: 74,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;grade9: 82,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;grade10: 81,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;grade11: 79,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;grade12: 76<br>
+                };<br>
+            </div>            
+            <p class="sidenote">
+                Just because two pages on the web look
+                the same, it does not make them the same page.  We can only know
+                if the pages are the same by looking at the URL of the page.<br>
+                <img src="diagram6.png">
+            </p>
+            <h3>Using properties</h3>
+            <p>
+                So far we have seen how to write a object value, and what happens when
+                we place an object in a variable.  How do we actually <b>use</b> the
+                values contained in an object?
+            </p>
+            <p>
+                To use the value of a property, we need to answer two questions:
+            </p>
+            <ul>
+                <li>Which object?</li>
+                <li>Which property?</li>
+            </ul>
+            <p>
+                To use the value of a property of an object, we write:
+            </p>
+            <div class="code">
+                <span class="placeholder">object</span>.<span class="placeholder">property</span>
+            </div>
+            <p>
+                Where <b>object</b> refers to an object value, and <b>property</b> is the
+                name of the property we want to use.
+            </p>
+            <p>
+                For example, say we wanted to total the number of students in the middle
+                school for <b>this year</b>.  The object value we want to use is referenced
+                by variable <b>thisYear</b>, and we want to use the values of the properties
+                named <b>grade6</b>, <b>grade7</b>, and <b>grade8</b>.  We can then write:
+            </p>
+            <div class="code">
+                var middleSchoolStudents = thisYear.grade6 + 
+                thisYear.grade7 + thisYear.grade8;
+            </div>
+            <h3>Objects as parameters</h3>
+            <p>
+                We can provide an object value as a parameter when calling
+                a function.
+            </p>
+            <p>
+                For example, the following defines a function (<b>countMiddleSchoolStudents</b>)
+                that will calculate the total number of students in the middle school
+                for any <b>year object</b>.  We can call that function from another function that
+                calculates the number of middle school students for <b>this year</b>,
+                and provide the year object we want counted as a parameter.
+            </p>
+            
+            <div class="code">
+                function countMiddleSchoolStudents(<span class="highlight">year</span>) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;return year.grade6 + year.grade7 + year.grade8;<br>
+                }<br>
+                <br>
+                function calculateStudents() {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;var <span class="highlight">thisYear</span> = {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade6: 66,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade7: 74,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade8: 74,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade9: 82,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade10: 81,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade11: 79,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade12: 76<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;};<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;var middleSchoolStudents = countMiddleSchoolStudents(<span class="highlight">thisYear</span>);<br>
+                }
+            </div>
+            <h3>Objects as return values</h3>
+            <p>
+                Lets say we also needed to count the upper school students.  We could
+                add another function <b>countUpperSchoolStudents</b>:
+            </p>
+            <div class="code">
+function countMiddleSchoolStudents(year) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return year.grade6 + year.grade7 + year.grade8;<br>
+}<br>
+<br>
+function <span class="highlight">countUpperSchoolStudents</span>(year) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return year.grade9 + year.grade10 + year.grade11 + year.grade12;<br>
+}<br>
+<br>
+function calculateStudents() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var thisYear = {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade6: 66,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade7: 74,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade8: 74,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade9: 82,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade10: 81,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade11: 79,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade12: 76<br>
+&nbsp;&nbsp;&nbsp;&nbsp;};<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var middleSchoolStudents = countMiddleSchoolStudents(thisYear);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var upperSchoolStudents = <span class="highlight">countUpperSchoolStudents</span>(thisYear);<br>
+}<br>                
+            </div>
+            <p>
+                If we found that we typically counted both the upper school students
+                and the middle school students, we can add an additional function
+                <b>countStudents</b> that calculates both values 
+                and returns an object.
+            </p>
+            <p>
+                The object we return has two properties: <b>upperSchool</b>, for the upper
+                school total, and <b>middleSchool</b> for the middle school total:
+            </p>
+            <div class="code">
+function countMiddleSchoolStudents(year) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return year.grade6 + year.grade7 + year.grade8;<br>
+}<br>
+<br>
+function countUpperSchoolStudents(year) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return year.grade9 + year.grade10 + year.grade11 + year.grade12;<br>
+}<br>
+<br>
+function <span class="highlight">countStudents</span>(year) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var middleSchoolStudents = countMiddleSchoolStudents(year);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var upperSchoolStudents = countUpperSchoolStudents(year);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="highlight">middleSchool</span>: middleSchoolStudents,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="highlight">upperSchool</span>: upperSchoolStudents<br>
+&nbsp;&nbsp;&nbsp;&nbsp;};<br>
+}<br>
+<br>
+function calculateStudents() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var thisYear = {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade6: 66,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade7: 74,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade8: 74,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade9: 82,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade10: 81,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade11: 79,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade12: 76<br>
+&nbsp;&nbsp;&nbsp;&nbsp;};<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var students = <span class="highlight">countStudents</span>(thisYear);<br>
+}<br>                
+            </div>
+            <p class="sidenote">
+                This should answer the <a href="../Lesson%201.2%20-%20Functions%2C%20variables%2C%20and%20debugging/Exercise%201.2.2.htm#MultipleReturnValues">previous question</a>
+                about how to return more than one value from a function: just return an object
+                with a property for each value!
+            </p>
+            <h2>Updating our program</h2>
+            <p>
+                As you can see, objects are a very useful and powerful concept, since they allow us to <b>group related
+                values together</b>.  
+            </p>
+            <p id="UpdatedCode">
+                We should now be able to update our program to use objects for <b>thisYear</b>
+                and <b>lastYear</b>.  We can also add a function (<b>calculateAverageStudentsForYear</b>) that computes all the different
+                averages for a year.
+                Hopefully these changes will make our program much easier to read
+                and understand.  Take a look:
+            </p>
+            <div class="code" >
+function calculateAverageMiddleSchoolStudentsForYear(year) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var totalStudents = year.grade6 + year.grade7 + year.grade8;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return totalStudents / 3; <br>
+}<br>
+<br>
+function calculateAverageUpperSchoolStudentsForYear(year) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var totalStudents = year.grade9 + year.grade10 + year.grade11 + year.grade12;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return totalStudents / 4;<br>
+}<br>
+<br>
+function calculateAverageWholeSchoolStudentsForYear(year) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var totalStudents = year.grade6 + year.grade7 + year.grade8 + year.grade9 +<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;year.grade10 + year.grade11 + year.grade12;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return totalStudents / 7;<br>
+}<br>
+<br>
+function <span class="highlight">calculateAverageStudentsForYear</span>(year) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var middleSchoolAverage = calculateAverageMiddleSchoolStudentsForYear(year);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var upperSchoolAverage = calculateAverageUpperSchoolStudentsForYear(year);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var wholeSchoolAverage = calculateAverageWholeSchoolStudentsForYear(year);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;middleSchool: middleSchoolAverage,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;upperSchool: upperSchoolAverage,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wholeSchool: wholeSchoolAverage<br>
+&nbsp;&nbsp;&nbsp;&nbsp;};<br>
+}<br>
+<br>
+function calculateAverageStudents() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var <span class="highlight">thisYear</span> = {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade6: 66,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade7: 74,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade8: 74,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade9: 82,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade10: 81,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade11: 79,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade12: 76<br>
+&nbsp;&nbsp;&nbsp;&nbsp;};<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var thisYearAverages = <span class="highlight">calculateAverageStudentsForYear</span>(thisYear);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var <span class="highlight">lastYear</span> = {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade6: 65,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade7: 70,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade8: 72,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade9: 80,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade10: 80,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade11: 80,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade12: 67<br>
+&nbsp;&nbsp;&nbsp;&nbsp;};<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var lastYearAverages = <span class="highlight">calculateAverageStudentsForYear</span>(lastYear);<br>
+}<br>
+                
+            </div>
+            <h2>Try it out</h2>
+            <p>
+                Lets see how this looks when we run it:
+            </p>
+            <ul>
+                <li>
+                    Create a new folder for this exercise (<b>Exercise 1.3.1</b>).                
+                </li>
+                <li>
+                    Create a new Javascript file (File / New in Komodo Edit).
+                </li>
+                <li>
+                    Copy and paste the <a href="#UpdatedCode">above</a> code into the file (just <b>copy and paste</b> all the text).
+                </li>
+                <li>
+                    Save as <b>uprep.js</b> in the new folder.
+                </li>
+                <li>
+                    Create a new HTML5 file (File / New, using your template).
+                </li>
+                <li>
+                    Copy and paste the following into the file (replace what was already there):
+                    <div class="code">
+&lt;!DOCTYPE html&gt;<br>
+&lt;html&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;head&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;Page Title&lt;/title&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;script src="uprep.js"&gt;&lt;/script&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/head&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;body onload="calculateAverageStudents();"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/body&gt;<br>
+&lt;/html&gt;<br>
+                    </div>
+                </li>
+                <li>
+                    Save the file as <b>default.html</b> in your new folder.
+                </li>
+                <li>
+                    Load the <b>default.html</b> file in Chrome.
+                </li>
+                <li>
+                    Open <b>Developer Tools</b> in Chrome, find the
+                    source for <b>uprep.js</b>, and set a breakpoint
+                    at line 40
+                    (after <b>thisYear</b> has been assigned the object value).<br>
+                    <img src="chrome10.png">
+                </li>
+                <li>
+                    Reload the page so Chrome stops at your breakpoint.
+                </li>
+                <li>
+                    Hover over the variable <b>thisYear</b> to see its value:<br>
+                    <img src="chrome11.png">
+                </li>
+                <li>
+                    Notice how you can see all the property values.
+                    <p class="sidenote">
+                        It looks like my object has an extra property called <b>__proto__</b> that I did
+                        not add.  What is that?  Every object in Javascript has a __proto__ property.
+                        You can ignore it for now.
+                    </p>
+                </li>
+                <li>
+                    Step until you get to line 42.  Take a look at how the new program
+                    works.  See how the objects are being used?<br>
+                    <img src="chrome12.png">
+                </li>
+                <li>
+                    Hover over the variable <b>thisYearAverages</b> to see
+                    the value returned by <b>calculateAverageStudentsForYear</b>.<br>                  
+                    <img src="chrome13.png">
+                </li>
+                <li>
+                    We now have all the averages for <b>thisYear</b> grouped in an object value.
+                </li>
+                <li>
+                    Continue stepping until line line 53,
+                    and take a look at the variable <b>lastYear</b>.<br>
+                    <img src="chrome14.png">                    
+                </li>
+            </ul>
+            <h2>
+                Reflecting on the changes we made
+            </h2>
+            <p>
+                Hopefully you get a sense for how using objects can help you organize the
+                values in your program.  We ended up with a program that was easier to
+                read and think about. 
+            </p>
+            <p>
+                Check out the comparison of the two versions (with and without objects)
+                <a href="Comparison%201.3.1.htm">here</a>. 
+            </p>
+            <p class="sidenote">
+                In the next exercise, you are going to be creating objects.
+                If you are fuzzy on how this example worked, you might want to
+                try stepping through the code and see if you can understand
+                what each statement is doing.  Ask a question if it still
+                doesn't make sense!
+            </p>
+            <h2>Done!</h2>
+            <p>
+                Head back to Schoology and mark this as done.
+            </p>
+        </div>
+    </body>
+</html>

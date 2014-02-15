@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Exercise 1.3.3</title>
+        <link href="../../../reset.css" rel="stylesheet">
+        <link href="../../../page.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="frame">
+            <h1>Exercise 1.3.3</h1>
+            <h2>Looking ahead</h2>
+            <p>
+                The UPrep staff love the calculations you have been doing for them.
+                But they want more.  Does this surprise you?
+            </p>
+            <p class="sidenote">
+                Once you create a program for someone else to use, they may ask you to add new
+                capabilities (often called <a href="http://en.wikipedia.org/wiki/Feature_(software_design)">features</a>)
+                to your program to make it better.
+            </p>
+            <p>
+                The UPrep staff are starting to look forward to next year,
+                and have some estimates of how many students will be at UPrep.  Their
+                estimate is that for <b>next year</b>, the school population will
+                change in the following way compared to <b>this year</b>:
+            </p>
+            <table class="simple">
+                <tr>
+                    <th>Grade</th>
+                    <th>Change in<br>Students</th>
+                </tr>
+                <tr>
+                    <td>6th grade</td>
+                    <td>-2</td>
+                </tr>
+                <tr>
+                    <td>7th grade</td>
+                    <td>-3</td>
+                </tr>
+                <tr>
+                    <td>8th grade</td>
+                    <td>-1</td>
+                </tr>
+                <tr>
+                    <td>9th grade</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>10th grade</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>11th grade</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>12th grade</td>
+                    <td>1</td>
+                </tr>
+            </table>
+            <p>
+                They would like you to calculate <b>average students per grade</b>
+                for the <b>whole school</b>, <b>middle school</b>, and <b>upper school</b>
+                for their <b>next year</b> estimate.
+            </p>
+            <h2>Creating a plan</h2>
+            <p>
+                Even though we are just making a change to our program, we still need a plan.
+            </p>
+            <p>
+                Lets look at what we already know:
+            </p>
+            <ul>
+                <li>We already know the algorithm for calculating the averages for <b>any</b> year.</li>
+                <li>We already have the student data for <b>this year</b>.</li>
+            </ul>
+            <p>
+                We also have some new <b>input</b> data:
+            </p>
+            <ul>
+                <li>We have the estimated <b>change</b> for each grade.</li>
+            </ul>
+            <p>
+                Given this, we should be able to add a step to our algorithm that
+                <b>adjusts</b> the input data for <b>this year</b> so we can use it
+                for next year.  The outline of our algorithm is then:
+            </p>
+            <ul>
+                <li>Using the <b>change</b> data, adjust the data for <b>this year</b> in order to the
+                calculate <b>next year</b> data.</li>
+                <li>Calculate the averages with the <b>next year</b> data.</li>
+            </ul>
+            <h3>Data structure for changes</h3>
+            <p>
+                We need to include the changes for next year in our data structure.  Which approach should
+                we use?
+            </p>
+            <div class="sidebyside">
+                <div class="side">
+                    <img src="diagram7.png">
+                </div>
+                <div class="side">
+                    <img src="diagram8.png">                    
+                </div>
+            </div>
+            <div class="answerFrame">
+                <div class="answerButton">Move your mouse here to see the answer</div>
+                <div class="answer">
+                    <p>
+                        <span class="red">change object</span><br>
+                        The changes for each grade the changes are <b>related values</b>, so it is better
+                        to use properties of an object than separate variables.
+                    </p>
+                </div>
+            </div>
+            <h2>Using our plan</h2>
+            <p>
+                Now that we have a plan, we can use it to update our existing program.
+            </p>
+            <p>
+                We identified a new step in our algorithm that adjusts the input data for
+                this year to produce last year.  We can create a new function (<b>adjustYear</b>) for that
+                step.  There is no reason to limit our function to a particular year, so we can
+                make it work for any year by using a <b>year</b> parameter as we have in the past.
+            </p>
+            <h3>Changing the value of a property</h3>
+            <p>
+                But wait a minute.  
+            </p>
+            <div class="code">
+                function adjustYear(year) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">How do we change the year values?</span><br>
+                }
+            </div>
+            <p>
+Our <b>adjustYear</b> function needs to change the value of the properties
+                (<b>grade6</b>, <b>grade7</b>, etc) in the object referenced by the <b>year</b> property.  How do we do that?                
+                So far we have
+                been <b>using</b> the value of properties,
+                but we have not been <b>changing</b> them.
+            </p>
+            <p>
+                When we change the value of a property, we have to answer the following:
+            </p>
+            <ul>
+                <li>Which object?</li>
+                <li>Which property?</li>
+                <li>What is the new value?</li>
+            </ul>
+            <p>
+                To change the value of a property, we write:
+            </p>
+            <div class="code">
+                <span class="placeholder">object</span>.<span class="placeholder">property</span> = <span class="placeholder">expression</span>;
+            </div>
+            <p>
+                For example, if we wanted to change (increase) the value of the <b>grade6</b> property of a <b>year</b>
+                object by <b>2</b>, we would write:
+            </p>
+            <div class="code">
+                year.grade6 = year.grade6 + 2;
+            </div>
+            <p>
+                If we update our <b>adjustYear</b> function to change the value of each property
+                by <b>2</b>, we have:
+            </p>
+            <div class="code">
+                function adjustYear(year) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;year.grade6 = year.grade6 + 2;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;year.grade7 = year.grade7 + 2;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;year.grade8 = year.grade8 + 2;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;year.grade9 = year.grade9 + 2;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;year.grade10 = year.grade10 + 2;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;year.grade11 = year.grade11 + 2;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;year.grade12 = year.grade12 + 2;<br>
+                }            
+            </div>
+            <h3>Defining the change object</h3>
+            <p>
+                But as you recall, we are not using a value of <b>2</b> as the change for all grades.
+                We have a <b>specific</b> change for each grade.  
+            </p>
+            <p  id="ChangeVariable">
+                Writing the object value and variable for the changes for each grade, we have:
+            </p>
+            <div class="code">
+                var change = {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;grade6: -2,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;grade7: -3,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;grade8: -1,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;grade9: 3,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;grade10: 1,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;grade11: 2,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;grade12: 1<br>
+                };
+            </div>
+            <h3>Using the change object</h3>
+            <p>
+                We can add a <b>change</b> a parameter to <b>adjustYear</b> 
+                that lets us provide the changes to make when we call the function.  This will allow
+                us to use the function with different change objects.
+            </p>
+            <p>
+                Updating the function to use the values from the change object
+                (instead of the <b>2</b>), we have:            
+            </p>
+            <div class="code">
+                function adjustYear(year, change) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;year.grade6 = year.grade6 + change.grade6;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;year.grade7 = year.grade7 + change.grade7;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;year.grade8 = year.grade8 + change.grade8;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;year.grade9 = year.grade9 + change.grade9;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;year.grade10 = year.grade10 + change.grade10;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;year.grade11 = year.grade11 + change.grade11;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;year.grade12 = year.grade12 + change.grade12;<br>
+                }            
+            </div>
+            <h2>Updating our existing program</h2>
+            <p>
+                When we add the <b>adjustYear</b> function and <b>change</b> variable
+                to our program from the
+                <a href="Exercise%201.3.1.htm">Exercise 1.3.1</a>, we have:
+            </p>
+            <div class="code">
+function calculateAverageMiddleSchoolStudentsForYear(year) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var totalStudents = year.grade6 + year.grade7 + year.grade8;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return totalStudents / 3; <br>
+}<br>
+<br>
+function calculateAverageUpperSchoolStudentsForYear(year) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var totalStudents = year.grade9 + year.grade10 + year.grade11 + year.grade12;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return totalStudents / 4;<br>
+}<br>
+<br>
+function calculateAverageWholeSchoolStudentsForYear(year) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var totalStudents = year.grade6 + year.grade7 + year.grade8 + year.grade9 +<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;year.grade10 + year.grade11 + year.grade12;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return totalStudents / 7;<br>
+}<br>
+<br>
+function calculateAverageStudentsForYear(year) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var middleSchoolAverage = calculateAverageMiddleSchoolStudentsForYear(year);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var upperSchoolAverage = calculateAverageUpperSchoolStudentsForYear(year);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var wholeSchoolAverage = calculateAverageWholeSchoolStudentsForYear(year);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;middleSchool: middleSchoolAverage,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;upperSchool: upperSchoolAverage,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wholeSchool: wholeSchoolAverage<br>
+&nbsp;&nbsp;&nbsp;&nbsp;};<br>
+}<br>
+function <span class="highlight">adjustYear</span>(year, change) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;year.grade6 = year.grade6 + change.grade6;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;year.grade7 = year.grade7 + change.grade7;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;year.grade8 = year.grade8 + change.grade8;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;year.grade9 = year.grade9 + change.grade9;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;year.grade10 = year.grade10 + change.grade10;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;year.grade11 = year.grade11 + change.grade11;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;year.grade12 = year.grade12 + change.grade12;<br>
+}<br>
+<br>
+function calculateAverageStudents() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var year = {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade6: 66,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade7: 74,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade8: 74,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade9: 82,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade10: 81,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade11: 79,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade12: 76<br>
+&nbsp;&nbsp;&nbsp;&nbsp;};<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var <span class="highlight">change</span> = {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade6: -2,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade7: -3,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade8: -1,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade9: 3,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade10: 1,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade11: 2,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade12: 1<br>
+&nbsp;&nbsp;&nbsp;&nbsp;};&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var thisYearAverages = calculateAverageStudentsForYear(year);<br>
+}<br>                
+            </div>
+            <h3>Adding the call to adjustYear</h3>
+            <p>
+                Now we need to add the call to <b>adjustYear</b> that changes the values of the <b>year</b> object.
+                The adjustment to <b>year</b> needs to be made <b>before</b> we calculate the averages.
+                
+                Where should we put the call (<span class="red">red</span> or <span class="blue">blue</span>)?  
+            </p>
+            <div class="code">
+function calculateAverageStudents() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var year = {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade6: 66,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade7: 74,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade8: 74,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade9: 82,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade10: 81,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade11: 79,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade12: 76<br>
+&nbsp;&nbsp;&nbsp;&nbsp;};<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var change = {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade6: -2,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade7: -3,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade8: -1,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade9: 3,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade10: 1,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade11: 2,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade12: 1<br>
+&nbsp;&nbsp;&nbsp;&nbsp;};&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="red">adjustYear(year, change);</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;var nextYearAverages = calculateAverageStudentsForYear(year);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="blue">adjustYear(year, change);</span><br>
+}<br>
+            </div>
+            <div class="answerFrame">
+                <div class="answerButton">Move your mouse here to see the answer</div>
+                <div class="answer">
+                    <p>                        
+                        The location in <span class="red">red</span> is the location we want.  The call to
+                        <b>adjustYear</b> will change the property values in the <b>year</b> object,
+                        and we want that to happen before we calculate
+                        the averages using the <b>year</b> object.
+                    </p>
+                </div>
+            </div>
+            <h2>Try it out</h2>
+            <p>
+                Lets see how this looks when we run it:
+            </p>
+            <ul>
+                <li>
+                    Create a new folder for this exercise (<b>Exercise 1.3.3</b>).                
+                </li>
+                <li>
+                    Create a new Javascript file (File / New).
+                </li>
+                <li>
+                    Copy and paste the following code into the file (just <b>copy and paste</b> all the text).
+                    <div class="code">
+function calculateAverageMiddleSchoolStudentsForYear(year) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var totalStudents = year.grade6 + year.grade7 + year.grade8;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return totalStudents / 3; <br>
+}<br>
+<br>
+function calculateAverageUpperSchoolStudentsForYear(year) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var totalStudents = year.grade9 + year.grade10 + year.grade11 + year.grade12;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return totalStudents / 4;<br>
+}<br>
+<br>
+function calculateAverageWholeSchoolStudentsForYear(year) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var totalStudents = year.grade6 + year.grade7 + year.grade8 + year.grade9 +<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;year.grade10 + year.grade11 + year.grade12;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return totalStudents / 7;<br>
+}<br>
+<br>
+function calculateAverageStudentsForYear(year) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var middleSchoolAverage = calculateAverageMiddleSchoolStudentsForYear(year);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var upperSchoolAverage = calculateAverageUpperSchoolStudentsForYear(year);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var wholeSchoolAverage = calculateAverageWholeSchoolStudentsForYear(year);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;middleSchool: middleSchoolAverage,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;upperSchool: upperSchoolAverage,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wholeSchool: wholeSchoolAverage<br>
+&nbsp;&nbsp;&nbsp;&nbsp;};<br>
+}<br>
+function adjustYear(year, change) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;year.grade6 = year.grade6 + change.grade6;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;year.grade7 = year.grade7 + change.grade7;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;year.grade8 = year.grade8 + change.grade8;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;year.grade9 = year.grade9 + change.grade9;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;year.grade10 = year.grade10 + change.grade10;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;year.grade11 = year.grade11 + change.grade11;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;year.grade12 = year.grade12 + change.grade12;<br>
+}<br>
+<br>
+function calculateAverageStudents() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var year = {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade6: 66,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade7: 74,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade8: 74,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade9: 82,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade10: 81,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade11: 79,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade12: 76<br>
+&nbsp;&nbsp;&nbsp;&nbsp;};<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var change = {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade6: -2,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade7: -3,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade8: -1,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade9: 3,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade10: 1,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade11: 2,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade12: 1<br>
+&nbsp;&nbsp;&nbsp;&nbsp;};&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;adjustYear(year, change);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var nextYearAverages = calculateAverageStudentsForYear(year);&nbsp;&nbsp;&nbsp;&nbsp;<br>
+}<br>                        
+                    </div>
+                </li>                
+                <li>
+                    Save as <b>uprep.js</b> in the new folder.
+                </li>
+                <li>
+                    Create a new HTML5 file (File / New, using your template).
+                </li>
+                <li>
+                    Copy and paste the following into the file:
+                    <div class="code">
+&lt;!DOCTYPE html&gt;<br>
+&lt;html&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;head&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;Page Title&lt;/title&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;script src="uprep.js"&gt;&lt;/script&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/head&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;body onload="calculateAverageStudents();"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/body&gt;<br>
+&lt;/html&gt;<br>
+                    </div>
+                </li>
+                <li>
+                    Save the file as <b>default.html</b> in your new folder.
+                </li>
+                <li>
+                    Load the <b>default.html</b> file in Chrome.
+                </li>
+                <li>
+                    Set a breakpoint at line 59 (right before <b>adjustYear</b> is called).<br>
+                    <img src="chrome16.png">
+                </li>
+                <li>
+                    Reload the page so Chrome stops at your breakpoint.
+                </li>
+                <li>
+                    Step into the <b>adjustYear</b> function.
+                    <img src="chrome23.png">
+                </li>
+                <li>
+                    Add a watch expression for <b>year</b>.  Remember
+                    how to add a watch expression?
+                    <img src="chrome22.png">
+                </li>
+                <li>
+                    Step to the end the <b>adjustYear</b> function, while
+                    watching the values of your 
+                    <b>watch expression</b>.  You should see
+                    the values of the object property <span class="highlight">values</span>
+                    change one by one as you step.<br>
+                    <img src="chrome19.png">                    
+                </li>
+                <li>
+                    Step once more, and you should be back at the main function on line 60.<br>
+                    <img src="chrome20.png">
+                </li>
+            </ul>
+            <h3>Step over</h3>
+            <p>
+                We are familiar with how the average calculations are made, so we can tell
+                Chrome to <b>step over</b> the calls in the next few statements.  When
+                we step over, it does not change how the program behaves.  It just tells
+                Chrome that we are not interested in stepping through the functions that
+                are being called.  Use the step over button (<span class="highlight">highlighted</span> below) to step
+                over the call to <b>calculateAverageStudentsForYear</b>.
+            </p>
+            <img src="chrome5.png">
+            <p>
+                After <b>stepping over</b>, we are at the end of the function, and we can hover
+                on the <b>nextYearAverages</b> variable to see the result.
+            </p>
+            <img src="chrome21.png">
+            <h2>
+                Reflecting on the changes we made
+            </h2>
+            <p>
+                We can create an object with some values, but we can also change
+                those values after we create the object.
+            </p>
+            <p class="sidenote">
+                In the next exercise, you are going to be changing the values of objects.
+                If you are fuzzy on how this example worked, you might want to
+                try stepping through the code and see if you can understand
+                what each statement is doing.  Ask a question if it still
+                doesn't make sense!
+            </p>           
+                
+            <h2>Done!</h2>
+            <p>
+                Head back to Schoology and mark this as done.
+            </p>
+        </div>
+    </body>
+</html>
