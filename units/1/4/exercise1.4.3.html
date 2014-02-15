@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Introduction to Objects</title>
+        <link href="../../../reset.css" rel="stylesheet">
+        <link href="../../../page.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="frame">
+            <h1>Introduction to Objects - Exercise 1.4.3</h1>
+            <h2>Objects</h2>
+            <p>
+                We have learned that in Javascript,  Objects are provide a way to group variables and functions.
+            </p>
+            <p>
+                When we use an object, we call the variables it contains its <b>properties</b> and the functions it
+                contains its <b>methods</b>.
+            </p>
+            <p>
+                One object that we've created so far was a <b>year</b> object, which simply grouped the data that we were
+                using in our program in <a href="../3/exercise1.3.4.htm">exercise 1.3.4</a> to display the number of students at UPrep.
+            </p>
+
+            <h2 id="WritingObjects">Writing objects</h2>
+            <p>
+                In Javascript, an object is a <b>value</b> (just like a number is a value).
+            </p>
+            <p>
+                The way we write an object value in Javascript is as follows:                
+            </p>
+            <div class="code">
+                { <span class="placeholder">properties</span> }
+            </div>
+            <p>
+                Each <b>property</b> is separated by a comma (<span class="code">,</span>), and is written:
+            </p>
+            <div class="code">
+                <span class="placeholder">name</span>: <span class="placeholder">expression</span>
+            </div>
+            <p>
+                For example, for our <b>year</b> object, we can write an object value with seven properties:
+            </p>
+            <div class="code">
+                {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;grade6: 66,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;grade7: 74,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;grade8: 74,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;grade9: 82,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;grade10: 81,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;grade11: 79,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;grade12: 76<br>
+                }<br>
+            </div>
+            <h3>Using properties</h3>
+            <p>
+                So far we have seen how to write a object value, and what happens when
+                we place an object in a variable.  How do we actually <b>use</b> the
+                values contained in an object?
+            </p>
+            <p>
+                To use the value of a property, we need to answer two questions:
+            </p>
+            <ul>
+                <li>Which object?</li>
+                <li>Which property?</li>
+            </ul>
+            <p>
+                To use the value of a property of an object, we write:
+            </p>
+            <div class="code">
+                <span class="placeholder">object</span>.<span class="placeholder">property</span>
+            </div>
+            <p>
+                Where <b>object</b> refers to an object value, and <b>property</b> is the
+                name of the property we want to use.
+            </p>
+            <p>
+                For example, say we wanted to total the number of students in the middle
+                school for <b>this year</b>.  The object value we want to use is referenced
+                by variable <b>thisYear</b>, and we want to use the values of the properties
+                named <b>grade6</b>, <b>grade7</b>, and <b>grade8</b>.  We can then write:
+            </p>
+            <div class="code">
+                var middleSchoolStudents = thisYear.grade6 + 
+                thisYear.grade7 + thisYear.grade8;
+            </div>
+            <h2>Objects as parameters</h2>
+            <p>
+                Objects can also be passed to functions as parameters.
+            </p>
+            <p>
+                For example, the following defines a function (<b>countMiddleSchoolStudents</b>)
+                that will calculate the total number of students in the middle school
+                for any <b>year object</b>.  We can call that function from another function that
+                calculates the number of middle school students for <b>this year</b>,
+                and provide the year object we want counted as a parameter.
+            </p>
+            
+            <div class="code">
+                function countMiddleSchoolStudents(<span class="highlight">year</span>) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;return year.grade6 + year.grade7 + year.grade8;<br>
+                }<br>
+                <br>
+                function calculateStudents() {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;var <span class="highlight">thisYear</span> = {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade6: 66,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade7: 74,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade8: 74,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade9: 82,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade10: 81,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade11: 79,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grade12: 76<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;};<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;var middleSchoolStudents = countMiddleSchoolStudents(<span class="highlight">thisYear</span>);<br>
+                }
+            </div>
+            <h2>Objects as return values</h2>
+            <p>
+                Functions can only return a single value.  However, values can also be objects.  
+                And a function can also return an object.
+            </p>
+            <p>
+                Can you see how this coule be used?
+            </p>
+            <p>
+                Here's an example of function returning an object.
+            </p>
+            <div class="code">
+function makeBubble() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var bubble = {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x: 50,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y: 50,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;size: 10,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color: "red",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return bubble;<br>
+}<br>
+            </div>
+            <p>
+                Look at this <a href="../../../examples/bubbles/bubbles.html">bubble example</a> to see 
+                if you can see why a bubble object might be useful.
+            </p>
+            <h2>New Syntax and Vocabulary</h2>
+            <p>
+            Although using objects in Javascript is pretty simple, since
+            we're just grouping variables and functions, there
+            will be new Javascript keywords and syntax
+            that we'll have to learn.
+            </p>
+            <p>
+            There are two new keywords that we'll learn
+            </p>
+            <ul>
+                <li><p>The <b><i>this</i></b> keyword is used to refer to the properties within an object</li>
+                <li><p>The <b><i>new</i></b> keyword is used to create an object</p></li>
+            </ul>
+            <p>
+            We'll see examples of how these keywords are used in Javascript over the course of this lesson.
+            </p>
+            
+            <h2>Methods</h2>
+                <p>As you know, when you add a function to an object its called a <b>method</b>, but
+                how do you actually add a function?</p>
+                <p> Here's an example of a method that changes the color of our bubble object: </p>
+
+            <div class="code">
+var bubble = {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;x: 50,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;y: 50,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;size: 10,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;color: "red",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;changeColor: function(newColor) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.color=newColor;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+}<br>
+            </div>
+            <p>Object methods can be used in the same way that properties are called</p>
+
+            <div class="code">
+                <span class="placeholder">object</span>.<span class="placeholder">method()</span>
+            </div>
+            <p>
+                To use the bubble <b>changeColor</b> method we can easily call it and pass in a new color as a parameter
+                to the function:
+            </p>
+            <div class="code">
+var color = "blue";
+bubble.changeColor(color);
+            </div>
+
+            <h2>More Objects </h2>
+            <p> The way that we've been writing objects is <b>not</b> the only correct syntax in Javascript! </p>
+            <p> There is another way to write objects which is sometime called <b><i>Constructor Syntax</i></b>
+            <p> The bubble object below is created using constructor syntax.  What do you notice?</p>
+            <ul>
+                <li><p> The bubble is created with the <b><i>function</i></b> keyword </p></li>
+                <li><p> The bubble properties and methods use the <b><i>this</i></b> keyword </p></li>
+                <li><p> The bubble properties and methods use the <b><i>=</i></b> operator for assignment </p></li>
+                <li><p> The bubble properties use <b><i>;</i></b> instead of <b><i>,</i></b> </p></li>
+                <li><p> New bubble's are created with the <b><i>new</i></b> keyword </p></li>
+            </ul>
+            <div class="code">
+            function Bubble() {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;this.x = 50;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;this.y = 50;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;this.size = 10;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;this.color = "red";<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;this.changeColor = function(newColor) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.color=newColor;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;};<br>
+            }<br><br>
+            var myBubble1 = new Bubble();<br>
+            var myBubble2 = new Bubble();<br>
+            </div>
+            
+
+            <h2>Done!</h2>
+            <p>
+                Head back to Schoology and finish the quiz for Assignment 1.4.3
+            </p>
+        </div>
+    </body>
+</html>

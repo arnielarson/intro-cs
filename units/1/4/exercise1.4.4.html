@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Exercise 1.4.4</title>
+        <link href="../../../reset.css" rel="stylesheet">
+        <link href="../../../page.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="frame">
+            <h1>Exercise 1.4.4</h1>
+            <h2>Your own objects</h2>
+            <p>
+                In the Exercises in this lesson, we've been introduced to objects.
+                These objects have represented an animal, a plant, a bubble being displayed 
+                on the screen, and a point on a line.  You can use objects for any data.  
+                The sky is the limit!
+                related</b>.
+            </p>
+            <p>
+                For this assignment, think of an object in the real world
+                that you would like to be able to store information about
+                in a computer.  <b>It can be anything</b>.  Think about what
+                properties you want to store (which might not be all
+                the properties of the real world object).
+            </p>
+            <p>
+                For example, if you wanted to store a cat object, you would
+                have to figure out what <b>parts</b> of a cat you cared about.
+                Fur color?  Eye color?  Name?  Age?
+            </p>
+            <p>
+                Then, think about what <b>functions</b> you would have for that
+                object.  Those function might be like the real world <b>actions</b>
+                that might apply for that object.  What can happen to your object
+                that would change the properties?                
+            </p>
+            <p>
+                Finally, try to write down some examples of these objects,
+                and use them with functions you write.
+            </p>
+            <p>
+            For example, here's a cat object:                
+            </p>
+            <div class="code">
+                var pawsTheCat = {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;age: 6,<br>                
+                &nbsp;&nbsp;&nbsp;&nbsp;name: <span class="highlight">"paws"</span>,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;eyeColor: <span class="highlight">"brown"</span>,<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;furColor: <span class="highlight">"gray"</span><br>
+                };<br>
+            </div>
+            <h3>Object as property value?</h3>
+            <p>
+                A value of a property of an object can be another object.  For example,
+                if the cat <b>paws</b> considers the neighbor dog <b>bruno</b> to
+                be an enemy,
+                then we can write something like:
+            </p>
+            <div class="code">
+                var brunoTheDog = {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;age: 3<br>
+                };<br>
+                <br>
+                var pawsTheCat = {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;age: 6<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;enemy: <span class="highlight">brunoTheDog</span><br>
+                };<br>
+            </div>
+            <p>
+                If we drew the above as a diagram, we would have:
+            </p>
+            <img src="diagram13.png">
+            <p>
+                If we wanted to see the <b>age</b> of the <b>enemy</b> of paws (<span class="code">3</span>), we could write:
+            </p>
+            <div class="code">
+                var pawsEnemy = pawsTheCat.enemy;<br>
+                var pawsEnemyAge = pawsEnemy.age;
+            </div>            
+            <p>
+                Or just:
+            </p>
+            <div class="code">
+                var pawsEnemyAge = pawsTheCat.enemy.age;
+            </div>
+            <h2>Assignment</h2>
+            <p>
+                <li>
+                    <p>Think of something that would be useful in a computer program. </p>
+                </li> 
+                <li>
+                    <p>Next think about what how this thing could be modeled by an object.  Think about the 
+                    properties and methods that this object would have.</p>
+                </li>
+                <li>
+                    <p>Create HTML and Javascript files for this object.</p>
+                </li>
+
+            <h2>Done!</h2>
+            <p>
+                When you have something you would like to share,
+                head back to Schoology and add your <b>HTML</b> and <b>Javascript</b>
+                files to the dropbox for <b>Assignment 1.4.4</b>.
+            </p>
+        </div>
+    </body>
+</html>
