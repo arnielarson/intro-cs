@@ -20,6 +20,10 @@ div.frame {
     border: #aaa 1px solid;
 }
 
+div.small {
+    width: 500px;
+}
+
 span.code, div.box, div.code, div.icode, div.signature {
     font-family: Monaco,Menlo,Consolas,"Courier New",monospace;
     background-color: #f8f8f8;
