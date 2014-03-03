@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lesson 1.5 - Overview of Arrays</title>
+        <link href="../../../reset.css" rel="stylesheet">
+        <link href="../../../page.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="frame">
+            <h1>Lesson 1.5 - Introduction to Arrays and For Loops</h1>
+            <h2>Arrays</h2>
+            <h3>Lists of values</h3>
+            <p>
+                So far in this class we have not had a way to
+                keep track of <b>lists</b> of values.  We can use 
+                an <b>array</b> for this.
+            </p>
+            <p>
+                An array is a object that <b>groups</b> a set of values together and keeps track of the
+                <b>order</b> of the values.
+            </p>
+            <p>
+                For example, the following shows an array containing 4 string values, which are the
+                names of the top paid Sounders players.
+            </p>
+            <img src="diagram1.png">
+            <h3>Writing arrays</h3>
+            <p>
+                To write an array value, we start with a <span class="code">[</span>, then
+                list each value separated by commas, and then finish with a <span class="code">]</span>.
+                For example, to create our array and assign it to a variable named <span class="code">players</span>,
+                we would write:
+            </p>
+            <div class="sidebyside">
+                <div class="side">
+                    <div class="code">
+function start() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var players = <span class="highlight">[</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Montero"<span class="highlight">,</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Fernandez"<span class="highlight">,</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Gspurning"<span class="highlight">,</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Rosales"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="highlight">]</span>;<br>
+                        }<br>
+                    </div>
+                </div>
+                <div class="side">
+                    <img src="diagram2.png">                    
+                </div>
+            </div>
+            <h3>Using a value from an array</h3>
+            <p>
+                The values that are stored in an array are called it's <b>elements</b>.
+                To use a value that is stored in an array, we have to know
+                the <b>index</b> of the value we want to use.  Imagine an array as
+                a ladder... the index is
+                a number that says <b>how many steps down</b> we want to go.
+            </p>
+            <div class="sidebyside">
+                <div class="side">
+                    <img src="diagram3.png">      
+                </div>
+                <div class="side">
+                    <p class="idea">
+                        The <b>first</b> value has an index of <b>0</b>.<br>
+                        The <b>second</b> value has an index of <b>1</b>.<br>
+                        The <b>third</b> value has an index of <b>2</b>.<br>
+                        The <b>fourth</b> value has an index of <b>3</b>.<br>
+                    </p>
+                </div>
+            </div>
+            <p>
+                Once we know the index, we can use the value at that index
+                by writing the name of the array, followed by a <span class="code">[</span>,
+                followed by the index, followed by the <span class="code">]</span>.
+                For example, to use the second player (which is
+                at index 1), we would
+                write the following:
+            </p>
+            <div class="code">
+function start() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var players = [<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Montero",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="highlight">"Fernandez"</span>,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Gspurning",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Rosales"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;];<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var secondPlayer = <span class="highlight">players[1]</span>;<br>
+}&nbsp;&nbsp;&nbsp;&nbsp;<br>
+
+            </div>
+            <p>
+                After running the code above, the value of <b>secondPlayer</b> would be <b>"Fernandez"</b>.
+            </p>
+            <h3>Arrays vs objects</h3>
+            <p>
+                If you recall, we have been using objects to group values as well.  So what
+                is the difference between an array and an object?  And when do we use which one?
+            </p>
+            <p>
+                Typically arrays are used when we want our algorithms to work no
+                matter how many values there are.  Algorithms that work with objects
+                typically know about at least some of the properties of the objects
+                they work with.  To summarize:
+            </p>
+            
+            <p class="idea">
+                <b>Objects</b> are used to group <b>related</b> values.<br>
+                <b>Arrays</b> are used to group <b>repeating</b> values.
+            </p>
+            
+            <p>
+                To illustrate, let's say we wanted to store the salary of
+                our soccer players along with their names.  In english:
+            </p>
+            <p class="idea">
+                We need a <b>list</b> of soccer players.<br>
+                Each soccer player has a <b>name</b> and a <b>salary</b>.
+            </p>
+            <p>
+                The name and salary are <b>related</b>,
+                since they are about a particular player, so we need
+                an <b>object</b> per player.
+            </p>
+            <p>
+                The list of players is <b>repeating</b>, so we
+                need an <b>array</b> of players.
+            </p>
+            <p>
+                We can then write four player objects, and then write
+                an array of those four player objects.
+            </p>
+            <div class="code" id="Array">
+function start() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var <span class="highlight">montero</span> = {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name: "Montero",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;salary: 600000<br>
+&nbsp;&nbsp;&nbsp;&nbsp;};<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var <span class="highlight">fernandez</span> = {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name: "Fernandez",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;salary: 300000<br>
+&nbsp;&nbsp;&nbsp;&nbsp;};<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var <span class="highlight">gspurning</span> = {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name: "Gspurning",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;salary: 200000<br>
+&nbsp;&nbsp;&nbsp;&nbsp;};<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var <span class="highlight">rosales</span> = {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name: "Rosales",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;salary: 200000<br>
+&nbsp;&nbsp;&nbsp;&nbsp;};<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var players = <span class="highlight">[</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="highlight">montero</span>,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="highlight">fernandez</span>,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="highlight">gspurning</span>,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="highlight">rosales</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="highlight">]</span>;<br>
+} <br>
+            </div>
+            
+            <h2>Iteration</h2>
+            <p>
+                Arrays give us a way to <b>store</b> repeating values.  But
+                that is not useful if we don't have a way to <b>process</b> repeating
+                values!
+            </p>
+            <p>
+                When we repeat some steps in
+                an algorithm in order to accomplish some goal, it is called
+                <b>Iteration</b>.  We'll start
+                by learning about how to use iteration to "step through" arrays. 
+            </p>
+            <h3>Total salaries</h3>
+            <p>
+                Lets say we wanted to total the salaries of our four players.
+                If we were doing this on paper, we might keep a total as
+                we added each additional salary.  
+            </p>
+            <p>
+                In english, we need to:
+            </p>
+            <div class="idea">
+                <p>Start with a <b>total</b> of 0.</p>
+                <p>For <b>each player</b> we need to do the following:</p>
+                <ul>
+                    <li>Add the <b>salary</b> of the player to the total.</li>
+                </ul>
+            </div>
+            <p>
+                We know how to make a function.  We now how to make a total variable.
+                We know how to add the salary to the total.  
+            </p>
+            <p>
+                But how do we repeat
+                the <span class="highlight">highlighted</span> part below for <b>each player</b>, instead
+                of just for the first player (<span class="code">players[0]</span>)?
+            </p>
+            <div class="code">
+function totalSalary(players) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var total = 0;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var player;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="highlight">player = players[0];<br>
+&nbsp;&nbsp;&nbsp;&nbsp;total = total + player.salary;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return total;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+}<br>
+            </div>            
+            
+            <p>
+                Just repeating these statements four times is not going
+                to get us the right answer.  
+            </p>
+            <div class="instruction">
+                <p>
+                    Can you see why?
+                </p>
+            </div>
+            
+            <div class="code">
+function totalSalary(players) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var total = 0;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var player;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;player = players[<span class="highlight">0</span>];<br>
+&nbsp;&nbsp;&nbsp;&nbsp;total = total + player.salary;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;player = players[<span class="highlight">0</span>];<br>
+&nbsp;&nbsp;&nbsp;&nbsp;total = total + player.salary;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;player = players[<span class="highlight">0</span>];<br>
+&nbsp;&nbsp;&nbsp;&nbsp;total = total + player.salary;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;player = players[<span class="highlight">0</span>];<br>
+&nbsp;&nbsp;&nbsp;&nbsp;total = total + player.salary;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return total;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+}<br>
+            </div>
+            
+            <div class="answerFrame">
+                
+                <div class="answerButton">Move your mouse here to see the answer</div>
+                <div class="answer">
+                    <p>
+                        
+                    We are totalling the salary of the same player (the one at
+                    index 0) four times.
+                    We need to use a different index each time (0, 1, 2, 3).
+                    </p>
+                </div>
+            </div>
+            
+            <div class="space"></div>
+            
+            <p>
+                When we repeat the statements, we really want to have
+                this happen:
+            </p>
+            
+            <div class="code">
+function totalSalary(players) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var total = 0;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var player;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;player = players[<span class="highlight">0</span>];<br>
+&nbsp;&nbsp;&nbsp;&nbsp;total = total + player.salary;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;player = players[<span class="highlight">1</span>];<br>
+&nbsp;&nbsp;&nbsp;&nbsp;total = total + player.salary;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;player = players[<span class="highlight">2</span>];<br>
+&nbsp;&nbsp;&nbsp;&nbsp;total = total + player.salary;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;player = players[<span class="highlight">3</span>];<br>
+&nbsp;&nbsp;&nbsp;&nbsp;total = total + player.salary;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return total;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+}<br>
+            </div>
+            
+            <p>
+                But we really only want to write the statements once instead
+                of four times.  So what if we could write:
+            </p>
+            
+            <div class="code">
+function totalSalary(players) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var total = 0;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var player;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;player = players[<span class="highlight">i</span>];<br>
+&nbsp;&nbsp;&nbsp;&nbsp;total = total + player.salary;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return total;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+}<br>
+            </div>
+            
+            <p>
+                Then, if we did the statements when <b>i</b> was 0,
+                1, 2, and 3, we would get the right answer.  We need help.
+            </p>
+            
+            <h2>for loop</h2>
+            
+            <p class="idea">
+                Javascript has a <b>for statement</b> (also called a <b>for loop</b>)
+                which can help us. </br>
+                In the loop, we can have a variable i that can start with 0, and go 
+                up by one until you reach 3.                
+            </p>
+            
+            <p>
+                Adding a for loop, we have:
+            </p>
+            
+            <div class="code">
+function totalSalary(players) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var total = 0;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="highlight">for (</span>var i = 0<span class="highlight">;</span> i &lt;= 3<span class="highlight">;</span> i = i + 1<span class="highlight">) {</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var player = players[i];<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;total = total + player.salary;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="highlight">}</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return total;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+}<br>
+            </div>
+            <p>
+                Lets look at how a for loop works.  There are four parts.
+            </p>
+            <ol>
+                <li>
+                    <p>
+                        The first part (<span class="highlight">highlighted</span> below)
+                        are the statements we want repeated.  They go between the <span class="code">{</span>
+                        and the <span class="code">}</span> of the for loop.  Notice that
+                        the repeated statements are using the value of the variable
+                        <span class="code">i</span> to figure out
+                        what player to use.
+                    </p>
+                    <div class="code">
+        function totalSalary(players) {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;var total = 0;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;for (var i = 0; i &lt;= 3; i = i + 1) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="highlight">var player = players[i];<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;total = total + player.salary;</span><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;return total;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+        }<br>
+                    </div>
+                </li>
+                <li>
+                    <p>
+                        The second part (<span class="highlight">highlighted</span> below)
+                        is where we give the name of the variable we will use for the for loop
+                        (<span class="code">i</span>), and its starting
+                        value (<span class="code">0</span>).
+                    </p>
+                    <div class="code">
+        function totalSalary(players) {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;var total = 0;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;for (<span class="highlight">var i = 0</span>; i &lt;= 3; i = i + 1) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var player = players[i];<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;total = total + player.salary;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;return total;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+        }<br>
+                    </div>
+                </li>
+                <li>
+                    <p>
+                        The third part (<span class="highlight">highlighted</span> below)
+                        is where we put a condition that must be <b>true</b> in order for
+                        the for loop to continue repeating.
+                        Here we are saying that we expect the value of <span class="code">i</span>
+                        to be less than or equal to <span class="code">3</span>.
+                    </p>
+                    <p> 
+                        If this part is confusing to you, ask your <b>instructor</b> 
+                        about conditions.
+                    </p>
+                    <div class="code">
+        function totalSalary(players) {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;var total = 0;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;for (var i = 0; <span class="highlight">i &lt;= 3</span>; i = i + 1) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var player = players[i];<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;total = total + player.salary;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;return total;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+        }<br>
+                    </div>
+                </li>
+                
+                <li>
+                    <p>
+                        The fourth part (<span class="highlight">highlighted</span> below)
+                        is where we put how we want to change the for variable
+                        after we have done one iteration (one repetition).                        
+                        Here we are saying that we want <span class="code">i</span>
+                        to be increased by <span class="code">1</span>.
+                    </p>
+                    <div class="code">
+        function totalSalary(players) {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;var total = 0;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;for (var i = 0; i &lt;= 3; <span class="highlight">i = i + 1</span>) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var player = players[i];<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;total = total + player.salary;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;return total;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+        }<br>
+                    </div>
+                </li>                
+            </ol>
+            <p>
+                There is one problem with the above.  We want our algorithm to work
+                work no matter how many values are in the array (not just 4).
+                So we need to stop the loop when we have gone through all the players.
+            </p>
+            
+            <h3 id="ArrayLength">Array length</h3>
+            <p>
+                How many players are there?  The number of players is the number
+                of players in the array.
+            </p>
+            <p>
+                We can use the <b>length</b> property of an array to find the
+                number of values in the array.  For example:
+            </p>
+            <div class="code">
+                var numberOfPlayers = players.length;
+            </div>
+            
+            <h3 id="For">Number of players</h3>
+            
+            <p>
+                We need to adjust the for condition to use the number of
+                players instead of the number 3.  We want the variable
+                <b>i</b> to range from <b>0</b> to <b>numberOfPlayers - 1</b>,
+                so we can use <span class="code">i &lt; numberOfPlayers</span>
+                as the condition:
+            </p>
+            
+            <div class="code">
+function totalSalary(players) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;var total = 0;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="highlight">var numberOfPlayers = players.length;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;for (var i = 0; <span class="highlight">i &lt; numberOfPlayers</span>; i = i + 1) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var player = players[i];<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;total = total + player.salary;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return total;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+}<br>
+            </div>
+            
+                
+            <h3>Try it out</h3>
+            
+            <div class="instruction">
+                <p>
+                    Download the following <a href="example/example.zip">zip</a>
+                    which contains the code above.
+                </p>
+                <p>
+                    Walk through the <b>totalSalary</b> function and get
+                    an idea how <b>arrays</b> and <b>for loops</b> work:
+                </p>
+                <ul>
+                    <li>
+                        Can you change the players salaries so that the total is less than 1 million?
+                    </li>
+                    <li>
+                        Can you add another player to the players array?
+                    </li>
+                    <li>
+                        What else does the program do?
+                    </li>
+                </ul>
+            </div>
+            
+               
+            <h2>Done!</h2>
+            <p>
+                When you've finished this tutorial explain to your instructor what you've done!
+            </p>
+        </div>
+    </body>
+</html>
