@@ -1,144 +1,123 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Exercise 1.5.2 - Fun with Arrays</title>
+        <title>Exercise 1.5.3 - Methods with Arrays</title>
         <link href="../../../reset.css" rel="stylesheet">
         <link href="../../../page.css" rel="stylesheet">
     </head>
     <body>
         <div class="frame">
-            <h1>Exercise 1.5.2- More practice with Arrays</h1>
+            <h1>Exercise 1.5.3- Methods with Arrays</h1>
+            <h2>Array Methods</h2>
             <p>
-                Here are a couple more challenges to help you understand how to use arrays.
+                In this exercise, you should investigate some of 
+                the methods that arrays have!  
+            </p>
             <p>
-            <p>
-                In the first part of this exercise, you should investigate some of 
-                the methods that arrays have!  You've already seen at least one property
+                You've already seen one property
                 that arrays have, the length property
-            <p>
+            </p>
             <div class="code">
                 var myarray = [ 1, 3, 7, 11 ];</br>
                 var length = myarray.length; </br>
-
             </div>
             <p>
-                Since arrays are also Javascript objects, they have other methods associated with
+                Arrays are also Javascript objects!  They have other methods associated with
                 them.  A few of those methods are show below.
+            </p>
 
-            <h2>Part 1 - Array Methods</h2>
             <p>
-                Now that you understand how to use arrays are another useful datastructure 
-                for computer programming lets get some more practice with them.  
+                For this exercise you should try out all of the methods listed below.
             </p>
-            <p> 
-                In this exercise you will use an array to calucate the
-                sum, just like in the previous example.
-            </p>
-            <p> 
-                For example, if your array had the values 6, 2 and 3
+
+            <h2>The Sort Method</h2>
+            <p>
+                Arrays have a <b>sort</b> method.  When this method is called, the elements of the 
+                array are sorted and rearragned in order.
             </p>
             <div class="code">
-            var numbers = [ 6, 2, 3 ];</br>
+                var numbers = [ 5, 4, 3 ];</br>
+                numbers.sort();</br>
+                var firstElement = numbers[0]
+            </div>
+            <p>
+                What value does the variable firstElement have now?
+            </p>
+            <h2>The Push Method</h2>
+            <p> 
+                Arrays have useful methods which can add and remove elements.  
+            </p>
+            <p> 
+                The <b>push</b> method can be used to add a value at the end of an array.
+            </p>
+            <div class="code">
+                var planets = [</br>
+                &nbsp;&nbsp;&nbsp;&nbsp;"Earth",</br>
+                &nbsp;&nbsp;&nbsp;&nbsp;"Mars",</br>
+                ];</br>
+                planets.push("Venus");</br>
             </div>
             <p> 
-                Then the results of your caluclation would be 11.
+                Now what is the value of <b>planets</b>?
+            </p>
+            <h2>The Pop Method</h2>
+            <p> 
+                Arrays have a useful methods to remove elements too.
             </p>
             <p> 
-                Just like in the example, when you calculate your sum, you should
-                use a for loop when you "look" at each element in the array.
+                The <b>pop</b> method can be used to remove the first element of the array.
             </p>
-            <h2>The Assignment, Part 1</h2>
+            <div class="code">
+                var planets = [</br>
+                &nbsp;&nbsp;&nbsp;&nbsp;"Earth",</br>
+                &nbsp;&nbsp;&nbsp;&nbsp;"Mars",</br>
+                &nbsp;&nbsp;&nbsp;&nbsp;"Venus",</br>
+                ];</br>
+                var planet = planets.pop();</br>
+            </div>
+            <p> 
+                What will the var planet be after this code runs?
+            </p>
+            <h2>The Splice Method</h2>
+            <p> 
+                Arrays have another useful methods for adding and removing elements 
+                from any point in the array.
+            </p>
+            <p> 
+                The <b>splice</b> method is used to remove one or more elements from an array, 
+                and can also be used to add elements to an array.
+            </p>
+            <div class="code">
+                var planets = [</br>
+                &nbsp;&nbsp;&nbsp;&nbsp;"Earth",</br>
+                &nbsp;&nbsp;&nbsp;&nbsp;"Mars",</br>
+                &nbsp;&nbsp;&nbsp;&nbsp;"Venus",</br>
+                ];</br>
+                // at index 1, remove 1 element</br>
+                planets.splice(1, 1);</br>
+                // at index 1, add a new elements</br>
+                planets.splice(1, 0, "Saturn");</br>
+            </div>
+            <p>
+                What values does the planets array now contain?
+            </p>
+            <p>
+                You can read more about the splice method <a
+                href="http://www.w3schools.com/jsref/jsref_splice.asp">here</a>, and about arrays 
+                in the class guide <a href="../../../resources/jssubset.htm#ArrayAppend">here</a>.
+            </p>
+            <h2>The Assignment</h2>
+            <p>
+                Create a program that demonstrates some of these array methods.
+            </p>
             <ul>
                 <li><p>Create an html page and a Javascritp file for this exercise</p></li>
-                <li>
-                    <p>In the Javascript file create an array with some numbers and create a
-                function </p>
-                    <p>It might look like this:</p>
-                    <div class="code">
-                        var numbers = [ 1, 2, 3, 4, 5];</br></br>
-                        function calculateSum() {</br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;// do the sum here</br>
-                        }
-                    </div>
-                
-                </li>
-                <li><p>Your function should sum all the numbers in the array</p></li>
-                <li><p>Change the values in the array and make sure your program works</p></li>
+                <li><p>Your Program should use each of the array methods demonstrated,
+                    <b>push</b>, <b>pop</b>,  <b>splice</b> and <b>sort</b></p></li>
             </ul>
-            <div class="instruction">
-                <p>
-                    <b>A Little Extra Help!</b> 
-                </p>
-                <p>
-                    To help you get started, download the following 
-                    <a href="starter/sum.zip">zip</a> which contains useful starting code.
-                </p>
-            </div>
             <h2>Done!</h2>
             <p>
-                When you've finished Part 1 show your program to your instructor!
-            </p>
-            </br></br>
-
-            <h2>Part 2 - Calculating Factorials</h2>
-            <p>
-                Factorials are created by multiplying numbers together that are equal to or 
-                less than the number.
-            </p>
-            <p>
-                We use the ! sign to indicate that a number is a factorial. 
-            </p>
-            <p>
-                Here are some examples:
-            </p>
-            <div class="code">
-                1! = 1</br>
-                2! = 2 * 1 = 2</br>
-                3! = 3 * 2 * 1 = 6</br>
-                4! = 4 * 3 * 2 * 1 = 12</br>
-            </div>
-            <p>
-                You can say that "4 factorial" is equal to 12.
-            </p>
-            <p>
-                How do you think a computer could be useful to calculate factorials?
-            </p>
-            <p> 
-                In this assignment, you need to think of a way to write a computer program 
-                to do this calculation for you?
-            </p>
-            <p> 
-                Hint - you should use a for loop.
-            </p>
-            <h2>The Assignment, Part 2</h2>
-            <ul>
-                <li><p>Create a program that calculates factorials</p></li>
-                <li><p>Your program should have a function which does the calculation</p></li>
-                    <div class="code">
-                        function calculateFactorial( n ) {</br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;var factorial;</br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;// calculate the factorial here</br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;return factorial;</br>
-                        }
-                    </div>
-                <li><p>To check your work - you can go to
-                    <a href="http://www.google.com">google</a>, type in 9!, 
-                    and calculate factorials!</p>
-                </li>
-                <li><p>What answer do you get for 5! and 10!?  What about 1000!? </p></li>
-            </ul>
-            <div class="instruction">
-                <p>
-                    <b>Some Extra Help!</b> 
-                </p>
-                <p>
-                    To help you get started, download the following 
-                    <a href="starter/factorial.zip">zip</a> which contains useful starting code.
-                </p>
-            </div>
-            <h2>Done!</h2>
-            <p>
-                When you've finished Part 2 show your program to your instructor!
+                When you've finished this exercise demonstrate your program to your instructor!
             </p>
 
         </div>
