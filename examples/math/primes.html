@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Prime Number Finder</title>
+        <script src="primes.js"></script>
+        <link href="../../page.css" rel="stylesheet">
+        <link href="../../reset.css" rel="stylesheet">
+    </head>
+
+    <body>
+        <div class="frame">
+            <h2>Prime Number Finder</h2>
+            <p>
+                <input id="generate"></input>
+                <button onclick="generate()" >Generate Some Primes</button>
+                <button onclick="show()" >Show First Primes</button>
+                <button onclick="showlast()" >Show Last Primes</button>
+                <button onclick="showall()" >Show All Primes</button>
+            </p>
+            <p><span id="output">...</span></p>
+            <p><input id="find"></input><button onclick="find()" >Find the nth Prime</button></p>
+            <p><span id="nthprime">...</span></p>
+
+            <!--<p> Add Description of the Algorithm here</p>-->
+            <p>
+                </br>
+                <p>More Information about Finding Prime Numbers and the Sieve of Eratosphenes Algorithm</p>
+                <ul>
+                    <li><a href="http://www.youtube.com/watch?v=twrfyZPZkrQ">Instructive Video</a></li>
+                    <li><a href="http://en.wikipedia.org/wiki/Sieve_of_Eratosthenes">Widipedia Link</a></li>
+                </ul>
+            </p>
+        </div>
+    </body>
+</html>
