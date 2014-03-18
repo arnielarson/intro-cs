@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>20 Questions</title>
+        <script src="questions.js"></script>
+        <link href="../../page.css" rel="stylesheet">
+        <link href="../../reset.css" rel="stylesheet">
+    </head>
+
+    <body>
+        <div class="frame small">
+        <h2>The 20 Questions Game</h2>
+        <p></br><span id="main">Hello - do you want to play my game?</span></p>
+        <p><button onclick="play()">Play the game</button></p>
+        <p><span id="msg">Do you really think you can beat me?</span></p>
+
+        <table>
+            <tr>
+                <td><input onkeydown="checkGuess()" id="guess"></></td>
+                <td><button onclick="guess()">Make a Guess</button></td>
+
+            </tr>
+            <tr>
+                <td>Number of tries:</td>
+                <td><span id="tries">0</span></td>
+            </tr>
+        </table>
+        <p><span id="result"></span></p>
+        <p><input onchange="toggleHeckle()" id="hecklemode" type="checkbox">heckle mode</input></p>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Exercise 1.6.3 - What Should I Do - More Conditions</title>
+        <link href="../../../reset.css" rel="stylesheet">
+        <link href="../../../page.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="frame">
+            <h1>Exercise 1.6.3 - What Should I Do Today? More Conditions</h1>
+            <h2>The Weather Oracle - Part 2</h2>
+
+            <p>
+                Ok.  You can now make a program that will decide if you're going to do your
+                homework or go outside based on the weather today.</br>
+                If it's sunny outside, I'm going for a bike ride.</br>
+                To do this you used <a
+                href="../../resources/jssubset.htm#ConditionExpression">condition statements</a>,
+                <a href="../../resources/jssubset.htm#Boolean">boolean values</a> values <a
+                href="../../resources/jssubset.htm#IfStatement">if statements</a>.</br>
+            </p>
+            <div class="code">
+                if (<span class="placeholder">condition</span>) {</br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="placeholder">statements;</span></br>
+                }</br>
+            </div>
+            <h2>Multiple Conditions</h2>
+            <p>
+                However, what if you do more than one activity when it's sunny?</br>
+                If I'm in Seattle and it's sunny, than I'll go for a bike ride. </br>
+                However, if I'm in Hawaii and it's sunny, then I'll go surfing!</br>
+                Otherwise, if it's sunny, I'll go and read in a park.</br>
+            <p>
+            <h2>Boolean Operators</h2>
+            <p>
+                There are three <b>Boolean Operators</b> that are useful to evaluate
+                expressions with with more than one condition.</br>
+                Two are the <b>and</b> and the <b>or</b> operators.</br>  
+                In Javascript they are written with <b>&amp;&amp;</b> and <b>||</b>
+                respectively.</br>
+                They work exactly like you'd expect.  
+                If it's sunny <b>and</b> it's a weekend then I am going biking.</br>
+             </p>
+             <div class="code">
+                var isSunny=true;</br>
+                var isWeekend=true;</br>
+                if (isSunny &amp;&amp; isWeekend) {</br>
+                &nbsp;&nbsp;&nbsp;&nbsp;activity="go biking"; </br>
+                } else if (isSunny) {</br>
+                &nbsp;&nbsp;&nbsp;&nbsp;activity="go to park"; </br>
+                } else {</br>
+                &nbsp;&nbsp;&nbsp;&nbsp;activity="do homework"; </br>
+                } </br>
+
+             </div>
+             <p> 
+                Here is what the truth table looks like for these operators.
+             </p>
+            <div class="sidebyside">
+                <div class="side">
+                <table class="simple">
+                <tr>
+                    <td>Operator</td>
+                    <td>Expression</td>
+                    <td>A</td>
+                    <td>B</td>
+                    <td>Result</td>
+                </tr>
+                <tr>
+                    <td><b>and</b></td>
+                    <td>A <b>&amp;&amp;</b> B</td>
+                    <td>true</td>
+                    <td>true</td>
+                    <td>true</td>
+                </tr>
+                <tr>
+                    <td><b>and</b></td>
+                    <td>A <b>&amp;&amp;</b> B</td>
+                    <td>true</td>
+                    <td>false</td>
+                    <td>false</td>
+                </tr>
+                <tr>
+                    <td><b>and</b></td>
+                    <td>A <b>&amp;&amp;</b> B</td>
+                    <td>false</td>
+                    <td>true</td>
+                    <td>false</td>
+                </tr>
+                <tr>
+                    <td><b>and</b></td>
+                    <td>A <b>&amp;&amp;</b> B</td>
+                    <td>false</td>
+                    <td>false</td>
+                    <td>false</td>
+                </tr>
+            </table>
+            </div>
+            <div class="side">
+            <table class="simple">
+                <tr>
+                    <td>Operator</td>
+                    <td>Expression</td>
+                    <td>A</td>
+                    <td>B</td>
+                    <td>Result</td>
+                </tr>
+                <tr>
+                    <td><b>or</b></td>
+                    <td>A <b>||</b> B</td>
+                    <td>true</td>
+                    <td>true</td>
+                    <td>true</td>
+                </tr>
+                <tr>
+                    <td><b>or</b></td>
+                    <td>A <b>||</b> B</td>
+                    <td>true</td>
+                    <td>false</td>
+                    <td>true</td>
+                </tr>
+                <tr>
+                    <td><b>or</b></td>
+                    <td>A <b>||</b> B</td>
+                    <td>false</td>
+                    <td>true</td>
+                    <td>true</td>
+                </tr>
+                <tr>
+                    <td><b>or</b></td>
+                    <td>A <b>||</b> B</td>
+                    <td>false</td>
+                    <td>false</td>
+                    <td>false</td>
+                </tr>
+                </table>
+                </div>
+             </div>
+            <div class="sidenote">
+                <p>
+                 When using boolean operators and logical expressions, creating a
+                 <a href="http://en.wikipedia.org/wiki/Truth_table">truth table</a>
+                 can help you to understand how these expressions get
+                 evaluated.
+                 </p>
+            </div>
+
+             <p>
+                Then there is also the <b>not</b> operator.  
+                The <b>not</b> operator uses an exclamation mark (<b>!</b>).</br>  
+               Placing this directly in front of a <a
+                href="../../resources/jssubset.htm#Boolean">boolean value</a> negates, or switches
+                its value.
+             </p>
+
+             <p>
+                This operator also works exactly like you'd expect.  </br>
+                I like being outside when it's sunny.  But, if it's <b>not</b> 
+                sunny then I'm going to stay home and play
+                video games.</br>  Now if only that were an option...
+            </p>
+             <div class="code">
+                if (!isSunny) {</br>
+                &nbsp;&nbsp;&nbsp;&nbsp;activity="play video games"; </br>
+                } else {</br>
+                &nbsp;&nbsp;&nbsp;&nbsp;activity="do something outside"; </br>
+                   } </br>
+             </div>
+             <p> 
+                Here is what the truth table looks like for the <b>not</b> operator.
+             </p>
+             <table class="simple">
+                <tr>
+                    <td>Operator</td>
+                    <td>Expression</td>
+                    <td>A</td>
+                    <td>Result</td>
+                </tr>
+                <tr>
+                    <td><b>not</b></td>
+                    <td><b>!A</b></td>
+                    <td>true</td>
+                    <td>false</td>
+                </tr>
+                <tr>
+                    <td><b>not</b></td>
+                    <td><b>!A</b></td>
+                    <td>false</td>
+                    <td>true</td>
+                </tr>
+            </table>
+            <h2>Assignment</h2>
+            <p> 
+                Make an application that decides what you should do depending on the weather and
+                the season.</br>
+                The computer must make a decision based on your input.
+            </p>
+            <div class="instruction">
+                <p>
+                Download starter code from this <a href="exercise1.6.3.zip">zip</a></br> 
+                </p>
+            </div>
+            <h2>Instructions</h2>
+            <ul>
+                <li><p>First, launch the program in Chrome</p></li>
+                <li><p>Understand how the progarm runs.  How does it display messages?
+                What functions does it have?  What functions are called from the HTML?</p></li>
+                <li><p>Next, modify the program so that when you click on the different
+                images your program makes a decision! </p></li>
+                <li><p>Last, use at least one <b>&&</b> and one <b>||</b> operator to
+                make your decisions.</p></li>
+            </ul>
+            <h2>Done!</h2>
+            <p>
+                When you've finished show your program to your instructor!
+            </p>
+
+        </div>
+    </body>
+</html>

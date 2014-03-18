@@ -7,21 +7,23 @@
     </head>
 
     <body>
-        <p>The Weather Oracle - Click on an image to make a decsion</p>
-        <p>What should I do today? <b><span id="activity">...</span></b></p>
-
+        <p>The Weather Oracle - Select a season and a weather condition to make a decsion about what to do today</p>
+        <p>The weather is <b><span id="weather">...</span></b></p>
+        <p>The season is <b><span id="season">...</span></b></p>
+        <p>What should I do today?<button onclick="decide()">Decide</button></p>
+        <p><b><span id="activity">...</span></b></p>
         <table>
             <tr>
-                <td>Cloudy</td>
-                <td>Sunny!</td>
-                <td>Snow!!!</td>
-                <td>Rain</td>
+                <td><img onclick="selectWeather('snowy')" src="http://www.gifstop.com/images/weathergifs/winter_snow.gif" border="0"/></td>
+                <td><img onclick="selectWeather('?')" src="http://www.gifstop.com/images/weathergifs/happyday.gif" border="0"/></a></td>
+                <td><img onclick="selectWeather('?')" src="http://www.gifstop.com/images/weathergifs/cloud.gif" border="0"/></td>
+                <td><img onclick="selectWeather('rainy')" src="http://www.gifstop.com/images/weathergifs/raingif.gif" border="0"/></td>
             </tr>
             <tr>
-                <td><img onclick="decide('what')" src="http://www.gifstop.com/images/weathergifs/cloud.gif" border="0"/></td>
-                <td><img onclick="decide('what')" src="http://www.gifstop.com/images/weathergifs/happyday.gif" border="0"/></a></td>
-                <td><img onclick="decide('what')" src="http://www.gifstop.com/images/weathergifs/winter_snow.gif" border="0"/></td>
-                <td><img onclick="decide('what')" src="http://www.gifstop.com/images/weathergifs/raingif.gif" border="0"/></td>
+                <td><img onclick="selectSeason('winter')" src="http://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Winter_im_Oberdorf.jpg/320px-Winter_im_Oberdorf.jpg" border="0"/></td>
+                <td><img onclick="selectSeason('?')" src="http://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Fr%C3%BChlingslandschft_Aaretal_Schweiz.jpg/319px-Fr%C3%BChlingslandschft_Aaretal_Schweiz.jpg" border="0"/></a></td>
+                <td><img onclick="selectSeason('?')" src="http://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Las-soltysowicki_008.jpg/320px-Las-soltysowicki_008.jpg"/></td>
+                <td><img onclick="selectSeason('?')" src="http://upload.wikimedia.org/wikipedia/commons/thumb/2/29/AutumnIn_Oakridge.jpg/320px-AutumnIn_Oakridge.jpg" border="0"/></td>
             </tr>
             
     </body>
