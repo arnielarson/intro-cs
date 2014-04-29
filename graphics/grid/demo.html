@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <script src="demo.js"></script>
+        <title>Graphics Demos</title>
+        <link rel="stylesheet" href="../graphics.css">
+    </head>
+
+    <body onload="draw('grid')">
+        <select id="redraw" onchange="redraw()">
+            <option value="grid">Grid Pattern</option>
+            <option value="board">Checkerboard Pattern</option>
+            <option value="objects">Checkerboard with Objects</option>
+            <option value="random">Random Game Objects </option>
+        </select>
+        </input>
+        <button type="button" onclick="redraw()">Redraw</button>
+        </br>
+        <canvas width="500" height="500" id="canvas"></canvas>
+        <img class="hidden" id="bird1" src="../bird1.png"/>
+        <img class="hidden" id="bird2" src="../bird2.png"/>
+    </body>
+</html>
