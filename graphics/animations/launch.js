@@ -37,10 +37,10 @@ var Bird = {
 function launch() {
     var angle = parseFloat(document.getElementById("angle").value);
     var speed = parseFloat(document.getElementById("speed").value);
-    var x = 10;
-    var y = 10;
-    var dx = angle * Math.cos(angle*Math.PI/180);
-    var dy = angle * Math.cos(angle*Math.PI/180);
+    var x = 100;
+    var y = 300;
+    var dx = speed * Math.cos(angle*Math.PI/180);
+    var dy = speed * Math.cos(angle*Math.PI/180);
     Bird.x=x;
     Bird.y=y;
     Bird.dx=dx;

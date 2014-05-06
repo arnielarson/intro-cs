@@ -8,11 +8,17 @@
 </head>
 
 <body onload="draw()">
-    <button type="button" onclick="launch()">Launch!</button>
-    <input type="text" id="angle">Angle</input>
-    <input type="text" id="speed">Speed</input>
-    </br>
-    </br>
+    <table>
+    <tr><td>
+        <label>Angle: </label><input type="text" id="angle"/>
+    </tr></td>
+    <tr><td>
+        <label>Speed: </label><input type="text" id="speed"/>
+    </tr></td>
+    <tr><td>
+        <button type="button" onclick="launch()">Launch!</button>
+    </tr></td>
+    </table>
     <img class="hidden" id="bird1" src="../bird1.png"/>
     <canvas width="500" height="500" id="canvas"></canvas>
     <audio src="../quail.mp3" type="audio/mp3"></audio>
