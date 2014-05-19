@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Exercise 2.6.1</title>
+        <link href="../../../reset.css" rel="stylesheet">
+        <link href="../../../page.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="frame">
+            <h1>Exercise 2.6.1</h1>
+            <h2>Input</h2>
+            <h3>The human touch</h3>
+            <p>
+                In this lesson, we will learn how to have our programs react
+                to a person using a web page.
+                We will be working with the following types of <b>input</b>:
+            </p>
+            <ul>
+                <li>Mouse/trackpad clicking and movement</li>
+                <li>Keyboard input</li>
+                <li>Resizing of the browser window</li>
+                <li>Touch input (if you have a touch device)</li>
+            </ul>
+            <h3>Try it out</h3>
+            <p>
+                Lets try out an example to see how it works.
+            </p>
+            <div class="instruction">
+                <p>
+                    Download the following <a href="inputs2.6.1.zip">zip</a>.
+                </p>
+                <p>
+                    Click, drag and type.  See what happens.
+                </p>
+                <p>
+                    Try touching if you have a touch device.
+                </p>
+            </div>
+            <h3>Events</h3>
+            <p>
+                When person uses the mouse, trackpad, touches,
+                or types a key, <b>events</b> are recorded for different
+                elements of the page.  
+            </p>
+            <p>
+                When these events happen,
+                we can have Chrome <b>call a function we write</b>.
+                This is called <b>handling</b> an event.
+            </p>
+            <p>
+                This example handles different events and displays
+                information about them on the canvas (large
+                rectangle) when the events happen.
+            </p>
+            <img src="chrome1.png">
+            <p class="idea">
+                Events happen for a particular element of the page.
+            </p>
+            <h3>Mouse/trackpad events</h3>
+            <p>
+                The following events happen when a person uses a mouse:
+            </p>
+            <table class="simple">
+                <tr>
+                    <th>Event</th>
+                    <th>Meaning</th>
+                </tr>
+                <tr>
+                    <td>onmousedown</td>
+                    <td>When a mouse button is <b>pressed down</b> while the mouse is in the element</td>
+                </tr>
+                <tr>
+                    <td>onmousemove</td>
+                    <td>When a mouse pointer is <b>moved</b> while in the element</td>
+                </tr>
+                <tr>
+                    <td>onmouseup</td>
+                    <td>When a mouse button is <b>released</b> while the mouse is in the element</td>
+                </tr>
+                <tr>
+                    <td>onclick</td>
+                    <td>
+                        When a mouse button is <b>pressed down</b> and <b>released</b>
+                        while the mouse is in the element
+                    </td>
+                </tr>
+            </table>
+            
+            <div class="instruction">
+                <p>Try using the mouse in the canvas area of the example and watch the events.</p>
+            </div>
+            
+            <h3>Key events</h3>
+            <p>                
+                Keyboard input is sent to the element that has <b>focus</b>,
+                which is "where am I typing".   A focused
+                element is usually drawn differently, for example:
+            </p>
+            <img src="chrome2.png">
+            <p>
+                The following events happen when someone uses the keyboard:
+            </p>
+            <table class="simple">
+                <tr>
+                    <th>Event</th>
+                    <th>Meaning</th>
+                </tr>
+                <tr>
+                    <td>onkeydown</td>
+                    <td>When a key is <b>pressed</b> or repeats</td>
+                </tr>
+                <tr>
+                    <td>onkeyup</td>
+                    <td>When a key is <b>released</b></td>
+                </tr>
+                <tr>
+                    <td>onkeypress</td>
+                    <td>When a key is <b>pressed</b> (or repeats) and the character is a regular <b>printable</b> character</td>
+                </tr>
+                <tr>
+                    <td>onchange</td>
+                    <td>
+                        After the text in an a text element has <b>been changed</b> and it no longer has the focus.
+                    </td>
+                </tr>
+            </table>
+            
+            <div class="instruction">
+                <p>Try typing in the name and weight text areas watch the events.</p>
+            </div>
+                        
+            
+            <h3>Resize events</h3>
+            <p>
+                When the user resizes the browser window, there is a resize event.
+                This event happens for the <b>window</b> object.
+            </p>
+            <table class="simple">
+                <tr>
+                    <th>Event</th>
+                    <th>Meaning</th>
+                </tr>
+                <tr>
+                    <td>onresize</td>
+                    <td>When the browser is being resized by the user.</td>
+                </tr>                
+            </table>
+            
+            <div class="instruction">
+                <p>Try resizing the window and watch the events.</p>
+            </div>
+            
+            <h3>How to handle events</h3>            
+            <p>
+                In order to
+                handle an event,
+                you need to know:
+            </p>
+            <ul>
+                <li>Which element?</li>
+                <li>Which event?</li>
+            </ul>            
+            <p>
+                The steps to handle an event are very similar for all events, and are shown below.  Note that
+                the placeholders (like <span class="placeholder">someVariable</span>)
+                need to be filled in by you.
+            </p>
+            <div class="code">
+                function start() {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;var <span class="placeholder">someVariable</span> = document.getElementById("<span class="placeholder">someId</span>");<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="placeholder">someVariable</span>.<span class="placeholder">someEvent</span> = <span class="placeholder">someFunction</span>;<br>
+                }
+            </div>
+            <p>
+                You need to write a function for each event you want to handle.  This
+                function has a single parameter, an <b>event object</b>, which contains
+                additional information about what happened.
+            </p>
+            <div class="code">
+                function <span class="placeholder">someFunction</span>(event) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">do something here!</span><br>
+                }                
+            </div>
+            <h3>Take a closer look</h3>
+            <div class="instruction">
+                <p>
+                    Open <b>event.js</b>.
+                </p>
+                <p>
+                    Look at how the <b>onmousedown</b> event is
+                    handled for the canvas element
+                    set up in the <b>start</b> function.
+                </p>
+                <p>
+                    Look at <b>canvasMouseDown</b> for how the the function
+                    can access information about an event (like the x and y
+                    location).
+                </p>
+                <p>
+                    You will be using these techniques in the next exercise.
+                    Keep this example around, because you will be refering to it.
+                </p>
+            </div>
+                
+            <h2>Done!</h2>
+            <p>
+                Head back to Schoology and mark this as done.
+            </p>
+        </div>
+    </body>
+</html>

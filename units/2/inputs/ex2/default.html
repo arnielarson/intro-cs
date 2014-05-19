@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>UPrep Birds</title>
+        <script src="uprep.js"></script>
+        <script src="draw.js"></script>
+        <script src="move.js"></script>
+        <link rel="stylesheet" href="uprep.css">
+    </head>
+    <body class="bodyStyle" onload="start();">
+        <img class="hidden" src="bird1.png" id="bird1">
+        <img class="hidden" src="bird2.png" id="bird2">
+        <img class="hidden" src="bird3.png" id="bird3">
+        <img class="hidden" src="pig1.png" id="pig1">
+        <img class="hidden" src="pig2.png" id="pig2">
+        <div class="panelStyle" id="panel">
+            <label class="labelStyle">angle:
+                <input type="number" id="angle" value="45" class="numberStyle">
+            </label>
+            
+            <label class="labelStyle">speed:
+                <input type="number" id="speed" value="10" class="numberStyle">
+            </label>
+            
+            <input type="button" id="launch" value="Launch Bird" class="buttonStyle">
+            <input type="button" id="start" value="Start Over" class="buttonStyle">
+        </div>
+        <canvas class="canvas" width="700" height="500" id="mainCanvas"></canvas><br>
+    </body>
+</html>

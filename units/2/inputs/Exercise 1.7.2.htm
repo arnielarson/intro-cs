@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Exercise 1.7.2</title>
+        <link href="../../../reset.css" rel="stylesheet">
+        <link href="../../../page.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="frame">
+            <h1>Exercise 1.7.2</h1>
+            <h2>Angry Input</h2>
+            <h3>This may be familar</h3>
+            <p>
+                In this exercise, we'll be working with the following
+                example.
+            </p>
+            <div class="instruction">
+                <p>
+                    Download the following <a href="Exercise%201.7.2.zip">zip</a>.
+                </p>
+                <p>
+                    Try it out.  What does it do?
+                </p>
+            </div>
+            <div class="space"></div>
+            <h3>It doesn't do much...</h3>
+            <p>
+                Lets finish this example.   We will be making the following changes:
+            </p>
+            <div class="instruction">
+                <p>Handle launching of a bird using the mouse.</p>
+                <p>Handle the click on the "Start Over" button.</p>
+                <p>Handle the click on the "Launch Bird" button.</p>
+            </div>
+            <p class="idea">
+                Add your code to <b>uprep.js</b>.
+            </p>
+            <p class="idea">
+                Use the code you downloaded in the <a href="Exercise%201.7.1.htm">last exercise</a>
+                as an example for how to handle various events (<b>look in events.js</b>).
+            </p>
+            <h3>Launching a bird using the mouse</h3>
+            <p>
+                In order to launch the bird with the mouse/trackpad, we need to handle THREE events:                
+            </p>
+            <ol>
+                <li>
+                    <p>When mouse button is pressed down (<b>onmousedown</b> event) on the canvas (id is "mainCanvas"), do this:</p>
+                    <div class="code">
+                        putBirdInRubberBand(x, y);
+                    </div>
+                    <p>
+                        This will put a new bird into the rubber band.
+                    </p>
+                    <p>
+                        You will need to get the x and y from the event object.
+                    </p>
+                    <div class="check">
+                        <p>
+                            When you click in the canvas, as bird should be added to the
+                            rubber band where you click, BUT... when you drag or let go, NOTHING
+                            will happen.
+                        </p>
+                    </div>
+                </li>
+                <li>
+                    <p>When mouse is moved (<b>onmousemove</b> event) over the canvas (id is "mainCanvas"), do this:</p>
+                    <div class="code">
+                        moveRubberBand(x, y);
+                    </div>
+                    <p>
+                        This will redraw the rubber band as you move the mouse.
+                    </p>
+                    <p>
+                        You will need to get the x and y from the event object.
+                    </p>
+                    <div class="check">
+                        <p>
+                            You can now click and drag and the rubber band should follow your movement, BUT...
+                            when you let up NOTHING will happen.
+                        </p>
+                    </div>
+                </li>
+                <li>
+                    <p>When mouse button is released (<b>onmouseup</b> event) over the canvas (id is "mainCanvas"), do this:</p>
+                    <div class="code">
+                        releaseRubberBand();
+                    </div>
+                    <p>
+                        This will actually launch the bird, and will make space for a new one.
+                    </p>
+                    <div class="check">
+                        <p>
+                            You should now be able to launch birds with your mouse.  <span class="woot"></span>
+                        </p>
+                    </div>
+                </li>
+            </ol>
+            <h3>The "Start Over" button</h3>
+            <p>
+                To make the "Start Over" button work, we need to handle one event:               
+            </p>
+            <p>
+                When the mouse button is pressed and released (<b>onclick</b> event) on the "Start Over" button (id is "start"), do this:
+            </p>
+            <div class="code">
+                startGame();
+            </div>
+            <p>
+                This is used to start or restart the game.
+            </p>
+            <div class="check">
+                <p>
+                    When you press the "Start Over" button, a new set of pigs should appear.
+                </p>
+            </div>
+            <h3>The "Launch Bird" button</h3>
+            <p>
+                To make the "Launch Bird" button work, we need to handle one event:
+            </p>
+            <p>
+                When the mouse button is pressed and released (<b>onclick</b> event) on the "Launch Bird" button (id is "launch"), do this:
+            </p>
+            <div class="code">
+                launchBirdAtAngleAndSpeed(angle, speed);
+            </div>
+            <p>
+                This will load a bird and launch it, given a speed and an the angle (in degrees).
+            </p>
+            <p>
+                You will need to get the angle and speed values from the text elements.
+                The id's of the elements are "angle" and "speed".
+            </p>
+            <div class="check">
+                <p>
+                    When you press the "Launch Bird" button, a bird should launch with
+                    correct angle and speed.
+                </p>
+            </div>
+            
+            <h2>Done!</h2>
+            <p>
+                Head back to Schoology and submit your files.
+            </p>
+        </div>
+    </body>
+</html>

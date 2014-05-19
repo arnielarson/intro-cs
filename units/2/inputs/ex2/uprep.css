@@ -1,0 +1,52 @@
+.hidden {
+    display: none;
+}
+
+.bodyStyle {
+    margin: 0px;
+    padding: 0px;
+    overflow: hidden;
+    -webkit-user-select: none;    
+}
+
+.labelStyle {
+    color: white;
+    padding: 5px;
+    font-family: Verdana;
+    font-size: 10pt;
+}
+
+.buttonStyle {
+    font-family: Verdana;
+    font-size: 10pt;
+    margin: 5px;
+    padding: 5px;
+    background: #4479BA;
+    color: #FFF;
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #20538D;
+}
+
+.numberStyle {
+    color: #376587;
+    width: 100px;
+    background-color: #e0f2fe;
+    border-style: none;
+    margin: 5px;
+    padding: 5px;
+    font-family: Verdana;
+    font-size: 10pt;
+}
+
+.canvas {
+    cursor: pointer
+}
+    
+.panelStyle {
+    background-color: #376587;
+    margin: 0px;
+    padding: 5px;
+}
+
